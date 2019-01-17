@@ -1,0 +1,23 @@
+{
+	"ldap_server": "127.0.0.1",
+	"ldap_port": 389,
+	"rootdn": "cn=admin,dc=ddps,dc=tc,dc=edu,dc=tw",
+	"passwd": "0910222978",
+	"basedn": "dc=ddps,dc=tc,dc=edu,dc=tw",
+	"rdn": "uid",
+	"uidnumber": 10001,
+	"identity" : "uid",
+	"role": [{
+			"ou": "student",
+			"gid": 1001,
+			"home": "/home/student"
+		},
+		{
+			"ou": "teacher",
+			"gid": 1002,
+			"home": "/home/teacher"
+		}
+	],
+	"sambaobjectclass" : "sambaSamAccount",
+	"sid" : "S-1-5-21-2183872810-781909459-436610516"
+}

@@ -1,0 +1,10 @@
+{
+	
+	"clientid": "b95ccd6552edad80326cdba90627ee37",
+	"secret": "02e853ea7d1e8ba5a1da29344aeccfbd",
+	"ldap":"ldap.json",
+	"authorize_endpoint": "http://api.cloudschool.tw/school-oauth/authorize",
+	"accesstoken_endpoint": "http://api.cloudschool.tw/oauth?authorize",
+	"changepasswd_endpoint": "http://api.cloudschool.tw/change-password",
+	"semesterdata_endpoint" : "http://api.cloudschool.tw/semester-data"
+}
