@@ -50,6 +50,7 @@ public class UpdatePasswdController {
     @RequestMapping(value = "/passwd/{username}", method = RequestMethod.PUT)
     public String updatePasswd(@PathVariable("username") String username, @RequestBody Account account) throws IOException {
         String result = "";
+        logger.info("update user passwd");
 
         if (userloginservice.isLoggedin()) {
             String role = userloginservice.getUser().getRole();
@@ -104,15 +105,15 @@ public class UpdatePasswdController {
                 String syncsmb = "syncsmb";
 
                 if (ldapRepository.findBySn(1).getObjectclass().equals("sambaSamAccount")) {
+                    logger.info("do ldap job script");
                     syncsmb = "syncsmb";
+                    logger.info(String.format("do script job: %s/ldap-job.sh %s %s  %s %s %s", cwd,account.getAccount(),"secret password", role, smbldap.findByUid(account.getAccount()).getUidNumber(), syncsmb));
+                    String[] cmd = {"sudo", cwd + "/ldap-job.sh", account.getAccount(), account.getPassword(), role, smbldap.findByUid(username).getHomeDirectory(), syncsmb};
+                    Process p = Runtime.getRuntime().exec(cmd);
                 } else {
-                    syncsmb = "nosyncsmb";
+                    logger.info("no ldap-job sciprt to do");
                 }
-//                logger.info(String.format("shell script,%s, %s", cwd, smbldap.findByUid(account.getAccount()).getUidNumber()));
-                String[] cmd = {"sudo", cwd + "/ldap-job.sh", account.getAccount(), account.getPassword(), role, smbldap.findByUid(username).getHomeDirectory(), syncsmb};
 
-
-                Process p = Runtime.getRuntime().exec(cmd);
             }
 
 

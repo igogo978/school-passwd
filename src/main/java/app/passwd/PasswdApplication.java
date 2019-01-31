@@ -1,6 +1,6 @@
 package app.passwd;
 
-import app.passwd.ldap.PersonAttributesMapper;
+import app.passwd.ldap.model.PersonAttributesMapper;
 import app.passwd.ldap.model.User;
 import app.passwd.model.LdapClient;
 import app.passwd.model.LearningAccount;
@@ -9,7 +9,6 @@ import app.passwd.model.SystemConfig;
 import app.passwd.repository.LearningAccountRepository;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
-import app.passwd.service.ReadLearningAccount;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
@@ -135,12 +134,12 @@ public class PasswdApplication implements CommandLineRunner {
 
 
                     ldapclient.setObjectclass(node.get("sambaobjectclass").asText());
+                    logger.info(ldapclient.getObjectclass());
                     if (node.get("sambaobjectclass").asText().equals("sambaSamAccount")) {
                         logger.info("載入 ldap objectclass - sambaSamAccount ");
                     }
 
                     ldapclient.setSid(node.get("sid").asText());
-
 
 
                     JsonNode rolenode = node.get("role");

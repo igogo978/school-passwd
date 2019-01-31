@@ -5,17 +5,16 @@
 	"passwd": "0910222978",
 	"basedn": "dc=ddps,dc=tc,dc=edu,dc=tw",
 	"rdn": "uid",
-	"uidnumber": 10001,
-	"identity" : "uid",
+	"uidnumber": 5000,
 	"role": [{
-			"ou": "student",
-			"gid": 1001,
-			"home": "/home/student"
+			"ou": "teacher",
+			"gid": 5000,
+			"home": "/home/teacher"
 		},
 		{
-			"ou": "teacher",
-			"gid": 1002,
-			"home": "/home/teacher"
+			"ou": "student",
+			"gid": 5001,
+			"home": "/home/student"
 		}
 	],
 	"sambaobjectclass" : "sambaSamAccount",

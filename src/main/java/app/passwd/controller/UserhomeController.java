@@ -24,7 +24,7 @@ public class UserhomeController {
     @Autowired
     SystemConfigRepository sysconfigrepository;
 
-    @GetMapping("/passwd/userhome")
+    @GetMapping("/userhome")
     public String userhome(Model model) {
 
         if (!userloginservice.isLoggedin()) {

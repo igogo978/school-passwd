@@ -1,7 +1,7 @@
 package app.passwd.service;
 
 
-import app.passwd.ldap.PersonAttributesMapper;
+import app.passwd.ldap.model.PersonAttributesMapper;
 import app.passwd.ldap.model.User;
 import app.passwd.model.LdapClient;
 import app.passwd.model.Role;
@@ -134,80 +134,76 @@ public class SmbLdap {
 
 
     public void addUser(String username, String password, String role) {
+
         LdapClient ldapclient = ldaprepository.findBySn(1);
 
-        String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
-        String basedn = ldapclient.getBasedn();
-        String rootdn = ldapclient.getRootdn();
-        String rootpassword = ldapclient.getPasswd();
+        Boolean existRole = ldapclient.getRoles().stream().anyMatch(r ->
+                r.getOu().equals(role));
+        logger.info(String.format("role exist?", existRole));
 
-        LdapContextSource source = new LdapContextSource();
-        source.setUrl(url);
-        source.setBase(basedn);
-        source.setUserDn(rootdn);
-        source.setPassword(rootpassword);
-        source.afterPropertiesSet();
+        if (existRole) {
+            String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
+            String basedn = ldapclient.getBasedn();
+            String rootdn = ldapclient.getRootdn();
+            String rootpassword = ldapclient.getPasswd();
 
-        LdapTemplate ldaptemplate = new LdapTemplate(source);
+            LdapContextSource source = new LdapContextSource();
+            source.setUrl(url);
+            source.setBase(basedn);
+            source.setUserDn(rootdn);
+            source.setPassword(rootpassword);
+            source.afterPropertiesSet();
 
-
-        Role ou = ldapclient.getRoles().stream().filter(r -> r.getOu().equals(role))
-                .findFirst()
-                .get();
-
-        Integer uidNumber = ldapclient.getUidNumber() + 1;
-
-        Name dn = LdapNameBuilder
-                .newInstance()
-                .add("ou", ou.getOu())
-                .add("uid", username)
-                .build();
-
-        DirContextAdapter context = new DirContextAdapter(dn);
-
-        List<String> objectClass = new ArrayList<>();
-        objectClass.add("top");
-        objectClass.add("person");
-        objectClass.add("organizationalPerson");
-        objectClass.add("inetOrgPerson");
-        objectClass.add("posixAccount");
-        objectClass.add("shadowAccount");
+            LdapTemplate ldaptemplate = new LdapTemplate(source);
 
 
-        if (ldapclient.getObjectclass().equals("sambaSamAccount")) {
-            objectClass.add("sambaSamAccount");
-            context.setAttributeValue("sambaSID", String.format("%s-%s", ldapclient.getSid(), uidNumber));
+            Role ou = ldapclient.getRoles().stream().filter(r -> r.getOu().equals(role))
+                    .findFirst()
+                    .get();
 
+            Integer uidNumber = ldapclient.getUidNumber() + 1;
+
+            Name dn = LdapNameBuilder
+                    .newInstance()
+                    .add("ou", ou.getOu())
+                    .add("uid", username)
+                    .build();
+
+            DirContextAdapter context = new DirContextAdapter(dn);
+
+            List<String> objectClass = new ArrayList<>();
+            objectClass.add("top");
+            objectClass.add("person");
+            objectClass.add("organizationalPerson");
+            objectClass.add("inetOrgPerson");
+            objectClass.add("posixAccount");
+            objectClass.add("shadowAccount");
+
+
+            if (ldapclient.getObjectclass().equals("sambaSamAccount")) {
+                objectClass.add("sambaSamAccount");
+                context.setAttributeValue("sambaSID", String.format("%s-%s", ldapclient.getSid(), uidNumber));
+
+            }
+            context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
+
+
+            context.setAttributeValue("uid", username);
+            context.setAttributeValue("cn", username);
+            context.setAttributeValue("sn", username);
+            context.setAttributeValue("userPassword", digestSHA(password));
+            context.setAttributeValue("displayName", userloginservice.getUser().getName());
+            context.setAttributeValue("uidNumber", String.valueOf(uidNumber));
+            context.setAttributeValue("gidNumber", String.valueOf(ou.getGid()));
+            context.setAttributeValue("homeDirectory", String.format("%s/%s", ou.getHome(), username));
+
+
+            ldaptemplate.bind(context);
+
+            //update uidnumber
+            ldapclient.setUidNumber(uidNumber);
+            ldaprepository.save(ldapclient);
         }
-        context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
-
-
-//        context.setAttributeValues(
-//                "objectclass",
-//                new String[]
-//                        {"top",
-//                                "person",
-//                                "organizationalPerson",
-//                                "inetOrgPerson",
-//                                "posixAccount",
-////                                "sambaSamAccount",
-//                                "shadowAccount"});
-
-        context.setAttributeValue("uid", username);
-        context.setAttributeValue("cn", username);
-        context.setAttributeValue("sn", username);
-        context.setAttributeValue("userPassword", digestSHA(password));
-        context.setAttributeValue("displayName", userloginservice.getUser().getName());
-        context.setAttributeValue("uidNumber", String.valueOf(uidNumber));
-        context.setAttributeValue("gidNumber", String.valueOf(ou.getGid()));
-        context.setAttributeValue("homeDirectory", String.format("%s/%s", ou.getHome(), username));
-
-
-        ldaptemplate.bind(context);
-
-        //update uidnumber
-        ldapclient.setUidNumber(uidNumber);
-        ldaprepository.save(ldapclient);
 
 
     }

@@ -1,6 +1,5 @@
-package app.passwd.ldap;
+package app.passwd.ldap.model;
 
-import app.passwd.ldap.model.User;
 import org.springframework.ldap.core.AttributesMapper;
 
 import javax.naming.NamingException;

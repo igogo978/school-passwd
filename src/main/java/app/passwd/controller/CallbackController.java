@@ -62,4 +62,34 @@ public class CallbackController {
 
         return new RedirectView("/passwd/userhome");
     }
+
+
+    @GetMapping("/callback")
+    public RedirectView callbackproxypass(@RequestParam(value = "state", required = true) String state, @RequestParam(value = "data", required = true) String data) throws IOException, OAuthProblemException, OAuthSystemException {
+
+
+        assert client.getState().equals(state);
+        logger.info(String.format("3.取得code:%s", data));
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode node = mapper.readTree(StringEscapeUtils.unescapeJava(data));
+        String school_no = node.get("school_no").asText();
+        String username = node.get("username").asText();
+        String role = node.get("role").asText();
+        String name = node.get("name").asText();
+        String edu_key = node.get("edu_key").asText();
+
+//        String school_no, String username, String role, String name, String edu_key
+        User user = new User(school_no, username, role, name, edu_key);
+        userloginservice.setUserLoggedin(Boolean.TRUE, user);
+
+        //取得token
+        SystemConfig sysconfig = repository.findBySn(1);
+//        logger.info(sysconfig.getAccesstoken_endpoint());
+        client.setAccesstoken(sysconfig);
+
+        return new RedirectView("/userhome");
+    }
+
+
 }

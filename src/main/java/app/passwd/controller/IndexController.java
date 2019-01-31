@@ -40,7 +40,7 @@ public class IndexController {
     @GetMapping("/")
     //導到app頁面
     public RedirectView index() throws URISyntaxException, IOException, ParseException, ExecutionException, InterruptedException {
-        return new RedirectView("/passwd");
+        return new RedirectView("/passwd/");
     }
 
     @GetMapping("/passwd")
@@ -67,5 +67,6 @@ public class IndexController {
 
 
     }
+
 
 }
