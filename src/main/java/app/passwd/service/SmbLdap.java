@@ -132,16 +132,24 @@ public class SmbLdap {
         ldaptemplate.modifyAttributes(dn, new ModificationItem[]{item});
     }
 
+    public Boolean isRoleExist(String role) {
+        LdapClient ldapclient = ldaprepository.findBySn(1);
+        return ldapclient.getRoles().stream().anyMatch(r ->
+                r.getOu().equals(role));
+    }
+
 
     public void addUser(String username, String password, String role) {
 
         LdapClient ldapclient = ldaprepository.findBySn(1);
 
-        Boolean existRole = ldapclient.getRoles().stream().anyMatch(r ->
-                r.getOu().equals(role));
-        logger.info(String.format("role exist?", existRole));
+//        Boolean existRole = ldapclient.getRoles().stream().anyMatch(r ->
+//                r.getOu().equals(role));
+        Boolean isRoleExist = isRoleExist(role);
 
-        if (existRole) {
+        logger.info(String.format("role exist? %s", isRoleExist));
+
+        if (isRoleExist) {
             String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
             String basedn = ldapclient.getBasedn();
             String rootdn = ldapclient.getRootdn();
@@ -185,6 +193,7 @@ public class SmbLdap {
                 context.setAttributeValue("sambaSID", String.format("%s-%s", ldapclient.getSid(), uidNumber));
 
             }
+
             context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
 
 

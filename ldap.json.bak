@@ -10,6 +10,11 @@
 			"ou": "teacher",
 			"gid": 5000,
 			"home": "/home/teacher"
+		},
+		{
+			"ou": "student",
+			"gid": 5001,
+			"home": "/home/student"
 		}
 	],
 	"sambaobjectclass" : "sambaSamAccount",

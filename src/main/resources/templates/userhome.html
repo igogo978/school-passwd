@@ -193,7 +193,7 @@
                 }
                 if (this.display_seconds <= 0) {
                   clearInterval(count);
-                  window.location.replace("../");
+                  window.location.replace("/passwd/");
                 }
 
               }, 1000);
@@ -204,7 +204,7 @@
           submit: function () {
 
             let vm = this;
-            let url = "/passwd/passwd/"+ this.user.username;
+            let url = "/passwd/username/"+ this.user.username;
             console.log("ok,submit,target url:"+ url);
             this.params.account = this.user.username;
             this.params.password = this.passwd;
