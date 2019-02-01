@@ -1154,3 +1154,43 @@ You may wish to exclude one of them to ensure predictable runtime behavior
 2019-02-01 10:56:46.816  INFO 2587 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2019-02-01 10:56:46.850  INFO 2587 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2019-02-01 10:56:46.861  INFO 2587 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-02-01 15:19:59.016  WARN 1936 --- [main] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/home/igogo/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/home/igogo/.m2/repository/org/json/json/20140107/json-20140107.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2019-02-01 15:19:59.077  INFO 1936 --- [main] app.passwd.PasswdApplicationTests        : Starting PasswdApplicationTests on smbldap with PID 1936 (started by igogo in /home/igogo/projects/school-passwd)
+2019-02-01 15:19:59.084  INFO 1936 --- [main] app.passwd.PasswdApplicationTests        : No active profile set, falling back to default profiles: default
+2019-02-01 15:20:01.921  INFO 1936 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-01 15:20:02.169  INFO 1936 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 229ms. Found 3 repository interfaces.
+2019-02-01 15:20:03.667  INFO 1936 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$619e3ebb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-01 15:20:04.376  INFO 1936 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-02-01 15:20:04.927  INFO 1936 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-02-01 15:20:05.416  INFO 1936 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-02-01 15:20:05.691  INFO 1936 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-02-01 15:20:05.704  INFO 1936 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-02-01 15:20:06.209  INFO 1936 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-02-01 15:20:06.539  INFO 1936 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-02-01 15:20:08.397  INFO 1936 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@24134cbc'
+2019-02-01 15:20:08.401  INFO 1936 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-02-01 15:20:10.981  INFO 1936 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-01 15:20:11.095  WARN 1936 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-02-01 15:20:11.461  WARN 1936 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-02-01 15:20:12.053  INFO 1936 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-02-01 15:20:12.368  INFO 1936 --- [main] app.passwd.PasswdApplicationTests        : Started PasswdApplicationTests in 14.557 seconds (JVM running for 17.086)
+2019-02-01 15:20:12.371  INFO 1936 --- [main] ication$$EnhancerBySpringCGLIB$$5799d48f : 學生更改密碼服務
+2019-02-01 15:20:12.372  INFO 1936 --- [main] ication$$EnhancerBySpringCGLIB$$5799d48f : working dir:/home/igogo/projects/school-passwd
+2019-02-01 15:20:12.795  INFO 1936 --- [main] ication$$EnhancerBySpringCGLIB$$5799d48f : sambaSamAccount
+2019-02-01 15:20:12.805  INFO 1936 --- [main] ication$$EnhancerBySpringCGLIB$$5799d48f : 載入 ldap objectclass - sambaSamAccount 
+2019-02-01 15:20:12.927  INFO 1936 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-02-01 15:20:13.693  INFO 1936 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-02-01 15:20:13.705  INFO 1936 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-02-01 15:20:13.706  INFO 1936 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-02-01 15:20:13.752  INFO 1936 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-02-01 15:20:13.764  INFO 1936 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

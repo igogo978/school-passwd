@@ -183,7 +183,7 @@ public class PasswdApplication implements CommandLineRunner {
 
         LdapTemplate ldaptemplate = new LdapTemplate(source);
         List<User> users = ldaptemplate.search(
-                query().where("objectclass").is("person"),
+                query().where("objectclass").is("posixAccount"),
                 new PersonAttributesMapper());
 
         Integer max = 5000;
