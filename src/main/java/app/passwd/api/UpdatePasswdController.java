@@ -47,7 +47,7 @@ public class UpdatePasswdController {
     SmbLdap smbldap;
 
 
-    @RequestMapping(value = "/passwd/{username}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/passwd/username/{username}", method = RequestMethod.PUT)
     public String updatePasswd(@PathVariable("username") String username, @RequestBody Account account) throws IOException {
         String result = "";
         logger.info("update user passwd");
@@ -93,7 +93,9 @@ public class UpdatePasswdController {
 //                logger.info(String.format("%s:%s", account.getAccount(), smbldap.isUserExist(account.getAccount())));
 
                 if (smbldap.isUserExist(account.getAccount())) {
+                    logger.info("user already exists, update password");
                     //update user
+                    smbldap.updateUserPassword(account.getAccount(), account.getPassword(), role);
                 } else {
                     smbldap.addUser(account.getAccount(), account.getPassword(), role);
 
@@ -171,6 +173,7 @@ public class UpdatePasswdController {
 
                 if (smbldap.isUserExist(account.getAccount())) {
                     //update user
+                    smbldap.updateUserPassword(account.getAccount(), account.getPassword(), role);
                 } else {
                     smbldap.addUser(account.getAccount(), account.getPassword(), role);
 
@@ -184,7 +187,7 @@ public class UpdatePasswdController {
                 if (ldapRepository.findBySn(1).getObjectclass().equals("sambaSamAccount") && smbldap.isRoleExist(role)) {
                     logger.info("do ldap job script");
                     syncsmb = "syncsmb";
-                    logger.info(String.format("do script job: %s/ldap-job.sh %s %s  %s %s %s", cwd, account.getAccount(), "secret password", role, smbldap.findByUid(account.getAccount()).getUidNumber(), syncsmb));
+                    logger.info(String.format("do script job: %s/ldap-job.sh %s %s %s %s %s", cwd, account.getAccount(), "secretpassword", role, smbldap.findByUid(username).getHomeDirectory(), syncsmb));
                     String[] cmd = {"sudo", cwd + "/ldap-job.sh", account.getAccount(), account.getPassword(), role, smbldap.findByUid(username).getHomeDirectory(), syncsmb};
                     Process p = Runtime.getRuntime().exec(cmd);
                 } else {
@@ -199,9 +202,6 @@ public class UpdatePasswdController {
 
         return result;
     }
-
-
-
 
 
 }

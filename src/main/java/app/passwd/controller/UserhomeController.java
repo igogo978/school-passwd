@@ -24,8 +24,32 @@ public class UserhomeController {
     @Autowired
     SystemConfigRepository sysconfigrepository;
 
-    @GetMapping("/userhome")
+
+    @GetMapping("/passwd/userhome")
     public String userhome(Model model) {
+
+        if (!userloginservice.isLoggedin()) {
+            return "redirect:/";
+        } else {
+//            logger.info(String.format("%s", userloginservice.isLoggedin()));
+            String username = userloginservice.getUser().getUsername();
+            String name = userloginservice.getUser().getName();
+            String schoolid = userloginservice.getUser().getSchool_no();
+            String role = userloginservice.getUser().getRole();
+//            logger.info(client.getAccesstoken());
+        }
+
+        SystemConfig sysconfig = sysconfigrepository.findBySn(1);
+        model.addAttribute("user", userloginservice.getUser());
+//        model.addAttribute("isLearningAccount", sysconfig.isLearningAccount());
+//        https://bootsnipp.com/snippets/X2bG0
+        return "userhome";
+    }
+
+
+
+    @GetMapping("/userhome")
+    public String userhomeProxypass(Model model) {
 
         if (!userloginservice.isLoggedin()) {
             return "redirect:/";

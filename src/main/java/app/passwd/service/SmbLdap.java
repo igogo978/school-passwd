@@ -20,6 +20,7 @@ import javax.naming.directory.Attribute;
 import javax.naming.directory.BasicAttribute;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.ModificationItem;
+import javax.naming.ldap.LdapName;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -100,7 +101,7 @@ public class SmbLdap {
 
     }
 
-    public void updateUser(String username, String password, String role) {
+    public void updateUserPassword(String username, String password, String role) {
         LdapClient ldapclient = ldaprepository.findBySn(1);
 
         String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
@@ -117,15 +118,18 @@ public class SmbLdap {
 
         LdapTemplate ldaptemplate = new LdapTemplate(source);
 
-        List<User> users = ldaptemplate.search(
-                query().where("objectclass").is("person")
-                        .and("uid").is(username),
-                new PersonAttributesMapper());
+//        List<User> users = ldaptemplate.search(
+//                query().where("objectclass").is("person")
+//                        .and("uid").is(username),
+//                new PersonAttributesMapper());
 
         Name dn = LdapNameBuilder
                 .newInstance()
+                .add("ou", role)
                 .add("uid", username)
                 .build();
+
+        ((LdapName) dn).getRdns().forEach(rdn->logger.info(rdn.toString()));
         Attribute attr = new BasicAttribute("userPassword", digestSHA(password));
         ModificationItem item = new ModificationItem(DirContext.REPLACE_ATTRIBUTE, attr);
 
