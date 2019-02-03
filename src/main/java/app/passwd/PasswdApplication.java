@@ -63,7 +63,7 @@ public class PasswdApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        logger.info("學生更改密碼服務");
+
         logger.info("working dir:" + System.getProperty("user.dir"));
 
         ObjectMapper mapper = new ObjectMapper();
@@ -118,7 +118,6 @@ public class PasswdApplication implements CommandLineRunner {
 //            }
 
             //處理ldap client
-
             if (sysconfig.isSyncLdap()) {
                 String ldapconfigfile = node.get("ldap").asText();
                 File file = new File((String.format("%s/%s", System.getProperty("user.dir"), ldapconfigfile)));
@@ -165,37 +164,42 @@ public class PasswdApplication implements CommandLineRunner {
             System.exit(SpringApplication.exit(context));
         }
 
-        //valid ldap config and find max uidnumber
-        LdapClient ldapclient = ldaprepository.findBySn(1);
+        if (sysconfig.isSyncLdap()) {
+            //valid ldap config and find max uidnumber
+            LdapClient ldapclient = ldaprepository.findBySn(1);
 
-        String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
-        String basedn = ldapclient.getBasedn();
-        String rootdn = ldapclient.getRootdn();
-        String password = ldapclient.getPasswd();
+            String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
+            String basedn = ldapclient.getBasedn();
+            String rootdn = ldapclient.getRootdn();
+            String password = ldapclient.getPasswd();
 
-        LdapContextSource source = new LdapContextSource();
-        source.setUrl(url);
-        source.setBase(basedn);
-        source.setUserDn(rootdn);
-        source.setPassword(password);
-        source.afterPropertiesSet();
+            LdapContextSource source = new LdapContextSource();
+            source.setUrl(url);
+            source.setBase(basedn);
+            source.setUserDn(rootdn);
+            source.setPassword(password);
+            source.afterPropertiesSet();
 
 
-        LdapTemplate ldaptemplate = new LdapTemplate(source);
-        List<User> users = ldaptemplate.search(
-                query().where("objectclass").is("posixAccount"),
-                new PersonAttributesMapper());
+            LdapTemplate ldaptemplate = new LdapTemplate(source);
+            List<User> users = ldaptemplate.search(
+                    query().where("objectclass").is("posixAccount"),
+                    new PersonAttributesMapper());
 
-        Integer max = 5000;
-        for (User user : users) {
-            if (Integer.valueOf(user.getUidNumber()) < 50000 && Integer.valueOf(user.getUidNumber()) > max) {
-                max = Integer.valueOf(user.getUidNumber());
+            Integer max = 5000;
+            for (User user : users) {
+                if (Integer.valueOf(user.getUidNumber()) < 50000 && Integer.valueOf(user.getUidNumber()) > max) {
+                    max = Integer.valueOf(user.getUidNumber());
+                }
+
             }
+            ldapclient.setUidNumber(max);
+
+            ldaprepository.save(ldapclient);
 
         }
-        ldapclient.setUidNumber(max);
+        logger.info("更改密碼服務成功啟動");
 
-        ldaprepository.save(ldapclient);
 
     }
 

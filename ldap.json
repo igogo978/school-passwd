@@ -2,7 +2,7 @@
 	"ldap_server": "127.0.0.1",
 	"ldap_port": 389,
 	"rootdn": "cn=admin,dc=ddps,dc=tc,dc=edu,dc=tw",
-	"passwd": "0910222978",
+	"passwd": "secret",
 	"basedn": "dc=ddps,dc=tc,dc=edu,dc=tw",
 	"rdn": "uid",
 	"uidnumber": 5000,
