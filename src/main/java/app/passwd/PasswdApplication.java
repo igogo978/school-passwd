@@ -32,6 +32,7 @@ import static org.springframework.ldap.query.LdapQueryBuilder.query;
 @SpringBootApplication
 public class PasswdApplication implements CommandLineRunner {
 
+    //win ad
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Value("${config}")
