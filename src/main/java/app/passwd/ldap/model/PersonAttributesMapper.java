@@ -10,9 +10,6 @@ public class PersonAttributesMapper implements AttributesMapper<User> {
     public User mapFromAttributes(Attributes attributes) throws NamingException {
         User user = new User();
         user.setCn((String) attributes.get("cn").get());
-        user.setUid((String) attributes.get("uid").get());
-        user.setUidNumber((String) attributes.get("uidNumber").get());
-        user.setHomeDirectory((String) attributes.get("homeDirectory").get());
 
         return user;
     }

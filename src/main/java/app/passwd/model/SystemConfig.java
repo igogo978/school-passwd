@@ -16,6 +16,7 @@ public class SystemConfig {
     private Integer sn;
     private String clientid;
     private String secret;
+
     private String authorize_endpoint;
     private String changepasswd_endpoint;
     private String accesstoken_endpoint;

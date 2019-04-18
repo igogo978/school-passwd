@@ -1,196 +1,915 @@
-2019-02-03 20:59:16.273  INFO 3275 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on smbldap with PID 3275 (/home/igogo/projects/school-passwd/target/classes started by igogo in /home/igogo/projects/school-passwd)
-2019-02-03 20:59:16.327  INFO 3275 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
-2019-02-03 20:59:19.950  INFO 3275 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-02-03 20:59:20.204  INFO 3275 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 231ms. Found 3 repository interfaces.
-2019-02-03 20:59:21.499  INFO 3275 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e1371cb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-02-03 20:59:22.634  INFO 3275 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-02-03 20:59:22.720  INFO 3275 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-02-03 20:59:22.723  INFO 3275 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
-2019-02-03 20:59:22.771  INFO 3275 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
-2019-02-03 20:59:23.171  INFO 3275 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-02-03 20:59:23.171  INFO 3275 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6420 ms
-2019-02-03 20:59:23.776  INFO 3275 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-02-03 20:59:24.203  INFO 3275 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-02-03 20:59:24.417  INFO 3275 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2019-04-18 11:38:05.413  INFO 5916 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 5916 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 11:38:05.476  INFO 5916 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 11:38:10.241  INFO 5916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 11:38:10.460  INFO 5916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 188ms. Found 3 repository interfaces.
+2019-04-18 11:38:12.679  INFO 5916 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 11:38:14.522  INFO 5916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 11:38:14.805  INFO 5916 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 11:38:14.819  INFO 5916 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 11:38:14.835  INFO 5916 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 11:38:15.444  INFO 5916 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 11:38:15.444  INFO 5916 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9078 ms
+2019-04-18 11:38:17.366  INFO 5916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 11:38:17.726  INFO 5916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 11:38:18.054  INFO 5916 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-02-03 20:59:24.610  INFO 3275 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-02-03 20:59:24.616  INFO 3275 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-02-03 20:59:25.121  INFO 3275 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-02-03 20:59:25.549  INFO 3275 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-02-03 20:59:28.252  INFO 3275 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@33d28f0a'
-2019-02-03 20:59:28.256  INFO 3275 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-02-03 20:59:29.975  INFO 3275 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-02-03 20:59:30.082  WARN 3275 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-02-03 20:59:30.498  WARN 3275 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-02-03 20:59:30.887  INFO 3275 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-02-03 20:59:31.312  INFO 3275 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-02-03 20:59:31.316  INFO 3275 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 17.384 seconds (JVM running for 20.684)
-2019-02-03 20:59:31.323  INFO 3275 --- [main] lication$$EnhancerBySpringCGLIB$$40f079f : working dir:/home/igogo/projects/school-passwd
-2019-02-03 20:59:31.666  INFO 3275 --- [main] lication$$EnhancerBySpringCGLIB$$40f079f : sambaSamAccount
-2019-02-03 20:59:31.668  INFO 3275 --- [main] lication$$EnhancerBySpringCGLIB$$40f079f : 載入 ldap objectclass - sambaSamAccount 
-2019-02-03 20:59:31.800  INFO 3275 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-02-03 20:59:32.501  INFO 3275 --- [main] lication$$EnhancerBySpringCGLIB$$40f079f : 更改密碼服務成功啟動
-2019-02-03 20:59:38.141  INFO 3275 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-02-03 20:59:38.167  INFO 3275 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2019-02-03 20:59:38.178  INFO 3275 --- [Thread-3] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-2019-02-03 20:59:38.260  INFO 3275 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2019-02-03 20:59:38.311  INFO 3275 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2019-02-03 21:00:14.760  WARN 3373 --- [main] ory$DuplicateJsonObjectContextCustomizer : 
-
-Found multiple occurrences of org.json.JSONObject on the class path:
-
-	jar:file:/home/igogo/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
-	jar:file:/home/igogo/.m2/repository/org/json/json/20140107/json-20140107.jar!/org/json/JSONObject.class
-
-You may wish to exclude one of them to ensure predictable runtime behavior
-
-2019-02-03 21:00:14.816  INFO 3373 --- [main] app.passwd.PasswdApplicationTests        : Starting PasswdApplicationTests on smbldap with PID 3373 (started by igogo in /home/igogo/projects/school-passwd)
-2019-02-03 21:00:14.822  INFO 3373 --- [main] app.passwd.PasswdApplicationTests        : No active profile set, falling back to default profiles: default
-2019-02-03 21:00:17.568  INFO 3373 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-02-03 21:00:17.840  INFO 3373 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 259ms. Found 3 repository interfaces.
-2019-02-03 21:00:19.533  INFO 3373 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8bbb3678] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-02-03 21:00:20.317  INFO 3373 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-02-03 21:00:20.833  INFO 3373 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-02-03 21:00:21.359  INFO 3373 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2019-04-18 11:38:18.382  INFO 5916 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 11:38:18.397  INFO 5916 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 11:38:18.975  INFO 5916 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 11:38:19.585  INFO 5916 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 11:38:22.100  INFO 5916 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@546ed2a0'
+2019-04-18 11:38:22.100  INFO 5916 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 11:38:28.850  INFO 5916 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 11:38:30.350  WARN 5916 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 11:38:32.616  WARN 5916 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 11:38:34.257  INFO 5916 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 11:38:34.679  INFO 5916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 11:38:34.694  INFO 5916 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 31.344 seconds (JVM running for 36.42)
+2019-04-18 11:38:34.788  INFO 5916 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 11:38:35.241  INFO 5916 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 11:38:36.038  INFO 5916 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : 更改密碼服務成功啟動
+2019-04-18 12:31:07.179  INFO 3568 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 3568 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 12:31:07.179  INFO 3568 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 12:31:11.632  INFO 3568 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 12:31:11.789  INFO 3568 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 141ms. Found 3 repository interfaces.
+2019-04-18 12:31:14.742  INFO 3568 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ff30fc8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 12:31:16.335  INFO 3568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 12:31:16.523  INFO 3568 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 12:31:16.538  INFO 3568 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 12:31:16.554  INFO 3568 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 12:31:17.070  INFO 3568 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 12:31:17.070  INFO 3568 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9735 ms
+2019-04-18 12:31:18.945  INFO 3568 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 12:31:19.133  INFO 3568 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 12:31:19.398  INFO 3568 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-02-03 21:00:21.497  INFO 3373 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-02-03 21:00:21.502  INFO 3373 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-02-03 21:00:22.215  INFO 3373 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-02-03 21:00:22.955  INFO 3373 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-02-03 21:00:25.067  INFO 3373 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@2ca3d826'
-2019-02-03 21:00:25.076  INFO 3373 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-02-03 21:00:27.812  INFO 3373 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-02-03 21:00:27.953  WARN 3373 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-02-03 21:00:28.390  WARN 3373 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-02-03 21:00:28.954  INFO 3373 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-02-03 21:00:29.208  INFO 3373 --- [main] app.passwd.PasswdApplicationTests        : Started PasswdApplicationTests in 15.739 seconds (JVM running for 18.574)
-2019-02-03 21:00:29.212  INFO 3373 --- [main] ication$$EnhancerBySpringCGLIB$$81b6cc4c : working dir:/home/igogo/projects/school-passwd
-2019-02-03 21:00:29.715  INFO 3373 --- [main] ication$$EnhancerBySpringCGLIB$$81b6cc4c : sambaSamAccount
-2019-02-03 21:00:29.716  INFO 3373 --- [main] ication$$EnhancerBySpringCGLIB$$81b6cc4c : 載入 ldap objectclass - sambaSamAccount 
-2019-02-03 21:00:29.797  INFO 3373 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-02-03 21:00:30.315  INFO 3373 --- [main] ication$$EnhancerBySpringCGLIB$$81b6cc4c : 更改密碼服務成功啟動
-2019-02-03 21:00:30.582  INFO 3373 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-02-03 21:00:30.600  INFO 3373 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2019-02-03 21:00:30.602  INFO 3373 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-2019-02-03 21:00:30.676  INFO 3373 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2019-02-03 21:00:30.700  INFO 3373 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2019-02-03 21:05:29.118  WARN 3688 --- [main] ory$DuplicateJsonObjectContextCustomizer : 
+2019-04-18 12:31:19.601  INFO 3568 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 12:31:19.601  INFO 3568 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 12:31:19.851  INFO 3568 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 12:31:20.273  INFO 3568 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 12:31:22.196  INFO 3568 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5dbab232'
+2019-04-18 12:31:22.273  INFO 3568 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 12:31:28.945  INFO 3568 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 12:31:30.507  WARN 3568 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 12:31:33.398  WARN 3568 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 12:31:34.741  INFO 3568 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 12:31:35.180  INFO 3568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 12:31:35.210  INFO 3568 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 31.203 seconds (JVM running for 34.244)
+2019-04-18 12:31:35.289  INFO 3568 --- [main] ication$$EnhancerBySpringCGLIB$$f52c9262 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 12:31:35.461  INFO 3568 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 12:31:36.038  INFO 3568 --- [main] ConditionEvaluationReportLoggingListener : 
 
-Found multiple occurrences of org.json.JSONObject on the class path:
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-04-18 12:31:36.070 ERROR 3568 --- [main] o.s.boot.SpringApplication               : Application run failed
 
-	jar:file:/home/igogo/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
-	jar:file:/home/igogo/.m2/repository/org/json/json/20140107/json-20140107.jar!/org/json/JSONObject.class
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:816) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:797) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:64) [classes/:na]
+Caused by: java.util.IllegalFormatConversionException: d != java.lang.String
+	at java.util.Formatter$FormatSpecifier.failConversion(Formatter.java:4302) ~[na:1.8.0_202]
+	at java.util.Formatter$FormatSpecifier.printInteger(Formatter.java:2793) ~[na:1.8.0_202]
+	at java.util.Formatter$FormatSpecifier.print(Formatter.java:2747) ~[na:1.8.0_202]
+	at java.util.Formatter.format(Formatter.java:2520) ~[na:1.8.0_202]
+	at java.util.Formatter.format(Formatter.java:2455) ~[na:1.8.0_202]
+	at java.lang.String.format(String.java:2940) ~[na:1.8.0_202]
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:169) [classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:813) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	... 5 common frames omitted
 
-You may wish to exclude one of them to ensure predictable runtime behavior
-
-2019-02-03 21:05:29.198  INFO 3688 --- [main] app.passwd.PasswdApplicationTests        : Starting PasswdApplicationTests on smbldap with PID 3688 (started by igogo in /home/igogo/projects/school-passwd)
-2019-02-03 21:05:29.211  INFO 3688 --- [main] app.passwd.PasswdApplicationTests        : No active profile set, falling back to default profiles: default
-2019-02-03 21:05:32.340  INFO 3688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-02-03 21:05:32.637  INFO 3688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 283ms. Found 3 repository interfaces.
-2019-02-03 21:05:34.094  INFO 3688 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$29326757] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-02-03 21:05:34.791  INFO 3688 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-02-03 21:05:35.372  INFO 3688 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-02-03 21:05:35.609  INFO 3688 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2019-04-18 12:31:36.086  INFO 3568 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-18 12:31:36.086  INFO 3568 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 12:31:36.101  INFO 3568 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-18 12:31:36.101  INFO 3568 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-18 12:31:36.144  INFO 3568 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-18 12:32:37.116  INFO 4988 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 4988 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 12:32:37.132  INFO 4988 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 12:32:40.944  INFO 4988 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 12:32:41.116  INFO 4988 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 140ms. Found 3 repository interfaces.
+2019-04-18 12:32:43.960  INFO 4988 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ff30fc8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 12:32:45.570  INFO 4988 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 12:32:45.772  INFO 4988 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 12:32:45.772  INFO 4988 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 12:32:45.819  INFO 4988 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 12:32:46.304  INFO 4988 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 12:32:46.304  INFO 4988 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9047 ms
+2019-04-18 12:32:48.179  INFO 4988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 12:32:48.382  INFO 4988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 12:32:48.663  INFO 4988 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-02-03 21:05:35.774  INFO 3688 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-02-03 21:05:35.776  INFO 3688 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-02-03 21:05:36.225  INFO 3688 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-02-03 21:05:36.593  INFO 3688 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-02-03 21:05:38.614  INFO 3688 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@543fe698'
-2019-02-03 21:05:38.623  INFO 3688 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-02-03 21:05:41.482  INFO 3688 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-02-03 21:05:41.720  WARN 3688 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-02-03 21:05:42.257  WARN 3688 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-02-03 21:05:42.808  INFO 3688 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-02-03 21:05:43.165  INFO 3688 --- [main] app.passwd.PasswdApplicationTests        : Started PasswdApplicationTests in 15.527 seconds (JVM running for 18.222)
-2019-02-03 21:05:43.167  INFO 3688 --- [main] ication$$EnhancerBySpringCGLIB$$1f2dfd2b : working dir:/home/igogo/projects/school-passwd
-2019-02-03 21:05:43.633  INFO 3688 --- [main] ication$$EnhancerBySpringCGLIB$$1f2dfd2b : sambaSamAccount
-2019-02-03 21:05:43.634  INFO 3688 --- [main] ication$$EnhancerBySpringCGLIB$$1f2dfd2b : 載入 ldap objectclass - sambaSamAccount 
-2019-02-03 21:05:43.733  INFO 3688 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-02-03 21:05:44.268  INFO 3688 --- [main] ication$$EnhancerBySpringCGLIB$$1f2dfd2b : 更改密碼服務成功啟動
-2019-02-03 21:05:44.548  INFO 3688 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-02-03 21:05:44.575  INFO 3688 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2019-02-03 21:05:44.582  INFO 3688 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-2019-02-03 21:05:44.631  INFO 3688 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2019-02-03 21:05:44.642  INFO 3688 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2019-02-03 21:06:18.441  INFO 3778 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on smbldap with PID 3778 (/home/igogo/projects/school-passwd/target/classes started by igogo in /home/igogo/projects/school-passwd)
-2019-02-03 21:06:18.466  INFO 3778 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
-2019-02-03 21:06:22.157  INFO 3778 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-02-03 21:06:22.355  INFO 3778 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 181ms. Found 3 repository interfaces.
-2019-02-03 21:06:23.697  INFO 3778 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$86f8dfec] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-02-03 21:06:24.815  INFO 3778 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-02-03 21:06:24.921  INFO 3778 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-02-03 21:06:24.921  INFO 3778 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
-2019-02-03 21:06:24.946  INFO 3778 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
-2019-02-03 21:06:25.377  INFO 3778 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-02-03 21:06:25.379  INFO 3778 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6667 ms
-2019-02-03 21:06:26.048  INFO 3778 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-02-03 21:06:26.471  INFO 3778 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-02-03 21:06:26.654  INFO 3778 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2019-04-18 12:32:48.804  INFO 4988 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 12:32:48.804  INFO 4988 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 12:32:49.085  INFO 4988 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 12:32:49.522  INFO 4988 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 12:32:51.319  INFO 4988 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5dbab232'
+2019-04-18 12:32:51.319  INFO 4988 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 12:32:57.382  INFO 4988 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 12:32:58.819  WARN 4988 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 12:33:00.944  WARN 4988 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 12:33:02.288  INFO 4988 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 12:33:02.694  INFO 4988 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 12:33:02.694  INFO 4988 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 28.906 seconds (JVM running for 31.097)
+2019-04-18 12:33:02.772  INFO 4988 --- [main] ication$$EnhancerBySpringCGLIB$$f52c9262 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 12:33:02.991  INFO 4988 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 12:33:04.663  INFO 4988 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-04-18 12:33:04.710 ERROR 4988 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:816) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:797) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:64) [classes/:na]
+Caused by: org.springframework.ldap.AuthenticationException: [LDAP: error code 49 - 80090308: LdapErr: DSID-0C09042A, comment: AcceptSecurityContext error, data 52e, v3839 ]; nested exception is javax.naming.AuthenticationException: [LDAP: error code 49 - 80090308: LdapErr: DSID-0C09042A, comment: AcceptSecurityContext error, data 52e, v3839 ]
+	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:191) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:355) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.doGetContext(AbstractContextSource.java:139) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.getReadWriteContext(AbstractContextSource.java:174) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.executeReadWrite(LdapTemplate.java:811) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.bind(LdapTemplate.java:990) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.bind(LdapTemplate.java:1331) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:205) [classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:813) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	... 5 common frames omitted
+Caused by: javax.naming.AuthenticationException: [LDAP: error code 49 - 80090308: LdapErr: DSID-0C09042A, comment: AcceptSecurityContext error, data 52e, v3839 ]
+	at com.sun.jndi.ldap.LdapCtx.mapErrorCode(LdapCtx.java:3154) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.processReturnCode(LdapCtx.java:3100) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.processReturnCode(LdapCtx.java:2886) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.connect(LdapCtx.java:2800) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.<init>(LdapCtx.java:319) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getUsingURL(LdapCtxFactory.java:192) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getUsingURLs(LdapCtxFactory.java:210) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getLdapCtxInstance(LdapCtxFactory.java:153) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getInitialContext(LdapCtxFactory.java:83) ~[na:1.8.0_202]
+	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:684) ~[na:1.8.0_202]
+	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:313) ~[na:1.8.0_202]
+	at javax.naming.InitialContext.init(InitialContext.java:244) ~[na:1.8.0_202]
+	at javax.naming.ldap.InitialLdapContext.<init>(InitialLdapContext.java:154) ~[na:1.8.0_202]
+	at org.springframework.ldap.core.support.LdapContextSource.getDirContextInstance(LdapContextSource.java:42) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:343) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	... 12 common frames omitted
+
+2019-04-18 12:33:04.742  INFO 4988 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-18 12:33:04.742  INFO 4988 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 12:33:04.742  INFO 4988 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-18 12:33:04.772  INFO 4988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-18 12:33:04.772  INFO 4988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-18 12:41:04.317  INFO 884 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 884 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 12:41:04.317  INFO 884 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 12:41:08.301  INFO 884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 12:41:08.473  INFO 884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 141ms. Found 3 repository interfaces.
+2019-04-18 12:41:11.286  INFO 884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 12:41:13.082  INFO 884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 12:41:13.255  INFO 884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 12:41:13.255  INFO 884 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 12:41:13.270  INFO 884 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 12:41:13.739  INFO 884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 12:41:13.754  INFO 884 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9296 ms
+2019-04-18 12:41:15.599  INFO 884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 12:41:15.802  INFO 884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 12:41:16.067  INFO 884 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-02-03 21:06:26.842  INFO 3778 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-02-03 21:06:26.848  INFO 3778 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-02-03 21:06:27.225  INFO 3778 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-02-03 21:06:27.621  INFO 3778 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-02-03 21:06:29.980  INFO 3778 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@7c453c34'
-2019-02-03 21:06:30.005  INFO 3778 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-02-03 21:06:32.568  INFO 3778 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-02-03 21:06:32.713  WARN 3778 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-02-03 21:06:33.212  WARN 3778 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-02-03 21:06:33.710  INFO 3778 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-02-03 21:06:34.178  INFO 3778 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-02-03 21:06:34.185  INFO 3778 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 17.908 seconds (JVM running for 20.35)
-2019-02-03 21:06:34.195  INFO 3778 --- [main] ication$$EnhancerBySpringCGLIB$$7cf475c0 : working dir:/home/igogo/projects/school-passwd
-2019-02-03 21:06:34.612  INFO 3778 --- [main] ication$$EnhancerBySpringCGLIB$$7cf475c0 : sambaSamAccount
-2019-02-03 21:06:34.615  INFO 3778 --- [main] ication$$EnhancerBySpringCGLIB$$7cf475c0 : 載入 ldap objectclass - sambaSamAccount 
-2019-02-03 21:06:34.760  INFO 3778 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-02-03 21:06:35.482  INFO 3778 --- [main] ication$$EnhancerBySpringCGLIB$$7cf475c0 : 更改密碼服務成功啟動
-2019-02-03 21:07:05.248  INFO 3778 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-02-03 21:07:05.269  INFO 3778 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2019-02-03 21:07:05.269  INFO 3778 --- [Thread-3] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-2019-02-03 21:07:05.302  INFO 3778 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2019-02-03 21:07:05.316  INFO 3778 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2019-02-03 21:07:57.158  WARN 3890 --- [main] ory$DuplicateJsonObjectContextCustomizer : 
-
-Found multiple occurrences of org.json.JSONObject on the class path:
-
-	jar:file:/home/igogo/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
-	jar:file:/home/igogo/.m2/repository/org/json/json/20140107/json-20140107.jar!/org/json/JSONObject.class
-
-You may wish to exclude one of them to ensure predictable runtime behavior
-
-2019-02-03 21:07:57.290  INFO 3890 --- [main] app.passwd.PasswdApplicationTests        : Starting PasswdApplicationTests on smbldap with PID 3890 (started by igogo in /home/igogo/projects/school-passwd)
-2019-02-03 21:07:57.300  INFO 3890 --- [main] app.passwd.PasswdApplicationTests        : No active profile set, falling back to default profiles: default
-2019-02-03 21:08:01.195  INFO 3890 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-02-03 21:08:01.636  INFO 3890 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 391ms. Found 3 repository interfaces.
-2019-02-03 21:08:04.252  INFO 3890 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8bbb3678] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-02-03 21:08:05.275  INFO 3890 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-02-03 21:08:06.030  INFO 3890 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-02-03 21:08:06.445  INFO 3890 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2019-04-18 12:41:16.223  INFO 884 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 12:41:16.223  INFO 884 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 12:41:16.504  INFO 884 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 12:41:16.957  INFO 884 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 12:41:18.707  INFO 884 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6b867ee7'
+2019-04-18 12:41:18.723  INFO 884 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 12:41:25.364  INFO 884 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 12:41:26.801  WARN 884 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 12:41:28.942  WARN 884 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 12:41:30.270  INFO 884 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 12:41:30.770  INFO 884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 12:41:30.785  INFO 884 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 30.312 seconds (JVM running for 32.631)
+2019-04-18 12:41:30.864  INFO 884 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 12:41:31.020  INFO 884 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 12:41:32.349  INFO 884 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : 更改密碼服務成功啟動
+2019-04-18 12:44:30.770  INFO 4948 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 4948 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 12:44:30.785  INFO 4948 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 12:44:34.675  INFO 4948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 12:44:34.847  INFO 4948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 141ms. Found 3 repository interfaces.
+2019-04-18 12:44:37.581  INFO 4948 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ff30fc8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 12:44:39.144  INFO 4948 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 12:44:39.333  INFO 4948 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 12:44:39.347  INFO 4948 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 12:44:39.394  INFO 4948 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 12:44:39.879  INFO 4948 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 12:44:39.879  INFO 4948 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 8969 ms
+2019-04-18 12:44:41.675  INFO 4948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 12:44:41.878  INFO 4948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 12:44:42.160  INFO 4948 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-02-03 21:08:06.561  INFO 3890 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-02-03 21:08:06.564  INFO 3890 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-02-03 21:08:07.137  INFO 3890 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-02-03 21:08:08.014  INFO 3890 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-02-03 21:08:10.884  INFO 3890 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@2ca3d826'
-2019-02-03 21:08:10.890  INFO 3890 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-02-03 21:08:15.154  INFO 3890 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-02-03 21:08:15.377  WARN 3890 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-02-03 21:08:15.993  WARN 3890 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-02-03 21:08:16.648  INFO 3890 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-02-03 21:08:17.115  INFO 3890 --- [main] app.passwd.PasswdApplicationTests        : Started PasswdApplicationTests in 21.641 seconds (JVM running for 24.716)
-2019-02-03 21:08:17.126  INFO 3890 --- [main] ication$$EnhancerBySpringCGLIB$$81b6cc4c : working dir:/home/igogo/projects/school-passwd
-2019-02-03 21:08:17.792  INFO 3890 --- [main] ication$$EnhancerBySpringCGLIB$$81b6cc4c : sambaSamAccount
-2019-02-03 21:08:17.794  INFO 3890 --- [main] ication$$EnhancerBySpringCGLIB$$81b6cc4c : 載入 ldap objectclass - sambaSamAccount 
-2019-02-03 21:08:17.884  INFO 3890 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-02-03 21:08:18.522  INFO 3890 --- [main] ication$$EnhancerBySpringCGLIB$$81b6cc4c : 更改密碼服務成功啟動
-2019-02-03 21:08:18.770  INFO 3890 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-02-03 21:08:18.780  INFO 3890 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2019-02-03 21:08:18.786  INFO 3890 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-2019-02-03 21:08:18.847  INFO 3890 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2019-02-03 21:08:18.868  INFO 3890 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-18 12:44:42.316  INFO 4948 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 12:44:42.331  INFO 4948 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 12:44:42.581  INFO 4948 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 12:44:43.003  INFO 4948 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 12:44:44.801  INFO 4948 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5dbab232'
+2019-04-18 12:44:44.816  INFO 4948 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 12:44:50.941  INFO 4948 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 12:44:52.316  WARN 4948 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 12:44:54.410  WARN 4948 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 12:44:55.753  INFO 4948 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 12:44:56.191  INFO 4948 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 12:44:56.206  INFO 4948 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 28.78 seconds (JVM running for 30.966)
+2019-04-18 12:44:56.285  INFO 4948 --- [main] ication$$EnhancerBySpringCGLIB$$f52c9262 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 12:44:56.472  INFO 4948 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 12:44:57.816  INFO 4948 --- [main] ication$$EnhancerBySpringCGLIB$$f52c9262 : 更改密碼服務成功啟動
+2019-04-18 13:23:54.321  INFO 5928 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 5928 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 13:23:54.321  INFO 5928 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 13:23:58.570  INFO 5928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 13:23:58.774  INFO 5928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 141ms. Found 3 repository interfaces.
+2019-04-18 13:24:01.055  INFO 5928 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c897cb34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 13:24:02.852  INFO 5928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 13:24:03.101  INFO 5928 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 13:24:03.117  INFO 5928 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 13:24:03.133  INFO 5928 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 13:24:03.680  INFO 5928 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 13:24:03.711  INFO 5928 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9250 ms
+2019-04-18 13:24:05.586  INFO 5928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 13:24:05.821  INFO 5928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 13:24:06.086  INFO 5928 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 13:24:06.242  INFO 5928 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 13:24:06.258  INFO 5928 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 13:24:06.508  INFO 5928 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 13:24:06.899  INFO 5928 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 13:24:08.789  INFO 5928 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@3dec3f87'
+2019-04-18 13:24:08.804  INFO 5928 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 13:24:15.883  INFO 5928 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 13:24:17.273  WARN 5928 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 13:24:19.523  WARN 5928 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 13:24:20.977  INFO 5928 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 13:24:21.383  INFO 5928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 13:24:21.430  INFO 5928 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 31.047 seconds (JVM running for 33.831)
+2019-04-18 13:24:21.539  INFO 5928 --- [main] ication$$EnhancerBySpringCGLIB$$be936108 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 13:24:21.711  INFO 5928 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 13:24:23.055  INFO 5928 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-04-18 13:24:23.101 ERROR 5928 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:816) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:797) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:64) [classes/:na]
+Caused by: org.springframework.ldap.PartialResultException: Unprocessed Continuation Reference(s); nested exception is javax.naming.PartialResultException: Unprocessed Continuation Reference(s); remaining name '/'
+	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:216) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:385) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:309) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:616) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:586) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:1651) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:179) [classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:813) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	... 5 common frames omitted
+Caused by: javax.naming.PartialResultException: Unprocessed Continuation Reference(s)
+	at com.sun.jndi.ldap.LdapCtx.processReturnCode(LdapCtx.java:2917) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.processReturnCode(LdapCtx.java:2891) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.AbstractLdapNamingEnumeration.getNextBatch(AbstractLdapNamingEnumeration.java:148) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.AbstractLdapNamingEnumeration.hasMoreImpl(AbstractLdapNamingEnumeration.java:217) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.AbstractLdapNamingEnumeration.hasMore(AbstractLdapNamingEnumeration.java:189) ~[na:1.8.0_202]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:365) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	... 11 common frames omitted
+
+2019-04-18 13:24:23.101  INFO 5928 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-18 13:24:23.101  INFO 5928 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 13:24:23.101  INFO 5928 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-18 13:24:23.133  INFO 5928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-18 13:24:23.133  INFO 5928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-18 13:26:52.819  INFO 900 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 900 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 13:26:52.819  INFO 900 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 13:26:58.804  INFO 900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 13:26:59.101  INFO 900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 153ms. Found 3 repository interfaces.
+2019-04-18 13:27:01.319  INFO 900 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ff30fc8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 13:27:03.179  INFO 900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 13:27:03.383  INFO 900 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 13:27:03.383  INFO 900 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 13:27:03.397  INFO 900 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 13:27:03.866  INFO 900 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 13:27:03.866  INFO 900 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10906 ms
+2019-04-18 13:27:05.616  INFO 900 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 13:27:05.820  INFO 900 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 13:27:06.085  INFO 900 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 13:27:06.225  INFO 900 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 13:27:06.225  INFO 900 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 13:27:06.429  INFO 900 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 13:27:06.866  INFO 900 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 13:27:08.789  INFO 900 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5dbab232'
+2019-04-18 13:27:08.789  INFO 900 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 13:27:15.163  INFO 900 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 13:27:16.929  WARN 900 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 13:27:19.304  WARN 900 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 13:27:20.850  INFO 900 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 13:27:21.382  INFO 900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 13:27:21.804  INFO 900 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 30.891 seconds (JVM running for 33.766)
+2019-04-18 13:27:21.929  INFO 900 --- [main] ication$$EnhancerBySpringCGLIB$$f52c9262 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 13:27:24.007  INFO 900 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 13:27:25.397  INFO 900 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-04-18 13:27:25.445 ERROR 900 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:816) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:797) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:64) [classes/:na]
+Caused by: org.springframework.ldap.PartialResultException: Unprocessed Continuation Reference(s); nested exception is javax.naming.PartialResultException: Unprocessed Continuation Reference(s); remaining name '/'
+	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:216) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:385) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:309) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:616) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:586) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:1651) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:178) [classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:813) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	... 5 common frames omitted
+Caused by: javax.naming.PartialResultException: Unprocessed Continuation Reference(s)
+	at com.sun.jndi.ldap.LdapCtx.processReturnCode(LdapCtx.java:2917) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.processReturnCode(LdapCtx.java:2891) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.AbstractLdapNamingEnumeration.getNextBatch(AbstractLdapNamingEnumeration.java:148) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.AbstractLdapNamingEnumeration.hasMoreImpl(AbstractLdapNamingEnumeration.java:217) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.AbstractLdapNamingEnumeration.hasMore(AbstractLdapNamingEnumeration.java:189) ~[na:1.8.0_202]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:365) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	... 11 common frames omitted
+
+2019-04-18 13:27:25.445  INFO 900 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-18 13:27:25.460  INFO 900 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 13:27:25.460  INFO 900 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-18 13:27:25.475  INFO 900 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-18 13:27:25.491  INFO 900 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-18 13:28:53.053  INFO 5392 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 5392 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 13:28:53.053  INFO 5392 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 13:28:57.382  INFO 5392 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 13:28:57.553  INFO 5392 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 156ms. Found 3 repository interfaces.
+2019-04-18 13:28:59.975  INFO 5392 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$de905590] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 13:29:02.006  INFO 5392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 13:29:02.209  INFO 5392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 13:29:02.241  INFO 5392 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 13:29:02.334  INFO 5392 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 13:29:02.850  INFO 5392 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 13:29:02.866  INFO 5392 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9594 ms
+2019-04-18 13:29:04.772  INFO 5392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 13:29:05.209  INFO 5392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 13:29:05.506  INFO 5392 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 13:29:05.694  INFO 5392 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 13:29:05.709  INFO 5392 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 13:29:05.960  INFO 5392 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 13:29:06.412  INFO 5392 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 13:29:08.319  INFO 5392 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5939e24'
+2019-04-18 13:29:08.319  INFO 5392 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 13:29:15.209  INFO 5392 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 13:29:16.678  WARN 5392 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 13:29:19.006  WARN 5392 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 13:29:20.428  INFO 5392 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 13:29:20.959  INFO 5392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 13:29:21.007  INFO 5392 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 30.157 seconds (JVM running for 31.718)
+2019-04-18 13:29:21.084  INFO 5392 --- [main] ication$$EnhancerBySpringCGLIB$$d48beb64 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 13:29:21.272  INFO 5392 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 13:29:23.272  INFO 5392 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-04-18 13:29:23.444 ERROR 5392 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:816) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:797) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:64) [classes/:na]
+Caused by: org.springframework.ldap.PartialResultException: Unprocessed Continuation Reference(s); nested exception is javax.naming.PartialResultException: Unprocessed Continuation Reference(s); remaining name '/'
+	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:216) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:385) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:309) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:616) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:586) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:1651) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:178) [classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:813) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	... 5 common frames omitted
+Caused by: javax.naming.PartialResultException: Unprocessed Continuation Reference(s)
+	at com.sun.jndi.ldap.LdapCtx.processReturnCode(LdapCtx.java:2917) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.processReturnCode(LdapCtx.java:2891) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.searchAux(LdapCtx.java:1846) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.c_search(LdapCtx.java:1769) ~[na:1.8.0_202]
+	at com.sun.jndi.toolkit.ctx.ComponentDirContext.p_search(ComponentDirContext.java:392) ~[na:1.8.0_202]
+	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.search(PartialCompositeDirContext.java:358) ~[na:1.8.0_202]
+	at javax.naming.directory.InitialDirContext.search(InitialDirContext.java:276) ~[na:1.8.0_202]
+	at org.springframework.ldap.core.LdapTemplate$3.executeSearch(LdapTemplate.java:303) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:363) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	... 11 common frames omitted
+
+2019-04-18 13:29:23.506  INFO 5392 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-18 13:29:23.584  INFO 5392 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 13:29:23.584  INFO 5392 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-18 13:29:23.631  INFO 5392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-18 13:29:23.726  INFO 5392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-18 13:30:58.318  INFO 4472 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 4472 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 13:30:58.334  INFO 4472 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 13:31:03.068  INFO 4472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 13:31:03.240  INFO 4472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 140ms. Found 3 repository interfaces.
+2019-04-18 13:31:05.459  INFO 4472 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$de905590] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 13:31:07.849  INFO 4472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 13:31:08.068  INFO 4472 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 13:31:08.084  INFO 4472 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 13:31:08.099  INFO 4472 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 13:31:08.631  INFO 4472 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 13:31:08.646  INFO 4472 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10156 ms
+2019-04-18 13:31:10.584  INFO 4472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 13:31:10.802  INFO 4472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 13:31:11.052  INFO 4472 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 13:31:11.225  INFO 4472 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 13:31:11.225  INFO 4472 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 13:31:11.474  INFO 4472 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 13:31:11.912  INFO 4472 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 13:31:13.693  INFO 4472 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5939e24'
+2019-04-18 13:31:13.693  INFO 4472 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 13:31:20.615  INFO 4472 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 13:31:22.068  WARN 4472 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 13:31:24.303  WARN 4472 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 13:31:25.740  INFO 4472 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 13:31:26.131  INFO 4472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 13:31:26.162  INFO 4472 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 31.062 seconds (JVM running for 33.715)
+2019-04-18 13:31:26.241  INFO 4472 --- [main] ication$$EnhancerBySpringCGLIB$$d48beb64 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 13:31:26.412  INFO 4472 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 13:35:04.083  INFO 2772 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2772 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 13:35:05.067  INFO 2772 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 13:35:09.520  INFO 2772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 13:35:09.708  INFO 2772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 157ms. Found 3 repository interfaces.
+2019-04-18 13:35:11.926  INFO 2772 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 13:35:13.629  INFO 2772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 13:35:13.833  INFO 2772 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 13:35:13.833  INFO 2772 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 13:35:13.848  INFO 2772 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 13:35:14.365  INFO 2772 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 13:35:14.365  INFO 2772 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9064 ms
+2019-04-18 13:35:16.254  INFO 2772 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 13:35:16.458  INFO 2772 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 13:35:16.770  INFO 2772 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 13:35:16.895  INFO 2772 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 13:35:16.911  INFO 2772 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 13:35:17.176  INFO 2772 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 13:35:17.614  INFO 2772 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 13:35:19.411  INFO 2772 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6b867ee7'
+2019-04-18 13:35:19.411  INFO 2772 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 13:35:25.754  INFO 2772 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 13:35:27.255  WARN 2772 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 13:35:29.473  WARN 2772 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 13:35:31.004  INFO 2772 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 13:35:31.490  INFO 2772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 13:35:31.645  INFO 2772 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 29.891 seconds (JVM running for 32.882)
+2019-04-18 13:35:31.754  INFO 2772 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 13:35:31.957  INFO 2772 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 13:37:43.316  INFO 5220 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 5220 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 13:37:43.332  INFO 5220 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 13:37:47.769  INFO 5220 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 13:37:47.941  INFO 5220 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 156ms. Found 3 repository interfaces.
+2019-04-18 13:37:49.991  INFO 5220 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$de905590] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 13:37:51.551  INFO 5220 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 13:37:51.738  INFO 5220 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 13:37:51.738  INFO 5220 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 13:37:51.754  INFO 5220 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 13:37:52.254  INFO 5220 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 13:37:52.254  INFO 5220 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 8765 ms
+2019-04-18 13:37:54.020  INFO 5220 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 13:37:54.222  INFO 5220 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 13:37:54.488  INFO 5220 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 13:37:54.629  INFO 5220 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 13:37:54.629  INFO 5220 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 13:37:54.894  INFO 5220 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 13:37:55.332  INFO 5220 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 13:37:57.160  INFO 5220 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5939e24'
+2019-04-18 13:37:57.160  INFO 5220 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 13:38:03.989  INFO 5220 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 13:38:05.427  WARN 5220 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 13:38:07.582  WARN 5220 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 13:38:09.020  INFO 5220 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 13:38:09.394  INFO 5220 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 13:38:09.410  INFO 5220 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 29.266 seconds (JVM running for 32.155)
+2019-04-18 13:38:09.488  INFO 5220 --- [main] ication$$EnhancerBySpringCGLIB$$d48beb64 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 13:38:09.691  INFO 5220 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 14:08:09.495  INFO 2948 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2948 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 14:08:09.495  INFO 2948 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 14:08:14.402  INFO 2948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 14:08:14.589  INFO 2948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172ms. Found 3 repository interfaces.
+2019-04-18 14:08:16.824  INFO 2948 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 14:08:18.620  INFO 2948 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 14:08:18.807  INFO 2948 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 14:08:18.807  INFO 2948 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 14:08:18.823  INFO 2948 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 14:08:19.370  INFO 2948 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 14:08:19.370  INFO 2948 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9734 ms
+2019-04-18 14:08:21.527  INFO 2948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 14:08:21.808  INFO 2948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 14:08:22.104  INFO 2948 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 14:08:22.262  INFO 2948 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 14:08:22.262  INFO 2948 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 14:08:22.495  INFO 2948 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 14:08:22.948  INFO 2948 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 14:08:24.933  INFO 2948 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6b867ee7'
+2019-04-18 14:08:24.933  INFO 2948 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 14:08:32.182  INFO 2948 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 14:08:33.979  WARN 2948 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 14:08:36.229  WARN 2948 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 14:08:37.760  INFO 2948 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 14:08:38.198  INFO 2948 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 14:08:38.214  INFO 2948 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 32.61 seconds (JVM running for 35.376)
+2019-04-18 14:08:38.307  INFO 2948 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 14:08:38.510  INFO 2948 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 14:10:54.744  INFO 4916 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 4916 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 14:10:54.744  INFO 4916 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 14:10:59.041  INFO 4916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 14:10:59.244  INFO 4916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172ms. Found 3 repository interfaces.
+2019-04-18 14:11:01.479  INFO 4916 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$de905590] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 14:11:03.229  INFO 4916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 14:11:03.432  INFO 4916 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 14:11:03.432  INFO 4916 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 14:11:03.463  INFO 4916 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 14:11:04.010  INFO 4916 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 14:11:04.010  INFO 4916 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9047 ms
+2019-04-18 14:11:06.151  INFO 4916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 14:11:06.353  INFO 4916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 14:11:06.650  INFO 4916 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 14:11:06.791  INFO 4916 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 14:11:06.807  INFO 4916 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 14:11:07.072  INFO 4916 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 14:11:07.557  INFO 4916 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 14:11:09.447  INFO 4916 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5939e24'
+2019-04-18 14:11:09.447  INFO 4916 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 14:11:16.682  INFO 4916 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 14:11:18.058  WARN 4916 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 14:11:20.728  WARN 4916 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 14:11:22.338  INFO 4916 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 14:11:22.760  INFO 4916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 14:11:22.776  INFO 4916 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 29.938 seconds (JVM running for 31.545)
+2019-04-18 14:11:22.869  INFO 4916 --- [main] ication$$EnhancerBySpringCGLIB$$d48beb64 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 14:11:23.120  INFO 4916 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 15:15:52.539  INFO 1964 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 1964 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 15:15:52.539  INFO 1964 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 15:15:56.180  INFO 1964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 15:15:56.351  INFO 1964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 157ms. Found 3 repository interfaces.
+2019-04-18 15:15:58.601  INFO 1964 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4c8bebf1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 15:16:03.835  INFO 1964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 15:16:04.024  INFO 1964 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 15:16:04.024  INFO 1964 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 15:16:04.038  INFO 1964 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 15:16:04.522  INFO 1964 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 15:16:04.522  INFO 1964 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11828 ms
+2019-04-18 15:16:06.429  INFO 1964 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 15:16:06.616  INFO 1964 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 15:16:06.819  INFO 1964 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 15:16:06.960  INFO 1964 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 15:16:06.960  INFO 1964 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 15:16:07.179  INFO 1964 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 15:16:07.602  INFO 1964 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 15:16:09.413  INFO 1964 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@d87d449'
+2019-04-18 15:16:09.430  INFO 1964 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 15:16:15.663  INFO 1964 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 15:16:17.101  WARN 1964 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 15:16:19.319  WARN 1964 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 15:16:20.850  INFO 1964 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 15:16:21.258  INFO 1964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 15:16:21.272  INFO 1964 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 30.921 seconds (JVM running for 32.506)
+2019-04-18 15:16:21.319  INFO 1964 --- [main] ication$$EnhancerBySpringCGLIB$$428781c5 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 15:16:21.491  INFO 1964 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 15:16:22.101  INFO 1964 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-04-18 15:16:22.117 ERROR 1964 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:816) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:797) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:68) [classes/:na]
+Caused by: org.springframework.ldap.ServiceUnavailableException: happy.tc.edu.tw:636; socket closed; nested exception is javax.naming.ServiceUnavailableException: happy.tc.edu.tw:636; socket closed
+	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:223) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:355) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.doGetContext(AbstractContextSource.java:139) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.getReadOnlyContext(AbstractContextSource.java:158) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:357) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:309) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:616) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:586) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:1651) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at app.passwd.service.LdapTools.isOUExist(LdapTools.java:61) ~[classes/:na]
+	at app.passwd.PasswdApplication.lambda$run$1(PasswdApplication.java:173) [classes/:na]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[na:1.8.0_202]
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:172) [classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:813) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	... 5 common frames omitted
+Caused by: javax.naming.ServiceUnavailableException: happy.tc.edu.tw:636; socket closed
+	at com.sun.jndi.ldap.Connection.readReply(Connection.java:471) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapClient.ldapBind(LdapClient.java:365) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapClient.authenticate(LdapClient.java:214) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.connect(LdapCtx.java:2791) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.<init>(LdapCtx.java:319) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getUsingURL(LdapCtxFactory.java:192) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getUsingURLs(LdapCtxFactory.java:210) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getLdapCtxInstance(LdapCtxFactory.java:153) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getInitialContext(LdapCtxFactory.java:83) ~[na:1.8.0_202]
+	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:684) ~[na:1.8.0_202]
+	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:313) ~[na:1.8.0_202]
+	at javax.naming.InitialContext.init(InitialContext.java:244) ~[na:1.8.0_202]
+	at javax.naming.ldap.InitialLdapContext.<init>(InitialLdapContext.java:154) ~[na:1.8.0_202]
+	at org.springframework.ldap.core.support.LdapContextSource.getDirContextInstance(LdapContextSource.java:42) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:343) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	... 17 common frames omitted
+
+2019-04-18 15:16:22.132  INFO 1964 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-18 15:16:22.132  INFO 1964 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 15:16:22.132  INFO 1964 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-18 15:16:22.147  INFO 1964 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-18 15:16:22.147  INFO 1964 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-18 15:16:52.335  INFO 720 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 720 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 15:16:52.351  INFO 720 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 15:16:58.163  INFO 720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 15:16:58.366  INFO 720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 188ms. Found 3 repository interfaces.
+2019-04-18 15:17:00.476  INFO 720 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$51168251] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 15:17:01.928  INFO 720 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 15:17:02.116  INFO 720 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 15:17:02.116  INFO 720 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 15:17:02.131  INFO 720 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 15:17:02.600  INFO 720 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 15:17:02.616  INFO 720 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9781 ms
+2019-04-18 15:17:04.522  INFO 720 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 15:17:04.898  INFO 720 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 15:17:05.100  INFO 720 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 15:17:05.272  INFO 720 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 15:17:05.288  INFO 720 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 15:17:05.491  INFO 720 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 15:17:05.945  INFO 720 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 15:17:07.678  INFO 720 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@595f9916'
+2019-04-18 15:17:07.695  INFO 720 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 15:17:14.039  INFO 720 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 15:17:15.428  WARN 720 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 15:17:17.601  WARN 720 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 15:17:19.163  INFO 720 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 15:17:19.647  INFO 720 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 15:17:19.663  INFO 720 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 29.61 seconds (JVM running for 32.448)
+2019-04-18 15:17:19.725  INFO 720 --- [main] ication$$EnhancerBySpringCGLIB$$47121825 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 15:17:19.932  INFO 720 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 15:17:20.570  INFO 720 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-04-18 15:17:20.616 ERROR 720 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:816) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:797) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:68) [classes/:na]
+Caused by: org.springframework.ldap.ServiceUnavailableException: happy.tc.edu.tw:636; socket closed; nested exception is javax.naming.ServiceUnavailableException: happy.tc.edu.tw:636; socket closed
+	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:223) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:355) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.doGetContext(AbstractContextSource.java:139) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.getReadOnlyContext(AbstractContextSource.java:158) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:357) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:309) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:616) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:586) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:1651) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at app.passwd.service.LdapTools.isOUExist(LdapTools.java:61) ~[classes/:na]
+	at app.passwd.PasswdApplication.lambda$run$1(PasswdApplication.java:173) [classes/:na]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[na:1.8.0_202]
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:172) [classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:813) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	... 5 common frames omitted
+Caused by: javax.naming.ServiceUnavailableException: happy.tc.edu.tw:636; socket closed
+	at com.sun.jndi.ldap.Connection.readReply(Connection.java:471) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapClient.ldapBind(LdapClient.java:365) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapClient.authenticate(LdapClient.java:214) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.connect(LdapCtx.java:2791) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.<init>(LdapCtx.java:319) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getUsingURL(LdapCtxFactory.java:192) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getUsingURLs(LdapCtxFactory.java:210) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getLdapCtxInstance(LdapCtxFactory.java:153) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getInitialContext(LdapCtxFactory.java:83) ~[na:1.8.0_202]
+	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:684) ~[na:1.8.0_202]
+	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:313) ~[na:1.8.0_202]
+	at javax.naming.InitialContext.init(InitialContext.java:244) ~[na:1.8.0_202]
+	at javax.naming.ldap.InitialLdapContext.<init>(InitialLdapContext.java:154) ~[na:1.8.0_202]
+	at org.springframework.ldap.core.support.LdapContextSource.getDirContextInstance(LdapContextSource.java:42) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:343) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	... 17 common frames omitted
+
+2019-04-18 15:17:22.506  INFO 720 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-18 15:17:22.506  INFO 720 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 15:17:22.506  INFO 720 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-18 15:17:22.788  INFO 720 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-18 15:17:22.819  INFO 720 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-18 15:19:17.350  INFO 5468 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 5468 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 15:19:17.350  INFO 5468 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 15:19:22.068  INFO 5468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 15:19:22.256  INFO 5468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 156ms. Found 3 repository interfaces.
+2019-04-18 15:19:24.303  INFO 5468 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ff30fc8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 15:19:25.834  INFO 5468 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 15:19:26.037  INFO 5468 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 15:19:26.037  INFO 5468 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 15:19:26.068  INFO 5468 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 15:19:26.600  INFO 5468 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 15:19:26.615  INFO 5468 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9108 ms
+2019-04-18 15:19:28.459  INFO 5468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 15:19:28.662  INFO 5468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 15:19:28.881  INFO 5468 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 15:19:29.007  INFO 5468 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 15:19:29.007  INFO 5468 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 15:19:29.256  INFO 5468 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 15:19:29.678  INFO 5468 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 15:19:31.443  INFO 5468 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5dbab232'
+2019-04-18 15:19:31.443  INFO 5468 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 15:19:37.631  INFO 5468 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 15:19:39.099  WARN 5468 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 15:19:41.146  WARN 5468 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 15:19:42.490  INFO 5468 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 15:19:42.849  INFO 5468 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 15:19:42.865  INFO 5468 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 30.547 seconds (JVM running for 33.463)
+2019-04-18 15:19:42.912  INFO 5468 --- [main] ication$$EnhancerBySpringCGLIB$$f52c9262 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 15:19:43.443  INFO 5468 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 15:19:44.068  INFO 5468 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-04-18 15:19:44.084 ERROR 5468 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:816) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:797) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:68) [classes/:na]
+Caused by: org.springframework.ldap.ServiceUnavailableException: happy.tc.edu.tw:636; socket closed; nested exception is javax.naming.ServiceUnavailableException: happy.tc.edu.tw:636; socket closed
+	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:223) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:355) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.doGetContext(AbstractContextSource.java:139) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.getReadOnlyContext(AbstractContextSource.java:158) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:357) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:309) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:616) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:586) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:1651) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at app.passwd.service.LdapTools.isOUExist(LdapTools.java:61) ~[classes/:na]
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:172) [classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:813) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	... 5 common frames omitted
+Caused by: javax.naming.ServiceUnavailableException: happy.tc.edu.tw:636; socket closed
+	at com.sun.jndi.ldap.Connection.readReply(Connection.java:471) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapClient.ldapBind(LdapClient.java:365) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapClient.authenticate(LdapClient.java:214) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.connect(LdapCtx.java:2791) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.<init>(LdapCtx.java:319) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getUsingURL(LdapCtxFactory.java:192) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getUsingURLs(LdapCtxFactory.java:210) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getLdapCtxInstance(LdapCtxFactory.java:153) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtxFactory.getInitialContext(LdapCtxFactory.java:83) ~[na:1.8.0_202]
+	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:684) ~[na:1.8.0_202]
+	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:313) ~[na:1.8.0_202]
+	at javax.naming.InitialContext.init(InitialContext.java:244) ~[na:1.8.0_202]
+	at javax.naming.ldap.InitialLdapContext.<init>(InitialLdapContext.java:154) ~[na:1.8.0_202]
+	at org.springframework.ldap.core.support.LdapContextSource.getDirContextInstance(LdapContextSource.java:42) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:343) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	... 15 common frames omitted
+
+2019-04-18 15:19:44.100  INFO 5468 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-18 15:19:44.100  INFO 5468 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 15:19:44.100  INFO 5468 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-18 15:19:44.115  INFO 5468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-18 15:19:44.115  INFO 5468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-18 15:21:13.162  INFO 5888 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 5888 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 15:21:13.162  INFO 5888 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 15:21:17.458  INFO 5888 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 15:21:17.631  INFO 5888 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 157ms. Found 3 repository interfaces.
+2019-04-18 15:21:19.708  INFO 5888 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$abd3d7ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 15:21:21.193  INFO 5888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 15:21:21.365  INFO 5888 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 15:21:21.365  INFO 5888 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 15:21:21.381  INFO 5888 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 15:21:21.880  INFO 5888 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 15:21:21.896  INFO 5888 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 8578 ms
+2019-04-18 15:21:23.755  INFO 5888 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 15:21:23.959  INFO 5888 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 15:21:24.177  INFO 5888 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 15:21:24.318  INFO 5888 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 15:21:24.318  INFO 5888 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 15:21:24.568  INFO 5888 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 15:21:25.006  INFO 5888 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 15:21:26.724  INFO 5888 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@656842bc'
+2019-04-18 15:21:26.724  INFO 5888 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 15:21:32.818  INFO 5888 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 15:21:34.240  WARN 5888 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 15:21:36.334  WARN 5888 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 15:21:38.005  INFO 5888 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 15:21:38.427  INFO 5888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 15:21:38.443  INFO 5888 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 28.5 seconds (JVM running for 31.432)
+2019-04-18 15:21:38.475  INFO 5888 --- [main] ication$$EnhancerBySpringCGLIB$$a1cf6dc2 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-18 15:21:38.646  INFO 5888 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-18 15:21:39.943  INFO 5888 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-04-18 15:21:39.990 ERROR 5888 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:816) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:797) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:68) [classes/:na]
+Caused by: org.springframework.ldap.PartialResultException: Unprocessed Continuation Reference(s); nested exception is javax.naming.PartialResultException: Unprocessed Continuation Reference(s); remaining name '/'
+	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:216) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:385) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:309) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:616) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:586) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:1651) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at app.passwd.service.LdapTools.isOUExist(LdapTools.java:61) ~[classes/:na]
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:172) [classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:813) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	... 5 common frames omitted
+Caused by: javax.naming.PartialResultException: Unprocessed Continuation Reference(s)
+	at com.sun.jndi.ldap.LdapCtx.processReturnCode(LdapCtx.java:2917) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.LdapCtx.processReturnCode(LdapCtx.java:2891) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.AbstractLdapNamingEnumeration.getNextBatch(AbstractLdapNamingEnumeration.java:148) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.AbstractLdapNamingEnumeration.hasMoreImpl(AbstractLdapNamingEnumeration.java:217) ~[na:1.8.0_202]
+	at com.sun.jndi.ldap.AbstractLdapNamingEnumeration.hasMore(AbstractLdapNamingEnumeration.java:189) ~[na:1.8.0_202]
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:365) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	... 12 common frames omitted
+
+2019-04-18 15:21:40.005  INFO 5888 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-18 15:21:40.005  INFO 5888 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 15:21:40.005  INFO 5888 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-18 15:21:40.021  INFO 5888 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-18 15:21:40.037  INFO 5888 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-18 15:25:24.286  INFO 3656 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 3656 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-18 15:25:24.286  INFO 3656 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-18 15:25:29.613  INFO 3656 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-18 15:25:29.817  INFO 3656 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172ms. Found 3 repository interfaces.
+2019-04-18 15:25:31.973  INFO 3656 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$de905590] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-18 15:25:34.114  INFO 3656 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-18 15:25:34.301  INFO 3656 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-18 15:25:34.301  INFO 3656 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-18 15:25:34.317  INFO 3656 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-18 15:25:34.770  INFO 3656 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-18 15:25:34.770  INFO 3656 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10031 ms
+2019-04-18 15:25:36.567  INFO 3656 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-18 15:25:36.786  INFO 3656 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-18 15:25:36.973  INFO 3656 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-18 15:25:37.113  INFO 3656 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-18 15:25:37.113  INFO 3656 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-18 15:25:37.317  INFO 3656 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-18 15:25:37.723  INFO 3656 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-18 15:25:39.411  INFO 3656 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5939e24'
+2019-04-18 15:25:39.426  INFO 3656 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-18 15:25:45.723  INFO 3656 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 15:25:47.082  WARN 3656 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-18 15:25:49.286  WARN 3656 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-18 15:25:50.676  INFO 3656 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-18 15:25:52.098  INFO 3656 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 15:25:52.098  INFO 3656 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 30.485 seconds (JVM running for 33.111)
+2019-04-18 15:25:52.723  INFO 3656 --- [main] ication$$EnhancerBySpringCGLIB$$d48beb64 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd

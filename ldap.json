@@ -1,17 +1,19 @@
 {
-	"ldap_server": "127.0.0.1",
-	"ldap_port": 389,
-	"rootdn": "cn=admin,dc=ddps,dc=tc,dc=edu,dc=tw",
-	"passwd": "secret",
-	"basedn": "dc=ddps,dc=tc,dc=edu,dc=tw",
-	"rdn": "uid",
-	"uidnumber": 5000,
-	"role": [{
-			"ou": "teacher",
-			"gid": 5000,
-			"home": "/home/teacher"
+	"ldap_server": "happy.tc.edu.tw",
+	"ldap_port": 636,
+	"rootdn": "CN=Administrator,CN=Users,DC=happy,DC=tc,DC=edu,DC=tw",
+	"passwd": "3LittlePigs",
+	"cert": "happy.jks",
+	"basedn": "dc=happy,dc=tc,dc=edu,dc=tw",
+	"upn_suffix": "happy.tc.edu.tw",
+	"id_format": "regular",
+	"roles": [{
+			"role": "teacher",
+			"ou": "Teacher"
+		},
+		{
+			"role": "student",
+			"ou": "Student"
 		}
-	],
-	"sambaobjectclass" : "sambaSamAccount",
-	"sid" : "S-1-5-21-2183872810-781909459-436610516"
+	]
 }

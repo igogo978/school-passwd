@@ -19,9 +19,8 @@ public class LdapClient {
     private String ldapport;
     private String rootdn;
     private String passwd;
-    private Integer uidNumber;
-    private String sid;
-    private String objectclass;
+    private String cert;
+    private String upnSuffix;
 
     public Integer getSn() {
         return sn;
@@ -78,27 +77,19 @@ public class LdapClient {
         this.passwd = passwd;
     }
 
-    public Integer getUidNumber() {
-        return uidNumber;
+    public String getCert() {
+        return cert;
     }
 
-    public void setUidNumber(Integer uidNumber) {
-        this.uidNumber = uidNumber;
+    public void setCert(String cert) {
+        this.cert = cert;
     }
 
-    public String getObjectclass() {
-        return objectclass;
+    public String getUpnSuffix() {
+        return upnSuffix;
     }
 
-    public void setObjectclass(String objectclass) {
-        this.objectclass = objectclass;
-    }
-
-    public String getSid() {
-        return sid;
-    }
-
-    public void setSid(String sid) {
-        this.sid = sid;
+    public void setUpnSuffix(String upnSuffix) {
+        this.upnSuffix = upnSuffix;
     }
 }

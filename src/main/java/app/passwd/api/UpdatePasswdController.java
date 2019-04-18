@@ -1,11 +1,10 @@
 package app.passwd.api;
 
 import app.passwd.model.Account;
-import app.passwd.model.LdapClient;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
 import app.passwd.service.Oauth2Client;
-import app.passwd.service.SmbLdap;
+import app.passwd.service.LdapTools;
 import app.passwd.service.UserLoginService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -44,7 +43,7 @@ public class UpdatePasswdController {
     LdapRepository ldapRepository;
 
     @Autowired
-    SmbLdap smbldap;
+    LdapTools smbldap;
 
 
     @RequestMapping(value = "/passwd/username/{username}", method = RequestMethod.PUT)
@@ -106,15 +105,15 @@ public class UpdatePasswdController {
                 String cwd = sysconfigrepository.findBySn(1).getCwd();
                 String syncsmb = "syncsmb";
 
-                if (ldapRepository.findBySn(1).getObjectclass().equals("sambaSamAccount")) {
-                    logger.info("do ldap job script");
-                    syncsmb = "syncsmb";
-                    logger.info(String.format("do script job: %s/ldap-job.sh %s %s  %s %s %s", cwd, account.getAccount(), "secret password", role, smbldap.findByUid(account.getAccount()).getUidNumber(), syncsmb));
-                    String[] cmd = {"sudo", cwd + "/ldap-job.sh", account.getAccount(), account.getPassword(), role, smbldap.findByUid(username).getHomeDirectory(), syncsmb};
-                    Process p = Runtime.getRuntime().exec(cmd);
-                } else {
-                    logger.info("no ldap-job sciprt to do");
-                }
+//                if (ldapRepository.findBySn(1).getObjectclass().equals("sambaSamAccount")) {
+//                    logger.info("do ldap job script");
+//                    syncsmb = "syncsmb";
+//                    logger.info(String.format("do script job: %s/ldap-job.sh %s %s  %s %s %s", cwd, account.getAccount(), "secret password", role, smbldap.findByUid(account.getAccount()).getUidNumber(), syncsmb));
+//                    String[] cmd = {"sudo", cwd + "/ldap-job.sh", account.getAccount(), account.getPassword(), role, smbldap.findByUid(username).getHomeDirectory(), syncsmb};
+//                    Process p = Runtime.getRuntime().exec(cmd);
+//                } else {
+//                    logger.info("no ldap-job sciprt to do");
+//                }
 
             }
 
@@ -184,15 +183,7 @@ public class UpdatePasswdController {
                 String cwd = sysconfigrepository.findBySn(1).getCwd();
                 String syncsmb = "syncsmb";
 
-                if (ldapRepository.findBySn(1).getObjectclass().equals("sambaSamAccount") && smbldap.isRoleExist(role)) {
-                    logger.info("do ldap job script");
-                    syncsmb = "syncsmb";
-                    logger.info(String.format("do script job: %s/ldap-job.sh %s %s %s %s %s", cwd, account.getAccount(), "secretpassword", role, smbldap.findByUid(username).getHomeDirectory(), syncsmb));
-                    String[] cmd = {"sudo", cwd + "/ldap-job.sh", account.getAccount(), account.getPassword(), role, smbldap.findByUid(username).getHomeDirectory(), syncsmb};
-                    Process p = Runtime.getRuntime().exec(cmd);
-                } else {
-                    logger.info("no ldap-job sciprt to do");
-                }
+
 
             }
 

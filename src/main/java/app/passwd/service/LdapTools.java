@@ -1,6 +1,8 @@
 package app.passwd.service;
 
 
+import app.passwd.ldap.model.OUAttributesMapper;
+import app.passwd.ldap.model.OrganizationalUnit;
 import app.passwd.ldap.model.PersonAttributesMapper;
 import app.passwd.ldap.model.User;
 import app.passwd.model.LdapClient;
@@ -30,7 +32,7 @@ import java.util.List;
 import static org.springframework.ldap.query.LdapQueryBuilder.query;
 
 @Service
-public class SmbLdap {
+public class LdapTools {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -39,6 +41,71 @@ public class SmbLdap {
 
     @Autowired
     UserLoginService userloginservice;
+
+    private LdapTemplate initLDAPConnect() {
+        LdapClient ldapclient = ldaprepository.findBySn(1);
+        String url = String.format("ldaps://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
+        String basedn = ldapclient.getBasedn();
+        String rootdn = ldapclient.getRootdn();
+        String rootpassword = ldapclient.getPasswd();
+
+        LdapContextSource source = new LdapContextSource();
+        source.setUrl(url);
+        source.setBase(basedn);
+        source.setUserDn(rootdn);
+        source.setPassword(rootpassword);
+        source.afterPropertiesSet();
+
+        LdapTemplate ldapTemplate = new LdapTemplate(source);
+        ldapTemplate.setIgnorePartialResultException(true);
+        return ldapTemplate;
+    }
+
+    public Boolean isOUExist(String ouname) {
+        LdapTemplate ldapTemplate = initLDAPConnect();
+//        LdapClient ldapclient = ldaprepository.findBySn(1);
+//        String url = String.format("ldaps://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
+//        String basedn = ldapclient.getBasedn();
+//        String rootdn = ldapclient.getRootdn();
+//        String rootpassword = ldapclient.getPasswd();
+//
+//        LdapContextSource source = new LdapContextSource();
+//        source.setUrl(url);
+//        source.setBase(basedn);
+//        source.setUserDn(rootdn);
+//        source.setPassword(rootpassword);
+//        source.afterPropertiesSet();
+//
+//        LdapTemplate ldapTemplate = new LdapTemplate(source);
+
+        List<OrganizationalUnit> ous = ldapTemplate.search(
+                query().where("objectclass").is("organizationalUnit")
+                        .and("ou").is(ouname),
+
+                new OUAttributesMapper());
+        if (ous.size() != 0) {
+            return Boolean.TRUE;
+        }
+        return Boolean.FALSE;
+    }
+
+
+
+    public void createOu(String ouname) {
+
+        LdapTemplate ldapTemplate = initLDAPConnect();
+        Name dn = LdapNameBuilder
+                .newInstance()
+                .add("ou", ouname)
+                .build();
+        DirContextAdapter context = new DirContextAdapter(dn);
+        List<String> objectClass = new ArrayList<>();
+        objectClass.add("top");
+        objectClass.add("organizationalUnit");
+        context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
+
+        ldapTemplate.bind(context);
+    }
 
 
     public Boolean isUserExist(String username) {
@@ -95,7 +162,6 @@ public class SmbLdap {
                 query().where("objectclass").is("person")
                         .and("uid").is(username),
                 new PersonAttributesMapper());
-        logger.info(users.get(0).getHomeDirectory());
         return users.get(0);
 
 
@@ -129,7 +195,7 @@ public class SmbLdap {
                 .add("uid", username)
                 .build();
 
-        ((LdapName) dn).getRdns().forEach(rdn->logger.info(rdn.toString()));
+        ((LdapName) dn).getRdns().forEach(rdn -> logger.info(rdn.toString()));
         Attribute attr = new BasicAttribute("userPassword", digestSHA(password));
         ModificationItem item = new ModificationItem(DirContext.REPLACE_ATTRIBUTE, attr);
 
@@ -173,7 +239,6 @@ public class SmbLdap {
                     .findFirst()
                     .get();
 
-            Integer uidNumber = ldapclient.getUidNumber() + 1;
 
             Name dn = LdapNameBuilder
                     .newInstance()
@@ -192,12 +257,6 @@ public class SmbLdap {
             objectClass.add("shadowAccount");
 
 
-            if (ldapclient.getObjectclass().equals("sambaSamAccount")) {
-                objectClass.add("sambaSamAccount");
-                context.setAttributeValue("sambaSID", String.format("%s-%s", ldapclient.getSid(), uidNumber));
-
-            }
-
             context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
 
 
@@ -206,15 +265,11 @@ public class SmbLdap {
             context.setAttributeValue("sn", username);
             context.setAttributeValue("userPassword", digestSHA(password));
             context.setAttributeValue("displayName", userloginservice.getUser().getName());
-            context.setAttributeValue("uidNumber", String.valueOf(uidNumber));
-            context.setAttributeValue("gidNumber", String.valueOf(ou.getGid()));
-            context.setAttributeValue("homeDirectory", String.format("%s/%s", ou.getHome(), username));
 
 
             ldaptemplate.bind(context);
 
             //update uidnumber
-            ldapclient.setUidNumber(uidNumber);
             ldaprepository.save(ldapclient);
         }
 

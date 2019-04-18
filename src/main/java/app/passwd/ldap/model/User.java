@@ -1,51 +1,63 @@
 package app.passwd.ldap.model;
 
 import org.springframework.ldap.odm.annotations.Attribute;
+import org.springframework.ldap.odm.annotations.Id;
 
 import javax.naming.Name;
 
 public class User {
 
+    @Id
     private Name id;
 
-    private @Attribute(name = "uid") String uid;
-    private @Attribute(name = "cn") String cn;
-    private @Attribute(name = "uidNumber") String uidNumber;
-    private @Attribute(name = "homeDirectory") String homeDirectory;
 
+    private @Attribute(name = "cn") String cn;
+    private @Attribute(name = "displayName") String displayName;
+    private @Attribute(name = "userAccountControl") String userAccountControl;
+    private @Attribute(name = "sAMAccountName") String sAMAccountName;
+    private @Attribute(name = "userPrincipalName") String userPrincipalName;
 
     public User() {
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
-
-    public void setCn(String cn) {
-        this.cn = cn;
-    }
-
-    public String getUid() {
-        return uid;
     }
 
     public String getCn() {
         return cn;
     }
 
-    public String getUidNumber() {
-        return uidNumber;
+    public void setCn(String cn) {
+        this.cn = cn;
     }
 
-    public void setUidNumber(String uidNumber) {
-        this.uidNumber = uidNumber;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public String getHomeDirectory() {
-        return homeDirectory;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
-    public void setHomeDirectory(String homeDirectory) {
-        this.homeDirectory = homeDirectory;
+
+    public String getUserAccountControl() {
+        return userAccountControl;
+    }
+
+    public void setUserAccountControl(String userAccountControl) {
+        this.userAccountControl = userAccountControl;
+    }
+
+    public String getsAMAccountName() {
+        return sAMAccountName;
+    }
+
+    public void setsAMAccountName(String sAMAccountName) {
+        this.sAMAccountName = sAMAccountName;
+    }
+
+    public String getUserPrincipalName() {
+        return userPrincipalName;
+    }
+
+    public void setUserPrincipalName(String userPrincipalName) {
+        this.userPrincipalName = userPrincipalName;
     }
 }

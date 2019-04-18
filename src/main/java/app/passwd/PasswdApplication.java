@@ -9,6 +9,7 @@ import app.passwd.model.SystemConfig;
 import app.passwd.repository.LearningAccountRepository;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
+import app.passwd.service.LdapTools;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
@@ -20,9 +21,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.ldap.core.DirContextAdapter;
 import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.core.support.LdapContextSource;
+import org.springframework.ldap.support.LdapNameBuilder;
 
+import javax.naming.Name;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +50,9 @@ public class PasswdApplication implements CommandLineRunner {
 
     @Autowired
     LdapRepository ldaprepository;
+
+    @Autowired
+    LdapTools ldapTools;
 
     @Autowired
     private ConfigurableApplicationContext context;
@@ -131,75 +138,96 @@ public class PasswdApplication implements CommandLineRunner {
                     ldapclient.setLdapport(node.get("ldap_port").asText());
                     ldapclient.setPasswd(node.get("passwd").asText());
                     ldapclient.setRootdn(node.get("rootdn").asText());
+                    ldapclient.setCert(node.get("cert").asText());
+                    ldapclient.setUpnSuffix(node.get("upn_suffix").asText());
 
-
-                    ldapclient.setObjectclass(node.get("sambaobjectclass").asText());
-                    logger.info(ldapclient.getObjectclass());
-                    if (node.get("sambaobjectclass").asText().equals("sambaSamAccount")) {
-                        logger.info("載入 ldap objectclass - sambaSamAccount ");
-                    }
-
-                    ldapclient.setSid(node.get("sid").asText());
-
-
-                    JsonNode rolenode = node.get("role");
+                    JsonNode rolenode = node.get("roles");
                     rolenode.elements().forEachRemaining(e -> {
+                        String role = e.get("role").asText();
                         String ou = e.get("ou").asText();
-                        Integer gid = e.get("gid").asInt();
-                        String home = e.get("home").asText();
-                        ldapclient.getRoles().add(new Role(ou, gid, home));
+                        ldapclient.getRoles().add(new Role(role, ou));
                     });
 
                     ldaprepository.save(ldapclient);
-
                 }
-
-
             } //is sync ldap
 
-
-//           logger.info( accountrepository.findByClassnameAndSeatno("101","1").getName());
 
         } else {
             logger.error("缺少config.json檔");
             System.exit(SpringApplication.exit(context));
         }
 
-        if (sysconfig.isSyncLdap()) {
-            //valid ldap config and find max uidnumber
-            LdapClient ldapclient = ldaprepository.findBySn(1);
 
-            String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
-            String basedn = ldapclient.getBasedn();
-            String rootdn = ldapclient.getRootdn();
-            String password = ldapclient.getPasswd();
-
-            LdapContextSource source = new LdapContextSource();
-            source.setUrl(url);
-            source.setBase(basedn);
-            source.setUserDn(rootdn);
-            source.setPassword(password);
-            source.afterPropertiesSet();
-
-
-            LdapTemplate ldaptemplate = new LdapTemplate(source);
-            List<User> users = ldaptemplate.search(
-                    query().where("objectclass").is("posixAccount"),
-                    new PersonAttributesMapper());
-
-            Integer max = 5000;
-            for (User user : users) {
-                if (Integer.valueOf(user.getUidNumber()) < 50000 && Integer.valueOf(user.getUidNumber()) > max) {
-                    max = Integer.valueOf(user.getUidNumber());
-                }
-
-            }
-            ldapclient.setUidNumber(max);
-
-            ldaprepository.save(ldapclient);
-
+        //測試連結ldap
+//        信任憑證
+        File cert = new File(String.format("%s/cert/%s", System.getProperty("user.dir"), ldaprepository.findBySn(1).getCert()));
+        if (cert.exists()) {
+            System.setProperty("javax.net.ssl.trustStore", cert.getAbsolutePath());
+            System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
+            System.setProperty("com.sun.jndi.ldap.object.disableEndpointIdentification", "true");
         }
-        logger.info("更改密碼服務成功啟動");
+
+        //檢查ou
+        System.out.println(ldapTools.isOUExist("Student"));
+//        ldaprepository.findBySn(1).getRoles().forEach(role -> {
+//            if (ldapTools.isOUExist(role.getRole())) {
+//                System.out.println("ou存在");
+//            } else {
+//                System.out.println("ou不存在");
+//            }
+//        });
+
+        LdapContextSource source = new LdapContextSource();
+        String url = String.format("ldaps://%s:%s", ldaprepository.findBySn(1).getLdapserver(), ldaprepository.findBySn(1).getLdapport());
+        source.setUrl(url);
+        source.setBase(ldaprepository.findBySn(1).getBasedn());
+        source.setUserDn(ldaprepository.findBySn(1).getRootdn());
+        source.setPassword(ldaprepository.findBySn(1).getPasswd());
+        source.afterPropertiesSet();
+        LdapTemplate ldapTemplate = new LdapTemplate(source);
+        ldapTemplate.setIgnorePartialResultException(true);
+
+        //查詢user
+        String username = "igogo";
+        List<User> users = ldapTemplate.search(
+                query().where("objectclass").is("person")
+                        .and("cn").is(username),
+                new PersonAttributesMapper());
+        System.out.println("search result..");
+        System.out.println(users.size());
+        users.forEach(user -> System.out.println(user.getCn()));
+
+
+//        User user = new User();
+//        user.setCn(username);
+//
+//        Name dn = LdapNameBuilder
+//                .newInstance()
+//                .add("ou", "Student")
+//                .add("cn", username)
+//                .build();
+//
+//        DirContextAdapter context = new DirContextAdapter(dn);
+//
+//        List<String> objectClass = new ArrayList<>();
+//        objectClass.add("top");
+//        objectClass.add("person");
+//        objectClass.add("organizationalPerson");
+//        objectClass.add("user");
+//        context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
+//
+//        context.setAttributeValue("cn", username);
+//        context.setAttributeValue("displayName", "愛狗狗");
+//        context.setAttributeValue("userAccountControl", "512");
+//        context.setAttributeValue("sAMAccountName", username);
+//        String upn = String.format("%s@%s", username, ldaprepository.findBySn(1).getUpnSuffix());
+//        context.setAttributeValue("userPrincipalName", upn);
+//        String pass = String.format("\"%s\"", "3LittlePigs");
+//        byte[] password = pass.getBytes("UTF-16LE");
+//        context.setAttributeValue("unicodePwd", password);
+//        ldapTemplate.bind(context);
+//        logger.info("更改密碼服務成功啟動");
 
 
     }
