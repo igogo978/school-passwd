@@ -1,11 +1,6 @@
 package app.passwd;
 
-import app.passwd.ldap.model.PersonAttributesMapper;
-import app.passwd.ldap.model.User;
-import app.passwd.model.LdapClient;
-import app.passwd.model.LearningAccount;
-import app.passwd.model.Role;
-import app.passwd.model.SystemConfig;
+import app.passwd.model.*;
 import app.passwd.repository.LearningAccountRepository;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
@@ -21,17 +16,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.ldap.core.DirContextAdapter;
 import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.core.support.LdapContextSource;
-import org.springframework.ldap.support.LdapNameBuilder;
 
-import javax.naming.Name;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.ldap.query.LdapQueryBuilder.query;
 
 @SpringBootApplication
 public class PasswdApplication implements CommandLineRunner {
@@ -160,23 +150,25 @@ public class PasswdApplication implements CommandLineRunner {
 
 
         //測試連結ldap
-//        信任憑證
+        //信任憑證
         File cert = new File(String.format("%s/cert/%s", System.getProperty("user.dir"), ldaprepository.findBySn(1).getCert()));
         if (cert.exists()) {
             System.setProperty("javax.net.ssl.trustStore", cert.getAbsolutePath());
             System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
             System.setProperty("com.sun.jndi.ldap.object.disableEndpointIdentification", "true");
+        } else {
+            System.out.println("找不到憑證");
+            System.exit(SpringApplication.exit(context));
         }
 
-        //檢查ou
-        System.out.println(ldapTools.isOUExist("Student"));
-//        ldaprepository.findBySn(1).getRoles().forEach(role -> {
-//            if (ldapTools.isOUExist(role.getRole())) {
-//                System.out.println("ou存在");
-//            } else {
-//                System.out.println("ou不存在");
-//            }
-//        });
+        //初始化, 檢查ou, 無則建立
+        System.out.println("檢查OU");
+        ldaprepository.findBySn(1).getRoles().forEach(role -> {
+            if (!ldapTools.isOUExist(role.getOu())) {
+                System.out.println("建立ou:" + role.getOu());
+                ldapTools.createOu(role.getOu());
+            }
+        });
 
         LdapContextSource source = new LdapContextSource();
         String url = String.format("ldaps://%s:%s", ldaprepository.findBySn(1).getLdapserver(), ldaprepository.findBySn(1).getLdapport());
@@ -190,16 +182,32 @@ public class PasswdApplication implements CommandLineRunner {
 
         //查詢user
         String username = "igogo";
-        List<User> users = ldapTemplate.search(
-                query().where("objectclass").is("person")
-                        .and("cn").is(username),
-                new PersonAttributesMapper());
-        System.out.println("search result..");
-        System.out.println(users.size());
-        users.forEach(user -> System.out.println(user.getCn()));
+        User user = new User("123456", username, "Teacher", "愛狗狗", "");
+
+        String userPassword = "123456";
+        System.out.println("is user exist?");
+        System.out.println(ldapTools.isUserExist(user.getUsername()));
+//          public User(String school_no, String username, String role, String name, String edu_key)
+
+        if (ldapTools.isUserExist(user.getUsername())) {
+            //update passwd
+            ldapTools.updateUserPassword(user, userPassword);
+        } else {
+            //create user
+            ldapTools.addUser(user, userPassword);
+        }
 
 
-//        User user = new User();
+//        List<ADUser> users = ldapTemplate.search(
+//                query().where("objectclass").is("person")
+//                        .and("cn").is(username),
+//                new PersonAttributesMapper());
+//        System.out.println("search result..");
+//        System.out.println(users.size());
+//        users.forEach(user -> System.out.println(user.getCn()));
+
+
+//        ADUser user = new ADUser();
 //        user.setCn(username);
 //
 //        Name dn = LdapNameBuilder

@@ -5,7 +5,7 @@ import org.springframework.ldap.odm.annotations.Id;
 
 import javax.naming.Name;
 
-public class User {
+public class ADUser {
 
     @Id
     private Name id;
@@ -17,7 +17,7 @@ public class User {
     private @Attribute(name = "sAMAccountName") String sAMAccountName;
     private @Attribute(name = "userPrincipalName") String userPrincipalName;
 
-    public User() {
+    public ADUser() {
     }
 
     public String getCn() {

@@ -40,7 +40,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">姓名</div>
                         </div>
-                        <input v-model="user.name" type="text" class="form-control" id="inlineFormInputGroup"
+                        <input v-model="ADUser.name" type="text" class="form-control" id="inlineFormInputGroup"
                                placeholder=""
                                readonly>
                     </div>
@@ -48,7 +48,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">身分</div>
                         </div>
-                        <input v-model="user.role" type="text" class="form-control" id="inlineFormInputGroup1"
+                        <input v-model="ADUser.role" type="text" class="form-control" id="inlineFormInputGroup1"
                                placeholder="王大名"
                                readonly>
                     </div>
@@ -57,7 +57,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">學號</div>
                         </div>
-                        <input v-model="user.username" type="text" class="form-control" id="inlineFormInputGroup1"
+                        <input v-model="ADUser.username" type="text" class="form-control" id="inlineFormInputGroup1"
                                placeholder="107-10799"
                                readonly>
                     </div>
@@ -66,7 +66,7 @@
                     <!--<div class="input-group-prepend">-->
                     <!--<div class="input-group-text">學習帳號</div>-->
                     <!--</div>-->
-                    <!--<input v-model="user.learningaccount" type="text" class="form-control" id="inlineFormInputGroup1"-->
+                    <!--<input v-model="ADUser.learningaccount" type="text" class="form-control" id="inlineFormInputGroup1"-->
                     <!--placeholder="999999" readonly>-->
                     <!--</div>-->
 
@@ -135,7 +135,7 @@
       var app = new Vue({
         el: '#app',
         data: {
-          user: /*[[${user}]]*/ {},
+          ADUser: /*[[${ADUser}]]*/ {},
           isLearningAccount: /*[[${isLearningAccount}]]*/ false,
           msg: "密碼長度6-20字元,英文數字皆可",
           params: {
@@ -149,14 +149,14 @@
           display_seconds: 5,
         },
         created: function () {
-          // console.log(this.user.username.split("-")[1]);
+          // console.log(this.ADUser.username.split("-")[1]);
           // let vm = this;
-          // let classnameseatno = this.user.username.split("-")[1];
+          // let classnameseatno = this.ADUser.username.split("-")[1];
           // let url = "account/" + classnameseatno
           // this.$http.get(url, config)
           //   .then(function (response) {
           //     console.log(response.data)
-          //     vm.user.learningaccount = response.data.learningaccount;
+          //     vm.ADUser.learningaccount = response.data.learningaccount;
           //   })
           //   .catch(function (error) {
           //     /* 失敗，發生錯誤，然後...*/
@@ -204,9 +204,9 @@
           submit: function () {
 
             let vm = this;
-            let url = "/passwd/username/"+ this.user.username;
+            let url = "/passwd/username/"+ this.ADUser.username;
             console.log("ok,submit,target url:"+ url);
-            this.params.account = this.user.username;
+            this.params.account = this.ADUser.username;
             this.params.password = this.passwd;
 
             this.$http.put(url, JSON.stringify(this.params), config).then((response) => {

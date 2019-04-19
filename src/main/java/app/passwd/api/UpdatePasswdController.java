@@ -94,9 +94,9 @@ public class UpdatePasswdController {
                 if (smbldap.isUserExist(account.getAccount())) {
                     logger.info("user already exists, update password");
                     //update user
-                    smbldap.updateUserPassword(account.getAccount(), account.getPassword(), role);
+//                    smbldap.updateUserPassword(account.getAccount(), account.getPassword(), role);
                 } else {
-                    smbldap.addUser(account.getAccount(), account.getPassword(), role);
+//                    smbldap.addUser(account.getAccount(), account.getPassword(), role);
 
                 }
 
@@ -172,9 +172,9 @@ public class UpdatePasswdController {
 
                 if (smbldap.isUserExist(account.getAccount())) {
                     //update user
-                    smbldap.updateUserPassword(account.getAccount(), account.getPassword(), role);
+//                    smbldap.updateUserPassword(account.getAccount(), account.getPassword(), role);
                 } else {
-                    smbldap.addUser(account.getAccount(), account.getPassword(), role);
+//                    smbldap.addUser(account.getAccount(), account.getPassword(), role);
 
                 }
 

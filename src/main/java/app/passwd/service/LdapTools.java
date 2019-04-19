@@ -1,12 +1,13 @@
 package app.passwd.service;
 
 
+import app.passwd.ldap.model.ADUser;
 import app.passwd.ldap.model.OUAttributesMapper;
 import app.passwd.ldap.model.OrganizationalUnit;
 import app.passwd.ldap.model.PersonAttributesMapper;
-import app.passwd.ldap.model.User;
+
 import app.passwd.model.LdapClient;
-import app.passwd.model.Role;
+import app.passwd.model.User;
 import app.passwd.repository.LdapRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +23,8 @@ import javax.naming.directory.Attribute;
 import javax.naming.directory.BasicAttribute;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.ModificationItem;
-import javax.naming.ldap.LdapName;
+
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -63,20 +65,7 @@ public class LdapTools {
 
     public Boolean isOUExist(String ouname) {
         LdapTemplate ldapTemplate = initLDAPConnect();
-//        LdapClient ldapclient = ldaprepository.findBySn(1);
-//        String url = String.format("ldaps://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
-//        String basedn = ldapclient.getBasedn();
-//        String rootdn = ldapclient.getRootdn();
-//        String rootpassword = ldapclient.getPasswd();
-//
-//        LdapContextSource source = new LdapContextSource();
-//        source.setUrl(url);
-//        source.setBase(basedn);
-//        source.setUserDn(rootdn);
-//        source.setPassword(rootpassword);
-//        source.afterPropertiesSet();
-//
-//        LdapTemplate ldapTemplate = new LdapTemplate(source);
+
 
         List<OrganizationalUnit> ous = ldapTemplate.search(
                 query().where("objectclass").is("organizationalUnit")
@@ -88,7 +77,6 @@ public class LdapTools {
         }
         return Boolean.FALSE;
     }
-
 
 
     public void createOu(String ouname) {
@@ -109,97 +97,42 @@ public class LdapTools {
 
 
     public Boolean isUserExist(String username) {
-        LdapClient ldapclient = ldaprepository.findBySn(1);
-
-        String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
-        String basedn = ldapclient.getBasedn();
-        String rootdn = ldapclient.getRootdn();
-        String rootpassword = ldapclient.getPasswd();
-
-        LdapContextSource source = new LdapContextSource();
-        source.setUrl(url);
-        source.setBase(basedn);
-        source.setUserDn(rootdn);
-        source.setPassword(rootpassword);
-        source.afterPropertiesSet();
-
-        LdapTemplate ldaptemplate = new LdapTemplate(source);
+        LdapTemplate ldapTemplate = initLDAPConnect();
 
 
-        List<User> users = ldaptemplate.search(
+        List<ADUser> ADUsers = ldapTemplate.search(
                 query().where("objectclass").is("person")
-                        .and("uid").is(username),
+                        .and("cn").is(username),
                 new PersonAttributesMapper());
-        if (users.size() == 0) {
+        if (ADUsers.size() == 0) {
 
             return Boolean.FALSE;
-        } else {
-            return Boolean.TRUE;
         }
-    }
-
-
-    public User findByUid(String username) {
-        logger.info("loggin for:" + username);
-        LdapClient ldapclient = ldaprepository.findBySn(1);
-
-        String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
-        String basedn = ldapclient.getBasedn();
-        String rootdn = ldapclient.getRootdn();
-        String rootpassword = ldapclient.getPasswd();
-
-        LdapContextSource source = new LdapContextSource();
-        source.setUrl(url);
-        source.setBase(basedn);
-        source.setUserDn(rootdn);
-        source.setPassword(rootpassword);
-        source.afterPropertiesSet();
-
-        LdapTemplate ldaptemplate = new LdapTemplate(source);
-
-
-        List<User> users = ldaptemplate.search(
-                query().where("objectclass").is("person")
-                        .and("uid").is(username),
-                new PersonAttributesMapper());
-        return users.get(0);
-
+        return Boolean.TRUE;
 
     }
 
-    public void updateUserPassword(String username, String password, String role) {
-        LdapClient ldapclient = ldaprepository.findBySn(1);
 
-        String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
-        String basedn = ldapclient.getBasedn();
-        String rootdn = ldapclient.getRootdn();
-        String rootpassword = ldapclient.getPasswd();
+    public void updateUserPassword(User user, String userPassword) throws UnsupportedEncodingException {
+        LdapTemplate ldapTemplate = initLDAPConnect();
 
-        LdapContextSource source = new LdapContextSource();
-        source.setUrl(url);
-        source.setBase(basedn);
-        source.setUserDn(rootdn);
-        source.setPassword(rootpassword);
-        source.afterPropertiesSet();
-
-        LdapTemplate ldaptemplate = new LdapTemplate(source);
-
-//        List<User> users = ldaptemplate.search(
-//                query().where("objectclass").is("person")
-//                        .and("uid").is(username),
-//                new PersonAttributesMapper());
 
         Name dn = LdapNameBuilder
                 .newInstance()
-                .add("ou", role)
-                .add("uid", username)
+                .add("ou",user.getRole())
+
+                .add("cn", user.getUsername())
                 .build();
 
-        ((LdapName) dn).getRdns().forEach(rdn -> logger.info(rdn.toString()));
-        Attribute attr = new BasicAttribute("userPassword", digestSHA(password));
+        String passwdUnicodePwdFormat = String.format("\"%s\"", userPassword);
+        byte[] passwd = passwdUnicodePwdFormat.getBytes("UTF-16LE");
+//        context.setAttributeValue("unicodePwd", password);
+
+//        ((LdapName) dn).getRdns().forEach(rdn -> logger.info(rdn.toString()));
+        Attribute attr = new BasicAttribute("UnicodePwd", passwd);
         ModificationItem item = new ModificationItem(DirContext.REPLACE_ATTRIBUTE, attr);
 
-        ldaptemplate.modifyAttributes(dn, new ModificationItem[]{item});
+        ldapTemplate.modifyAttributes(dn, new ModificationItem[]{item});
     }
 
     public Boolean isRoleExist(String role) {
@@ -209,69 +142,34 @@ public class LdapTools {
     }
 
 
-    public void addUser(String username, String password, String role) {
+    public void addUser(User user, String userPassword) throws UnsupportedEncodingException {
+        LdapTemplate ldapTemplate = initLDAPConnect();
+                Name dn = LdapNameBuilder
+                .newInstance()
+                .add("ou",user.getRole())
+                .add("cn", user.getUsername())
+                .build();
+        DirContextAdapter context = new DirContextAdapter(dn);
 
-        LdapClient ldapclient = ldaprepository.findBySn(1);
+        List<String> objectClass = new ArrayList<>();
+        objectClass.add("top");
+        objectClass.add("person");
+        objectClass.add("organizationalPerson");
+        objectClass.add("user");
+        context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
 
-//        Boolean existRole = ldapclient.getRoles().stream().anyMatch(r ->
-//                r.getOu().equals(role));
-        Boolean isRoleExist = isRoleExist(role);
+        context.setAttributeValue("cn", user.getUsername());
+        context.setAttributeValue("displayName", user.getName());
+        context.setAttributeValue("userAccountControl", "512");
+        context.setAttributeValue("sAMAccountName", user.getUsername());
+        context.setAttributeValue("pwdLastSet", "-1");
+        String upn = String.format("%s@%s", user.getUsername(), ldaprepository.findBySn(1).getUpnSuffix());
+        context.setAttributeValue("userPrincipalName", upn);
+        String passwdUnicodePwdFormat = String.format("\"%s\"", userPassword);
+        byte[] passwd = passwdUnicodePwdFormat.getBytes("UTF-16LE");
+        context.setAttributeValue("unicodePwd", passwd);
+        ldapTemplate.bind(context);
 
-        logger.info(String.format("role exist? %s", isRoleExist));
-
-        if (isRoleExist) {
-            String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
-            String basedn = ldapclient.getBasedn();
-            String rootdn = ldapclient.getRootdn();
-            String rootpassword = ldapclient.getPasswd();
-
-            LdapContextSource source = new LdapContextSource();
-            source.setUrl(url);
-            source.setBase(basedn);
-            source.setUserDn(rootdn);
-            source.setPassword(rootpassword);
-            source.afterPropertiesSet();
-
-            LdapTemplate ldaptemplate = new LdapTemplate(source);
-
-
-            Role ou = ldapclient.getRoles().stream().filter(r -> r.getOu().equals(role))
-                    .findFirst()
-                    .get();
-
-
-            Name dn = LdapNameBuilder
-                    .newInstance()
-                    .add("ou", ou.getOu())
-                    .add("uid", username)
-                    .build();
-
-            DirContextAdapter context = new DirContextAdapter(dn);
-
-            List<String> objectClass = new ArrayList<>();
-            objectClass.add("top");
-            objectClass.add("person");
-            objectClass.add("organizationalPerson");
-            objectClass.add("inetOrgPerson");
-            objectClass.add("posixAccount");
-            objectClass.add("shadowAccount");
-
-
-            context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
-
-
-            context.setAttributeValue("uid", username);
-            context.setAttributeValue("cn", username);
-            context.setAttributeValue("sn", username);
-            context.setAttributeValue("userPassword", digestSHA(password));
-            context.setAttributeValue("displayName", userloginservice.getUser().getName());
-
-
-            ldaptemplate.bind(context);
-
-            //update uidnumber
-            ldaprepository.save(ldapclient);
-        }
 
 
     }
