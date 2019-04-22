@@ -44,7 +44,6 @@ public class IndexController {
     }
 
     @GetMapping("/passwd")
-    //導到app頁面
     public RedirectView indexPasswd(RedirectAttributes attributes) throws URISyntaxException, IOException, ParseException, ExecutionException, InterruptedException, NoSuchAlgorithmException {
 
         clientid = repository.findBySn(1).getClientid();

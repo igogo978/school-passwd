@@ -1,5 +1,6 @@
 package app.passwd;
 
+import app.passwd.ldap.model.ADUser;
 import app.passwd.model.*;
 import app.passwd.repository.LearningAccountRepository;
 import app.passwd.repository.LdapRepository;
@@ -19,6 +20,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.core.support.LdapContextSource;
 
+import javax.naming.ldap.LdapName;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +64,7 @@ public class PasswdApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        String declare = "本程式僅提供台中市學校使用";
         logger.info("working dir:" + System.getProperty("user.dir"));
 
         ObjectMapper mapper = new ObjectMapper();
@@ -87,6 +90,14 @@ public class PasswdApplication implements CommandLineRunner {
                 sysconfig.setSyncLdap(Boolean.TRUE);
             }
 
+            //僅提供測試站台及台中市學校使用
+
+            if (sysconfig.getAuthorize_endpoint().equals("http://api.cloudschool.tw/school-oauth/authorize") || sysconfig.getAuthorize_endpoint().equals("https://api.tc.edu.tw/school-oauth/authorize")) {
+                //true
+            } else {
+                logger.error(declare);
+                System.exit(SpringApplication.exit(context));
+            }
 
             //必須先存入所有sysconfig 設定, 後面再判斷是否讀取其它設定檔存入資料庫
             repository.save(sysconfig);
@@ -182,20 +193,28 @@ public class PasswdApplication implements CommandLineRunner {
 
         //查詢user
         String username = "igogo";
-        User user = new User("123456", username, "Teacher", "愛狗狗", "");
+        User user = new User("123456", username,username, "Teacher", "愛狗狗", "");
 
-        String userPassword = "123456";
+        String userPassword = "abc123";
         System.out.println("is user exist?");
         System.out.println(ldapTools.isUserExist(user.getUsername()));
 //          public User(String school_no, String username, String role, String name, String edu_key)
 
         if (ldapTools.isUserExist(user.getUsername())) {
             //update passwd
-            ldapTools.updateUserPassword(user, userPassword);
+            System.out.println("update user password");
+            ADUser aduser = new ADUser();
+            aduser = ldapTools.findByCn(user.getUsername());
+            ldapTools.updateUserPassword(aduser, userPassword);
         } else {
             //create user
             ldapTools.addUser(user, userPassword);
         }
+
+//        ADUser aduser = new ADUser();
+//        aduser = ldapTools.findByCn(user.getUsername());
+//        System.out.println(aduser.getCn());
+//        System.out.println(aduser.getDistinguishedName());
 
 
 //        List<ADUser> users = ldapTemplate.search(
@@ -235,7 +254,9 @@ public class PasswdApplication implements CommandLineRunner {
 //        byte[] password = pass.getBytes("UTF-16LE");
 //        context.setAttributeValue("unicodePwd", password);
 //        ldapTemplate.bind(context);
-//        logger.info("更改密碼服務成功啟動");
+        //使用聲明
+        logger.info(declare);
+        logger.info("帳號整合服務成功啟動");
 
 
     }

@@ -1,37 +1,397 @@
-2019-04-19 08:32:42.521  INFO 3424 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 3424 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
-2019-04-19 08:32:43.021  INFO 3424 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
-2019-04-19 08:32:48.896  INFO 3424 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-04-19 08:32:49.240  INFO 3424 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 282ms. Found 3 repository interfaces.
-2019-04-19 08:32:51.474  INFO 3424 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a659b0f2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-19 08:32:58.693  INFO 3424 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-04-19 08:32:59.132  INFO 3424 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-19 08:32:59.273  INFO 3424 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
-2019-04-19 08:32:59.319  INFO 3424 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
-2019-04-19 08:33:00.333  INFO 3424 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-19 08:33:01.381  INFO 3424 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 17828 ms
-2019-04-19 08:33:03.380  INFO 3424 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-19 08:33:03.708  INFO 3424 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-19 08:33:03.990  INFO 3424 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2019-04-22 08:33:24.049  INFO 4656 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 4656 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 08:33:26.221  INFO 4656 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 08:33:30.393  INFO 4656 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 08:33:31.018  INFO 4656 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 203ms. Found 3 repository interfaces.
+2019-04-22 08:33:33.627  INFO 4656 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ff30fc8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 08:33:37.065  INFO 4656 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 08:33:37.299  INFO 4656 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 08:33:37.596  INFO 4656 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 08:33:37.612  INFO 4656 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 08:33:38.440  INFO 4656 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 08:33:38.456  INFO 4656 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 12015 ms
+2019-04-22 08:33:40.862  INFO 4656 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 08:33:41.659  INFO 4656 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 08:33:41.893  INFO 4656 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-04-19 08:33:04.365  INFO 3424 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-04-19 08:33:04.365  INFO 3424 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-04-19 08:33:05.084  INFO 3424 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-04-19 08:33:05.787  INFO 3424 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-04-19 08:33:08.412  INFO 3424 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@28768e25'
-2019-04-19 08:33:08.428  INFO 3424 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-04-19 08:33:15.693  INFO 3424 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-19 08:33:17.177  WARN 3424 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-04-19 08:33:19.443  WARN 3424 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-04-19 08:33:20.974  INFO 3424 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-04-19 08:33:21.380  INFO 3424 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-04-19 08:33:21.396  INFO 3424 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 42.594 seconds (JVM running for 47.316)
-2019-04-19 08:33:21.459  INFO 3424 --- [main] ication$$EnhancerBySpringCGLIB$$9c5546c6 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
-2019-04-19 08:33:21.755  INFO 3424 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-04-19 08:33:23.130  INFO 3424 --- [main] ConditionEvaluationReportLoggingListener : 
+2019-04-22 08:33:42.315  INFO 4656 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 08:33:42.534  INFO 4656 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 08:33:43.096  INFO 4656 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 08:33:43.753  INFO 4656 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 08:33:47.237  INFO 4656 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@3dec3f87'
+2019-04-22 08:33:48.050  INFO 4656 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 08:33:56.706  INFO 4656 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 08:34:00.035  WARN 4656 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 08:34:04.409  WARN 4656 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 08:34:07.081  INFO 4656 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 08:34:07.627  INFO 4656 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 08:34:08.346  INFO 4656 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 48.859 seconds (JVM running for 54.163)
+2019-04-22 08:34:08.410  INFO 4656 --- [main] ication$$EnhancerBySpringCGLIB$$f52c9262 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 08:34:08.799  INFO 4656 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 08:37:54.770  INFO 2900 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2900 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 08:37:54.785  INFO 2900 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 08:38:00.130  INFO 2900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 08:38:00.364  INFO 2900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 219ms. Found 3 repository interfaces.
+2019-04-22 08:38:03.114  INFO 2900 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 08:38:04.973  INFO 2900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 08:38:05.223  INFO 2900 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 08:38:05.223  INFO 2900 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 08:38:05.254  INFO 2900 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 08:38:06.254  INFO 2900 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 08:38:06.254  INFO 2900 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11219 ms
+2019-04-22 08:38:08.785  INFO 2900 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 08:38:09.129  INFO 2900 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 08:38:09.457  INFO 2900 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 08:38:09.614  INFO 2900 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 08:38:09.614  INFO 2900 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 08:38:09.973  INFO 2900 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 08:38:10.614  INFO 2900 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 08:38:13.270  INFO 2900 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4981d95b'
+2019-04-22 08:38:13.285  INFO 2900 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 08:38:21.567  INFO 2900 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 08:38:23.114  WARN 2900 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 08:38:26.192  WARN 2900 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 08:38:28.020  INFO 2900 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 08:38:28.379  INFO 2900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 08:38:28.395  INFO 2900 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 36.453 seconds (JVM running for 39.748)
+2019-04-22 08:38:28.457  INFO 2900 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 08:38:28.661  INFO 2900 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 08:39:50.630  INFO 2924 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2924 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 08:39:50.645  INFO 2924 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 08:39:56.099  INFO 2924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 08:39:56.286  INFO 2924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172ms. Found 3 repository interfaces.
+2019-04-22 08:39:58.802  INFO 2924 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 08:40:00.739  INFO 2924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 08:40:01.005  INFO 2924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 08:40:01.005  INFO 2924 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 08:40:01.021  INFO 2924 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 08:40:01.646  INFO 2924 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 08:40:01.646  INFO 2924 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10735 ms
+2019-04-22 08:40:03.989  INFO 2924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 08:40:04.239  INFO 2924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 08:40:04.490  INFO 2924 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 08:40:04.630  INFO 2924 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 08:40:04.630  INFO 2924 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 08:40:04.880  INFO 2924 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 08:40:05.442  INFO 2924 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 08:40:07.427  INFO 2924 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4981d95b'
+2019-04-22 08:40:07.427  INFO 2924 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 08:40:14.630  INFO 2924 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 08:40:16.303  WARN 2924 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 08:40:18.786  WARN 2924 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 08:40:20.489  INFO 2924 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 08:40:20.865  INFO 2924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 08:40:20.880  INFO 2924 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 33.078 seconds (JVM running for 36.21)
+2019-04-22 08:40:20.928  INFO 2924 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 08:40:21.146  INFO 2924 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 08:43:37.835  INFO 864 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 864 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 08:43:37.835  INFO 864 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 08:43:41.726  INFO 864 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 08:43:42.053  INFO 864 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 218ms. Found 3 repository interfaces.
+2019-04-22 08:43:44.569  INFO 864 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ffbadc3a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 08:43:46.491  INFO 864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 08:43:46.741  INFO 864 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 08:43:46.741  INFO 864 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 08:43:46.756  INFO 864 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 08:43:47.273  INFO 864 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 08:43:47.273  INFO 864 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9282 ms
+2019-04-22 08:43:50.241  INFO 864 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 08:43:50.491  INFO 864 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 08:43:50.694  INFO 864 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 08:43:51.085  INFO 864 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 08:43:51.085  INFO 864 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 08:43:51.397  INFO 864 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 08:43:51.899  INFO 864 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 08:43:53.851  INFO 864 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@216c22ce'
+2019-04-22 08:43:53.882  INFO 864 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 08:44:01.178  INFO 864 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 08:44:02.820  WARN 864 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 08:44:05.194  WARN 864 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 08:44:07.335  INFO 864 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 08:44:07.741  INFO 864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 08:44:07.882  INFO 864 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 34.844 seconds (JVM running for 38.162)
+2019-04-22 08:44:07.960  INFO 864 --- [main] ication$$EnhancerBySpringCGLIB$$f5b6720e : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 08:44:08.163  INFO 864 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 08:49:55.744  INFO 1924 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 1924 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 08:49:55.744  INFO 1924 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 08:50:04.463  INFO 1924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 08:50:04.697  INFO 1924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 204ms. Found 3 repository interfaces.
+2019-04-22 08:50:07.478  INFO 1924 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 08:50:09.400  INFO 1924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 08:50:09.650  INFO 1924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 08:50:09.665  INFO 1924 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 08:50:09.681  INFO 1924 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 08:50:10.369  INFO 1924 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 08:50:10.384  INFO 1924 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 14344 ms
+2019-04-22 08:50:12.869  INFO 1924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 08:50:13.197  INFO 1924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 08:50:13.447  INFO 1924 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 08:50:13.634  INFO 1924 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 08:50:13.634  INFO 1924 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 08:50:13.962  INFO 1924 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 08:50:14.525  INFO 1924 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 08:50:16.900  INFO 1924 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4981d95b'
+2019-04-22 08:50:16.916  INFO 1924 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 08:50:27.588  INFO 1924 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 08:50:29.651  WARN 1924 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 08:50:32.681  WARN 1924 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 08:50:34.462  INFO 1924 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 08:50:35.104  INFO 1924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 08:50:35.135  INFO 1924 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 41.938 seconds (JVM running for 45.734)
+2019-04-22 08:50:35.181  INFO 1924 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 08:50:35.416  INFO 1924 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 08:53:28.979  INFO 2236 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2236 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 08:53:28.995  INFO 2236 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 08:53:35.932  INFO 2236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 08:53:36.167  INFO 2236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 188ms. Found 3 repository interfaces.
+2019-04-22 08:53:38.901  INFO 2236 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 08:53:40.918  INFO 2236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 08:53:41.199  INFO 2236 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 08:53:41.199  INFO 2236 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 08:53:41.215  INFO 2236 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 08:53:41.902  INFO 2236 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 08:53:41.902  INFO 2236 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 12688 ms
+2019-04-22 08:53:44.167  INFO 2236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 08:53:44.433  INFO 2236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 08:53:44.683  INFO 2236 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 08:53:44.839  INFO 2236 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 08:53:44.839  INFO 2236 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 08:53:45.151  INFO 2236 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 08:53:45.682  INFO 2236 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 08:53:47.761  INFO 2236 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4981d95b'
+2019-04-22 08:53:47.761  INFO 2236 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 08:53:55.214  INFO 2236 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 08:53:57.136  WARN 2236 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 08:53:59.667  WARN 2236 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 08:54:01.214  INFO 2236 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 08:54:01.636  INFO 2236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 08:54:01.651  INFO 2236 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 35.733 seconds (JVM running for 38.803)
+2019-04-22 08:54:01.715  INFO 2236 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 08:54:01.980  INFO 2236 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 08:57:49.435  INFO 4116 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 4116 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 08:57:49.435  INFO 4116 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 08:57:55.169  INFO 4116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 08:57:55.372  INFO 4116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 188ms. Found 3 repository interfaces.
+2019-04-22 08:57:57.778  INFO 4116 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ffbadc3a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 08:57:59.637  INFO 4116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 08:57:59.887  INFO 4116 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 08:57:59.887  INFO 4116 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 08:57:59.903  INFO 4116 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 08:58:00.622  INFO 4116 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 08:58:00.622  INFO 4116 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11032 ms
+2019-04-22 08:58:03.466  INFO 4116 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 08:58:03.700  INFO 4116 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 08:58:03.934  INFO 4116 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 08:58:04.091  INFO 4116 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 08:58:04.107  INFO 4116 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 08:58:04.387  INFO 4116 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 08:58:04.856  INFO 4116 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 08:58:07.075  INFO 4116 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@216c22ce'
+2019-04-22 08:58:07.091  INFO 4116 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 08:58:15.373  INFO 4116 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 08:58:16.981  WARN 4116 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 08:58:19.544  WARN 4116 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 08:58:21.325  INFO 4116 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 08:58:21.856  INFO 4116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 08:58:21.872  INFO 4116 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 36.485 seconds (JVM running for 40.074)
+2019-04-22 08:58:21.934  INFO 4116 --- [main] ication$$EnhancerBySpringCGLIB$$f5b6720e : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 08:58:22.169  INFO 4116 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 09:02:28.092  INFO 2376 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2376 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 09:02:28.108  INFO 2376 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 09:02:32.374  INFO 2376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 09:02:32.561  INFO 2376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 156ms. Found 3 repository interfaces.
+2019-04-22 09:02:34.921  INFO 2376 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$abd3d7ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 09:02:36.655  INFO 2376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 09:02:36.843  INFO 2376 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 09:02:36.858  INFO 2376 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 09:02:36.874  INFO 2376 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 09:02:37.390  INFO 2376 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 09:02:37.390  INFO 2376 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9063 ms
+2019-04-22 09:02:39.421  INFO 2376 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 09:02:39.655  INFO 2376 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 09:02:39.874  INFO 2376 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 09:02:40.046  INFO 2376 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 09:02:40.062  INFO 2376 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 09:02:40.327  INFO 2376 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 09:02:40.905  INFO 2376 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 09:02:42.858  INFO 2376 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@93bf0e0'
+2019-04-22 09:02:42.874  INFO 2376 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 09:02:49.764  INFO 2376 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 09:02:51.234  WARN 2376 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 09:02:53.671  WARN 2376 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 09:02:55.281  INFO 2376 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 09:02:55.639  INFO 2376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 09:02:55.655  INFO 2376 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 30.938 seconds (JVM running for 34.708)
+2019-04-22 09:02:55.702  INFO 2376 --- [main] ication$$EnhancerBySpringCGLIB$$a1cf6dc2 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 09:02:55.890  INFO 2376 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 09:07:23.594  INFO 2840 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2840 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 09:07:23.610  INFO 2840 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 09:07:28.829  INFO 2840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 09:07:29.032  INFO 2840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 188ms. Found 3 repository interfaces.
+2019-04-22 09:07:31.329  INFO 2840 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$abd3d7ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 09:07:33.016  INFO 2840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 09:07:33.267  INFO 2840 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 09:07:33.267  INFO 2840 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 09:07:33.298  INFO 2840 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 09:07:33.845  INFO 2840 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 09:07:33.845  INFO 2840 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10063 ms
+2019-04-22 09:07:36.111  INFO 2840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 09:07:36.360  INFO 2840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 09:07:36.611  INFO 2840 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 09:07:36.751  INFO 2840 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 09:07:36.751  INFO 2840 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 09:07:37.032  INFO 2840 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 09:07:37.532  INFO 2840 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 09:07:39.595  INFO 2840 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@93bf0e0'
+2019-04-22 09:07:39.595  INFO 2840 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 09:07:47.126  INFO 2840 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 09:07:49.407  WARN 2840 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 09:07:51.970  WARN 2840 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 09:07:53.485  INFO 2840 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 09:07:53.829  INFO 2840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 09:07:53.845  INFO 2840 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 33.782 seconds (JVM running for 38.087)
+2019-04-22 09:07:53.891  INFO 2840 --- [main] ication$$EnhancerBySpringCGLIB$$a1cf6dc2 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 09:07:54.142  INFO 2840 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 09:08:54.486  INFO 3104 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 3104 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 09:08:54.501  INFO 3104 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 09:08:58.674  INFO 3104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 09:08:58.908  INFO 3104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 219ms. Found 3 repository interfaces.
+2019-04-22 09:09:01.658  INFO 3104 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$59233a12] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 09:09:03.845  INFO 3104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 09:09:04.096  INFO 3104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 09:09:04.096  INFO 3104 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 09:09:04.126  INFO 3104 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 09:09:04.846  INFO 3104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 09:09:04.846  INFO 3104 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10157 ms
+2019-04-22 09:09:07.001  INFO 3104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 09:09:07.205  INFO 3104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 09:09:07.455  INFO 3104 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 09:09:07.595  INFO 3104 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 09:09:07.595  INFO 3104 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 09:09:07.861  INFO 3104 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 09:09:08.470  INFO 3104 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 09:09:11.080  INFO 3104 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@19662208'
+2019-04-22 09:09:11.080  INFO 3104 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 09:09:19.783  INFO 3104 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 09:09:21.486  WARN 3104 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 09:09:24.127  WARN 3104 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 09:09:25.923  INFO 3104 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 09:09:26.314  INFO 3104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 09:09:26.330  INFO 3104 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 36.704 seconds (JVM running for 41.254)
+2019-04-22 09:09:26.392  INFO 3104 --- [main] ication$$EnhancerBySpringCGLIB$$4f1ecfe6 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 09:09:26.627  INFO 3104 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 09:10:25.924  INFO 4328 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 4328 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 09:10:25.924  INFO 4328 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 09:10:31.519  INFO 4328 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 09:10:31.705  INFO 4328 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172ms. Found 3 repository interfaces.
+2019-04-22 09:10:34.159  INFO 4328 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$75920a57] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 09:10:36.127  INFO 4328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 09:10:36.361  INFO 4328 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 09:10:36.361  INFO 4328 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 09:10:36.393  INFO 4328 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 09:10:37.205  INFO 4328 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 09:10:37.221  INFO 4328 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11141 ms
+2019-04-22 09:10:39.330  INFO 4328 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 09:10:39.549  INFO 4328 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 09:10:39.799  INFO 4328 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 09:10:39.971  INFO 4328 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 09:10:39.971  INFO 4328 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 09:10:40.236  INFO 4328 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 09:10:40.721  INFO 4328 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 09:10:42.924  INFO 4328 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@69a40b3c'
+2019-04-22 09:10:42.940  INFO 4328 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 09:10:50.236  INFO 4328 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 09:10:51.799  WARN 4328 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 09:10:54.471  WARN 4328 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 09:10:56.065  INFO 4328 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 09:10:56.487  INFO 4328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 09:10:56.502  INFO 4328 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 34.047 seconds (JVM running for 38.93)
+2019-04-22 09:10:56.565  INFO 4328 --- [main] ication$$EnhancerBySpringCGLIB$$6b8da02b : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 09:10:56.768  INFO 4328 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 09:11:52.565  INFO 1728 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 1728 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 09:11:52.565  INFO 1728 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 09:11:57.175  INFO 1728 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 09:11:57.441  INFO 1728 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 188ms. Found 3 repository interfaces.
+2019-04-22 09:11:59.846  INFO 1728 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c897cb34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 09:12:01.753  INFO 1728 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 09:12:01.971  INFO 1728 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 09:12:01.987  INFO 1728 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 09:12:02.004  INFO 1728 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 09:12:02.613  INFO 1728 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 09:12:02.628  INFO 1728 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9906 ms
+2019-04-22 09:12:04.831  INFO 1728 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 09:12:05.082  INFO 1728 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 09:12:05.300  INFO 1728 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 09:12:05.488  INFO 1728 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 09:12:05.488  INFO 1728 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 09:12:05.784  INFO 1728 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 09:12:06.238  INFO 1728 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 09:12:08.269  INFO 1728 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@656842bc'
+2019-04-22 09:12:08.284  INFO 1728 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 09:12:15.518  INFO 1728 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 09:12:17.425  WARN 1728 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 09:12:20.987  WARN 1728 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 09:12:22.893  INFO 1728 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 09:12:23.268  INFO 1728 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 09:12:23.331  INFO 1728 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 32.922 seconds (JVM running for 37.774)
+2019-04-22 09:12:23.440  INFO 1728 --- [main] ication$$EnhancerBySpringCGLIB$$be936108 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 09:12:23.675  INFO 1728 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 09:15:46.660  INFO 4360 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 4360 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 09:15:46.660  INFO 4360 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 09:15:51.942  INFO 4360 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 09:15:52.129  INFO 4360 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172ms. Found 3 repository interfaces.
+2019-04-22 09:15:54.646  INFO 4360 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$abd3d7ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 09:15:56.270  INFO 4360 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 09:15:56.473  INFO 4360 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 09:15:56.473  INFO 4360 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 09:15:56.505  INFO 4360 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 09:15:57.020  INFO 4360 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 09:15:57.020  INFO 4360 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10203 ms
+2019-04-22 09:15:59.145  INFO 4360 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 09:15:59.396  INFO 4360 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 09:15:59.692  INFO 4360 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 09:15:59.864  INFO 4360 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 09:15:59.864  INFO 4360 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 09:16:00.129  INFO 4360 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 09:16:00.676  INFO 4360 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 09:16:02.848  INFO 4360 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@93bf0e0'
+2019-04-22 09:16:02.848  INFO 4360 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 09:16:09.739  INFO 4360 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 09:16:11.598  WARN 4360 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 09:16:14.473  WARN 4360 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 09:16:16.457  INFO 4360 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 09:16:16.879  INFO 4360 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 09:16:16.895  INFO 4360 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 33.188 seconds (JVM running for 36.264)
+2019-04-22 09:16:16.973  INFO 4360 --- [main] ication$$EnhancerBySpringCGLIB$$a1cf6dc2 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 09:16:17.192  INFO 4360 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 09:16:19.833  INFO 4360 --- [main] ConditionEvaluationReportLoggingListener : 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2019-04-19 08:33:23.162 ERROR 3424 --- [main] o.s.boot.SpringApplication               : Application run failed
+2019-04-22 09:16:19.880 ERROR 4360 --- [main] o.s.boot.SpringApplication               : Application run failed
 
 java.lang.IllegalStateException: Failed to execute CommandLineRunner
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:816) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
@@ -39,177 +399,22 @@ java.lang.IllegalStateException: Failed to execute CommandLineRunner
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at app.passwd.PasswdApplication.main(PasswdApplication.java:68) [classes/:na]
-Caused by: org.springframework.ldap.CommunicationException: happy.tc.edu.tw:636; nested exception is javax.naming.CommunicationException: happy.tc.edu.tw:636 [Root exception is java.net.UnknownHostException: happy.tc.edu.tw]
-	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:108) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:355) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	at org.springframework.ldap.core.support.AbstractContextSource.doGetContext(AbstractContextSource.java:139) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	at org.springframework.ldap.core.support.AbstractContextSource.getReadOnlyContext(AbstractContextSource.java:158) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:357) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:309) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:616) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:586) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:1651) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	at app.passwd.service.LdapTools.isOUExist(LdapTools.java:68) ~[classes/:na]
-	at app.passwd.PasswdApplication.run(PasswdApplication.java:172) [classes/:na]
-	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:813) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	... 5 common frames omitted
-Caused by: javax.naming.CommunicationException: happy.tc.edu.tw:636
-	at com.sun.jndi.ldap.Connection.<init>(Connection.java:228) ~[na:1.8.0_202]
-	at com.sun.jndi.ldap.LdapClient.<init>(LdapClient.java:137) ~[na:1.8.0_202]
-	at com.sun.jndi.ldap.LdapClient.getInstance(LdapClient.java:1609) ~[na:1.8.0_202]
-	at com.sun.jndi.ldap.LdapCtx.connect(LdapCtx.java:2749) ~[na:1.8.0_202]
-	at com.sun.jndi.ldap.LdapCtx.<init>(LdapCtx.java:319) ~[na:1.8.0_202]
-	at com.sun.jndi.ldap.LdapCtxFactory.getUsingURL(LdapCtxFactory.java:192) ~[na:1.8.0_202]
-	at com.sun.jndi.ldap.LdapCtxFactory.getUsingURLs(LdapCtxFactory.java:210) ~[na:1.8.0_202]
-	at com.sun.jndi.ldap.LdapCtxFactory.getLdapCtxInstance(LdapCtxFactory.java:153) ~[na:1.8.0_202]
-	at com.sun.jndi.ldap.LdapCtxFactory.getInitialContext(LdapCtxFactory.java:83) ~[na:1.8.0_202]
-	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:684) ~[na:1.8.0_202]
-	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:313) ~[na:1.8.0_202]
-	at javax.naming.InitialContext.init(InitialContext.java:244) ~[na:1.8.0_202]
-	at javax.naming.ldap.InitialLdapContext.<init>(InitialLdapContext.java:154) ~[na:1.8.0_202]
-	at org.springframework.ldap.core.support.LdapContextSource.getDirContextInstance(LdapContextSource.java:42) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:343) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	... 15 common frames omitted
-Caused by: java.net.UnknownHostException: happy.tc.edu.tw
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184) ~[na:1.8.0_202]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_202]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_202]
-	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_202]
-	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666) ~[na:1.8.0_202]
-	at sun.security.ssl.SSLSocketImpl.<init>(SSLSocketImpl.java:426) ~[na:1.8.0_202]
-	at sun.security.ssl.SSLSocketFactoryImpl.createSocket(SSLSocketFactoryImpl.java:88) ~[na:1.8.0_202]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
-	at com.sun.jndi.ldap.Connection.createSocket(Connection.java:340) ~[na:1.8.0_202]
-	at com.sun.jndi.ldap.Connection.<init>(Connection.java:215) ~[na:1.8.0_202]
-	... 29 common frames omitted
-
-2019-04-19 08:33:23.193  INFO 3424 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-04-19 08:33:23.193  INFO 3424 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2019-04-19 08:33:23.193  INFO 3424 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-2019-04-19 08:33:23.209  INFO 3424 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2019-04-19 08:33:23.209  INFO 3424 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2019-04-19 08:56:14.173  INFO 2464 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2464 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
-2019-04-19 08:56:14.190  INFO 2464 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
-2019-04-19 08:56:20.236  INFO 2464 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-04-19 08:56:20.628  INFO 2464 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 361ms. Found 3 repository interfaces.
-2019-04-19 08:56:23.205  INFO 2464 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b2006fcd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-19 08:56:24.939  INFO 2464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-04-19 08:56:25.205  INFO 2464 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-19 08:56:25.205  INFO 2464 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
-2019-04-19 08:56:25.220  INFO 2464 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
-2019-04-19 08:56:25.783  INFO 2464 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-19 08:56:25.783  INFO 2464 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11406 ms
-2019-04-19 08:56:27.783  INFO 2464 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-19 08:56:28.127  INFO 2464 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-19 08:56:28.361  INFO 2464 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2019-04-19 08:56:28.627  INFO 2464 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-04-19 08:56:28.627  INFO 2464 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-04-19 08:56:28.986  INFO 2464 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-04-19 08:56:29.533  INFO 2464 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-04-19 08:56:31.705  INFO 2464 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@39023dbf'
-2019-04-19 08:56:31.705  INFO 2464 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-04-19 08:56:39.049  INFO 2464 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-19 08:56:40.424  WARN 2464 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-04-19 08:56:43.017  WARN 2464 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-04-19 08:56:45.252  INFO 2464 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-04-19 08:56:45.705  INFO 2464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-04-19 08:56:45.721  INFO 2464 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 33.532 seconds (JVM running for 38.564)
-2019-04-19 08:56:45.767  INFO 2464 --- [main] ication$$EnhancerBySpringCGLIB$$a7fc05a1 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
-2019-04-19 08:56:46.065  INFO 2464 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-04-19 09:12:06.970  INFO 4160 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 4160 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
-2019-04-19 09:12:06.970  INFO 4160 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
-2019-04-19 09:12:14.081  INFO 4160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-04-19 09:12:14.298  INFO 4160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 187ms. Found 3 repository interfaces.
-2019-04-19 09:12:17.034  INFO 4160 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-19 09:12:18.814  INFO 4160 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-04-19 09:12:19.049  INFO 4160 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-19 09:12:19.049  INFO 4160 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
-2019-04-19 09:12:19.064  INFO 4160 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
-2019-04-19 09:12:19.674  INFO 4160 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-19 09:12:19.674  INFO 4160 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11438 ms
-2019-04-19 09:12:21.845  INFO 4160 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-19 09:12:22.113  INFO 4160 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-19 09:12:22.346  INFO 4160 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2019-04-19 09:12:22.502  INFO 4160 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-04-19 09:12:22.522  INFO 4160 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-04-19 09:12:22.845  INFO 4160 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-04-19 09:12:23.377  INFO 4160 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-04-19 09:12:25.612  INFO 4160 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6b867ee7'
-2019-04-19 09:12:25.627  INFO 4160 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-04-19 09:12:33.064  INFO 4160 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-19 09:12:34.439  WARN 4160 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-04-19 09:12:37.002  WARN 4160 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-04-19 09:12:38.627  INFO 4160 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-04-19 09:12:38.970  INFO 4160 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-04-19 09:12:38.986  INFO 4160 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 34.422 seconds (JVM running for 37.528)
-2019-04-19 09:12:39.034  INFO 4160 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
-2019-04-19 09:12:39.236  INFO 4160 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-04-19 10:23:20.924  INFO 1816 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 1816 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
-2019-04-19 10:23:20.924  INFO 1816 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
-2019-04-19 10:23:24.845  INFO 1816 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-04-19 10:23:25.033  INFO 1816 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172ms. Found 3 repository interfaces.
-2019-04-19 10:23:27.346  INFO 1816 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$abd3d7ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-19 10:23:28.877  INFO 1816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-04-19 10:23:29.064  INFO 1816 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-19 10:23:29.064  INFO 1816 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
-2019-04-19 10:23:29.080  INFO 1816 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
-2019-04-19 10:23:29.580  INFO 1816 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-19 10:23:29.580  INFO 1816 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 8500 ms
-2019-04-19 10:23:31.439  INFO 1816 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-19 10:23:31.627  INFO 1816 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-19 10:23:31.846  INFO 1816 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2019-04-19 10:23:31.970  INFO 1816 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-04-19 10:23:31.970  INFO 1816 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-04-19 10:23:32.236  INFO 1816 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-04-19 10:23:32.642  INFO 1816 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-04-19 10:23:34.424  INFO 1816 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@656842bc'
-2019-04-19 10:23:34.424  INFO 1816 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-04-19 10:23:41.033  INFO 1816 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-19 10:23:42.455  WARN 1816 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-04-19 10:23:44.627  WARN 1816 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-04-19 10:23:46.048  INFO 1816 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-04-19 10:23:46.439  INFO 1816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-04-19 10:23:46.455  INFO 1816 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 28.484 seconds (JVM running for 32.348)
-2019-04-19 10:23:46.503  INFO 1816 --- [main] ication$$EnhancerBySpringCGLIB$$a1cf6dc2 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
-2019-04-19 10:23:46.674  INFO 1816 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-04-19 10:23:48.439  INFO 1816 --- [main] app.passwd.service.LdapTools             : cn=igogo
-2019-04-19 10:23:48.720  INFO 1816 --- [main] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2019-04-19 10:23:48.768 ERROR 1816 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.IllegalStateException: Failed to execute CommandLineRunner
-	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:816) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:797) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at app.passwd.PasswdApplication.main(PasswdApplication.java:68) [classes/:na]
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:60) [classes/:na]
 Caused by: org.springframework.ldap.NameNotFoundException: [LDAP: error code 32 - 0000208D: NameErr: DSID-03100241, problem 2001 (NO_OBJECT), data 0, best match of:
-	'DC=happy,DC=tc,DC=edu,DC=tw'
+	'OU=107,OU=Student,DC=happy,DC=tc,DC=edu,DC=tw'
  ]; nested exception is javax.naming.NameNotFoundException: [LDAP: error code 32 - 0000208D: NameErr: DSID-03100241, problem 2001 (NO_OBJECT), data 0, best match of:
-	'DC=happy,DC=tc,DC=edu,DC=tw'
- ]; remaining name 'cn=igogo'
+	'OU=107,OU=Student,DC=happy,DC=tc,DC=edu,DC=tw'
+ ]; remaining name 'ou=igogo,ou=107,ou=Student'
 	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:183) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
 	at org.springframework.ldap.core.LdapTemplate.executeWithContext(LdapTemplate.java:820) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
 	at org.springframework.ldap.core.LdapTemplate.executeReadWrite(LdapTemplate.java:812) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
 	at org.springframework.ldap.core.LdapTemplate.modifyAttributes(LdapTemplate.java:964) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
-	at app.passwd.service.LdapTools.updateUserPassword(LdapTools.java:132) ~[classes/:na]
-	at app.passwd.PasswdApplication.run(PasswdApplication.java:200) [classes/:na]
+	at app.passwd.service.LdapTools.updateUserPassword(LdapTools.java:153) ~[classes/:na]
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:199) [classes/:na]
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:813) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
 	... 5 common frames omitted
 Caused by: javax.naming.NameNotFoundException: [LDAP: error code 32 - 0000208D: NameErr: DSID-03100241, problem 2001 (NO_OBJECT), data 0, best match of:
-	'DC=happy,DC=tc,DC=edu,DC=tw'
+	'OU=107,OU=Student,DC=happy,DC=tc,DC=edu,DC=tw'
  ]
 	at com.sun.jndi.ldap.LdapCtx.mapErrorCode(LdapCtx.java:3179) ~[na:1.8.0_202]
 	at com.sun.jndi.ldap.LdapCtx.processReturnCode(LdapCtx.java:3100) ~[na:1.8.0_202]
@@ -222,133 +427,379 @@ Caused by: javax.naming.NameNotFoundException: [LDAP: error code 32 - 0000208D: 
 	at org.springframework.ldap.core.LdapTemplate.executeWithContext(LdapTemplate.java:817) ~[spring-ldap-core-2.3.2.RELEASE.jar:2.3.2.RELEASE]
 	... 10 common frames omitted
 
-2019-04-19 10:23:48.768  INFO 1816 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-04-19 10:23:48.783  INFO 1816 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2019-04-19 10:23:48.783  INFO 1816 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-2019-04-19 10:23:48.814  INFO 1816 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2019-04-19 10:23:48.814  INFO 1816 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2019-04-19 10:25:15.767  INFO 4040 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 4040 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
-2019-04-19 10:25:15.767  INFO 4040 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
-2019-04-19 10:25:21.502  INFO 4040 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-04-19 10:25:21.689  INFO 4040 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172ms. Found 3 repository interfaces.
-2019-04-19 10:25:23.939  INFO 4040 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-19 10:25:25.455  INFO 4040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-04-19 10:25:25.658  INFO 4040 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-19 10:25:25.658  INFO 4040 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
-2019-04-19 10:25:25.674  INFO 4040 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
-2019-04-19 10:25:26.158  INFO 4040 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-19 10:25:26.173  INFO 4040 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10265 ms
-2019-04-19 10:25:28.048  INFO 4040 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-19 10:25:28.314  INFO 4040 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-19 10:25:28.533  INFO 4040 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2019-04-22 09:16:19.880  INFO 4360 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-22 09:16:19.895  INFO 4360 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 09:16:19.895  INFO 4360 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-22 09:16:20.020  INFO 4360 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-22 09:16:20.129  INFO 4360 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-22 09:29:22.245  INFO 4888 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 4888 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 09:29:22.245  INFO 4888 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 09:29:27.541  INFO 4888 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 09:29:27.822  INFO 4888 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 234ms. Found 3 repository interfaces.
+2019-04-22 09:29:30.416  INFO 4888 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 09:29:32.182  INFO 4888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 09:29:32.385  INFO 4888 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 09:29:32.385  INFO 4888 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 09:29:32.417  INFO 4888 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 09:29:32.932  INFO 4888 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 09:29:32.947  INFO 4888 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10468 ms
+2019-04-22 09:29:34.901  INFO 4888 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 09:29:35.182  INFO 4888 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 09:29:35.417  INFO 4888 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-04-19 10:25:28.705  INFO 4040 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-04-19 10:25:28.705  INFO 4040 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-04-19 10:25:28.986  INFO 4040 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-04-19 10:25:29.439  INFO 4040 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-04-19 10:25:31.236  INFO 4040 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6b867ee7'
-2019-04-19 10:25:31.236  INFO 4040 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-04-19 10:25:37.720  INFO 4040 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-19 10:25:39.080  WARN 4040 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-04-19 10:25:41.378  WARN 4040 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-04-19 10:25:42.814  INFO 4040 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-04-19 10:25:43.096  INFO 4040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-04-19 10:25:43.111  INFO 4040 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 30.375 seconds (JVM running for 33.163)
-2019-04-19 10:25:43.159  INFO 4040 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
-2019-04-19 10:25:43.330  INFO 4040 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-04-19 10:25:44.830  INFO 4040 --- [main] app.passwd.service.LdapTools             : ou=Student
-2019-04-19 10:25:44.830  INFO 4040 --- [main] app.passwd.service.LdapTools             : ou=107
-2019-04-19 10:25:44.830  INFO 4040 --- [main] app.passwd.service.LdapTools             : cn=igogo
-2019-04-19 10:36:12.111  INFO 980 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 980 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
-2019-04-19 10:36:12.127  INFO 980 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
-2019-04-19 10:36:15.533  INFO 980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-04-19 10:36:15.736  INFO 980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 187ms. Found 3 repository interfaces.
-2019-04-19 10:36:17.986  INFO 980 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ffbadc3a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-19 10:36:20.002  INFO 980 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-04-19 10:36:20.205  INFO 980 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-19 10:36:20.236  INFO 980 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
-2019-04-19 10:36:20.252  INFO 980 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
-2019-04-19 10:36:20.830  INFO 980 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-19 10:36:20.845  INFO 980 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 8578 ms
-2019-04-19 10:36:22.955  INFO 980 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-19 10:36:23.173  INFO 980 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-19 10:36:23.377  INFO 980 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2019-04-22 09:29:35.572  INFO 4888 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 09:29:35.572  INFO 4888 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 09:29:35.870  INFO 4888 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 09:29:36.385  INFO 4888 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 09:29:38.354  INFO 4888 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4981d95b'
+2019-04-22 09:29:38.369  INFO 4888 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 09:29:47.902  INFO 4888 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 09:29:51.058  WARN 4888 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 09:29:53.730  WARN 4888 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 09:29:55.369  INFO 4888 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 09:29:55.776  INFO 4888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 09:29:55.807  INFO 4888 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 37.141 seconds (JVM running for 40.291)
+2019-04-22 09:29:55.854  INFO 4888 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 09:29:56.198  INFO 4888 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 10:35:14.881  INFO 3048 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 3048 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 10:35:14.897  INFO 3048 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 10:35:18.897  INFO 3048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 10:35:19.100  INFO 3048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 188ms. Found 3 repository interfaces.
+2019-04-22 10:35:21.647  INFO 3048 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ffbadc3a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 10:35:23.365  INFO 3048 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 10:35:23.600  INFO 3048 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 10:35:23.600  INFO 3048 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 10:35:23.615  INFO 3048 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 10:35:24.178  INFO 3048 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 10:35:24.178  INFO 3048 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9141 ms
+2019-04-22 10:35:26.319  INFO 3048 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 10:35:26.569  INFO 3048 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 10:35:26.913  INFO 3048 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-04-19 10:36:23.533  INFO 980 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-04-19 10:36:23.548  INFO 980 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-04-19 10:36:23.892  INFO 980 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-04-19 10:36:24.393  INFO 980 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-04-19 10:36:26.377  INFO 980 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@21e5f0b6'
-2019-04-19 10:36:26.424  INFO 980 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-04-19 10:36:33.362  INFO 980 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-19 10:36:34.939  WARN 980 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-04-19 10:36:37.392  WARN 980 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-04-19 10:36:38.893  INFO 980 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-04-19 10:36:39.237  INFO 980 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-04-19 10:36:39.252  INFO 980 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 31.86 seconds (JVM running for 35.176)
-2019-04-19 10:36:39.298  INFO 980 --- [main] ication$$EnhancerBySpringCGLIB$$f5b6720e : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
-2019-04-19 10:36:39.486  INFO 980 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-04-19 11:00:55.909  INFO 1496 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 1496 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
-2019-04-19 11:00:55.924  INFO 1496 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
-2019-04-19 11:33:44.123  INFO 2708 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2708 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
-2019-04-19 11:33:44.135  INFO 2708 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
-2019-04-19 11:33:50.697  INFO 2708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-04-19 11:33:50.962  INFO 2708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 234ms. Found 3 repository interfaces.
-2019-04-19 11:33:53.556  INFO 2708 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bf78f5b2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-19 11:33:55.275  INFO 2708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-04-19 11:33:55.494  INFO 2708 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-19 11:33:55.494  INFO 2708 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
-2019-04-19 11:33:55.509  INFO 2708 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;.]
-2019-04-19 11:33:56.119  INFO 2708 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-19 11:33:56.119  INFO 2708 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11140 ms
-2019-04-19 11:33:58.134  INFO 2708 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-19 11:33:58.415  INFO 2708 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-19 11:33:58.665  INFO 2708 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2019-04-22 10:35:27.069  INFO 3048 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 10:35:27.069  INFO 3048 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 10:35:27.350  INFO 3048 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 10:35:27.881  INFO 3048 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 10:35:29.757  INFO 3048 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@216c22ce'
+2019-04-22 10:35:29.772  INFO 3048 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 10:35:36.397  INFO 3048 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 10:35:37.897  WARN 3048 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 10:35:40.178  WARN 3048 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 10:35:41.726  INFO 3048 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 10:35:42.069  INFO 3048 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 10:35:42.101  INFO 3048 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 31.517 seconds (JVM running for 34.943)
+2019-04-22 10:35:42.147  INFO 3048 --- [main] ication$$EnhancerBySpringCGLIB$$f5b6720e : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 10:35:42.334  INFO 3048 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 10:37:42.507  INFO 2728 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2728 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 10:37:42.523  INFO 2728 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 10:37:48.491  INFO 2728 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 10:37:48.710  INFO 2728 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 187ms. Found 3 repository interfaces.
+2019-04-22 10:37:51.851  INFO 2728 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e7142617] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 10:37:54.179  INFO 2728 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 10:37:54.460  INFO 2728 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 10:37:54.460  INFO 2728 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 10:37:54.477  INFO 2728 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 10:37:55.148  INFO 2728 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 10:37:55.148  INFO 2728 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 12453 ms
+2019-04-22 10:37:57.710  INFO 2728 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 10:37:58.007  INFO 2728 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 10:37:58.304  INFO 2728 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-04-19 11:33:58.947  INFO 2708 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-04-19 11:33:58.947  INFO 2708 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-04-19 11:33:59.306  INFO 2708 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-04-19 11:33:59.900  INFO 2708 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-04-19 11:34:02.151  INFO 2708 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@48bc2fce'
-2019-04-19 11:34:02.165  INFO 2708 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-04-19 11:34:09.212  INFO 2708 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-19 11:34:10.806  WARN 2708 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-04-19 11:34:13.118  WARN 2708 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-04-19 11:34:14.650  INFO 2708 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-04-19 11:34:14.993  INFO 2708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-04-19 11:34:15.025  INFO 2708 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 32.687 seconds (JVM running for 42.592)
-2019-04-19 11:34:15.071  INFO 2708 --- [main] ication$$EnhancerBySpringCGLIB$$b5748b86 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
-2019-04-19 11:34:15.290  INFO 2708 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-04-19 11:52:08.475  INFO 924 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 924 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
-2019-04-19 11:52:08.475  INFO 924 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
-2019-04-19 11:52:15.678  INFO 924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-04-19 11:52:15.959  INFO 924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 265ms. Found 3 repository interfaces.
-2019-04-19 11:52:18.960  INFO 924 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bb090ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-19 11:52:21.068  INFO 924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-04-19 11:52:21.365  INFO 924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-19 11:52:21.365  INFO 924 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
-2019-04-19 11:52:21.397  INFO 924 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;.]
-2019-04-19 11:52:22.084  INFO 924 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-19 11:52:22.100  INFO 924 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 13406 ms
-2019-04-19 11:52:24.615  INFO 924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-19 11:52:24.928  INFO 924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-19 11:52:25.209  INFO 924 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2019-04-22 10:37:58.460  INFO 2728 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 10:37:58.460  INFO 2728 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 10:37:58.852  INFO 2728 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 10:37:59.460  INFO 2728 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 10:38:02.023  INFO 2728 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@21e5f0b6'
+2019-04-22 10:38:02.054  INFO 2728 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 10:38:10.570  INFO 2728 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 10:38:12.445  WARN 2728 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 10:38:14.742  WARN 2728 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 10:38:16.242  INFO 2728 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 10:38:16.570  INFO 2728 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 10:38:16.585  INFO 2728 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 36.546 seconds (JVM running for 39.987)
+2019-04-22 10:38:16.648  INFO 2728 --- [main] ication$$EnhancerBySpringCGLIB$$dd0fbbeb : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 10:38:16.835  INFO 2728 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 11:45:26.801  INFO 2472 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2472 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 11:45:26.801  INFO 2472 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 11:45:30.864  INFO 2472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 11:45:31.051  INFO 2472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 156ms. Found 3 repository interfaces.
+2019-04-22 11:45:33.457  INFO 2472 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e7142617] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 11:45:35.176  INFO 2472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 11:45:35.441  INFO 2472 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 11:45:35.441  INFO 2472 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 11:45:35.457  INFO 2472 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 11:45:35.974  INFO 2472 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 11:45:35.974  INFO 2472 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9017 ms
+2019-04-22 11:45:38.286  INFO 2472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 11:45:38.504  INFO 2472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 11:45:38.738  INFO 2472 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-04-19 11:52:25.381  INFO 924 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2019-04-19 11:52:25.397  INFO 924 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-04-19 11:52:25.756  INFO 924 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-04-19 11:52:26.366  INFO 924 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2019-04-19 11:52:28.943  INFO 924 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@546ed2a0'
-2019-04-19 11:52:28.960  INFO 924 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-04-19 11:52:37.912  INFO 924 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-19 11:52:39.959  WARN 924 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-04-19 11:52:42.835  WARN 924 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-2019-04-19 11:52:45.006  INFO 924 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2019-04-19 11:52:45.630  INFO 924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-04-19 11:52:45.663  INFO 924 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 40.407 seconds (JVM running for 44.802)
-2019-04-19 11:52:45.740  INFO 924 --- [main] lication$$EnhancerBySpringCGLIB$$1ac26c2 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
-2019-04-19 11:52:46.052  INFO 924 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 11:45:38.896  INFO 2472 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 11:45:38.896  INFO 2472 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 11:45:39.191  INFO 2472 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 11:45:39.676  INFO 2472 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 11:45:41.785  INFO 2472 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@21e5f0b6'
+2019-04-22 11:45:41.785  INFO 2472 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 11:45:48.645  INFO 2472 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 11:45:50.208  WARN 2472 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 11:45:52.239  WARN 2472 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 11:45:53.926  INFO 2472 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 11:45:54.270  INFO 2472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 11:45:54.285  INFO 2472 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 30.672 seconds (JVM running for 34.794)
+2019-04-22 11:45:54.332  INFO 2472 --- [main] ication$$EnhancerBySpringCGLIB$$dd0fbbeb : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 11:45:54.363 ERROR 2472 --- [main] ication$$EnhancerBySpringCGLIB$$dd0fbbeb : 本程式無償提供台中市學校使用,不蒐集資料,亦不負擔保責任
+2019-04-22 11:45:54.379  INFO 2472 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-22 11:45:54.379  INFO 2472 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 11:45:54.379  INFO 2472 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-22 11:45:54.395  INFO 2472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-22 11:45:54.410  INFO 2472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-22 11:46:45.926  INFO 1272 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 1272 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 11:46:45.926  INFO 1272 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 11:46:51.004  INFO 1272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 11:46:51.177  INFO 1272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 157ms. Found 3 repository interfaces.
+2019-04-22 11:46:53.426  INFO 1272 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 11:46:55.973  INFO 1272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 11:46:56.176  INFO 1272 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 11:46:56.176  INFO 1272 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 11:46:56.208  INFO 1272 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 11:46:56.739  INFO 1272 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 11:46:56.755  INFO 1272 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10672 ms
+2019-04-22 11:46:58.770  INFO 1272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 11:46:59.005  INFO 1272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 11:46:59.208  INFO 1272 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 11:46:59.380  INFO 1272 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 11:46:59.380  INFO 1272 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 11:46:59.646  INFO 1272 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 11:47:00.130  INFO 1272 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 11:47:02.114  INFO 1272 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4981d95b'
+2019-04-22 11:47:02.130  INFO 1272 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 11:47:08.848  INFO 1272 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 11:47:10.333  WARN 1272 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 11:47:12.786  WARN 1272 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 11:47:14.301  INFO 1272 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 11:47:14.661  INFO 1272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 11:47:14.677  INFO 1272 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 31.766 seconds (JVM running for 34.975)
+2019-04-22 11:47:14.739  INFO 1272 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 11:47:14.770 ERROR 1272 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : 本程式無償提供台中市學校使用,不蒐集資料,亦不負擔保責任
+2019-04-22 11:47:14.770  INFO 1272 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-22 11:47:14.770  INFO 1272 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 11:47:14.786  INFO 1272 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-22 11:47:14.801  INFO 1272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-22 11:47:14.801  INFO 1272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-22 11:47:53.396  INFO 1012 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 1012 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 11:47:53.412  INFO 1012 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 11:48:00.864  INFO 1012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 11:48:01.052  INFO 1012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172ms. Found 3 repository interfaces.
+2019-04-22 11:48:03.458  INFO 1012 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$abd3d7ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 11:48:05.302  INFO 1012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 11:48:05.505  INFO 1012 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 11:48:05.505  INFO 1012 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 11:48:05.536  INFO 1012 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 11:48:06.099  INFO 1012 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 11:48:06.099  INFO 1012 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 12453 ms
+2019-04-22 11:48:08.396  INFO 1012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 11:48:08.692  INFO 1012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 11:48:08.927  INFO 1012 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 11:48:09.099  INFO 1012 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 11:48:09.099  INFO 1012 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 11:48:09.411  INFO 1012 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 11:48:09.958  INFO 1012 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 11:48:12.084  INFO 1012 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@93bf0e0'
+2019-04-22 11:48:12.099  INFO 1012 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 11:48:19.568  INFO 1012 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 11:48:21.411  WARN 1012 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 11:48:24.318  WARN 1012 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 11:48:27.036  INFO 1012 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 11:48:27.411  INFO 1012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 11:48:27.428  INFO 1012 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 36.986 seconds (JVM running for 40.064)
+2019-04-22 11:48:27.474  INFO 1012 --- [main] ication$$EnhancerBySpringCGLIB$$a1cf6dc2 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 11:48:27.506 ERROR 1012 --- [main] ication$$EnhancerBySpringCGLIB$$a1cf6dc2 : 本程式無償提供台中市學校使用,不蒐集資料,亦不負擔保責任
+2019-04-22 11:48:27.521  INFO 1012 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-22 11:48:27.521  INFO 1012 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 11:48:27.536  INFO 1012 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-22 11:48:27.552  INFO 1012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-22 11:48:27.552  INFO 1012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-22 11:52:01.116  INFO 3780 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 3780 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 11:52:01.132  INFO 3780 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 11:52:07.944  INFO 3780 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 11:52:08.147  INFO 3780 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 171ms. Found 3 repository interfaces.
+2019-04-22 11:52:10.960  INFO 3780 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$abd3d7ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 11:52:13.179  INFO 3780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 11:52:13.414  INFO 3780 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 11:52:13.414  INFO 3780 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 11:52:13.429  INFO 3780 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 11:52:13.991  INFO 3780 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 11:52:13.991  INFO 3780 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 12671 ms
+2019-04-22 11:52:16.179  INFO 3780 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 11:52:16.397  INFO 3780 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 11:52:16.616  INFO 3780 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 11:52:16.819  INFO 3780 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 11:52:16.819  INFO 3780 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 11:52:17.117  INFO 3780 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 11:52:17.647  INFO 3780 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 11:52:19.647  INFO 3780 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@93bf0e0'
+2019-04-22 11:52:19.647  INFO 3780 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 11:52:26.663  INFO 3780 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 11:52:28.304  WARN 3780 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 11:52:30.710  WARN 3780 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 11:52:32.272  INFO 3780 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 11:52:32.679  INFO 3780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 11:52:32.694  INFO 3780 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 33.859 seconds (JVM running for 37.041)
+2019-04-22 11:52:32.741  INFO 3780 --- [main] ication$$EnhancerBySpringCGLIB$$a1cf6dc2 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 11:52:32.960  INFO 3780 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 11:52:34.774  INFO 3780 --- [main] ication$$EnhancerBySpringCGLIB$$a1cf6dc2 : 本程式無償提供台中市學校使用,不蒐集資料,亦不負擔保責任
+2019-04-22 11:52:34.774  INFO 3780 --- [main] ication$$EnhancerBySpringCGLIB$$a1cf6dc2 : 更改密碼服務成功啟動
+2019-04-22 14:01:47.467  INFO 1996 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 1996 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 14:01:47.467  INFO 1996 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 14:01:52.607  INFO 1996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 14:01:52.826  INFO 1996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 203ms. Found 3 repository interfaces.
+2019-04-22 14:01:55.264  INFO 1996 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 14:01:57.076  INFO 1996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 14:01:57.373  INFO 1996 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 14:01:57.389  INFO 1996 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 14:01:57.420  INFO 1996 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 14:01:58.045  INFO 1996 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 14:01:58.045  INFO 1996 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10422 ms
+2019-04-22 14:02:00.389  INFO 1996 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 14:02:00.654  INFO 1996 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 14:02:00.920  INFO 1996 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 14:02:01.123  INFO 1996 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 14:02:01.123  INFO 1996 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 14:02:01.405  INFO 1996 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 14:02:02.248  INFO 1996 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 14:02:04.420  INFO 1996 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4981d95b'
+2019-04-22 14:02:04.436  INFO 1996 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 14:02:11.654  INFO 1996 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 14:02:13.264  WARN 1996 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 14:02:15.623  WARN 1996 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 14:02:17.217  INFO 1996 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 14:02:17.655  INFO 1996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 14:02:17.748  INFO 1996 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 33.922 seconds (JVM running for 37.085)
+2019-04-22 14:02:17.795  INFO 1996 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 14:02:17.983  INFO 1996 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 14:02:19.905  INFO 1996 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : 本程式無償提供台中市學校使用,不蒐集資料,亦不負擔保責任
+2019-04-22 14:02:19.905  INFO 1996 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : 帳號整合服務成功啟動
+2019-04-22 14:02:47.186  INFO 1996 --- [http-nio-8080-exec-10] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-22 14:02:47.217  INFO 1996 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-22 14:02:47.358  INFO 1996 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed initialization in 141 ms
+2019-04-22 14:02:47.545  INFO 1996 --- [http-nio-8080-exec-10] app.passwd.controller.IndexController    : 1.需請求取得認證授權,轉到 http://api.cloudschool.tw/school-oauth/authorize
+2019-04-22 14:03:36.186  INFO 1996 --- [http-nio-8080-exec-9] a.passwd.controller.CallbackController   : 3.取得code:{"school_no":"000040","username":"t0001","role":"teacher","name":"\u6c5f\u5049\u5091","edu_key":"0bae6d39c180cfd25de6cdfc6447bfd8fde80a132fb36684ff7ad057ae4ef503","title_name":"\u6821\u9577","title_kind":"\u6821\u9577"}
+2019-04-22 14:03:36.218  INFO 1996 --- [http-nio-8080-exec-9] app.passwd.service.Oauth2Client          : 4. 進行client_credientials flow 取得token.
+2019-04-22 14:10:55.143  INFO 5296 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 5296 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 14:10:55.158  INFO 5296 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 14:10:59.768  INFO 5296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 14:10:59.956  INFO 5296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 157ms. Found 3 repository interfaces.
+2019-04-22 14:11:02.314  INFO 5296 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 14:11:04.018  INFO 5296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 14:11:04.221  INFO 5296 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 14:11:04.221  INFO 5296 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 14:11:04.236  INFO 5296 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 14:11:04.783  INFO 5296 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 14:11:04.783  INFO 5296 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9452 ms
+2019-04-22 14:11:06.830  INFO 5296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 14:11:07.064  INFO 5296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 14:11:07.299  INFO 5296 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 14:11:07.439  INFO 5296 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 14:11:07.439  INFO 5296 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 14:11:07.705  INFO 5296 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 14:11:08.174  INFO 5296 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 14:11:10.096  INFO 5296 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4981d95b'
+2019-04-22 14:11:10.096  INFO 5296 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 14:11:16.768  INFO 5296 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 14:11:18.986  WARN 5296 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 14:11:21.408  WARN 5296 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 14:11:23.002  INFO 5296 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 14:11:23.363  INFO 5296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 14:11:23.377  INFO 5296 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 30.844 seconds (JVM running for 35.099)
+2019-04-22 14:11:23.424  INFO 5296 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 14:11:23.627  INFO 5296 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 14:11:25.440  INFO 5296 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : 本程式無償提供台中市學校使用,不蒐集資料,亦不負擔保責任
+2019-04-22 14:11:25.440  INFO 5296 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : 帳號整合服務成功啟動
+2019-04-22 14:15:27.566  INFO 5296 --- [http-nio-8080-exec-10] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-22 14:15:27.660  INFO 5296 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-22 14:15:27.785  INFO 5296 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed initialization in 125 ms
+2019-04-22 14:15:28.160  INFO 5296 --- [http-nio-8080-exec-8] app.passwd.controller.IndexController    : 1.需請求取得認證授權,轉到 http://api.cloudschool.tw/school-oauth/authorize
+2019-04-22 14:15:42.426  INFO 5296 --- [http-nio-8080-exec-6] a.passwd.controller.CallbackController   : 3.取得code:{"school_no":"000040","username":"t0001","role":"teacher","name":"\u6c5f\u5049\u5091","edu_key":"0bae6d39c180cfd25de6cdfc6447bfd8fde80a132fb36684ff7ad057ae4ef503","title_name":"\u6821\u9577","title_kind":"\u6821\u9577"}
+2019-04-22 14:15:42.488  INFO 5296 --- [http-nio-8080-exec-6] app.passwd.service.Oauth2Client          : 4. 進行client_credientials flow 取得token.
+2019-04-22 16:14:04.678  INFO 2584 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 2584 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 16:14:04.678  INFO 2584 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 16:14:10.944  INFO 2584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 16:14:11.194  INFO 2584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 219ms. Found 3 repository interfaces.
+2019-04-22 16:14:13.819  INFO 2584 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1da0bc31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 16:14:15.647  INFO 2584 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 16:14:15.850  INFO 2584 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 16:14:15.866  INFO 2584 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 16:14:15.881  INFO 2584 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 16:14:16.413  INFO 2584 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 16:14:16.413  INFO 2584 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11282 ms
+2019-04-22 16:14:18.569  INFO 2584 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 16:14:18.788  INFO 2584 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 16:14:19.006  INFO 2584 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 16:14:19.147  INFO 2584 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 16:14:19.147  INFO 2584 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 16:14:19.397  INFO 2584 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 16:14:19.881  INFO 2584 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 16:14:21.975  INFO 2584 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4981d95b'
+2019-04-22 16:14:21.991  INFO 2584 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 16:14:29.491  INFO 2584 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 16:14:31.148  WARN 2584 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 16:14:33.647  WARN 2584 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 16:14:35.303  INFO 2584 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 16:14:35.647  INFO 2584 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 16:14:35.694  INFO 2584 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 33.688 seconds (JVM running for 36.771)
+2019-04-22 16:14:35.757  INFO 2584 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 16:14:35.975  INFO 2584 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 16:14:37.897  INFO 2584 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : 本程式無償提供台中市學校使用,不蒐集資料,亦不負擔保責任
+2019-04-22 16:14:37.913  INFO 2584 --- [main] ication$$EnhancerBySpringCGLIB$$139c5205 : 帳號整合服務成功啟動
+2019-04-22 16:21:02.323  INFO 5316 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on WIN-8G70OMG2CAU with PID 5316 (C:\Users\Administrator\Documents\Projects\school-passwd\target\classes started by Administrator in C:\Users\Administrator\Documents\Projects\school-passwd)
+2019-04-22 16:21:02.337  INFO 5316 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-04-22 16:21:07.619  INFO 5316 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-22 16:21:07.806  INFO 5316 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172ms. Found 3 repository interfaces.
+2019-04-22 16:21:10.244  INFO 5316 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cdcfb130] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-22 16:21:12.306  INFO 5316 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-22 16:21:12.509  INFO 5316 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-22 16:21:12.526  INFO 5316 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-22 16:21:12.540  INFO 5316 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\java\jdk-8\bin\;C:\Program Files (x86)\Bitvise SSH Client;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin;;.]
+2019-04-22 16:21:13.072  INFO 5316 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-22 16:21:13.087  INFO 5316 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 10609 ms
+2019-04-22 16:21:15.165  INFO 5316 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-22 16:21:15.400  INFO 5316 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-22 16:21:15.603  INFO 5316 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-22 16:21:15.776  INFO 5316 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-22 16:21:15.776  INFO 5316 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-22 16:21:16.087  INFO 5316 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-22 16:21:16.557  INFO 5316 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-22 16:21:18.556  INFO 5316 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5bb8e6fc'
+2019-04-22 16:21:18.572  INFO 5316 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-22 16:21:25.573  INFO 5316 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-22 16:21:27.072  WARN 5316 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-22 16:21:29.619  WARN 5316 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-04-22 16:21:31.197  INFO 5316 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-04-22 16:21:31.572  INFO 5316 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-22 16:21:31.587  INFO 5316 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 32.422 seconds (JVM running for 35.695)
+2019-04-22 16:21:31.650  INFO 5316 --- [main] ication$$EnhancerBySpringCGLIB$$c3cb4704 : working dir:C:\Users\Administrator\Documents\Projects\school-passwd
+2019-04-22 16:21:31.822  INFO 5316 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-22 16:21:33.619  INFO 5316 --- [main] ication$$EnhancerBySpringCGLIB$$c3cb4704 : 本程式僅提供台中市學校使用
+2019-04-22 16:21:33.650  INFO 5316 --- [main] ication$$EnhancerBySpringCGLIB$$c3cb4704 : 帳號整合服務成功啟動
+2019-04-22 16:24:58.401  INFO 5316 --- [http-nio-8080-exec-10] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-22 16:24:58.401  INFO 5316 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-22 16:24:58.620  INFO 5316 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed initialization in 124 ms
+2019-04-22 16:24:58.964  INFO 5316 --- [http-nio-8080-exec-9] app.passwd.controller.IndexController    : 1.需請求取得認證授權,轉到 http://api.cloudschool.tw/school-oauth/authorize

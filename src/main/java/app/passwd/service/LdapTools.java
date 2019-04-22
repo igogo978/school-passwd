@@ -18,11 +18,13 @@ import org.springframework.ldap.core.support.LdapContextSource;
 import org.springframework.ldap.support.LdapNameBuilder;
 import org.springframework.stereotype.Service;
 
+import javax.naming.InvalidNameException;
 import javax.naming.Name;
 import javax.naming.directory.Attribute;
 import javax.naming.directory.BasicAttribute;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.ModificationItem;
+import javax.naming.ldap.LdapName;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -113,17 +115,32 @@ public class LdapTools {
     }
 
 
-    public void updateUserPassword(User user, String userPassword) throws UnsupportedEncodingException {
+    public void updateUserPassword(ADUser aduser, String userPassword) throws UnsupportedEncodingException, InvalidNameException {
+        LdapName ldapName = new LdapName(aduser.getDistinguishedName());
+
+
+        List<String> rdns = new ArrayList<>();
+        ldapName.getRdns().forEach(rdn -> {
+            if (rdn.getType().equalsIgnoreCase("OU") || rdn.getType().equalsIgnoreCase("CN")) {
+                rdns.add(rdn.toString());
+            }
+        });
         LdapTemplate ldapTemplate = initLDAPConnect();
+//
+        LdapNameBuilder ldapNameBuilder =  LdapNameBuilder.newInstance().newInstance();
+        rdns.forEach(rdn->ldapNameBuilder.add(rdn));
+        ldapNameBuilder.build();
 
+        Name dn = ldapNameBuilder.build();
+        for (int i = 0; i < dn.size(); i++) {
+            System.out.println(dn.get(i));
+        }
+//        Name dn = LdapNameBuilder
+//                .newInstance()
+//                .add("cn", aduser.getCn())
+//                .build();
 
-        Name dn = LdapNameBuilder
-                .newInstance()
-                .add("ou",user.getRole())
-
-                .add("cn", user.getUsername())
-                .build();
-
+//
         String passwdUnicodePwdFormat = String.format("\"%s\"", userPassword);
         byte[] passwd = passwdUnicodePwdFormat.getBytes("UTF-16LE");
 //        context.setAttributeValue("unicodePwd", password);
@@ -144,9 +161,9 @@ public class LdapTools {
 
     public void addUser(User user, String userPassword) throws UnsupportedEncodingException {
         LdapTemplate ldapTemplate = initLDAPConnect();
-                Name dn = LdapNameBuilder
+        Name dn = LdapNameBuilder
                 .newInstance()
-                .add("ou",user.getRole())
+                .add("ou", user.getRole())
                 .add("cn", user.getUsername())
                 .build();
         DirContextAdapter context = new DirContextAdapter(dn);
@@ -171,22 +188,16 @@ public class LdapTools {
         ldapTemplate.bind(context);
 
 
-
     }
 
+    public ADUser findByCn(String username) {
+        LdapTemplate ldapTemplate = initLDAPConnect();
+        List<ADUser> users = ldapTemplate.search(
+                query().where("objectclass").is("person")
+                        .and("cn").is(username),
+                new PersonAttributesMapper());
 
-    private String digestSHA(final String password) {
-        String base64;
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA");
-            digest.update(password.getBytes());
-            base64 = Base64
-                    .getEncoder()
-                    .encodeToString(digest.digest());
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-        return "{SHA}" + base64;
+        return users.get(0);
     }
 
 }

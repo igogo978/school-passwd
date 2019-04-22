@@ -16,6 +16,7 @@ public class ADUser {
     private @Attribute(name = "userAccountControl") String userAccountControl;
     private @Attribute(name = "sAMAccountName") String sAMAccountName;
     private @Attribute(name = "userPrincipalName") String userPrincipalName;
+    private @Attribute(name = "distinguishedName") String distinguishedName;
 
     public ADUser() {
     }
@@ -59,5 +60,13 @@ public class ADUser {
 
     public void setUserPrincipalName(String userPrincipalName) {
         this.userPrincipalName = userPrincipalName;
+    }
+
+    public String getDistinguishedName() {
+        return distinguishedName;
+    }
+
+    public void setDistinguishedName(String distinguishedName) {
+        this.distinguishedName = distinguishedName;
     }
 }

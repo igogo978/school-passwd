@@ -52,7 +52,7 @@ public class CallbackController {
         String edu_key = node.get("edu_key").asText();
 
 //        String school_no, String username, String role, String name, String edu_key
-        User user = new User(school_no, username, role, name, edu_key);
+        User user = new User(school_no, username,username, role, name, edu_key);
         userloginservice.setUserLoggedin(Boolean.TRUE, user);
 
         //取得token
@@ -80,7 +80,7 @@ public class CallbackController {
         String edu_key = node.get("edu_key").asText();
 
 //        String school_no, String username, String role, String name, String edu_key
-        User user = new User(school_no, username, role, name, edu_key);
+        User user = new User(school_no, username,username, role, name, edu_key);
         userloginservice.setUserLoggedin(Boolean.TRUE, user);
 
         //取得token
