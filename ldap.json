@@ -6,7 +6,7 @@
 	"cert": "happy.jks",
 	"basedn": "dc=happy,dc=tc,dc=edu,dc=tw",
 	"upn_suffix": "happy.tc.edu.tw",
-	"id_format": "regular",
+	"stu_id_format": "simple",
 	"roles": [{
 			"role": "teacher",
 			"ou": "Teacher"

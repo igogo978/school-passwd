@@ -1,6 +1,7 @@
 package app.passwd.controller;
 
 import app.passwd.model.SystemConfig;
+import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
 import app.passwd.service.Oauth2Client;
 import app.passwd.service.UserLoginService;
@@ -24,6 +25,9 @@ public class UserhomeController {
     @Autowired
     SystemConfigRepository sysconfigrepository;
 
+    @Autowired
+    LdapRepository ldaprepository;
+
 
     @GetMapping("/passwd/userhome")
     public String userhome(Model model) {
@@ -32,10 +36,14 @@ public class UserhomeController {
             return "redirect:/";
         } else {
 //            logger.info(String.format("%s", userloginservice.isLoggedin()));
-            String username = userloginservice.getUser().getUsername();
-            String name = userloginservice.getUser().getName();
-            String schoolid = userloginservice.getUser().getSchool_no();
-            String role = userloginservice.getUser().getRole();
+//            String adusername = "";
+//            String username = userloginservice.getUser().getUsername();
+//            String name = userloginservice.getUser().getName();
+//            String schoolid = userloginservice.getUser().getSchool_no();
+//            String role = userloginservice.getUser().getRole();
+//
+
+
 //            logger.info(client.getAccesstoken());
         }
 

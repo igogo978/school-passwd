@@ -65,7 +65,7 @@ public class LdapTools {
         return ldapTemplate;
     }
 
-    public Boolean isOUExist(String ouname) {
+    public Boolean isOuExist(String ouname) {
         LdapTemplate ldapTemplate = initLDAPConnect();
 
 
@@ -80,14 +80,32 @@ public class LdapTools {
         return Boolean.FALSE;
     }
 
-
-    public void createOu(String ouname) {
+    public void createOu(String rdn) {
 
         LdapTemplate ldapTemplate = initLDAPConnect();
-        Name dn = LdapNameBuilder
-                .newInstance()
-                .add("ou", ouname)
-                .build();
+        LdapNameBuilder ldapNameBuilder = LdapNameBuilder
+                .newInstance();
+
+        ldapNameBuilder.add("ou", rdn);
+        Name dn = ldapNameBuilder.build();
+        DirContextAdapter context = new DirContextAdapter(dn);
+        List<String> objectClass = new ArrayList<>();
+        objectClass.add("top");
+        objectClass.add("organizationalUnit");
+        context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
+
+        ldapTemplate.bind(context);
+    }
+
+
+    public void createOu(List<String> rdns) {
+
+        LdapTemplate ldapTemplate = initLDAPConnect();
+        LdapNameBuilder ldapNameBuilder = LdapNameBuilder
+                .newInstance();
+
+        rdns.forEach(rdn -> ldapNameBuilder.add("ou", rdn));
+        Name dn = ldapNameBuilder.build();
         DirContextAdapter context = new DirContextAdapter(dn);
         List<String> objectClass = new ArrayList<>();
         objectClass.add("top");
@@ -127,20 +145,15 @@ public class LdapTools {
         });
         LdapTemplate ldapTemplate = initLDAPConnect();
 //
-        LdapNameBuilder ldapNameBuilder =  LdapNameBuilder.newInstance().newInstance();
-        rdns.forEach(rdn->ldapNameBuilder.add(rdn));
+        LdapNameBuilder ldapNameBuilder = LdapNameBuilder.newInstance().newInstance();
+        rdns.forEach(rdn -> ldapNameBuilder.add(rdn));
         ldapNameBuilder.build();
 
         Name dn = ldapNameBuilder.build();
-        for (int i = 0; i < dn.size(); i++) {
-            System.out.println(dn.get(i));
-        }
-//        Name dn = LdapNameBuilder
-//                .newInstance()
-//                .add("cn", aduser.getCn())
-//                .build();
+//        for (int i = 0; i < dn.size(); i++) {
+//            System.out.println(dn.get(i));
+//        }
 
-//
         String passwdUnicodePwdFormat = String.format("\"%s\"", userPassword);
         byte[] passwd = passwdUnicodePwdFormat.getBytes("UTF-16LE");
 //        context.setAttributeValue("unicodePwd", password);
@@ -152,10 +165,55 @@ public class LdapTools {
         ldapTemplate.modifyAttributes(dn, new ModificationItem[]{item});
     }
 
-    public Boolean isRoleExist(String role) {
-        LdapClient ldapclient = ldaprepository.findBySn(1);
-        return ldapclient.getRoles().stream().anyMatch(r ->
-                r.getOu().equals(role));
+//    public Boolean isRoleExist(String role) {
+//        LdapClient ldapclient = ldaprepository.findBySn(1);
+//        return ldapclient.getRoles().stream().anyMatch(r ->
+//                r.getOu().equals(role));
+//    }
+
+    public void addStuUser(User user, String userPassword) throws UnsupportedEncodingException {
+        LdapTemplate ldapTemplate = initLDAPConnect();
+        List<String> rdns = new ArrayList<>();
+        String year = user.getUsername().split("-")[0];
+        rdns.add("Student");
+        rdns.add(year);
+
+        if (!isOuExist(year)) {
+
+            createOu(rdns);
+        }
+
+        rdns.forEach(rdn -> logger.info("rdn:" + rdn));
+
+        LdapNameBuilder ldapNameBuilder = LdapNameBuilder
+                .newInstance();
+        rdns.forEach(rdn -> ldapNameBuilder.add("ou", rdn));
+        ldapNameBuilder.add("cn", user.getAdusername());
+        Name dn = ldapNameBuilder.build();
+
+
+
+        DirContextAdapter context = new DirContextAdapter(dn);
+
+        List<String> objectClass = new ArrayList<>();
+        objectClass.add("top");
+        objectClass.add("person");
+        objectClass.add("organizationalPerson");
+        objectClass.add("user");
+        context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
+
+        context.setAttributeValue("cn", user.getAdusername());
+        context.setAttributeValue("displayName", user.getName());
+        context.setAttributeValue("userAccountControl", "512");
+        context.setAttributeValue("sAMAccountName", user.getAdusername());
+        context.setAttributeValue("pwdLastSet", "-1");
+        String upn = String.format("%s@%s", user.getAdusername(), ldaprepository.findBySn(1).getUpnSuffix());
+        context.setAttributeValue("userPrincipalName", upn);
+        String passwdUnicodePwdFormat = String.format("\"%s\"", userPassword);
+        byte[] passwd = passwdUnicodePwdFormat.getBytes("UTF-16LE");
+        context.setAttributeValue("unicodePwd", passwd);
+        ldapTemplate.bind(context);
+
     }
 
 
@@ -186,7 +244,6 @@ public class LdapTools {
         byte[] passwd = passwdUnicodePwdFormat.getBytes("UTF-16LE");
         context.setAttributeValue("unicodePwd", passwd);
         ldapTemplate.bind(context);
-
 
     }
 

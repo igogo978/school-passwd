@@ -141,6 +141,11 @@ public class PasswdApplication implements CommandLineRunner {
                     ldapclient.setRootdn(node.get("rootdn").asText());
                     ldapclient.setCert(node.get("cert").asText());
                     ldapclient.setUpnSuffix(node.get("upn_suffix").asText());
+                    if (node.get("stu_id_format").asText().equals("simple")) {
+                        ldapclient.setStuidRegular(Boolean.FALSE);
+                    } else {
+                        ldapclient.setStuidRegular(Boolean.TRUE);
+                    }
 
                     JsonNode rolenode = node.get("roles");
                     rolenode.elements().forEachRemaining(e -> {
@@ -162,6 +167,7 @@ public class PasswdApplication implements CommandLineRunner {
 
         //測試連結ldap
         //信任憑證
+        System.out.println("加入憑證:" + ldaprepository.findBySn(1).getCert());
         File cert = new File(String.format("%s/cert/%s", System.getProperty("user.dir"), ldaprepository.findBySn(1).getCert()));
         if (cert.exists()) {
             System.setProperty("javax.net.ssl.trustStore", cert.getAbsolutePath());
@@ -173,89 +179,24 @@ public class PasswdApplication implements CommandLineRunner {
         }
 
         //初始化, 檢查ou, 無則建立
-        System.out.println("檢查OU");
+        System.out.println("檢查OU:Teacher, Student");
         ldaprepository.findBySn(1).getRoles().forEach(role -> {
-            if (!ldapTools.isOUExist(role.getOu())) {
-                System.out.println("建立ou:" + role.getOu());
+            if (!ldapTools.isOuExist(role.getOu())) {
+                System.out.println("建立OU:" + role.getOu());
                 ldapTools.createOu(role.getOu());
             }
         });
 
-        LdapContextSource source = new LdapContextSource();
-        String url = String.format("ldaps://%s:%s", ldaprepository.findBySn(1).getLdapserver(), ldaprepository.findBySn(1).getLdapport());
-        source.setUrl(url);
-        source.setBase(ldaprepository.findBySn(1).getBasedn());
-        source.setUserDn(ldaprepository.findBySn(1).getRootdn());
-        source.setPassword(ldaprepository.findBySn(1).getPasswd());
-        source.afterPropertiesSet();
-        LdapTemplate ldapTemplate = new LdapTemplate(source);
-        ldapTemplate.setIgnorePartialResultException(true);
+//        LdapContextSource source = new LdapContextSource();
+//        String url = String.format("ldaps://%s:%s", ldaprepository.findBySn(1).getLdapserver(), ldaprepository.findBySn(1).getLdapport());
+//        source.setUrl(url);
+//        source.setBase(ldaprepository.findBySn(1).getBasedn());
+//        source.setUserDn(ldaprepository.findBySn(1).getRootdn());
+//        source.setPassword(ldaprepository.findBySn(1).getPasswd());
+//        source.afterPropertiesSet();
+//        LdapTemplate ldapTemplate = new LdapTemplate(source);
+//        ldapTemplate.setIgnorePartialResultException(true);
 
-        //查詢user
-        String username = "igogo";
-        User user = new User("123456", username,username, "Teacher", "愛狗狗", "");
-
-        String userPassword = "abc123";
-        System.out.println("is user exist?");
-        System.out.println(ldapTools.isUserExist(user.getUsername()));
-//          public User(String school_no, String username, String role, String name, String edu_key)
-
-        if (ldapTools.isUserExist(user.getUsername())) {
-            //update passwd
-            System.out.println("update user password");
-            ADUser aduser = new ADUser();
-            aduser = ldapTools.findByCn(user.getUsername());
-            ldapTools.updateUserPassword(aduser, userPassword);
-        } else {
-            //create user
-            ldapTools.addUser(user, userPassword);
-        }
-
-//        ADUser aduser = new ADUser();
-//        aduser = ldapTools.findByCn(user.getUsername());
-//        System.out.println(aduser.getCn());
-//        System.out.println(aduser.getDistinguishedName());
-
-
-//        List<ADUser> users = ldapTemplate.search(
-//                query().where("objectclass").is("person")
-//                        .and("cn").is(username),
-//                new PersonAttributesMapper());
-//        System.out.println("search result..");
-//        System.out.println(users.size());
-//        users.forEach(user -> System.out.println(user.getCn()));
-
-
-//        ADUser user = new ADUser();
-//        user.setCn(username);
-//
-//        Name dn = LdapNameBuilder
-//                .newInstance()
-//                .add("ou", "Student")
-//                .add("cn", username)
-//                .build();
-//
-//        DirContextAdapter context = new DirContextAdapter(dn);
-//
-//        List<String> objectClass = new ArrayList<>();
-//        objectClass.add("top");
-//        objectClass.add("person");
-//        objectClass.add("organizationalPerson");
-//        objectClass.add("user");
-//        context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
-//
-//        context.setAttributeValue("cn", username);
-//        context.setAttributeValue("displayName", "愛狗狗");
-//        context.setAttributeValue("userAccountControl", "512");
-//        context.setAttributeValue("sAMAccountName", username);
-//        String upn = String.format("%s@%s", username, ldaprepository.findBySn(1).getUpnSuffix());
-//        context.setAttributeValue("userPrincipalName", upn);
-//        String pass = String.format("\"%s\"", "3LittlePigs");
-//        byte[] password = pass.getBytes("UTF-16LE");
-//        context.setAttributeValue("unicodePwd", password);
-//        ldapTemplate.bind(context);
-        //使用聲明
-        logger.info(declare);
         logger.info("帳號整合服務成功啟動");
 
 

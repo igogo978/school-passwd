@@ -21,6 +21,7 @@ public class LdapClient {
     private String passwd;
     private String cert;
     private String upnSuffix;
+    private Boolean isStuidRegular;
 
     public Integer getSn() {
         return sn;
@@ -91,5 +92,13 @@ public class LdapClient {
 
     public void setUpnSuffix(String upnSuffix) {
         this.upnSuffix = upnSuffix;
+    }
+
+    public Boolean getStuidRegular() {
+        return isStuidRegular;
+    }
+
+    public void setStuidRegular(Boolean stuidRegular) {
+        isStuidRegular = stuidRegular;
     }
 }

@@ -3,6 +3,7 @@ package app.passwd.controller;
 
 import app.passwd.model.SystemConfig;
 import app.passwd.model.User;
+import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
 import app.passwd.service.Oauth2Client;
 import app.passwd.service.UserLoginService;
@@ -36,6 +37,9 @@ public class CallbackController {
     @Autowired
     SystemConfigRepository repository;
 
+    @Autowired
+    LdapRepository ldapRepository;
+
     @GetMapping("/passwd/callback")
     public RedirectView callback(@RequestParam(value = "state", required = true) String state, @RequestParam(value = "data", required = true) String data) throws IOException, OAuthProblemException, OAuthSystemException {
 
@@ -50,9 +54,17 @@ public class CallbackController {
         String role = node.get("role").asText();
         String name = node.get("name").asText();
         String edu_key = node.get("edu_key").asText();
+        String adusername = node.get("username").asText();
+
+
+        //學生要判斷在ad 上的帳號格式, regular or simple
+        if (!ldapRepository.findBySn(1).getStuidRegular() && role.equals("student")) {
+            adusername = node.get("username").asText().split("-")[1];
+            logger.info("Student ad username:" + adusername);
+        }
 
 //        String school_no, String username, String role, String name, String edu_key
-        User user = new User(school_no, username,username, role, name, edu_key);
+        User user = new User(school_no, username, adusername, role, name, edu_key);
         userloginservice.setUserLoggedin(Boolean.TRUE, user);
 
         //取得token
@@ -78,9 +90,17 @@ public class CallbackController {
         String role = node.get("role").asText();
         String name = node.get("name").asText();
         String edu_key = node.get("edu_key").asText();
+        String adusername = node.get("username").asText();
+
+
+        //學生要判斷在ad 上的帳號格式, regular or simple
+        if (!ldapRepository.findBySn(1).getStuidRegular() && role.equals("student")) {
+            adusername = node.get("username").asText().split("-")[1];
+            logger.info("Student ad username:" + adusername);
+        }
 
 //        String school_no, String username, String role, String name, String edu_key
-        User user = new User(school_no, username,username, role, name, edu_key);
+        User user = new User(school_no, username, adusername, role, name, edu_key);
         userloginservice.setUserLoggedin(Boolean.TRUE, user);
 
         //取得token
@@ -88,7 +108,7 @@ public class CallbackController {
 //        logger.info(sysconfig.getAccesstoken_endpoint());
         client.setAccesstoken(sysconfig);
 
-        return new RedirectView("/userhome");
+        return new RedirectView("/passwd/userhome");
     }
 
 

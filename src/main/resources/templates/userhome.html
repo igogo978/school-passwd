@@ -216,8 +216,10 @@
             let vm = this;
             let url = "/passwd/username/"+ this.user.username;
             console.log("ok,submit,target url:"+ url);
+            //轉換送到雲端校務帳號密碼格式
             this.params.account = this.user.username;
             this.params.password = this.passwd;
+
 
             this.$http.put(url, JSON.stringify(this.params), config).then((response) => {
               // success callback
@@ -236,8 +238,6 @@
             }, (response) => {
               // error callback
             });
-
-
 
 
           }
