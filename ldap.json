@@ -6,10 +6,17 @@
 	"basedn": "dc=ddps,dc=tc,dc=edu,dc=tw",
 	"rdn": "uid",
 	"uidnumber": 5000,
-	"role": [{
+	"roles": [{
+			"role":"teacher",
 			"ou": "teacher",
 			"gid": 5000,
 			"home": "/home/teacher"
+		},
+		{
+			"role":"student",
+			"ou": "student",
+			"gid": 5001,
+			"home": "/home/student"
 		}
 	],
 	"sambaobjectclass" : "sambaSamAccount",

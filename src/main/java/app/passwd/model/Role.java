@@ -4,6 +4,7 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class Role {
+    private String role;
     private String ou;
     private Integer gid;
     private String home;
@@ -12,12 +13,16 @@ public class Role {
     public Role() {
     }
 
-    public Role(String ou, Integer gid, String home) {
+    public Role(String role, String ou, Integer gid, String home) {
+        this.role = role;
         this.ou = ou;
         this.gid = gid;
         this.home = home;
     }
 
+    public String getRole() {
+        return role;
+    }
 
     public String getOu() {
         return ou;

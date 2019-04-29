@@ -9,6 +9,7 @@ import app.passwd.model.SystemConfig;
 import app.passwd.repository.LearningAccountRepository;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
+import app.passwd.service.LdapTools;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
@@ -48,6 +49,9 @@ public class PasswdApplication implements CommandLineRunner {
 
     @Autowired
     private ConfigurableApplicationContext context;
+
+    @Autowired
+    LdapTools ldapTools;
 
 //    @Autowired
 //    ReadLearningAccount readaccount;
@@ -141,12 +145,13 @@ public class PasswdApplication implements CommandLineRunner {
                     ldapclient.setSid(node.get("sid").asText());
 
 
-                    JsonNode rolenode = node.get("role");
+                    JsonNode rolenode = node.get("roles");
                     rolenode.elements().forEachRemaining(e -> {
+                        String role = e.get("role").asText();
                         String ou = e.get("ou").asText();
                         Integer gid = e.get("gid").asInt();
                         String home = e.get("home").asText();
-                        ldapclient.getRoles().add(new Role(ou, gid, home));
+                        ldapclient.getRoles().add(new Role(role, ou, gid, home));
                     });
 
                     ldaprepository.save(ldapclient);
@@ -165,8 +170,20 @@ public class PasswdApplication implements CommandLineRunner {
         }
 
         if (sysconfig.isSyncLdap()) {
-            //valid ldap config and find max uidnumber
             LdapClient ldapclient = ldaprepository.findBySn(1);
+            //init ou
+            ldapclient.getRoles().forEach(role -> {
+                if (ldapTools.isRoleUpdate(role.getRole())) {
+                    if (!ldapTools.isOuExist(role.getOu())) {
+                        ldapTools.createOu(role.getOu());
+                    }
+                }
+            });
+
+            System.out.println("create ou: et");
+            ldapTools.createOu("et");
+            //valid ldap config and find max uidnumber
+
 
             String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
             String basedn = ldapclient.getBasedn();
