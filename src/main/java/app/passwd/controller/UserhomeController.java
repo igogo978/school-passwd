@@ -1,6 +1,7 @@
 package app.passwd.controller;
 
 import app.passwd.model.SystemConfig;
+import app.passwd.model.User;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
 import app.passwd.service.Oauth2Client;
@@ -34,20 +35,8 @@ public class UserhomeController {
 
         if (!userloginservice.isLoggedin()) {
             return "redirect:/";
-        } else {
-//            logger.info(String.format("%s", userloginservice.isLoggedin()));
-//            String adusername = "";
-//            String username = userloginservice.getUser().getUsername();
-//            String name = userloginservice.getUser().getName();
-//            String schoolid = userloginservice.getUser().getSchool_no();
-//            String role = userloginservice.getUser().getRole();
-//
-
-
-//            logger.info(client.getAccesstoken());
         }
 
-        SystemConfig sysconfig = sysconfigrepository.findBySn(1);
         model.addAttribute("user", userloginservice.getUser());
 //        model.addAttribute("isLearningAccount", sysconfig.isLearningAccount());
 //        https://bootsnipp.com/snippets/X2bG0
@@ -55,22 +44,13 @@ public class UserhomeController {
     }
 
 
-
     @GetMapping("/userhome")
     public String userhomeProxypass(Model model) {
 
         if (!userloginservice.isLoggedin()) {
             return "redirect:/";
-        } else {
-//            logger.info(String.format("%s", userloginservice.isLoggedin()));
-            String username = userloginservice.getUser().getUsername();
-            String name = userloginservice.getUser().getName();
-            String schoolid = userloginservice.getUser().getSchool_no();
-            String role = userloginservice.getUser().getRole();
-//            logger.info(client.getAccesstoken());
         }
 
-        SystemConfig sysconfig = sysconfigrepository.findBySn(1);
         model.addAttribute("user", userloginservice.getUser());
 //        model.addAttribute("isLearningAccount", sysconfig.isLearningAccount());
 //        https://bootsnipp.com/snippets/X2bG0

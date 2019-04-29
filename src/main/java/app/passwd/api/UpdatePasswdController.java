@@ -48,9 +48,19 @@ public class UpdatePasswdController {
     @Autowired
     LdapTools ldapTools;
 
-
     @RequestMapping(value = "/passwd/username/{username}", method = RequestMethod.PUT)
     public String updatePasswd(@PathVariable("username") String username, @RequestBody Account account) throws IOException, InvalidNameException {
+        return doUpdatePasswd(username, account);
+    }
+
+
+    @RequestMapping(value = "/username/{username}", method = RequestMethod.PUT)
+    public String updatePasswdProxyPass(@PathVariable("username") String username, @RequestBody Account account) throws IOException, InvalidNameException {
+        return doUpdatePasswd(username, account);
+    }
+
+
+    private String doUpdatePasswd(String username, Account account) throws IOException, InvalidNameException {
         String result = "";
         logger.info("update user passwd");
 
@@ -116,72 +126,6 @@ public class UpdatePasswdController {
     }
 
 
-    @RequestMapping(value = "/username/{username}", method = RequestMethod.PUT)
-    public String updatePasswdProxyPass(@PathVariable("username") String username, @RequestBody Account account) throws IOException {
-        String result = "";
-        logger.info("update user passwd");
-
-        if (userloginservice.isLoggedin()) {
-            String role = userloginservice.getUser().getRole();
-
-            String accesstoken = client.getAccesstoken();
-
-            //send by array
-            ArrayList<Account> accounts = new ArrayList<>();
-            accounts.add(account);
-            ObjectMapper mapper = new ObjectMapper();
-            //logger.info(mapper.writeValueAsString(accounts));
-            //org.apache
-            HttpClient httpClient = HttpClientBuilder.create().build();
-            ClientHttpRequestFactory requestFactory
-                    = new HttpComponentsClientHttpRequestFactory(httpClient);
-
-            //spring.springframework
-            RestTemplate restTemplate = new RestTemplate(requestFactory);
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-
-
-            headers.set("Authorization", "Bearer " + accesstoken);
-            HttpEntity<String> entity = new HttpEntity(accounts, headers);
-            //String url = "https://api.tc.edu.tw/semester-data";
-            String url = sysconfigrepository.findBySn(1).getChangepasswd_endpoint();
-            result = restTemplate.exchange(url, HttpMethod.PATCH, entity, String.class).getBody();
-//            logger.info("new password:"+ account.getPassword());
-            logger.info(result);
-
-
-            //result {"_links":{"self":{"href":"https:\/\/api.tc.edu.tw\/change-password"}},"_embedded":{"change_password":[["107-10702 \u66f4\u6539\u4e86\u5bc6\u78bc123456"]]},"total_items":1}
-            JsonNode node = mapper.readTree(result);
-            if (node.get("total_items").asInt() == 1) {
-                userloginservice.setLoggedin(Boolean.FALSE);
-            }
-
-            //sync ldap
-            if (sysconfigrepository.findBySn(1).isSyncLdap()) {
-//                logger.info(String.format("%s:%s", account.getAccount(), smbldap.isUserExist(account.getAccount())));
-
-                if (ldapTools.isUserExist(account.getAccount())) {
-                    //update user
-//                    smbldap.updateUserPassword(account.getAccount(), account.getPassword(), role);
-                } else {
-//                    smbldap.addUser(account.getAccount(), account.getPassword(), role);
-
-                }
-
-                //extra ldap work
-                //ldap-job.sh t0001 363626 teacher /home/teacher syncsmb
-                String cwd = sysconfigrepository.findBySn(1).getCwd();
-
-
-            }
-
-
-        }
-
-
-        return result;
-    }
 
 
 }

@@ -168,7 +168,7 @@ public class PasswdApplication implements CommandLineRunner {
         //測試連結ldap
         //信任憑證
         System.out.println("加入憑證:" + ldaprepository.findBySn(1).getCert());
-        File cert = new File(String.format("%s/cert/%s", System.getProperty("user.dir"), ldaprepository.findBySn(1).getCert()));
+        File cert = new File(String.format("%s/%s", System.getProperty("user.dir"), ldaprepository.findBySn(1).getCert()));
         if (cert.exists()) {
             System.setProperty("javax.net.ssl.trustStore", cert.getAbsolutePath());
             System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
