@@ -4,7 +4,6 @@
 	"rootdn": "cn=admin,dc=ddps,dc=tc,dc=edu,dc=tw",
 	"passwd": "secret",
 	"basedn": "dc=ddps,dc=tc,dc=edu,dc=tw",
-	"rdn": "uid",
 	"uidnumber": 5000,
 	"roles": [{
 			"role":"teacher",

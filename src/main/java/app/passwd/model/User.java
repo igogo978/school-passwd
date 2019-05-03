@@ -6,6 +6,7 @@ public class User {
     private String role;
     private String name;
     private String edu_key;
+
     private String learningaccount;
 
     public String getLearningaccount() {
@@ -18,6 +19,7 @@ public class User {
         this.role = role;
         this.name = name;
         this.edu_key = edu_key;
+
     }
 
     public String getSchool_no() {

@@ -97,7 +97,7 @@ public class LdapTools {
 
 
     public User findByUid(String username) {
-        logger.info("loggin for:" + username);
+        logger.info("loggin user:" + username);
 
         LdapTemplate ldapTemplate = initLDAPConnect();
         return ldapTemplate.findOne(query().where("uid").is(username), User.class);
@@ -150,6 +150,24 @@ public class LdapTools {
     }
 
 
+    public void createOu(List<String> rdns) {
+
+        LdapTemplate ldapTemplate = initLDAPConnect();
+        LdapNameBuilder ldapNameBuilder = LdapNameBuilder
+                .newInstance();
+
+        rdns.forEach(rdn -> ldapNameBuilder.add("ou", rdn));
+        Name dn = ldapNameBuilder.build();
+        DirContextAdapter context = new DirContextAdapter(dn);
+        List<String> objectClass = new ArrayList<>();
+        objectClass.add("top");
+        objectClass.add("organizationalUnit");
+        context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
+
+        ldapTemplate.bind(context);
+    }
+
+
     public Boolean isRoleUpdate(String role) {
         LdapClient ldapclient = ldaprepository.findBySn(1);
         return ldapclient.getRoles().stream().anyMatch(r ->
@@ -160,38 +178,33 @@ public class LdapTools {
     public void addUser(String username, String password, String role) {
 
         logger.info("add a new user:" + username);
-        logger.info("role:" + role);
+
         LdapClient ldapclient = ldaprepository.findBySn(1);
 
-//        Boolean existRole = ldapclient.getRoles().stream().anyMatch(r ->
-//                r.getOu().equals(role));
 
-
-//            String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
-//            String basedn = ldapclient.getBasedn();
-//            String rootdn = ldapclient.getRootdn();
-//            String rootpassword = ldapclient.getPasswd();
-//
-//            LdapContextSource source = new LdapContextSource();
-//            source.setUrl(url);
-//            source.setBase(basedn);
-//            source.setUserDn(rootdn);
-//            source.setPassword(rootpassword);
-//            source.afterPropertiesSet();
-//
-//            LdapTemplate ldaptemplate = new LdapTemplate(source);
-
-        Role ou = ldapclient.getRoles().stream().filter(r -> r.getOu().equals(role))
+        Role ldapRole = ldapclient.getRoles().stream().filter(r -> r.getRole().equals(role))
                 .findFirst()
                 .get();
 
         Integer uidNumber = ldapclient.getUidNumber() + 1;
 
-        Name dn = LdapNameBuilder
-                .newInstance()
-                .add("ou", ou.getOu())
-                .add("uid", username)
-                .build();
+        LdapNameBuilder ldapNameBuilder = LdapNameBuilder
+                .newInstance();
+
+
+        //ou exists?
+        if (role.equals("student")) {
+            List<String> rdns = new ArrayList<>();
+            rdns.add("student");
+            rdns.add(username.split("-")[0]);
+            if (!isOuExist(username.split("-")[0])) {
+                createOu(rdns);
+            }
+        }
+
+
+        Name dn = buildDN(username,ldapRole,role);
+
 
         DirContextAdapter context = new DirContextAdapter(dn);
 
@@ -219,14 +232,14 @@ public class LdapTools {
         context.setAttributeValue("userPassword", digestSHA(password));
         context.setAttributeValue("displayName", userloginservice.getUser().getName());
         context.setAttributeValue("uidNumber", String.valueOf(uidNumber));
-        context.setAttributeValue("gidNumber", String.valueOf(ou.getGid()));
+        context.setAttributeValue("gidNumber", String.valueOf(ldapRole.getGid()));
 
         if (role.equals("student")) {
 //                logger.info(username.split("-")[0]);
-            context.setAttributeValue("homeDirectory", String.format("%s/%s/%s", ou.getHome(), username.split("-")[0], username));
+            context.setAttributeValue("homeDirectory", String.format("%s/%s/%s", ldapRole.getHome(), username.split("-")[0], username));
 
         } else {
-            context.setAttributeValue("homeDirectory", String.format("%s/%s", ou.getHome(), username));
+            context.setAttributeValue("homeDirectory", String.format("%s/%s", ldapRole.getHome(), username));
 
 
         }
@@ -253,6 +266,30 @@ public class LdapTools {
             throw new RuntimeException(e);
         }
         return "{SHA}" + base64;
+    }
+
+    private Name buildDN(String username, Role ldapRole, String role) {
+
+        LdapNameBuilder ldapNameBuilder = LdapNameBuilder
+                .newInstance();
+        Name dn = ldapNameBuilder.build();
+        if (role.equals("teacher")) {
+            ldapNameBuilder.add("ou", ldapRole.getOu());
+            ldapNameBuilder.add("uid", username);
+
+        }
+
+        if (role.equals("student")) {
+            List<String> rdns = new ArrayList<>();
+            rdns.add("student");
+            rdns.add(username.split("-")[0]);
+
+            rdns.forEach(rdn -> ldapNameBuilder.add("ou", rdn));
+            ldapNameBuilder.add("uid", username);
+        }
+
+        return ldapNameBuilder.build();
+
     }
 
 

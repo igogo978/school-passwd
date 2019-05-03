@@ -1004,3 +1004,163 @@ You may wish to exclude one of them to ensure predictable runtime behavior
 2019-05-03 11:27:04.403  INFO 2089 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2019-05-03 11:27:04.463  INFO 2089 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2019-05-03 11:27:04.474  INFO 2089 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-05-03 15:31:07.632  INFO 2946 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on smbldap with PID 2946 (/home/igogo/projects/school-passwd/target/classes started by igogo in /home/igogo/projects/school-passwd)
+2019-05-03 15:31:07.671  INFO 2946 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-05-03 15:31:11.491  INFO 2946 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-03 15:31:11.731  INFO 2946 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 207ms. Found 3 repository interfaces.
+2019-05-03 15:31:13.025  INFO 2946 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1910447e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-03 15:31:14.091  INFO 2946 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-03 15:31:14.185  INFO 2946 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-03 15:31:14.186  INFO 2946 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-03 15:31:14.584  INFO 2946 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-03 15:31:14.584  INFO 2946 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6520 ms
+2019-05-03 15:31:15.472  INFO 2946 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-05-03 15:31:16.042  INFO 2946 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-05-03 15:31:16.281  INFO 2946 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-03 15:31:16.449  INFO 2946 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-05-03 15:31:16.457  INFO 2946 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-05-03 15:31:16.858  INFO 2946 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-03 15:31:17.223  INFO 2946 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-05-03 15:31:19.084  INFO 2946 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@3002e397'
+2019-05-03 15:31:19.088  INFO 2946 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-03 15:31:20.990  INFO 2946 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-03 15:31:21.292  WARN 2946 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-05-03 15:31:21.633  WARN 2946 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-03 15:31:21.991  INFO 2946 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-05-03 15:31:22.301  INFO 2946 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-03 15:31:22.317  INFO 2946 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 17.101 seconds (JVM running for 19.558)
+2019-05-03 15:31:22.333  INFO 2946 --- [main] lication$$EnhancerBySpringCGLIB$$f0bda52 : working dir:/home/igogo/projects/school-passwd
+2019-05-03 15:31:22.649  INFO 2946 --- [main] lication$$EnhancerBySpringCGLIB$$f0bda52 : sambaSamAccount
+2019-05-03 15:31:22.655  INFO 2946 --- [main] lication$$EnhancerBySpringCGLIB$$f0bda52 : 載入 ldap objectclass - sambaSamAccount 
+2019-05-03 15:31:22.793  INFO 2946 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-05-03 15:31:23.495  INFO 2946 --- [main] lication$$EnhancerBySpringCGLIB$$f0bda52 : 更改密碼服務成功啟動
+2019-05-03 15:32:02.222  INFO 2946 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-03 15:32:02.235  INFO 2946 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-05-03 15:32:02.307  INFO 2946 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 70 ms
+2019-05-03 15:32:02.970  INFO 2946 --- [http-nio-8080-exec-3] app.passwd.controller.IndexController    : 1.需請求取得認證授權,轉到 http://api.cloudschool.tw/school-oauth/authorize
+2019-05-03 15:32:13.346  INFO 2946 --- [http-nio-8080-exec-4] a.passwd.controller.CallbackController   : 3.取得code:{"school_no":"000040","username":"107-107007","role":"student","name":"\u675c\u4f69\u742a","edu_key":"499edb1b6f2beb94dda8f25fd24368a88512e86fb40d8eb40e9c7bfc69851842"}
+2019-05-03 15:32:13.496  INFO 2946 --- [http-nio-8080-exec-4] app.passwd.service.Oauth2Client          : 4. 進行client_credientials flow 取得token.
+2019-05-03 15:33:12.501  INFO 2946 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-03 15:33:12.519  INFO 2946 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-03 15:33:12.523  INFO 2946 --- [Thread-3] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-05-03 15:33:12.639  INFO 2946 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-05-03 15:33:12.663  INFO 2946 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-05-03 15:33:22.675  WARN 3281 --- [main] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/home/igogo/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/home/igogo/.m2/repository/org/json/json/20140107/json-20140107.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2019-05-03 15:33:22.725  INFO 3281 --- [main] app.passwd.PasswdApplicationTests        : Starting PasswdApplicationTests on smbldap with PID 3281 (started by igogo in /home/igogo/projects/school-passwd)
+2019-05-03 15:33:22.728  INFO 3281 --- [main] app.passwd.PasswdApplicationTests        : No active profile set, falling back to default profiles: default
+2019-05-03 15:33:26.200  INFO 3281 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-03 15:33:26.462  INFO 3281 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 225ms. Found 3 repository interfaces.
+2019-05-03 15:33:27.927  INFO 3281 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$572a4fb0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-03 15:33:28.657  INFO 3281 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-05-03 15:33:29.270  INFO 3281 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-05-03 15:33:29.526  INFO 3281 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-03 15:33:29.667  INFO 3281 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-05-03 15:33:29.672  INFO 3281 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-05-03 15:33:29.974  INFO 3281 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-03 15:33:30.527  INFO 3281 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-05-03 15:33:33.049  INFO 3281 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@367d34c0'
+2019-05-03 15:33:33.053  INFO 3281 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-03 15:33:36.576  INFO 3281 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-03 15:33:36.747  WARN 3281 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-05-03 15:33:37.225  WARN 3281 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-03 15:33:37.896  INFO 3281 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-05-03 15:33:38.520  INFO 3281 --- [main] app.passwd.PasswdApplicationTests        : Started PasswdApplicationTests in 17.105 seconds (JVM running for 19.18)
+2019-05-03 15:33:38.525  INFO 3281 --- [main] ication$$EnhancerBySpringCGLIB$$4d25e584 : working dir:/home/igogo/projects/school-passwd
+2019-05-03 15:33:38.721  INFO 3281 --- [main] ication$$EnhancerBySpringCGLIB$$4d25e584 : sambaSamAccount
+2019-05-03 15:33:38.733  INFO 3281 --- [main] ication$$EnhancerBySpringCGLIB$$4d25e584 : 載入 ldap objectclass - sambaSamAccount 
+2019-05-03 15:33:38.879  INFO 3281 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-05-03 15:33:39.484  INFO 3281 --- [main] ication$$EnhancerBySpringCGLIB$$4d25e584 : 更改密碼服務成功啟動
+2019-05-03 15:33:39.815  INFO 3281 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-03 15:33:39.825  INFO 3281 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-03 15:33:39.826  INFO 3281 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-05-03 15:33:39.878  INFO 3281 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-05-03 15:33:39.890  INFO 3281 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-05-03 15:39:29.661  INFO 3503 --- [main] app.passwd.PasswdApplication             : Starting PasswdApplication on smbldap with PID 3503 (/home/igogo/projects/school-passwd/target/classes started by igogo in /home/igogo/projects/school-passwd)
+2019-05-03 15:39:29.698  INFO 3503 --- [main] app.passwd.PasswdApplication             : No active profile set, falling back to default profiles: default
+2019-05-03 15:39:33.100  INFO 3503 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-03 15:39:33.268  INFO 3503 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 149ms. Found 3 repository interfaces.
+2019-05-03 15:39:34.577  INFO 3503 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$20a4b686] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-03 15:39:35.610  INFO 3503 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-03 15:39:35.705  INFO 3503 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-03 15:39:35.705  INFO 3503 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-03 15:39:36.083  INFO 3503 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-03 15:39:36.084  INFO 3503 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6050 ms
+2019-05-03 15:39:36.652  INFO 3503 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-05-03 15:39:37.093  INFO 3503 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-05-03 15:39:37.283  INFO 3503 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-03 15:39:37.457  INFO 3503 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-05-03 15:39:37.463  INFO 3503 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-05-03 15:39:37.833  INFO 3503 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-03 15:39:38.231  INFO 3503 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-05-03 15:39:40.353  INFO 3503 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4f235107'
+2019-05-03 15:39:40.357  INFO 3503 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-03 15:39:42.386  INFO 3503 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-03 15:39:42.699  WARN 3503 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-05-03 15:39:43.053  WARN 3503 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-03 15:39:43.440  INFO 3503 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-05-03 15:39:43.777  INFO 3503 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-03 15:39:43.793  INFO 3503 --- [main] app.passwd.PasswdApplication             : Started PasswdApplication in 16.476 seconds (JVM running for 19.041)
+2019-05-03 15:39:43.802  INFO 3503 --- [main] ication$$EnhancerBySpringCGLIB$$16a04c5a : working dir:/home/igogo/projects/school-passwd
+2019-05-03 15:39:44.014  INFO 3503 --- [main] ication$$EnhancerBySpringCGLIB$$16a04c5a : sambaSamAccount
+2019-05-03 15:39:44.014  INFO 3503 --- [main] ication$$EnhancerBySpringCGLIB$$16a04c5a : 載入 ldap objectclass - sambaSamAccount 
+2019-05-03 15:39:44.137  INFO 3503 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-05-03 15:39:44.812  INFO 3503 --- [main] ication$$EnhancerBySpringCGLIB$$16a04c5a : 更改密碼服務成功啟動
+2019-05-03 15:40:13.584  INFO 3503 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-03 15:40:13.589  INFO 3503 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-03 15:40:13.591  INFO 3503 --- [Thread-3] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-05-03 15:40:13.620  INFO 3503 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-05-03 15:40:13.629  INFO 3503 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-05-03 15:40:31.031  WARN 3587 --- [main] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/home/igogo/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/home/igogo/.m2/repository/org/json/json/20140107/json-20140107.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2019-05-03 15:40:31.096  INFO 3587 --- [main] app.passwd.PasswdApplicationTests        : Starting PasswdApplicationTests on smbldap with PID 3587 (started by igogo in /home/igogo/projects/school-passwd)
+2019-05-03 15:40:31.106  INFO 3587 --- [main] app.passwd.PasswdApplicationTests        : No active profile set, falling back to default profiles: default
+2019-05-03 15:40:34.445  INFO 3587 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-03 15:40:34.763  INFO 3587 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 297ms. Found 3 repository interfaces.
+2019-05-03 15:40:36.652  INFO 3587 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2014e8f3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-03 15:40:37.522  INFO 3587 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-05-03 15:40:38.422  INFO 3587 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-05-03 15:40:38.711  INFO 3587 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-03 15:40:38.900  INFO 3587 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-05-03 15:40:38.902  INFO 3587 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-05-03 15:40:39.391  INFO 3587 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-03 15:40:39.741  INFO 3587 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-05-03 15:40:41.676  INFO 3587 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@1cd2ff5b'
+2019-05-03 15:40:41.683  INFO 3587 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-03 15:40:45.071  INFO 3587 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-03 15:40:45.407  WARN 3587 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-05-03 15:40:45.929  WARN 3587 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-03 15:40:46.581  INFO 3587 --- [main] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2019-05-03 15:40:47.286  INFO 3587 --- [main] app.passwd.PasswdApplicationTests        : Started PasswdApplicationTests in 17.56 seconds (JVM running for 19.619)
+2019-05-03 15:40:47.301  INFO 3587 --- [main] ication$$EnhancerBySpringCGLIB$$16107ec7 : working dir:/home/igogo/projects/school-passwd
+2019-05-03 15:40:47.622  INFO 3587 --- [main] ication$$EnhancerBySpringCGLIB$$16107ec7 : sambaSamAccount
+2019-05-03 15:40:47.631  INFO 3587 --- [main] ication$$EnhancerBySpringCGLIB$$16107ec7 : 載入 ldap objectclass - sambaSamAccount 
+2019-05-03 15:40:47.728  INFO 3587 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-05-03 15:40:48.432  INFO 3587 --- [main] ication$$EnhancerBySpringCGLIB$$16107ec7 : 更改密碼服務成功啟動
+2019-05-03 15:40:48.737  INFO 3587 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-03 15:40:48.752  INFO 3587 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-03 15:40:48.761  INFO 3587 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-05-03 15:40:48.829  INFO 3587 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-05-03 15:40:48.838  INFO 3587 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -48,11 +48,10 @@ public class UpdatePasswdController {
 
     private String doUpdatePasswd(String username, Account account) throws IOException {
         String result = "";
-        logger.info("update user passwd");
 
         if (userloginservice.isLoggedin()) {
+            logger.info("update user passwd");
 
-            logger.info("is role update?" + ldapTools.isRoleUpdate(userloginservice.getUser().getRole()));
             String role = userloginservice.getUser().getRole();
 
             String accesstoken = client.getAccesstoken();
@@ -88,7 +87,10 @@ public class UpdatePasswdController {
                 userloginservice.setLoggedin(Boolean.FALSE);
             }
 
+
             //sync ldap and ldap設定檔中標示角色才更新
+            logger.info("Does ldap account also update?" + ldapTools.isRoleUpdate(userloginservice.getUser().getRole()));
+
             if (sysconfigrepository.findBySn(1).isSyncLdap() && ldapTools.isRoleUpdate(userloginservice.getUser().getRole())) {
 //                logger.info(String.format("%s:%s", account.getAccount(), smbldap.isUserExist(account.getAccount())));
 
