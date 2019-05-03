@@ -15,6 +15,7 @@ import org.springframework.ldap.core.DirContextAdapter;
 import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.core.support.LdapContextSource;
 import org.springframework.ldap.support.LdapNameBuilder;
+import org.springframework.ldap.support.LdapUtils;
 import org.springframework.stereotype.Service;
 
 import javax.naming.Name;
@@ -79,10 +80,10 @@ public class LdapTools {
         source.afterPropertiesSet();
 
 //        LdapTemplate ldaptemplate = new LdapTemplate(source);
-        LdapTemplate ldaptemplate = initLDAPConnect();
+        LdapTemplate ldapTemplate = initLDAPConnect();
 
 
-        List<User> users = ldaptemplate.search(
+        List<User> users = ldapTemplate.search(
                 query().where("objectclass").is("person")
                         .and("uid").is(username),
                 new PersonAttributesMapper());
@@ -97,68 +98,25 @@ public class LdapTools {
 
     public User findByUid(String username) {
         logger.info("loggin for:" + username);
-//        LdapClient ldapclient = ldaprepository.findBySn(1);
-//
-//        String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
-//        String basedn = ldapclient.getBasedn();
-//        String rootdn = ldapclient.getRootdn();
-//        String rootpassword = ldapclient.getPasswd();
-//
-//        LdapContextSource source = new LdapContextSource();
-//        source.setUrl(url);
-//        source.setBase(basedn);
-//        source.setUserDn(rootdn);
-//        source.setPassword(rootpassword);
-//        source.afterPropertiesSet();
-//
-//        LdapTemplate ldaptemplate = new LdapTemplate(source);
-        LdapTemplate ldaptemplate = initLDAPConnect();
 
-        List<User> users = ldaptemplate.search(
-                query().where("objectclass").is("person")
-                        .and("uid").is(username),
-                new PersonAttributesMapper());
-        logger.info(users.get(0).getHomeDirectory());
-        return users.get(0);
-
+        LdapTemplate ldapTemplate = initLDAPConnect();
+        return ldapTemplate.findOne(query().where("uid").is(username), User.class);
 
     }
 
     public void updateUserPassword(String username, String password, String role) {
-//        LdapClient ldapclient = ldaprepository.findBySn(1);
-//
-//        String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
-//        String basedn = ldapclient.getBasedn();
-//        String rootdn = ldapclient.getRootdn();
-//        String rootpassword = ldapclient.getPasswd();
-//
-//        LdapContextSource source = new LdapContextSource();
-//        source.setUrl(url);
-//        source.setBase(basedn);
-//        source.setUserDn(rootdn);
-//        source.setPassword(rootpassword);
-//        source.afterPropertiesSet();
-//
-//        LdapTemplate ldaptemplate = new LdapTemplate(source);
+
 
         LdapTemplate ldaptemplate = initLDAPConnect();
 
-//        List<User> users = ldaptemplate.search(
-//                query().where("objectclass").is("person")
-//                        .and("uid").is(username),
-//                new PersonAttributesMapper());
+        //find user dn
+        User user = findByUid(username);
 
-        Name dn = LdapNameBuilder
-                .newInstance()
-                .add("ou", role)
-                .add("uid", username)
-                .build();
 
-        ((LdapName) dn).getRdns().forEach(rdn -> logger.info(rdn.toString()));
         Attribute attr = new BasicAttribute("userPassword", digestSHA(password));
         ModificationItem item = new ModificationItem(DirContext.REPLACE_ATTRIBUTE, attr);
 
-        ldaptemplate.modifyAttributes(dn, new ModificationItem[]{item});
+        ldaptemplate.modifyAttributes(user.getDn(), new ModificationItem[]{item});
     }
 
     public Boolean isOuExist(String ou) {
@@ -198,7 +156,7 @@ public class LdapTools {
                 r.getRole().equals(role));
     }
 
-    
+
     public void addUser(String username, String password, String role) {
 
         logger.info("add a new user:" + username);

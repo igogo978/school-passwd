@@ -21,9 +21,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.ldap.core.DirContextAdapter;
 import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.core.support.LdapContextSource;
+import org.springframework.ldap.support.LdapUtils;
 
+import javax.naming.ldap.LdapName;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -180,11 +183,8 @@ public class PasswdApplication implements CommandLineRunner {
                 }
             });
 
-            System.out.println("create ou: et");
-            ldapTools.createOu("et");
+
             //valid ldap config and find max uidnumber
-
-
             String url = String.format("ldap://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
             String basedn = ldapclient.getBasedn();
             String rootdn = ldapclient.getRootdn();
@@ -203,8 +203,11 @@ public class PasswdApplication implements CommandLineRunner {
                     query().where("objectclass").is("posixAccount"),
                     new PersonAttributesMapper());
 
+
             Integer max = 5000;
             for (User user : users) {
+
+
                 if (Integer.valueOf(user.getUidNumber()) < 50000 && Integer.valueOf(user.getUidNumber()) > max) {
                     max = Integer.valueOf(user.getUidNumber());
                 }
@@ -213,6 +216,8 @@ public class PasswdApplication implements CommandLineRunner {
             ldapclient.setUidNumber(max);
 
             ldaprepository.save(ldapclient);
+
+
 
         }
         logger.info("更改密碼服務成功啟動");
