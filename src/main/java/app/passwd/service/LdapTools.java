@@ -145,11 +145,11 @@ public class LdapTools {
         });
         LdapTemplate ldapTemplate = initLDAPConnect();
 //
-        LdapNameBuilder ldapNameBuilder = LdapNameBuilder.newInstance().newInstance();
-        rdns.forEach(rdn -> ldapNameBuilder.add(rdn));
-        ldapNameBuilder.build();
-
-        Name dn = ldapNameBuilder.build();
+//        LdapNameBuilder ldapNameBuilder = LdapNameBuilder.newInstance().newInstance();
+//        rdns.forEach(rdn -> ldapNameBuilder.add(rdn));
+//        ldapNameBuilder.build();
+//
+//        Name dn = ldapNameBuilder.build();
 //        for (int i = 0; i < dn.size(); i++) {
 //            System.out.println(dn.get(i));
 //        }
@@ -162,7 +162,7 @@ public class LdapTools {
         Attribute attr = new BasicAttribute("UnicodePwd", passwd);
         ModificationItem item = new ModificationItem(DirContext.REPLACE_ATTRIBUTE, attr);
 
-        ldapTemplate.modifyAttributes(dn, new ModificationItem[]{item});
+        ldapTemplate.modifyAttributes(aduser.getDn(), new ModificationItem[]{item});
     }
 
 //    public Boolean isRoleExist(String role) {
@@ -190,7 +190,6 @@ public class LdapTools {
         rdns.forEach(rdn -> ldapNameBuilder.add("ou", rdn));
         ldapNameBuilder.add("cn", user.getAdusername());
         Name dn = ldapNameBuilder.build();
-
 
 
         DirContextAdapter context = new DirContextAdapter(dn);
@@ -249,12 +248,17 @@ public class LdapTools {
 
     public ADUser findByCn(String username) {
         LdapTemplate ldapTemplate = initLDAPConnect();
-        List<ADUser> users = ldapTemplate.search(
-                query().where("objectclass").is("person")
-                        .and("cn").is(username),
-                new PersonAttributesMapper());
 
-        return users.get(0);
+        return ldapTemplate.findOne(
+                query().where("cn").is(username), ADUser.class);
+
+
+//        List<ADUser> users = ldapTemplate.search(
+//                query().where("objectclass").is("person")
+//                        .and("cn").is(username),
+//                new PersonAttributesMapper());
+//
+//        return users.get(0);
     }
 
 }

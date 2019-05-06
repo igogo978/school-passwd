@@ -1,14 +1,16 @@
 package app.passwd.ldap.model;
 
 import org.springframework.ldap.odm.annotations.Attribute;
+import org.springframework.ldap.odm.annotations.Entry;
 import org.springframework.ldap.odm.annotations.Id;
 
 import javax.naming.Name;
 
+@Entry(objectClasses = { "organizationalPerson", "person", "top" })
 public class ADUser {
 
     @Id
-    private Name id;
+    private Name dn;
 
 
     private @Attribute(name = "cn") String cn;
@@ -19,6 +21,14 @@ public class ADUser {
     private @Attribute(name = "distinguishedName") String distinguishedName;
 
     public ADUser() {
+    }
+
+    public Name getDn() {
+        return dn;
+    }
+
+    public void setDn(Name dn) {
+        this.dn = dn;
     }
 
     public String getCn() {
