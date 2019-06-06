@@ -22,6 +22,15 @@ public class LdapClient {
     private String cert;
     private String upnSuffix;
     private Boolean isStuidRegular;
+    private String accountManager;
+
+    public String getAccountManager() {
+        return accountManager;
+    }
+
+    public void setAccountManager(String accountManager) {
+        this.accountManager = accountManager;
+    }
 
     public Integer getSn() {
         return sn;

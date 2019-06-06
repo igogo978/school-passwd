@@ -45,34 +45,34 @@ public class CallbackController {
 
 
         assert client.getState().equals(state);
-        logger.info(String.format("3.取得code:%s", data));
+//        logger.info(String.format("3.取得code:%s", data));
+//
+//        ObjectMapper mapper = new ObjectMapper();
+//        JsonNode node = mapper.readTree(StringEscapeUtils.unescapeJava(data));
+//        String school_no = node.get("school_no").asText();
+//        String username = node.get("username").asText();
+//        String role = node.get("role").asText();
+//        String name = node.get("name").asText();
+//        String edu_key = node.get("edu_key").asText();
+//        String adusername = node.get("username").asText();
+//
+//
+//        //學生要判斷在ad 上的帳號格式, regular or simple
+//        if (!ldapRepository.findBySn(1).getStuidRegular() && role.equals("student")) {
+//            adusername = node.get("username").asText().split("-")[1];
+//            logger.info("Student ad username:" + adusername);
+//        }
+//
+////        String school_no, String username, String role, String name, String edu_key
+//        User user = new User(school_no, username, adusername, role, name, edu_key);
+//        userloginservice.setUserLoggedin(Boolean.TRUE, user);
+//
+//        //取得token
+//        SystemConfig sysconfig = repository.findBySn(1);
+////        logger.info(sysconfig.getAccesstoken_endpoint());
+//        client.setAccesstoken(sysconfig);
 
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode node = mapper.readTree(StringEscapeUtils.unescapeJava(data));
-        String school_no = node.get("school_no").asText();
-        String username = node.get("username").asText();
-        String role = node.get("role").asText();
-        String name = node.get("name").asText();
-        String edu_key = node.get("edu_key").asText();
-        String adusername = node.get("username").asText();
-
-
-        //學生要判斷在ad 上的帳號格式, regular or simple
-        if (!ldapRepository.findBySn(1).getStuidRegular() && role.equals("student")) {
-            adusername = node.get("username").asText().split("-")[1];
-            logger.info("Student ad username:" + adusername);
-        }
-
-//        String school_no, String username, String role, String name, String edu_key
-        User user = new User(school_no, username, adusername, role, name, edu_key);
-        userloginservice.setUserLoggedin(Boolean.TRUE, user);
-
-        //取得token
-        SystemConfig sysconfig = repository.findBySn(1);
-//        logger.info(sysconfig.getAccesstoken_endpoint());
-        client.setAccesstoken(sysconfig);
-
-        return new RedirectView("/passwd/userhome");
+        return getRedirectView(data);
     }
 
 
@@ -81,6 +81,39 @@ public class CallbackController {
 
 
         assert client.getState().equals(state);
+//        logger.info(String.format("3.取得code:%s", data));
+//
+//        ObjectMapper mapper = new ObjectMapper();
+//        JsonNode node = mapper.readTree(StringEscapeUtils.unescapeJava(data));
+//        String school_no = node.get("school_no").asText();
+//        String username = node.get("username").asText();
+//        String role = node.get("role").asText();
+//        String name = node.get("name").asText();
+//        String edu_key = node.get("edu_key").asText();
+//        String adusername = node.get("username").asText();
+//
+//
+//        //學生要判斷在ad 上的帳號格式, regular or simple
+//        if (!ldapRepository.findBySn(1).getStuidRegular() && role.equals("student")) {
+//            adusername = node.get("username").asText().split("-")[1];
+//            logger.info("Student ad username:" + adusername);
+//        }
+//
+////        String school_no, String username, String role, String name, String edu_key
+//        User user = new User(school_no, username, adusername, role, name, edu_key);
+//        userloginservice.setUserLoggedin(Boolean.TRUE, user);
+//
+//        //取得token
+//        SystemConfig sysconfig = repository.findBySn(1);
+////        logger.info(sysconfig.getAccesstoken_endpoint());
+//        client.setAccesstoken(sysconfig);
+//
+//        return new RedirectView("/passwd/userhome");
+        return getRedirectView(data);
+    }
+
+
+    private RedirectView getRedirectView(String data) throws IOException, OAuthProblemException, OAuthSystemException {
         logger.info(String.format("3.取得code:%s", data));
 
         ObjectMapper mapper = new ObjectMapper();
@@ -92,7 +125,7 @@ public class CallbackController {
         String edu_key = node.get("edu_key").asText();
         String adusername = node.get("username").asText();
 
-
+//        logger.info("account manager:"+ldapRepository.findBySn(1).getAccountManager());
         //學生要判斷在ad 上的帳號格式, regular or simple
         if (!ldapRepository.findBySn(1).getStuidRegular() && role.equals("student")) {
             adusername = node.get("username").asText().split("-")[1];
@@ -101,12 +134,18 @@ public class CallbackController {
 
 //        String school_no, String username, String role, String name, String edu_key
         User user = new User(school_no, username, adusername, role, name, edu_key);
+
+        //login session
         userloginservice.setUserLoggedin(Boolean.TRUE, user);
 
         //取得token
         SystemConfig sysconfig = repository.findBySn(1);
 //        logger.info(sysconfig.getAccesstoken_endpoint());
         client.setAccesstoken(sysconfig);
+
+        if (username.equals(ldapRepository.findBySn(1).getAccountManager())) {
+            return new RedirectView("/passwd/admin");
+        }
 
         return new RedirectView("/passwd/userhome");
     }

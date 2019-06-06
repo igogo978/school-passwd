@@ -7,11 +7,13 @@ import app.passwd.ldap.model.OrganizationalUnit;
 import app.passwd.ldap.model.PersonAttributesMapper;
 
 import app.passwd.model.LdapClient;
+import app.passwd.model.Role;
 import app.passwd.model.User;
 import app.passwd.repository.LdapRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ldap.core.AttributesMapper;
 import org.springframework.ldap.core.DirContextAdapter;
 import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.core.support.LdapContextSource;
@@ -20,10 +22,8 @@ import org.springframework.stereotype.Service;
 
 import javax.naming.InvalidNameException;
 import javax.naming.Name;
-import javax.naming.directory.Attribute;
-import javax.naming.directory.BasicAttribute;
-import javax.naming.directory.DirContext;
-import javax.naming.directory.ModificationItem;
+import javax.naming.NamingException;
+import javax.naming.directory.*;
 import javax.naming.ldap.LdapName;
 
 import java.io.UnsupportedEncodingException;
@@ -172,18 +172,19 @@ public class LdapTools {
 //    }
 
     public void addStuUser(User user, String userPassword) throws UnsupportedEncodingException {
+        Role role = ldaprepository.findBySn(1).getRoles().stream().filter(r -> r.getRole().contains("student")).findFirst().orElse(null);
+
         LdapTemplate ldapTemplate = initLDAPConnect();
         List<String> rdns = new ArrayList<>();
         String year = user.getUsername().split("-")[0];
-        rdns.add("Student");
+        rdns.add(role.getOu());
         rdns.add(year);
 
         if (!isOuExist(year)) {
-
             createOu(rdns);
         }
 
-        rdns.forEach(rdn -> logger.info("rdn:" + rdn));
+//        rdns.forEach(rdn -> logger.info("rdn:" + rdn));
 
         LdapNameBuilder ldapNameBuilder = LdapNameBuilder
                 .newInstance();
@@ -211,16 +212,21 @@ public class LdapTools {
         String passwdUnicodePwdFormat = String.format("\"%s\"", userPassword);
         byte[] passwd = passwdUnicodePwdFormat.getBytes("UTF-16LE");
         context.setAttributeValue("unicodePwd", passwd);
+
+//        logger.info("建立學生帳號:" + user.getAdusername());
         ldapTemplate.bind(context);
 
     }
 
 
     public void addUser(User user, String userPassword) throws UnsupportedEncodingException {
+
+        Role role = ldaprepository.findBySn(1).getRoles().stream().filter(r -> r.getRole().contains("teacher")).findFirst().orElse(null);
+
         LdapTemplate ldapTemplate = initLDAPConnect();
         Name dn = LdapNameBuilder
                 .newInstance()
-                .add("ou", user.getRole())
+                .add("ou", role.getOu())
                 .add("cn", user.getUsername())
                 .build();
         DirContextAdapter context = new DirContextAdapter(dn);
@@ -245,6 +251,18 @@ public class LdapTools {
         ldapTemplate.bind(context);
 
     }
+
+    public List<ADUser> findAll() {
+
+        LdapTemplate ldapTemplate = initLDAPConnect();
+
+        List<ADUser> users = ldapTemplate.find(
+                query().where("cn").isPresent(), ADUser.class);
+        System.out.println("all user size:" + users.size());
+
+        return users;
+    }
+
 
     public ADUser findByCn(String username) {
         LdapTemplate ldapTemplate = initLDAPConnect();

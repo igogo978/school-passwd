@@ -2,7 +2,7 @@
 	
 	"clientid": "a59069b2baad26d5ebdda925d650295d",
 	"secret": "aea9b997316b6f94e014e1b6f2c5f47c",
-	"ldap":"ldap.json",
+	"ldap":"winad.json",
 	"authorize_endpoint": "http://api.cloudschool.tw/school-oauth/authorize",
 	"accesstoken_endpoint": "http://api.cloudschool.tw/oauth?authorize",
 	"changepasswd_endpoint": "http://api.cloudschool.tw/change-password",

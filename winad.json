@@ -1,0 +1,20 @@
+{
+	"ldap_server": "happy.tc.edu.tw",
+	"ldap_port": 636,
+	"rootdn": "CN=Administrator,CN=Users,DC=happy,DC=tc,DC=edu,DC=tw",
+	"passwd": "3LittlePigs",
+	"cert": "happy.jks",
+	"basedn": "dc=happy,dc=tc,dc=edu,dc=tw",
+	"upn_suffix": "happy.tc.edu.tw",
+	"stu_id_format": "regular",
+	"roles": [{
+			"role": "teacher",
+			"ou": "Teachers"
+		},
+		{
+			"role": "student",
+			"ou": "Students"
+		}
+	],
+	"accountManager":"t0001"
+}

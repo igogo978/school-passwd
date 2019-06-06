@@ -37,8 +37,8 @@ public class PasswdApplication implements CommandLineRunner {
     @Autowired
     SystemConfigRepository repository;
 
-    @Autowired
-    LearningAccountRepository accountrepository;
+//    @Autowired
+//    LearningAccountRepository accountrepository;
 
     @Autowired
     LdapRepository ldaprepository;
@@ -141,6 +141,7 @@ public class PasswdApplication implements CommandLineRunner {
                     ldapclient.setRootdn(node.get("rootdn").asText());
                     ldapclient.setCert(node.get("cert").asText());
                     ldapclient.setUpnSuffix(node.get("upn_suffix").asText());
+                    ldapclient.setAccountManager(node.get("accountManager").asText());
                     if (node.get("stu_id_format").asText().equals("simple")) {
                         ldapclient.setStuidRegular(Boolean.FALSE);
                     } else {
@@ -167,8 +168,10 @@ public class PasswdApplication implements CommandLineRunner {
 
         //測試連結ldap
         //信任憑證
-        System.out.println("加入憑證:" + ldaprepository.findBySn(1).getCert());
+
+        System.out.println("加入WinAD憑證:" + ldaprepository.findBySn(1).getCert());
         File cert = new File(String.format("%s/%s", System.getProperty("user.dir"), ldaprepository.findBySn(1).getCert()));
+
         if (cert.exists()) {
             System.setProperty("javax.net.ssl.trustStore", cert.getAbsolutePath());
             System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
@@ -179,13 +182,15 @@ public class PasswdApplication implements CommandLineRunner {
         }
 
         //初始化, 檢查ou, 無則建立
-        System.out.println("檢查OU:Teacher, Student");
+
         ldaprepository.findBySn(1).getRoles().forEach(role -> {
+            System.out.println("檢查OU:" + role.getOu());
             if (!ldapTools.isOuExist(role.getOu())) {
                 System.out.println("建立OU:" + role.getOu());
                 ldapTools.createOu(role.getOu());
             }
         });
+
 
 //        LdapContextSource source = new LdapContextSource();
 //        String url = String.format("ldaps://%s:%s", ldaprepository.findBySn(1).getLdapserver(), ldaprepository.findBySn(1).getLdapport());
@@ -198,8 +203,7 @@ public class PasswdApplication implements CommandLineRunner {
 //        ldapTemplate.setIgnorePartialResultException(true);
 
         logger.info("帳號整合服務成功啟動");
-
-
+        ldapTools.findAll();
     }
 
 
