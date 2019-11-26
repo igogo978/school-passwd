@@ -5,6 +5,7 @@ import app.passwd.model.Role;
 import app.passwd.model.StudentUser;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -47,6 +48,7 @@ public class AccountService {
         String data = semesterdata.getdata(token, endpoint);
 //        logger.info("全部資料:" + data);
         ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
         JsonNode root = mapper.readTree(data);
         JsonNode node = root.get("學期編班");
         logger.info("班級數:" + node.size());
@@ -93,17 +95,17 @@ public class AccountService {
         //cloud school
         List<StudentUser> csaccounts = getAllCSStudentUser();
 
-
         final List<ADUser> adusers = ldapTools.findAll();
 //        Role role = ldaprepository.findBySn(1).getRoles().stream().filter(r -> r.getRole().contains("teacher")).findFirst().orElse(null);
 
+        adusers.forEach(user->logger.info(user.getCn()));
         List<StudentUser> emptyAccounts = new ArrayList<>();
 
-        adusers.forEach(user->{
-            if (user.getCn().equals("102-102047")) {
-                logger.info(user.getCn());
-            }
-        });
+//        adusers.forEach(user->{
+//            if (user.getCn().equals("102-102047")) {
+//                logger.info(user.getCn());
+//            }
+//        });
 
         csaccounts.forEach(csaccount -> {
 

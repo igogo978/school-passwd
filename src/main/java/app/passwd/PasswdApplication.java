@@ -182,7 +182,6 @@ public class PasswdApplication implements CommandLineRunner {
         }
 
         //初始化, 檢查ou, 無則建立
-
         ldaprepository.findBySn(1).getRoles().forEach(role -> {
             System.out.println("檢查OU:" + role.getOu());
             if (!ldapTools.isOuExist(role.getOu())) {
@@ -203,7 +202,7 @@ public class PasswdApplication implements CommandLineRunner {
 //        ldapTemplate.setIgnorePartialResultException(true);
 
         logger.info("帳號整合服務成功啟動");
-        ldapTools.findAll();
+//        ldapTools.findAll();
     }
 
 

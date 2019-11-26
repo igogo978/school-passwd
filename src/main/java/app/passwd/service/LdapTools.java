@@ -258,7 +258,7 @@ public class LdapTools {
 
         List<ADUser> users = ldapTemplate.find(
                 query().where("cn").isPresent(), ADUser.class);
-        System.out.println("all user size:" + users.size());
+//        System.out.println("all user size:" + users.size());
 
         return users;
     }
