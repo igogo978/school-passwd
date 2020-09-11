@@ -1,8 +1,8 @@
 package app.passwd;
 
-import app.passwd.ldap.model.ADUser;
-import app.passwd.model.*;
-import app.passwd.repository.LearningAccountRepository;
+import app.passwd.model.LdapClient;
+import app.passwd.model.Role;
+import app.passwd.model.SystemConfig;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
 import app.passwd.service.LdapTools;
@@ -17,19 +17,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.ldap.core.LdapTemplate;
-import org.springframework.ldap.core.support.LdapContextSource;
 
-import javax.naming.ldap.LdapName;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class PasswdApplication implements CommandLineRunner {
 
     //win ad
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Value("${config}")
     private String configfile;
@@ -37,11 +33,9 @@ public class PasswdApplication implements CommandLineRunner {
     @Autowired
     SystemConfigRepository repository;
 
-//    @Autowired
-//    LearningAccountRepository accountrepository;
 
     @Autowired
-    LdapRepository ldaprepository;
+    LdapRepository ldapRepository;
 
     @Autowired
     LdapTools ldapTools;
@@ -49,11 +43,9 @@ public class PasswdApplication implements CommandLineRunner {
     @Autowired
     private ConfigurableApplicationContext context;
 
-//    @Autowired
-//    ReadLearningAccount readaccount;
 
     SystemConfig sysconfig = new SystemConfig();
-    List<LearningAccount> learningaccounts = new ArrayList<>();
+
 
     public static void main(String[] args) {
 
@@ -155,7 +147,7 @@ public class PasswdApplication implements CommandLineRunner {
                         ldapclient.getRoles().add(new Role(role, ou));
                     });
 
-                    ldaprepository.save(ldapclient);
+                    ldapRepository.save(ldapclient);
                 }
             } //is sync ldap
 
@@ -169,8 +161,8 @@ public class PasswdApplication implements CommandLineRunner {
         //測試連結ldap
         //信任憑證
 
-        System.out.println("加入WinAD憑證:" + ldaprepository.findBySn(1).getCert());
-        File cert = new File(String.format("%s/%s", System.getProperty("user.dir"), ldaprepository.findBySn(1).getCert()));
+        System.out.println("加入WinAD憑證:" + ldapRepository.findBySn(1).getCert());
+        File cert = new File(String.format("%s/%s", System.getProperty("user.dir"), ldapRepository.findBySn(1).getCert()));
 
         if (cert.exists()) {
             System.setProperty("javax.net.ssl.trustStore", cert.getAbsolutePath());
@@ -182,15 +174,16 @@ public class PasswdApplication implements CommandLineRunner {
         }
 
         //初始化, 檢查ou, 無則建立
-        ldaprepository.findBySn(1).getRoles().forEach(role -> {
+        ldapRepository.findBySn(1).getRoles().forEach(role -> {
             System.out.println("檢查OU:" + role.getOu());
-            if (!ldapTools.isOuExist(role.getOu())) {
+            if (!ldapTools.isOuExist(Arrays.asList(role.getOu()))) {
                 System.out.println("建立OU:" + role.getOu());
-                ldapTools.createOu(role.getOu());
+
+                ldapTools.createOu(Arrays.asList(role.getOu()));
             }
         });
 
-
+        ldapTools.isOuExist(Arrays.asList("Students","104"));
 //        LdapContextSource source = new LdapContextSource();
 //        String url = String.format("ldaps://%s:%s", ldaprepository.findBySn(1).getLdapserver(), ldaprepository.findBySn(1).getLdapport());
 //        source.setUrl(url);

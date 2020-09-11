@@ -1,4 +1,4 @@
-package app.passwd.controller;
+package app.passwd.controller.admin;
 
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AdminController {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     Oauth2Client client;
@@ -30,10 +30,9 @@ public class AdminController {
 
     @GetMapping("/passwd/admin")
     public String userhome(Model model) {
-
-//        if (!userloginservice.isLoggedin()) {
-//            return "redirect:/";
-//        }
+        if (!userloginservice.isLoggedin()) {
+            return "redirect:/";
+        }
 
         return "admin/home";
     }
@@ -41,12 +40,9 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String userhomeProxypass(Model model) {
-
-//        if (!userloginservice.isLoggedin()) {
-//            return "redirect:/";
-//        }
-
-
+        if (!userloginservice.isLoggedin()) {
+            return "redirect:/";
+        }
         return "admin/home";
     }
 

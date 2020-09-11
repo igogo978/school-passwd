@@ -2,6 +2,7 @@ package app.passwd.api;
 
 import app.passwd.ldap.model.ADUser;
 import app.passwd.model.Account;
+import app.passwd.model.SchoolUser;
 import app.passwd.model.User;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
@@ -98,6 +99,7 @@ public class UpdatePasswdController {
         //result {"_links":{"self":{"href":"https:\/\/api.tc.edu.tw\/change-password"}},"_embedded":{"change_password":[["107-10702 \u66f4\u6539\u4e86\u5bc6\u78bc123456"]]},"total_items":1}
         JsonNode node = mapper.readTree(result);
         if (node.get("total_items").asInt() == 1) {
+            //成功更新, 登出
             userloginservice.setLoggedin(Boolean.FALSE);
         }
 
@@ -114,7 +116,7 @@ public class UpdatePasswdController {
 
                 logger.info("create user:" + user.getAdusername());
                 if (user.getRole().equals("teacher")) {
-                    ldapTools.addUser(user, account.getPassword());
+                    ldapTools.addUser(user, account.getPassword(),"teacher");
                 } else {
                     ldapTools.addStuUser(user, account.getPassword());
 

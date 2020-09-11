@@ -1,5 +1,6 @@
 package app.passwd.model;
 
+//user data object from api
 public class User {
     private String school_no;
     private String username;
@@ -7,11 +8,7 @@ public class User {
     private String role;
     private String name;
     private String edu_key;
-//    private String learningaccount;
 
-//    public String getLearningaccount() {
-//        return learningaccount;
-//    }
 
 
     public User() {

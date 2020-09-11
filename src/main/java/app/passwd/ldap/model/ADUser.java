@@ -8,10 +8,9 @@ import javax.naming.Name;
 
 @Entry(objectClasses = { "organizationalPerson", "person", "top" })
 public class ADUser {
-
+//    https://docs.microsoft.com/en-us/windows/win32/adschema/a-physicaldeliveryofficename
     @Id
     private Name dn;
-
 
     private @Attribute(name = "cn") String cn;
     private @Attribute(name = "displayName") String displayName;
@@ -19,6 +18,24 @@ public class ADUser {
     private @Attribute(name = "sAMAccountName") String sAMAccountName;
     private @Attribute(name = "userPrincipalName") String userPrincipalName;
     private @Attribute(name = "distinguishedName") String distinguishedName;
+    private @Attribute(name = "description") String personalTitle;
+    private @Attribute(name = "physicalDeliveryOfficeName") String physicalDeliveryOfficeName;
+
+    public String getPhysicalDeliveryOfficeName() {
+        return physicalDeliveryOfficeName;
+    }
+
+    public void setPhysicalDeliveryOfficeName(String physicalDeliveryOfficeName) {
+        this.physicalDeliveryOfficeName = physicalDeliveryOfficeName;
+    }
+
+    public String getPersonalTitle() {
+        return personalTitle;
+    }
+
+    public void setPersonalTitle(String personalTitle) {
+        this.personalTitle = personalTitle;
+    }
 
     public ADUser() {
     }

@@ -1,11 +1,10 @@
 package app.passwd.service;
 
 import app.passwd.ldap.model.ADUser;
-import app.passwd.model.Role;
-import app.passwd.model.StudentUser;
+import app.passwd.model.SchoolUser;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
-import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -17,10 +16,11 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AccountService {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     LdapRepository ldaprepository;
@@ -37,9 +37,44 @@ public class AccountService {
     @Autowired
     Oauth2Client client;
 
+    public SchoolUser getStaffUser(String username) throws IOException {
+        List<SchoolUser> users = getAllStaffUsers();
+        Optional<SchoolUser> user = users.stream().filter(u -> u.getUsername().equals(username)).findFirst();
+        return user.get();
+    }
 
-    public List<StudentUser> getAllCSStudentUser() throws IOException {
-        List<StudentUser> users = new ArrayList<>();
+    public List<SchoolUser> getAllStaffUsers() throws IOException {
+        List<SchoolUser> users = new ArrayList<>();
+        String endpoint = sysconfigrepository.findBySn(1).getSemesterdata_endpoint();
+        String token = client.getAccesstoken();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature(), true);
+        String data = semesterdata.getdata(token, endpoint);
+        JsonNode root = mapper.readTree(data);
+        JsonNode node = root.get("學期教職員");
+        for (int i = 0; i < node.size(); i++) {
+            SchoolUser user = new SchoolUser();
+            String ou = node.get(i).get("處室").asText();
+            String personalTitle = node.get(i).get("職稱").asText();
+            String name = node.get(i).get("姓名").asText();
+            String account = node.get(i).get("帳號").asText();
+            user.setName(name);
+            user.setUsername(account);
+            user.setAdusername(account);
+            user.setPersonalTitle(personalTitle);
+            user.setPhysicalDeliveryOfficeName(ou);
+            users.add(user);
+        }
+
+
+        return users;
+    }
+
+
+
+
+    public List<SchoolUser> getAllCSStudentUser() throws IOException {
+        List<SchoolUser> users = new ArrayList<>();
 
         //取得cs 上 全部學生資料
         String endpoint = sysconfigrepository.findBySn(1).getSemesterdata_endpoint();
@@ -48,7 +83,8 @@ public class AccountService {
         String data = semesterdata.getdata(token, endpoint);
 //        logger.info("全部資料:" + data);
         ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
+//        mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+        mapper.configure(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature(), true);
         JsonNode root = mapper.readTree(data);
         JsonNode node = root.get("學期編班");
         logger.info("班級數:" + node.size());
@@ -64,25 +100,25 @@ public class AccountService {
 
                 //logger.info("學號：" + classnode.get(i).get("學號").asText());
                 for (int j = 0; j < classnode.size(); j++) {
-                    StudentUser studentUser = new StudentUser();
+                    SchoolUser schoolUser = new SchoolUser();
                     //logger.info("班級：" + classno);
                     //logger.info("座號：" + classnode.get(j).get("座號").asText());
                     //logger.info("姓名：" + classnode.get(j).get("姓名").asText());
                     //logger.info("學號：" + classnode.get(j).get("學號").asText());
-                    studentUser.setName(classnode.get(j).get("姓名").asText());
-                    studentUser.setClassno(classno);
+                    schoolUser.setName(classnode.get(j).get("姓名").asText());
+                    schoolUser.setClassno(classno);
                     String username = null;
                     username = String.format("%s-%s", classnode.get(j).get("學號").asText().substring(0, 3), classnode.get(j).get("學號").asText());
-                    studentUser.setUsername(username);
+                    schoolUser.setUsername(username);
                     if (ldaprepository.findBySn(1).getStuidRegular()) {
                         //logger.info("帳號為regular");
-                        studentUser.setAdusername(username);
+                        schoolUser.setAdusername(username);
 
                     } else {
                         //ad帳號為simple
-                        studentUser.setAdusername(classnode.get(j).get("學號").asText());
+                        schoolUser.setAdusername(classnode.get(j).get("學號").asText());
                     }
-                    users.add(studentUser);
+                    users.add(schoolUser);
                 }
             }
 
@@ -91,21 +127,15 @@ public class AccountService {
         return users;
     }
 
-    public List<StudentUser> getEmptyStudentUser() throws IOException {
+    //empty student accounts in win ad
+    public List<SchoolUser> getEmptyStudentUser() throws IOException {
         //cloud school
-        List<StudentUser> csaccounts = getAllCSStudentUser();
+        List<SchoolUser> csaccounts = getAllCSStudentUser();
 
         final List<ADUser> adusers = ldapTools.findAll();
-//        Role role = ldaprepository.findBySn(1).getRoles().stream().filter(r -> r.getRole().contains("teacher")).findFirst().orElse(null);
 
-        adusers.forEach(user->logger.info(user.getCn()));
-        List<StudentUser> emptyAccounts = new ArrayList<>();
-
-//        adusers.forEach(user->{
-//            if (user.getCn().equals("102-102047")) {
-//                logger.info(user.getCn());
-//            }
-//        });
+//        adusers.forEach(user -> logger.info(user.getCn()));
+        List<SchoolUser> emptyAccounts = new ArrayList<>();
 
         csaccounts.forEach(csaccount -> {
 
@@ -113,30 +143,55 @@ public class AccountService {
                 emptyAccounts.add(csaccount);
             }
         });
-//        csaccounts.forEach(studentAccount -> {
-//            if (!ldapTools.isUserExist(studentAccount.getAdusername())) {
-//
-//                emptyAccounts.add(studentAccount);
-//            }
-//        });
 
 
         return emptyAccounts;
 
     }
 
-    public void createStudentAccounts(List<StudentUser> accounts) {
+    public List<SchoolUser> getEmptyUsers(String role) throws IOException {
+        List<SchoolUser> csaccounts = new ArrayList<>();
+
+        csaccounts = role.equals("staff")? getAllStaffUsers() : getAllCSStudentUser();
+        final List<ADUser> adusers = ldapTools.findAll();
+        List<SchoolUser> emptyAccounts = new ArrayList<>();
+
+        csaccounts.forEach(csaccount -> {
+
+            if (!adusers.stream().anyMatch(aduser -> aduser.getCn().contains(csaccount.getAdusername()))) {
+                emptyAccounts.add(csaccount);
+            }
+        });
+
+        return emptyAccounts;
+
+    }
+
+
+
+
+    public void createStudentAccounts(List<SchoolUser> accounts) {
 
         //單向建立WinAD上的帳號, 並且預設密碼與帳號同
 //        ldapTools.addStuUser();
         accounts.forEach(user -> {
             logger.info(String.format("建立學生帳號:%s", user.getAdusername()));
             try {
-                    ldapTools.addStuUser(user, user.getAdusername());
+                ldapTools.addStuUser(user, user.getAdusername());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
         });
     }
+
+    public void createAccounts(List<SchoolUser> accounts) throws IOException {
+        String ou = "teacher";
+        //單向建立WinAD上的帳號, 並且預設密碼demo1234
+        //ldapTools.addStuUser();
+        ldapTools.addUser(accounts,ou);
+
+
+    }
+
 
 }

@@ -5,15 +5,14 @@ import app.passwd.ldap.model.ADUser;
 import app.passwd.ldap.model.OUAttributesMapper;
 import app.passwd.ldap.model.OrganizationalUnit;
 import app.passwd.ldap.model.PersonAttributesMapper;
-
 import app.passwd.model.LdapClient;
 import app.passwd.model.Role;
+import app.passwd.model.SchoolUser;
 import app.passwd.model.User;
 import app.passwd.repository.LdapRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ldap.core.AttributesMapper;
 import org.springframework.ldap.core.DirContextAdapter;
 import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.core.support.LdapContextSource;
@@ -22,15 +21,15 @@ import org.springframework.stereotype.Service;
 
 import javax.naming.InvalidNameException;
 import javax.naming.Name;
-import javax.naming.NamingException;
-import javax.naming.directory.*;
+import javax.naming.directory.Attribute;
+import javax.naming.directory.BasicAttribute;
+import javax.naming.directory.DirContext;
+import javax.naming.directory.ModificationItem;
 import javax.naming.ldap.LdapName;
-
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 
 import static org.springframework.ldap.query.LdapQueryBuilder.query;
@@ -38,16 +37,19 @@ import static org.springframework.ldap.query.LdapQueryBuilder.query;
 @Service
 public class LdapTools {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    LdapRepository ldaprepository;
+    LdapRepository ldapRepository;
+
+    @Autowired
+    AccountService accountService;
 
     @Autowired
     UserLoginService userloginservice;
 
     private LdapTemplate initLDAPConnect() {
-        LdapClient ldapclient = ldaprepository.findBySn(1);
+        LdapClient ldapclient = ldapRepository.findBySn(1);
         String url = String.format("ldaps://%s:%s", ldapclient.getLdapserver(), ldapclient.getLdapport());
         String basedn = ldapclient.getBasedn();
         String rootdn = ldapclient.getRootdn();
@@ -65,37 +67,67 @@ public class LdapTools {
         return ldapTemplate;
     }
 
-    public Boolean isOuExist(String ouname) {
+//    public Boolean isOuExist(String ouname) {
+//        LdapTemplate ldapTemplate = initLDAPConnect();
+//
+//
+//        List<OrganizationalUnit> ous = ldapTemplate.search(
+//                query().where("objectclass").is("organizationalUnit")
+//                        .and("ou").is(ouname),
+//
+//                new OUAttributesMapper());
+//        if (ous.size() != 0) {
+//            return Boolean.TRUE;
+//        }
+//        return Boolean.FALSE;
+//    }
+
+    public Boolean isOuExist(List<String> ous) {
+
         LdapTemplate ldapTemplate = initLDAPConnect();
+        if (ous.size() == 1) {
+            List<OrganizationalUnit> results = ldapTemplate.search(
+                    query()
+                            .where("objectclass").is("organizationalUnit")
+                            .and("ou").is(ous.get(0)),
 
+                    new OUAttributesMapper());
+            if (results.size() != 0) {
+                return Boolean.TRUE;
+            }
+        } else {
+            List<OrganizationalUnit> results = ldapTemplate.search(
+                    query()
+                            .base(String.format("ou=%s", ous.get(0)))
+                            .where("objectclass").is("organizationalUnit")
+                            .and("ou").is(ous.get(1)),
 
-        List<OrganizationalUnit> ous = ldapTemplate.search(
-                query().where("objectclass").is("organizationalUnit")
-                        .and("ou").is(ouname),
-
-                new OUAttributesMapper());
-        if (ous.size() != 0) {
-            return Boolean.TRUE;
+                    new OUAttributesMapper());
+            if (results.size() != 0) {
+                return Boolean.TRUE;
+            }
         }
+
         return Boolean.FALSE;
     }
 
-    public void createOu(String rdn) {
 
-        LdapTemplate ldapTemplate = initLDAPConnect();
-        LdapNameBuilder ldapNameBuilder = LdapNameBuilder
-                .newInstance();
-
-        ldapNameBuilder.add("ou", rdn);
-        Name dn = ldapNameBuilder.build();
-        DirContextAdapter context = new DirContextAdapter(dn);
-        List<String> objectClass = new ArrayList<>();
-        objectClass.add("top");
-        objectClass.add("organizationalUnit");
-        context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
-
-        ldapTemplate.bind(context);
-    }
+//    public void createOu(String rdn) {
+//
+//        LdapTemplate ldapTemplate = initLDAPConnect();
+//        LdapNameBuilder ldapNameBuilder = LdapNameBuilder
+//                .newInstance();
+//
+//        ldapNameBuilder.add("ou", rdn);
+//        Name dn = ldapNameBuilder.build();
+//        DirContextAdapter context = new DirContextAdapter(dn);
+//        List<String> objectClass = new ArrayList<>();
+//        objectClass.add("top");
+//        objectClass.add("organizationalUnit");
+//        context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
+//
+//        ldapTemplate.bind(context);
+//    }
 
 
     public void createOu(List<String> rdns) {
@@ -144,18 +176,10 @@ public class LdapTools {
             }
         });
         LdapTemplate ldapTemplate = initLDAPConnect();
-//
-//        LdapNameBuilder ldapNameBuilder = LdapNameBuilder.newInstance().newInstance();
-//        rdns.forEach(rdn -> ldapNameBuilder.add(rdn));
-//        ldapNameBuilder.build();
-//
-//        Name dn = ldapNameBuilder.build();
-//        for (int i = 0; i < dn.size(); i++) {
-//            System.out.println(dn.get(i));
-//        }
+
 
         String passwdUnicodePwdFormat = String.format("\"%s\"", userPassword);
-        byte[] passwd = passwdUnicodePwdFormat.getBytes("UTF-16LE");
+        byte[] passwd = passwdUnicodePwdFormat.getBytes(StandardCharsets.UTF_16LE);
 //        context.setAttributeValue("unicodePwd", password);
 
 //        ((LdapName) dn).getRdns().forEach(rdn -> logger.info(rdn.toString()));
@@ -172,19 +196,19 @@ public class LdapTools {
 //    }
 
     public void addStuUser(User user, String userPassword) throws UnsupportedEncodingException {
-        Role role = ldaprepository.findBySn(1).getRoles().stream().filter(r -> r.getRole().contains("student")).findFirst().orElse(null);
+        Role role = ldapRepository.findBySn(1).getRoles().stream().filter(r -> r.getRole().contains("student")).findFirst().orElse(null);
 
         LdapTemplate ldapTemplate = initLDAPConnect();
         List<String> rdns = new ArrayList<>();
         String year = user.getUsername().split("-")[0];
+
+        //ou=Students, ou=104
         rdns.add(role.getOu());
         rdns.add(year);
 
-        if (!isOuExist(year)) {
+        if (!isOuExist(rdns)) {
             createOu(rdns);
         }
-
-//        rdns.forEach(rdn -> logger.info("rdn:" + rdn));
 
         LdapNameBuilder ldapNameBuilder = LdapNameBuilder
                 .newInstance();
@@ -206,11 +230,13 @@ public class LdapTools {
         context.setAttributeValue("displayName", user.getName());
         context.setAttributeValue("userAccountControl", "512");
         context.setAttributeValue("sAMAccountName", user.getAdusername());
+        context.addAttributeValue("description", String.format("%s", user.getName()));
+
         context.setAttributeValue("pwdLastSet", "-1");
-        String upn = String.format("%s@%s", user.getAdusername(), ldaprepository.findBySn(1).getUpnSuffix());
+        String upn = String.format("%s@%s", user.getAdusername(), ldapRepository.findBySn(1).getUpnSuffix());
         context.setAttributeValue("userPrincipalName", upn);
         String passwdUnicodePwdFormat = String.format("\"%s\"", userPassword);
-        byte[] passwd = passwdUnicodePwdFormat.getBytes("UTF-16LE");
+        byte[] passwd = passwdUnicodePwdFormat.getBytes(StandardCharsets.UTF_16LE);
         context.setAttributeValue("unicodePwd", passwd);
 
 //        logger.info("建立學生帳號:" + user.getAdusername());
@@ -219,10 +245,52 @@ public class LdapTools {
     }
 
 
-    public void addUser(User user, String userPassword) throws UnsupportedEncodingException {
+    public void addUser(List<SchoolUser> users, String ou) throws IOException {
 
-        Role role = ldaprepository.findBySn(1).getRoles().stream().filter(r -> r.getRole().contains("teacher")).findFirst().orElse(null);
+        Role role = ldapRepository.findBySn(1).getRoles().stream().filter(r -> r.getRole().contains(ou)).findFirst().orElse(null);
 
+        users.forEach(user -> {
+            LdapTemplate ldapTemplate = initLDAPConnect();
+            Name dn = LdapNameBuilder
+                    .newInstance()
+                    .add("ou", role.getOu())
+                    .add("cn", user.getUsername())
+                    .build();
+            DirContextAdapter context = new DirContextAdapter(dn);
+
+            List<String> objectClass = new ArrayList<>();
+            objectClass.add("top");
+            objectClass.add("person");
+            objectClass.add("organizationalPerson");
+            objectClass.add("user");
+            context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
+
+            context.setAttributeValue("cn", user.getUsername());
+            context.setAttributeValue("displayName", user.getName());
+            context.setAttributeValue("userAccountControl", "512");
+            context.setAttributeValue("sAMAccountName", user.getUsername());
+            context.setAttributeValue("pwdLastSet", "-1");
+            context.addAttributeValue("description", user.getName());
+            context.addAttributeValue("physicalDeliveryOfficeName", user.getPhysicalDeliveryOfficeName() + user.getPersonalTitle());
+
+            String upn = String.format("%s@%s", user.getUsername(), ldapRepository.findBySn(1).getUpnSuffix());
+            context.setAttributeValue("userPrincipalName", upn);
+            String passwdUnicodePwdFormat = String.format("\"%s\"", "demo1234");
+            byte[] passwd = passwdUnicodePwdFormat.getBytes(StandardCharsets.UTF_16LE);
+            context.setAttributeValue("unicodePwd", passwd);
+            ldapTemplate.bind(context);
+
+        });
+
+
+    }
+
+    public void addUser(User user, String userPassword, String ou) throws IOException {
+
+        Role role = ldapRepository.findBySn(1).getRoles().stream().filter(r -> r.getRole().contains(ou)).findFirst().orElse(null);
+
+        SchoolUser schoolUser = accountService.getStaffUser(user.getUsername());
+        logger.info("get staff data:" + schoolUser.getPassword());
         LdapTemplate ldapTemplate = initLDAPConnect();
         Name dn = LdapNameBuilder
                 .newInstance()
@@ -243,10 +311,14 @@ public class LdapTools {
         context.setAttributeValue("userAccountControl", "512");
         context.setAttributeValue("sAMAccountName", user.getUsername());
         context.setAttributeValue("pwdLastSet", "-1");
-        String upn = String.format("%s@%s", user.getUsername(), ldaprepository.findBySn(1).getUpnSuffix());
+        context.addAttributeValue("description", user.getName());
+        context.addAttributeValue("physicalDeliveryOfficeName", schoolUser.getPhysicalDeliveryOfficeName() + schoolUser.getPersonalTitle()
+        );
+
+        String upn = String.format("%s@%s", user.getUsername(), ldapRepository.findBySn(1).getUpnSuffix());
         context.setAttributeValue("userPrincipalName", upn);
         String passwdUnicodePwdFormat = String.format("\"%s\"", userPassword);
-        byte[] passwd = passwdUnicodePwdFormat.getBytes("UTF-16LE");
+        byte[] passwd = passwdUnicodePwdFormat.getBytes(StandardCharsets.UTF_16LE);
         context.setAttributeValue("unicodePwd", passwd);
         ldapTemplate.bind(context);
 
@@ -258,8 +330,6 @@ public class LdapTools {
 
         List<ADUser> users = ldapTemplate.find(
                 query().where("cn").isPresent(), ADUser.class);
-//        System.out.println("all user size:" + users.size());
-
         return users;
     }
 
@@ -270,13 +340,6 @@ public class LdapTools {
         return ldapTemplate.findOne(
                 query().where("cn").is(username), ADUser.class);
 
-
-//        List<ADUser> users = ldapTemplate.search(
-//                query().where("objectclass").is("person")
-//                        .and("cn").is(username),
-//                new PersonAttributesMapper());
-//
-//        return users.get(0);
     }
 
 }

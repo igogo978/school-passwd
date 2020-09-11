@@ -86,13 +86,13 @@
       }
 
       /*
-                     * The following styles are auto-applied to elements with
-                     * transition="modal" when their visibility is toggled
-                     * by Vue.js.
-                     *
-                     * You can easily play with the modal transition by editing
-                     * these styles.
-                     */
+         * The following styles are auto-applied to elements with
+         * transition="modal" when their visibility is toggled
+         * by Vue.js.
+         *
+         * You can easily play with the modal transition by editing
+         * these styles.
+      */
 
       .modal-enter {
         opacity: 0;
@@ -148,7 +148,9 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="/passwd/userhome">家目錄</a>
-          <a class="nav-item nav-link active" href="/passwd/admin/sync">同步學生帳號 <span
+          <a class="nav-item nav-link active" href="/passwd/admin/sync/students">同步學生帳號 <span
+              class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active" href="/passwd/admin/sync/staff">同步staff帳號 <span
               class="sr-only">(current)</span></a>
           <!--                <a class="nav-item nav-link" href="#">重設使用者密碼</a>-->
         </div>
@@ -162,16 +164,6 @@
         <span class="input-group-text text-white bg-success">未建立帳號清單</span>
         <input type="text" v-bind:placeholder="msg" class="form-control bg-white"
           aria-label="Amount (to the nearest dollar)" readonly>
-
-        <div class="input-group-append">
-          <span class="input-group-text text-black bg-white">選擇入學年度</span>
-          <select v-model="selectedYear" @change="updateShowAccounts">
-            <option disabled value=""> </option>
-            <option v-for="year in years" v-bind:value="year">
-              {{ year }}
-            </option>
-          </select>
-        </div>
 
 
         <!-- <span class="input-group-text"></span> -->
@@ -187,9 +179,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">班級</th>
             <th scope="col">姓名</th>
-
             <th scope="col">WinAD帳號</th>
             <th scope="col">校務系統帳號</th>
 
@@ -197,7 +187,7 @@
         </thead>
         <tbody>
           <tr v-for="account in showAccounts">
-            <td>{{account.classno}}</td>
+
             <td>{{account.name}}</td>
             <th>{{account.adusername}}</th>
             <th>{{account.username}}</th>
@@ -231,53 +221,24 @@
         Vue.component('modal', {
           template: '#modal-template'
         })
-
+        let url = "/passwd/api/account/staff";
 
         var app = new Vue({
           el: '#app',
           data: {
             accounts: [{}],
             showAccounts: [],
-            years: [],
-            selectedYear: "",
             msg: "正在努力加載中",
             status: 0,
             showModal: false,
           },
           created: function () {
-
             let vm = this;
-            let url = "api/account/student/empty";
-            console.log(url)
-            this.$http.get(url, config)
+             this.$http.get(url, config)
               .then(function (response) {
                 // console.log(response.data)
-                vm.accounts = response.data;
+                vm.showAccounts = response.data;
                 vm.status = 1;
-
-                //初使頁面
-
-
-                if (vm.accounts.length > 0) {
-                  vm.accounts.forEach(element => {
-                    if (element.username != undefined) {
-                      year = element.username.split("-")[0]
-                      if (!vm.years.includes(year)) {
-                        vm.years.push(year)
-                      }
-
-                      if (vm.years[0] === element.username.split("-")[0]) {
-                        vm.showAccounts.push(element);
-
-                      }
-                    }
-
-                  });
-
-                  vm.selectedYear = vm.years[0];
-
-                }
-
 
 
 
@@ -324,12 +285,12 @@
                   // console.log(this.status);
                   if (this.status === 1) {
                     clearInterval(count);
-                    this.msg = this.selectedYear + "年,共 " + this.showAccounts.length + "筆";
+                    this.msg = "共 " + this.showAccounts.length + "筆";
                   }
 
                   if (this.status === 99) {
                     clearInterval(count);
-                    this.msg = this.selectedYear + "年,共 " + this.showAccounts.length + "筆建立成功";
+                    this.msg = "共 " + this.showAccounts.length + "筆建立成功";
                   }
 
 
@@ -354,15 +315,12 @@
                 }
               });
               this.msg = "共" + this.showAccounts.length + "筆"
-              // console.log(this.showAccounts);
             },
             submit: function () {
               this.status = 0;
               let vm = this;
-              let url = "/passwd/admin/api/account/student";
 
               console.log("ok,submit,post target url:" + url);
-
 
               this.$http.put(url, this.showAccounts, config).then((response) => {
                 // success callback
@@ -373,8 +331,6 @@
                 vm.status = 99;
 
                 vm.showModal = true;
-
-
 
               }, (response) => {
                 // error callback
