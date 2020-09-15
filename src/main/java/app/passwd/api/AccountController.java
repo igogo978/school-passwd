@@ -81,6 +81,11 @@ public class AccountController {
         return accounts;
     }
 
+    @RequestMapping(value = "/passwd/api/account/staff", method = RequestMethod.GET)
+    public List<SchoolUser> getEmptyStaffAccount() throws IOException {
+        return getEmptyStaffAccountProxyPass();
+    }
+
     @RequestMapping(value = "/api/account/staff", method = RequestMethod.GET)
     public List<SchoolUser> getEmptyStaffAccountProxyPass() throws IOException {
         //empty account on win ad
@@ -98,7 +103,6 @@ public class AccountController {
         accountService.createAccounts(accounts);
         return accounts;
     }
-
 
 
     @RequestMapping(value = "/api/account/staff", method = RequestMethod.PUT)

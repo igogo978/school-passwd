@@ -83,7 +83,6 @@ public class PasswdApplication implements CommandLineRunner {
             }
 
             //僅提供測試站台及台中市學校使用
-
             if (sysconfig.getAuthorize_endpoint().equals("http://api.cloudschool.tw/school-oauth/authorize") || sysconfig.getAuthorize_endpoint().equals("https://api.tc.edu.tw/school-oauth/authorize")) {
                 //true
             } else {
@@ -94,29 +93,6 @@ public class PasswdApplication implements CommandLineRunner {
             //必須先存入所有sysconfig 設定, 後面再判斷是否讀取其它設定檔存入資料庫
             repository.save(sysconfig);
 
-            //讀取學習帳號
-//            if (StringUtils.isEmpty(node.get("account_info").asText())) {
-//                sysconfig.setLearningAccount(Boolean.FALSE);
-//            } else {
-//                sysconfig.setLearningAccount(Boolean.TRUE);
-//
-//            }
-//            logger.info(mapper.writeValueAsString(sysconfig));
-
-            //處理學習帳號
-//            if (sysconfig.isLearningAccount()) {
-//                String accountfile = node.get("account_info").asText();
-//                File file = new File((String.format("%s/%s", System.getProperty("user.dir"), accountfile)));
-//                logger.info(String.format("%s/%s", System.getProperty("user.dir"), accountfile));
-//                if (file.exists()) {
-//                    List<LearningAccount> learningaccounts = new ArrayList<>();
-//                    learningaccounts = readaccount.readxls(file);
-//
-//                    learningaccounts.forEach(account -> {
-//                        accountrepository.save(account);
-//                    });
-//                }
-//            }
 
             //處理ldap client
             if (sysconfig.isSyncLdap()) {

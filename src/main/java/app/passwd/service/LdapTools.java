@@ -111,25 +111,6 @@ public class LdapTools {
         return Boolean.FALSE;
     }
 
-
-//    public void createOu(String rdn) {
-//
-//        LdapTemplate ldapTemplate = initLDAPConnect();
-//        LdapNameBuilder ldapNameBuilder = LdapNameBuilder
-//                .newInstance();
-//
-//        ldapNameBuilder.add("ou", rdn);
-//        Name dn = ldapNameBuilder.build();
-//        DirContextAdapter context = new DirContextAdapter(dn);
-//        List<String> objectClass = new ArrayList<>();
-//        objectClass.add("top");
-//        objectClass.add("organizationalUnit");
-//        context.setAttributeValues("objectclass", objectClass.toArray(new String[0]));
-//
-//        ldapTemplate.bind(context);
-//    }
-
-
     public void createOu(List<String> rdns) {
 
         LdapTemplate ldapTemplate = initLDAPConnect();

@@ -16,20 +16,22 @@ public class AdminController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    Oauth2Client client;
-
-    @Autowired
     UserLoginService userloginservice;
 
-    @Autowired
-    SystemConfigRepository sysconfigrepository;
+//    @Autowired
+//    Oauth2Client client;
+//
 
-    @Autowired
-    LdapRepository ldaprepository;
+//
+//    @Autowired
+//    SystemConfigRepository sysconfigrepository;
+//
+//    @Autowired
+//    LdapRepository ldaprepository;
 
 
     @GetMapping("/passwd/admin")
-    public String userhome(Model model) {
+    public String userhome() {
         if (!userloginservice.isLoggedin()) {
             return "redirect:/";
         }
@@ -39,11 +41,11 @@ public class AdminController {
 
 
     @GetMapping("/admin")
-    public String userhomeProxypass(Model model) {
-        if (!userloginservice.isLoggedin()) {
-            return "redirect:/";
-        }
-        return "admin/home";
+    public String userhomeProxypass() {
+//        if (!userloginservice.isLoggedin()) {
+//            return "redirect:/";
+//        }
+        return userhome();
     }
 
 
