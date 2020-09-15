@@ -3,10 +3,8 @@ package app.passwd;
 import app.passwd.ldap.model.PersonAttributesMapper;
 import app.passwd.ldap.model.User;
 import app.passwd.model.LdapClient;
-import app.passwd.model.LearningAccount;
 import app.passwd.model.Role;
 import app.passwd.model.SystemConfig;
-import app.passwd.repository.LearningAccountRepository;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
 import app.passwd.service.LdapTools;
@@ -21,12 +19,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.ldap.core.DirContextAdapter;
 import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.core.support.LdapContextSource;
-import org.springframework.ldap.support.LdapUtils;
 
-import javax.naming.ldap.LdapName;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +39,6 @@ public class PasswdApplication implements CommandLineRunner {
     @Autowired
     SystemConfigRepository repository;
 
-    @Autowired
-    LearningAccountRepository accountrepository;
 
     @Autowired
     LdapRepository ldaprepository;
@@ -56,16 +49,10 @@ public class PasswdApplication implements CommandLineRunner {
     @Autowired
     LdapTools ldapTools;
 
-//    @Autowired
-//    ReadLearningAccount readaccount;
-
     SystemConfig sysconfig = new SystemConfig();
-    List<LearningAccount> learningaccounts = new ArrayList<>();
 
     public static void main(String[] args) {
-
         SpringApplication.run(PasswdApplication.class, args);
-
     }
 
     @Override
@@ -100,29 +87,6 @@ public class PasswdApplication implements CommandLineRunner {
             //必須先存入所有sysconfig 設定, 後面再判斷是否讀取其它設定檔存入資料庫
             repository.save(sysconfig);
 
-            //讀取學習帳號
-//            if (StringUtils.isEmpty(node.get("account_info").asText())) {
-//                sysconfig.setLearningAccount(Boolean.FALSE);
-//            } else {
-//                sysconfig.setLearningAccount(Boolean.TRUE);
-//
-//            }
-//            logger.info(mapper.writeValueAsString(sysconfig));
-
-            //處理學習帳號
-//            if (sysconfig.isLearningAccount()) {
-//                String accountfile = node.get("account_info").asText();
-//                File file = new File((String.format("%s/%s", System.getProperty("user.dir"), accountfile)));
-//                logger.info(String.format("%s/%s", System.getProperty("user.dir"), accountfile));
-//                if (file.exists()) {
-//                    List<LearningAccount> learningaccounts = new ArrayList<>();
-//                    learningaccounts = readaccount.readxls(file);
-//
-//                    learningaccounts.forEach(account -> {
-//                        accountrepository.save(account);
-//                    });
-//                }
-//            }
 
             //處理ldap client
             if (sysconfig.isSyncLdap()) {
