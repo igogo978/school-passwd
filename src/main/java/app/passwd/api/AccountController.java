@@ -47,22 +47,23 @@ public class AccountController {
     @RequestMapping(value = "/passwd/api/account/student", method = RequestMethod.GET)
     public List<SchoolUser> getEmptyAccount() throws IOException {
         //empty account on win ad
-        logger.info("login user: " + userLoginService.getUser().getUsername());
         if (userLoginService.getUser().getUsername().equals(ldapRepository.findBySn(1).getAccountManager())) {
             return accountService.getEmptyStudentUser();
 
         }
+        logger.info("login user: " + userLoginService.getUser().getUsername());
+
         return new ArrayList<SchoolUser>();
     }
 
     @RequestMapping(value = "/api/account/student", method = RequestMethod.GET)
     public List<SchoolUser> getEmptyAccountProxyPass() throws IOException {
         //empty account on win ad
-        logger.info("login user: " + userLoginService.getUser().getUsername());
         if (userLoginService.getUser().getUsername().equals(ldapRepository.findBySn(1).getAccountManager())) {
             return accountService.getEmptyStudentUser();
 
         }
+        logger.info("login user: " + userLoginService.getUser().getUsername());
         return new ArrayList<SchoolUser>();
     }
 

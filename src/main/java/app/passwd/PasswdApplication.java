@@ -158,17 +158,7 @@ public class PasswdApplication implements CommandLineRunner {
                 ldapTools.createOu(Arrays.asList(role.getOu()));
             }
         });
-
-        ldapTools.isOuExist(Arrays.asList("Students","104"));
-//        LdapContextSource source = new LdapContextSource();
-//        String url = String.format("ldaps://%s:%s", ldaprepository.findBySn(1).getLdapserver(), ldaprepository.findBySn(1).getLdapport());
-//        source.setUrl(url);
-//        source.setBase(ldaprepository.findBySn(1).getBasedn());
-//        source.setUserDn(ldaprepository.findBySn(1).getRootdn());
-//        source.setPassword(ldaprepository.findBySn(1).getPasswd());
-//        source.afterPropertiesSet();
-//        LdapTemplate ldapTemplate = new LdapTemplate(source);
-//        ldapTemplate.setIgnorePartialResultException(true);
+        logger.info("account manager: " + ldapRepository.findBySn(1).getAccountManager());
 
         logger.info("帳號整合服務成功啟動");
 //        ldapTools.findAll();

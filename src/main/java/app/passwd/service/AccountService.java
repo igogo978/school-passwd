@@ -81,7 +81,7 @@ public class AccountService {
         String token = client.getAccesstoken();
 
         String data = semesterdata.getdata(token, endpoint);
-//        logger.info("全部資料:" + data);
+        logger.info("全部資料:" + data);
         ObjectMapper mapper = new ObjectMapper();
 //        mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
         mapper.configure(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature(), true);
