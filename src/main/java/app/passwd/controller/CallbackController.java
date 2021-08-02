@@ -95,12 +95,7 @@ public class CallbackController {
         String edu_key = node.get("edu_key").asText();
         String adusername = node.get("username").asText();
 
-        //logger.info("account manager:"+ldapRepository.findBySn(1).getAccountManager());
-        //學生要判斷在ad 上的帳號格式, regular or simple
-        if (!ldapRepository.findBySn(1).getStuidRegular() && role.equals("student")) {
-            adusername = node.get("username").asText().split("-")[1];
-            logger.info("Student ad username:" + adusername);
-        }
+        logger.info("role: " + role);
 
         //String school_no, String username, String role, String name, String edu_key
         User user = new User(school_no, username, adusername, role, name, edu_key);
@@ -113,9 +108,9 @@ public class CallbackController {
         //logger.info(sysconfig.getAccesstoken_endpoint());
         client.setAccesstoken(sysconfig);
 
-        if (username.equals(ldapRepository.findBySn(1).getAccountManager())) {
-            return new RedirectView("/passwd/admin");
-        }
+//        if (username.equals(ldapRepository.findBySn(1).getAccountManager())) {
+//            return new RedirectView("/passwd/admin");
+//        }
 
         return new RedirectView("/passwd/userhome");
     }

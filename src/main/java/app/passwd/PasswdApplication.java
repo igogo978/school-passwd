@@ -3,11 +3,17 @@ package app.passwd;
 import app.passwd.model.LdapClient;
 import app.passwd.model.Role;
 import app.passwd.model.SystemConfig;
+import app.passwd.model.UserItem;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
+import app.passwd.repository.UserItemRepository;
 import app.passwd.service.LdapTools;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.client.gridfs.GridFSBucket;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +23,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.mongodb.gridfs.GridFsOperations;
+import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Arrays;
+import java.util.Base64;
 
 @SpringBootApplication
 public class PasswdApplication implements CommandLineRunner {
@@ -44,6 +55,8 @@ public class PasswdApplication implements CommandLineRunner {
     private ConfigurableApplicationContext context;
 
 
+    @Autowired
+    UserItemRepository userItemRepository;
     SystemConfig sysconfig = new SystemConfig();
 
 
@@ -56,9 +69,17 @@ public class PasswdApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        String declare = "本程式僅提供台中市學校使用";
-        logger.info("working dir:" + System.getProperty("user.dir"));
+//        InputStream inputStream = new FileInputStream("images/coffee.png");
+//        byte[] imagebytes = IOUtils.toByteArray(inputStream);
+//        String encoded = Base64.getEncoder().encodeToString(imagebytes);
+//        UserItem userItem = new UserItem("igogo","png", encoded);
+//        userItemRepository.save(userItem);
 
+
+
+        String declare = "本程式僅提供台中市學校使用";
+//        logger.info("working dir:" + System.getProperty("user.dir"));
+//
         ObjectMapper mapper = new ObjectMapper();
         JsonNode node;
         //確認設定檔
@@ -76,11 +97,11 @@ public class PasswdApplication implements CommandLineRunner {
             sysconfig.setCwd(System.getProperty("user.dir"));
 
             //是否更新ldap
-            if (StringUtils.isEmpty(node.get("ldap").asText())) {
-                sysconfig.setSyncLdap(Boolean.FALSE);
-            } else {
-                sysconfig.setSyncLdap(Boolean.TRUE);
-            }
+//            if (StringUtils.isEmpty(node.get("ldap").asText())) {
+//                sysconfig.setSyncLdap(Boolean.FALSE);
+//            } else {
+//                sysconfig.setSyncLdap(Boolean.TRUE);
+//            }
 
             //僅提供測試站台及台中市學校使用
             if (sysconfig.getAuthorize_endpoint().equals("http://api.cloudschool.tw/school-oauth/authorize") || sysconfig.getAuthorize_endpoint().equals("https://api.tc.edu.tw/school-oauth/authorize")) {
@@ -133,35 +154,35 @@ public class PasswdApplication implements CommandLineRunner {
             System.exit(SpringApplication.exit(context));
         }
 
-
-        //測試連結ldap
-        //信任憑證
-
-        System.out.println("加入WinAD憑證:" + ldapRepository.findBySn(1).getCert());
-        File cert = new File(String.format("%s/%s", System.getProperty("user.dir"), ldapRepository.findBySn(1).getCert()));
-
-        if (cert.exists()) {
-            System.setProperty("javax.net.ssl.trustStore", cert.getAbsolutePath());
-            System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
-            System.setProperty("com.sun.jndi.ldap.object.disableEndpointIdentification", "true");
-        } else {
-            System.out.println("找不到憑證");
-            System.exit(SpringApplication.exit(context));
-        }
-
-        //初始化, 檢查ou, 無則建立
-        ldapRepository.findBySn(1).getRoles().forEach(role -> {
-            System.out.println("檢查OU:" + role.getOu());
-            if (!ldapTools.isOuExist(Arrays.asList(role.getOu()))) {
-                System.out.println("建立OU:" + role.getOu());
-
-                ldapTools.createOu(Arrays.asList(role.getOu()));
-            }
-        });
-        logger.info("account manager: " + ldapRepository.findBySn(1).getAccountManager());
-
+//
+//        //測試連結ldap
+//        //信任憑證
+//
+//        System.out.println("加入WinAD憑證:" + ldapRepository.findBySn(1).getCert());
+//        File cert = new File(String.format("%s/%s", System.getProperty("user.dir"), ldapRepository.findBySn(1).getCert()));
+//
+//        if (cert.exists()) {
+//            System.setProperty("javax.net.ssl.trustStore", cert.getAbsolutePath());
+//            System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
+//            System.setProperty("com.sun.jndi.ldap.object.disableEndpointIdentification", "true");
+//        } else {
+//            System.out.println("找不到憑證");
+//            System.exit(SpringApplication.exit(context));
+//        }
+//
+//        //初始化, 檢查ou, 無則建立
+//        ldapRepository.findBySn(1).getRoles().forEach(role -> {
+//            System.out.println("檢查OU:" + role.getOu());
+//            if (!ldapTools.isOuExist(Arrays.asList(role.getOu()))) {
+//                System.out.println("建立OU:" + role.getOu());
+//
+//                ldapTools.createOu(Arrays.asList(role.getOu()));
+//            }
+//        });
+//        logger.info("account manager: " + ldapRepository.findBySn(1).getAccountManager());
+//
         logger.info("帳號整合服務成功啟動");
-//        ldapTools.findAll();
+////        ldapTools.findAll();
     }
 
 

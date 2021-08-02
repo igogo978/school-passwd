@@ -4,6 +4,7 @@ import app.passwd.ldap.model.ADUser;
 import app.passwd.model.SchoolUser;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,6 +37,8 @@ public class AccountService {
 
     @Autowired
     Oauth2Client client;
+
+    ObjectMapper mapper = new ObjectMapper();
 
     public SchoolUser getStaffUser(String username) throws IOException {
         List<SchoolUser> users = getAllStaffUsers();
@@ -81,13 +84,13 @@ public class AccountService {
         String token = client.getAccesstoken();
 
         String data = semesterdata.getdata(token, endpoint);
-        logger.info("全部資料:" + data);
+//        logger.info("全部資料:" + data);
         ObjectMapper mapper = new ObjectMapper();
 //        mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
         mapper.configure(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature(), true);
         JsonNode root = mapper.readTree(data);
         JsonNode node = root.get("學期編班");
-        logger.info("班級數:" + node.size());
+//        logger.info("班級數:" + node.size());
         for (int i = 0; i < node.size(); i++) {
 //            logger.info(node.get(i).get("年級").asText());
 //            String grade = node.get(i).get("年級").asText();
@@ -134,12 +137,17 @@ public class AccountService {
 
         final List<ADUser> adusers = ldapTools.findAll();
 
-//        adusers.forEach(user -> logger.info(user.getCn()));
         List<SchoolUser> emptyAccounts = new ArrayList<>();
 
         csaccounts.forEach(csaccount -> {
+            try {
+                logger.info(String.format("%s",mapper.writeValueAsString(csaccount)));
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
 
             if (!adusers.stream().anyMatch(aduser -> aduser.getCn().contains(csaccount.getAdusername()))) {
+
                 emptyAccounts.add(csaccount);
             }
         });
@@ -157,8 +165,13 @@ public class AccountService {
         List<SchoolUser> emptyAccounts = new ArrayList<>();
 
         csaccounts.forEach(csaccount -> {
-
+            try {
+                logger.info(String.format("%s",mapper.writeValueAsString(csaccount)));
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
             if (!adusers.stream().anyMatch(aduser -> aduser.getCn().contains(csaccount.getAdusername()))) {
+
                 emptyAccounts.add(csaccount);
             }
         });
