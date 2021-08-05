@@ -81,7 +81,7 @@ public class AccountService {
         String token = client.getAccesstoken();
 
         String data = semesterdata.getdata(token, endpoint);
-        logger.info("全部資料:" + data);
+        //logger.info("全部資料:" + data);
         ObjectMapper mapper = new ObjectMapper();
 //        mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
         mapper.configure(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature(), true);
@@ -89,8 +89,6 @@ public class AccountService {
         JsonNode node = root.get("學期編班");
         logger.info("班級數:" + node.size());
         for (int i = 0; i < node.size(); i++) {
-//            logger.info(node.get(i).get("年級").asText());
-//            String grade = node.get(i).get("年級").asText();
             //101
             String classno = String.format("%s%02d", node.get(i).get("年級").asText(), node.get(i).get("班序").asInt());
 //            logger.info(classno);
@@ -100,6 +98,7 @@ public class AccountService {
 
                 //logger.info("學號：" + classnode.get(i).get("學號").asText());
                 for (int j = 0; j < classnode.size(); j++) {
+                    logger.info(mapper.writeValueAsString(classnode.get(j)));
                     SchoolUser schoolUser = new SchoolUser();
                     //logger.info("班級：" + classno);
                     //logger.info("座號：" + classnode.get(j).get("座號").asText());
