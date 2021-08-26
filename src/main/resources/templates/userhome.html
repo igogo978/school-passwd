@@ -3,133 +3,129 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>useritem</title>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- development version, includes helpful console warnings -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <link href="/public/css/index.css" type="text/css" rel="stylesheet" media="all"/>
-    <link href="/passwd/public/css/index.css" type="text/css" rel="stylesheet" media="all"/>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-    <!--<script src="../../public/js/vue.js"></script>-->
-    <!--<script src="../../public/js/axios.min.js"></script>-->
-    <script src="/public/js/vue.js"></script>
     <script src="/passwd/public/js/vue.js"></script>
-    <script src="/public/js/axios.min.js"></script>
     <script src="/passwd/public/js/axios.min.js"></script>
     <style>
 
     </style>
 </head>
 
-
 <body id="LoginForm">
-
-<main>
-    <fieldset class="tab">
-        <div>
-            <h3 class="text-info d-inline">更改密碼服務</h3>
-            <br>
+<div id="app">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-xxl d-flex align-items-md-center">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="userhome">Home</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                       {{user.username}}
+                    </span>
+            </div>
         </div>
-        <div id="app">
-            <div id="checkidform">
-                <div class="col-auto">
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">姓名</div>
-                        </div>
-                        <input v-model="user.name" type="text" class="form-control" id="inlineFormInputGroup"
-                               placeholder=""
-                               readonly>
+    </nav>
+
+    <div class="album py-5 bg-gray">
+        <div class="container">
+
+            <section class="py-5 text-center container">
+                <div class="row py-lg-5">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+                        <p class="lead text-muted"> 檔案格式限定png,jpg</p>
+                        <form method="POST" enctype="multipart/form-data"
+                              th:action="@{'useritem/upload'}">
+                            <div class="input-group mb-1">
+                                <input type="file" name="file" class="form-control" aria-label="Sizing example input"
+                                       aria-describedby="inputGroup-sizing-lg">
+                                <button class="btn btn-outline-secondary"
+                                        type="submit"
+                                        value="Upload">確定上傳
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">身分</div>
-                        </div>
-                        <input v-model="user.role" type="text" class="form-control" id="inlineFormInputGroup1"
-                               placeholder="王大名"
-                               readonly>
-                    </div>
-
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">雲端校務系統帳號</div>
-                        </div>
-                        <input v-model="user.username" type="text" class="form-control" id="inlineFormInputGroup1"
-                               placeholder="107-10799"
-                               readonly>
-                    </div>
-
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">AD帳號</div>
-                        </div>
-                        <input v-model="user.adusername" type="text" class="form-control" id="inlineFormInputGroup1"
-                               placeholder="107-10799"
-                               readonly>
-                    </div>
-
-                    <!--<div v-if="isLearningAccount === true" class="input-group mb-2">-->
-                    <!--<div class="input-group-prepend">-->
-                    <!--<div class="input-group-text">學習帳號</div>-->
-                    <!--</div>-->
-                    <!--<input v-model="user.learningaccount" type="text" class="form-control" id="inlineFormInputGroup1"-->
-                    <!--placeholder="999999" readonly>-->
-                    <!--</div>-->
-
-
-                    <div class="form-row">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">請輸入新密碼</div>
-                        </div>
-                        <div class="col">
-                            <input v-model="passwd" type="password" class="form-control " placeholder="請輸入新密碼 ">
-                        </div>
-
-                    </div>
-
-                    <div class="form-row">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">請再次輸入新密碼</div>
-                        </div>
-                        <div class="col">
-                            <input v-model="confirmpasswd" type="password" class="form-control "
-                                   placeholder="請再次確認新密碼 ">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-check">
-                            <label v-if="status === 1" class="form-check-label" for="gridCheck">
-                                <p>{{msg}} {{display_seconds}}</p>
-                            </label>
-
-                            <label v-else class="form-check-label" for="gridCheck">
-                                <p>{{msg}}</p>
-                            </label>
-                            {{updateMsg}} {{updateStatus}}
-
-                        </div>
-                    </div>
-
-                    <input v-if="enable === true" v-on:click="submit" type="submit" class="btn btn-success" value="送出">
-                    <input v-else type="button" class="btn btn-secondary" value="送出" disabled>
-
-
                 </div>
+            </section>
+
+            <br>
+           <h3>尚未設定 </h3>
+            <div v-if="pendingitems.length > 0" class="row">
+
+                <div class="col-md-4 col-sm-1" v-for="item in pendingitems">
+                    <div class="card shadow-sm">
+
+                        <img v-bind:src="'data:image/jpeg;base64,'+item['content'] " alt="Girl in a jacket"
+                             width="100%" height="100%"/>
+                        <div class="card-body">
+                            <p class="card-text">covid-19防疫宣導{{item.id}}</p>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" disabled>宣導期限（天）</button>
+                                </div>
+                                <select v-model="item.expired" class="form-select form-select-sm" aria-label="Default select example">
+                                    <option v-for="day in days">{{day}}</option>
+                                </select>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <div class="btn-group">
+                                    <button v-if="item.expired == 0" v-on:click="update(item)" type="button" class="btn btn-sm btn-outline-secondary" disabled>確定</button>
+                                    <button v-else v-on:click="update(item)" type="button" class="btn btn-sm btn-outline-secondary">確定</button>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-outline-danger">失效</button>
+                                <!--                                <small class="text-muted">9 mins</small>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
+            <hr>
+            <hr>
+            <h3>上架中</h3>
+            <div v-if="items.length > 0" class="row">
+
+                <div class="col-md-4" v-for="item in items">
+                    <div class="card shadow-sm">
+
+                        <img v-bind:src="'data:image/jpeg;base64,'+item['content'] " alt="Girl in a jacket"
+                             width="100%" height="100%"/>
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+<!--                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
-        </div>
-    </fieldset>
-</main>
+    </div>
 
+</div>
 
 <footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
     <script th:inline="javascript">
       /*<![CDATA[*/
 
@@ -146,105 +142,57 @@
         el: '#app',
         data: {
           user: /*[[${user}]]*/ {},
-          isLearningAccount: /*[[${isLearningAccount}]]*/ false,
-          msg: "密碼長度6-20字元,英文數字皆可",
-          params: {
-            account: '',
-            password: '',
-          },
-          passwd: '',
-          confirmpasswd: '',
-          enable: false,
-          status: 0,
-          display_seconds: 5,
+          pendingitems:[],
+          items: [],
+          msg: "nomsg",
+          days: [3,7,30,60,90,180],
         },
         created: function () {
           // console.log(this.user.username.split("-")[1]);
-          // let vm = this;
-          // let classnameseatno = this.user.username.split("-")[1];
-          // let url = "account/" + classnameseatno
-          // this.$http.get(url, config)
-          //   .then(function (response) {
-          //     console.log(response.data)
-          //     vm.user.learningaccount = response.data.learningaccount;
-          //   })
-          //   .catch(function (error) {
-          //     /* 失敗，發生錯誤，然後...*/
-          //   });
+          let vm = this;
+          let url = "api/useritem/" + this.user.username;
+          this.$http.get(url, config)
+             .then(function (response) {
+                 let items = response.data;
+                 vm.pendingitems = items.filter((item)=>{
+                       return item.expired == 0;
+                 });
+
+                 vm.items = items.filter((item)=>{
+                       return item.expired != 0;
+                 });
+
+             })
+             .catch(function (error) {
+               /* 失敗，發生錯誤，然後...*/
+             });
 
 
         },
         computed: {
-          updateMsg: function () {
-            if (this.passwd.length >= 6 && this.passwd.length <= 20) {
-              this.msg = "請再輸入一次確認密碼";
-              if (this.passwd === this.confirmpasswd) {
-                this.msg = "請按送出更新密碼"
-                this.enable = true;
-              } else {
-                this.enable = false;
-              }
-
-            } else {
-              this.msg = "密碼長度6-20字元,英文數字皆可";
-              this.enable = false;
-            }
-
-
-          },
-          updateStatus: function () {
-            if (this.status === 1) {
-              let count = setInterval(() => {
-
-                this.display_seconds -= 1;
-                //console.log(this.display_seconds);
-                if (this.display_seconds <= 2) {
-                  this.msg = "現在,請使用新密碼重新登入";
-                }
-                if (this.display_seconds <= 0) {
-                  clearInterval(count);
-                  window.location.replace("/passwd/");
-                }
-
-              }, 1000);
-            }
-          },
         },
         methods: {
           submit: function () {
 
+          },
+          update: function(item) {
             let vm = this;
-            let url = "/passwd/username/"+ this.user.username;
-            console.log("ok,submit,target url:"+ url);
-            //轉換送到雲端校務帳號密碼格式
-            this.params.account = this.user.username;
-            this.params.password = this.passwd;
-
-
-            this.$http.put(url, JSON.stringify(this.params), config).then((response) => {
+            let url = "api/useritem/update";
+            this.$http.put(url, JSON.stringify(item), config).then((response) => {
               // success callback
               console.log(response.data);
-
-              if (response.data.total_items === 1) {
-                //帳號建立成功
-                vm.msg = "更新成功";
-                vm.enable = false;
-                vm.status = 1;
-
-              } else {
-                vm.msg = "更新密碼失敗";
-              }
+              location.reload();
 
             }, (response) => {
               // error callback
             });
-
 
           }
         }
       })
 
       /*]]>*/
+
 
     </script>
 </footer>

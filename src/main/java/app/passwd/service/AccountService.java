@@ -69,12 +69,8 @@ public class AccountService {
             users.add(user);
         }
 
-
         return users;
     }
-
-
-
 
     public List<SchoolUser> getAllCSStudentUser() throws IOException {
         List<SchoolUser> users = new ArrayList<>();

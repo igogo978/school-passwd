@@ -4,6 +4,7 @@ import app.passwd.model.SystemConfig;
 import app.passwd.model.User;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
+import app.passwd.repository.UserItemRepository;
 import app.passwd.service.Oauth2Client;
 import app.passwd.service.UserLoginService;
 import org.slf4j.Logger;
@@ -15,7 +16,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UserhomeController {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(UserhomeController.class);
+
+
+    @Autowired
+    UserItemRepository userItemRepository;
 
     @Autowired
     Oauth2Client client;
@@ -31,29 +36,21 @@ public class UserhomeController {
 
 
     @GetMapping("/passwd/userhome")
+    public String userhomeProxypass(Model model) {
+        return userhome(model);
+    }
+
+
+    @GetMapping("/userhome")
     public String userhome(Model model) {
 
         if (!userloginservice.isLoggedin()) {
             return "redirect:/";
         }
 
+        String username = userloginservice.getUser().getUsername();
+        logger.info(username);
         model.addAttribute("user", userloginservice.getUser());
-//        model.addAttribute("isLearningAccount", sysconfig.isLearningAccount());
-//        https://bootsnipp.com/snippets/X2bG0
-        return "userhome";
-    }
-
-
-    @GetMapping("/userhome")
-    public String userhomeProxypass(Model model) {
-
-        if (!userloginservice.isLoggedin()) {
-            return "redirect:/";
-        }
-
-        model.addAttribute("user", userloginservice.getUser());
-//        model.addAttribute("isLearningAccount", sysconfig.isLearningAccount());
-//        https://bootsnipp.com/snippets/X2bG0
         return "userhome";
     }
 
