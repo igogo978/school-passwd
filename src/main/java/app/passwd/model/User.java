@@ -1,42 +1,39 @@
 package app.passwd.model;
 
-//user data object from api
-public class User {
-    private String school_no;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class User  {
+
+    @Id
+    @Indexed(unique = true)
     private String username;
-    private String adusername;
-    private String role;
+
+    private String school_no;
+    private List<String> roles = new ArrayList<>();
     private String name;
     private String edu_key;
-
+    private int quota = 0;
+    private boolean status;
 
 
     public User() {
     }
 
-    public User(String school_no, String username, String adusername, String role, String name, String edu_key) {
+    public User(String school_no, String username, List<String> roles, String name, String edu_key) {
         this.school_no = school_no;
         this.username = username;
-        this.adusername = adusername;
-        this.role = role;
+        this.roles = roles;
         this.name = name;
         this.edu_key = edu_key;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setAdusername(String adusername) {
-        this.adusername = adusername;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public List<String> getRoles() {
+        return roles;
     }
 
     public String getSchool_no() {
@@ -47,19 +44,35 @@ public class User {
         return username;
     }
 
-    public String getRole() {
-        return role;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getEdu_key() {
         return edu_key;
     }
 
-    public String getAdusername() {
-        return adusername;
+    public int getQuota() {
+        return quota;
+    }
+
+    public void setQuota(int quota) {
+        this.quota = quota;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

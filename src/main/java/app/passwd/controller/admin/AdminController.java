@@ -1,41 +1,38 @@
 package app.passwd.controller.admin;
 
-import app.passwd.repository.LdapRepository;
+import app.passwd.model.User;
 import app.passwd.service.UserLoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AdminController {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
     @Autowired
     UserLoginService userloginservice;
 
-    @Autowired
-    LdapRepository ldapRepository;
+    @GetMapping("/admin")
+    public String userhome(Model model) {
 
-
-    @GetMapping("/passwd/admin")
-    public String userhome() {
-        logger.info(userloginservice.getUser().getName());
-        if (!userloginservice.isLoggedin() || !userloginservice.getUser().getUsername().equals(ldapRepository.findBySn(1).getAccountManager())) {
-            logger.info("logging user: " + userloginservice.getUser());
-            logger.info("account manager: " + ldapRepository.findBySn(1).getAccountManager());
+        if (!userloginservice.isLoggedin()) {
             return "redirect:/";
         }
 
-        return "admin/home";
-    }
+        User user = userloginservice.getUser();
+        boolean isAdmin = user.getRoles().stream().anyMatch(role -> role.equals("admin"));
 
+        if(isAdmin) {
 
-    @GetMapping("/admin")
-    public String userhomeProxypass() {
+            model.addAttribute("user", user);
+            return "admin/home";
 
-        return userhome();
+        }
+        return "redirect:/";
     }
 
 

@@ -8,41 +8,62 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <link rel="stylesheet" type="text/css" href="public/css/style.css" />
+
     <script src="/passwd/public/js/vue.js"></script>
     <script src="/passwd/public/js/axios.min.js"></script>
     <style>
 
     </style>
+    <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+            <div class="modal-mask">
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+
+                        <div class="modal-body">
+                            <slot name="body">
+                                variable msg
+                            </slot>
+                        </div>
+
+                        <div class="modal-footer">
+                            <slot name="footer">
+                                <button class="modal-default-button" @click="$emit('close')">
+                                    OK
+                                </button>
+                            </slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </script>
 </head>
 
 <body id="LoginForm">
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-xxl d-flex align-items-md-center">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="userhome">Home</a>
-                    </li>
-                </ul>
-                <span class="navbar-text">
-                       {{user.username}}
-                    </span>
-            </div>
+
+    <modal v-if="showModal" @close="showModal = false">
+        <div v-html="msg" slot="body">
+
         </div>
-    </nav>
+
+    </modal>
+    <div th:insert="fragments/header.html :: navbar"></div>
 
     <div class="album py-5 bg-gray">
         <div class="container">
 
-            <section class="py-5 text-center container">
+<!--            <section class="py-5 text-center container">-->
                 <div class="row py-lg-5">
                     <div class="col-lg-6 col-md-8 mx-auto">
-                        <p class="lead text-muted"> 檔案格式限定png,jpg</p>
+                        <p class="lead text-muted"> 校園LED-檔案格式限定圖片png,jpg 影片mp4</p>
                         <form method="POST" enctype="multipart/form-data"
                               th:action="@{'useritem/upload'}">
                             <div class="input-group mb-1">
-                                <input type="file" name="file" class="form-control" aria-label="Sizing example input"
+                                <input @change="handleFiles" type="file" accept="image/jpeg, image/png, video/mp4" name="file" class="form-control"
+                                       aria-label="Sizing example input"
                                        aria-describedby="inputGroup-sizing-lg">
                                 <button class="btn btn-outline-secondary"
                                         type="submit"
@@ -51,68 +72,148 @@
                             </div>
                         </form>
                     </div>
+
                 </div>
-            </section>
 
-            <br>
-           <h3>尚未設定 </h3>
-            <div v-if="pendingitems.length > 0" class="row">
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <button v-on:click="switchpage(1)" type="button" class="btn btn-outline-primary">尚未設定</button>
+                    <button v-on:click="switchpage(2)" type="button" class="btn btn-outline-primary">上架中</button>
+                </div>
+<!--            </section>-->
 
-                <div class="col-md-4 col-sm-1" v-for="item in pendingitems">
-                    <div class="card shadow-sm">
-
-                        <img v-bind:src="'data:image/jpeg;base64,'+item['content'] " alt="Girl in a jacket"
-                             width="100%" height="100%"/>
-                        <div class="card-body">
-                            <p class="card-text">covid-19防疫宣導{{item.id}}</p>
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary" type="button" disabled>宣導期限（天）</button>
+            <hr>
+            <!-- page selection -->
+            <div v-if="page == 1">
+                <div v-if="pendingitems.length > 0" class="row">
+                    <div class="col-md-4 col-sm-1" v-for="item in pendingitems">
+                        <div v-if="item.type == 'image'" class="card shadow-sm">
+                            <img v-bind:src="item['prefix']+item['content'] " alt="image"
+                                 width="100%" height="100%"/>
+                            <div class="card-body">
+                                <p class="card-text"> {{item.description}} </p>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" disabled>宣導期限（天）</button>
+                                    </div>
+                                    <select v-model="item.expired" class="form-select form-select-sm"
+                                            aria-label="Default select example">
+                                        <option v-for="day in days">{{day}}</option>
+                                    </select>
                                 </div>
-                                <select v-model="item.expired" class="form-select form-select-sm" aria-label="Default select example">
-                                    <option v-for="day in days">{{day}}</option>
-                                </select>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button v-if="item.expired == 0" v-on:click="update(item)" type="button"
+                                                class="btn btn-sm btn-outline-secondary" disabled>確定
+                                        </button>
+                                        <button v-else v-on:click="update(item)" type="button"
+                                                class="btn btn-sm btn-outline-secondary">確定
+                                        </button>
+                                    </div>
+                                    <button v-on:click="disable(item)" type="button" class="btn btn-sm btn-outline-danger">
+                                        失效
+                                    </button>
+                                </div>
                             </div>
+                        </div>
+                        <div v-else>
 
-                            <div class="d-flex justify-content-between align-items-center">
+                            <video controls width="100%">
+                                <source v-bind:src="'api/useritem/video/'+item.content" type="video/mp4">
+                            </video>
 
-                                <div class="btn-group">
-                                    <button v-if="item.expired == 0" v-on:click="update(item)" type="button" class="btn btn-sm btn-outline-secondary" disabled>確定</button>
-                                    <button v-else v-on:click="update(item)" type="button" class="btn btn-sm btn-outline-secondary">確定</button>
+                            <div class="card-body">
+                                <p class="card-text">{{item.description}}</p>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" disabled>宣導期限（天）</button>
+                                    </div>
+                                    <select v-model="item.expired" class="form-select form-select-sm"
+                                            aria-label="Default select example">
+                                        <option v-for="day in days.slice(0,4)">{{day}}</option>
+                                    </select>
                                 </div>
-                                <button type="button" class="btn btn-sm btn-outline-danger">失效</button>
-                                <!--                                <small class="text-muted">9 mins</small>-->
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <div class="btn-group">
+                                        <button v-if="item.expired == 0" v-on:click="update(item)" type="button"
+                                                class="btn btn-sm btn-outline-secondary" disabled>確定
+                                        </button>
+                                        <button v-else v-on:click="update(item)" type="button"
+                                                class="btn btn-sm btn-outline-secondary">確定
+                                        </button>
+                                    </div>
+                                    <button v-on:click="disable(item)" type="button" class="btn btn-sm btn-outline-danger">
+                                        失效
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <hr>
-            <hr>
-            <h3>上架中</h3>
-            <div v-if="items.length > 0" class="row">
+            <div v-if="page == 2">
+                <div v-if="items.length > 0" class="row">
 
-                <div class="col-md-4" v-for="item in items">
-                    <div class="card shadow-sm">
+                    <div class="col-md-4" v-for="item in items">
 
-                        <img v-bind:src="'data:image/jpeg;base64,'+item['content'] " alt="Girl in a jacket"
-                             width="100%" height="100%"/>
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-<!--                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                        <div  v-if="item.type == 'image'" class="card shadow-sm">
+                            <img v-bind:src="item['prefix']+item['content'] " alt="image"
+                                 width="100%" height="100%"/>
+                            <div class="card-body">
+                                <p class="card-text"> {{item.description}}  </p>
+
+                                <div class="input-group mb-3">
+                                    <button class="btn btn-outline-secondary" type="button" disabled>下架日期</button>
+                                    <input v-model="new Date(item.expired*1000).toLocaleString('zh-TW',{timezone: 'Asia/Taipei'})"
+                                           type="text" class="form-control" placeholder="item expired"
+                                           aria-label="item expired" aria-describedby="button-addon2" readonly>
+
                                 </div>
-                                <small class="text-muted">9 mins</small>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <!--                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+                                    </div>
+                                    <button v-on:click="disable(item)" type="button" class="btn btn-sm btn-outline-danger">失效</button>
+                                </div>
                             </div>
                         </div>
+
+                        <div  v-else class="card shadow-sm">
+
+
+                            <video controls width="100%">
+                                <source v-bind:src="'api/useritem/video/'+item.content" type="video/mp4">
+                            </video>
+                            <div class="card-body">
+                                <p class="card-text">{{item.description}} </p>
+
+                                <div class="input-group mb-3">
+                                    <button class="btn btn-outline-secondary" type="button" disabled>下架日期</button>
+                                    <input v-model="new Date(item.expired*1000).toLocaleString('zh-TW',{timezone: 'Asia/Taipei'})"
+                                           type="text" class="form-control" placeholder="item expired"
+                                           aria-label="item expired" aria-describedby="button-addon2" readonly>
+
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <!--                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+                                    </div>
+                                    <button v-on:click="disable(item)" type="button" class="btn btn-sm btn-outline-danger">失效</button>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
+
                 </div>
+
 
             </div>
 
@@ -128,7 +229,9 @@
 
     <script th:inline="javascript">
       /*<![CDATA[*/
-
+     Vue.component("modal", {
+        template: "#modal-template"
+      });
 
       Vue.prototype.$http = axios;
       let config = {
@@ -141,14 +244,15 @@
       var app = new Vue({
         el: '#app',
         data: {
+          page: 1,
           user: /*[[${user}]]*/ {},
           pendingitems:[],
           items: [],
           msg: "nomsg",
-          days: [3,7,30,60,90,180],
+          days: [7,14,30,60,90,180],
+          showModal: false,
         },
         created: function () {
-          // console.log(this.user.username.split("-")[1]);
           let vm = this;
           let url = "api/useritem/" + this.user.username;
           this.$http.get(url, config)
@@ -162,6 +266,11 @@
                        return item.expired != 0;
                  });
 
+                 if(vm.pendingitems.length !=0) {
+                    vm.msg = "您還有檔案尚未設定宣導期限<br> 您可上架數目: " +  vm.user.quota;
+                    vm.showModal = true;
+                 }
+
              })
              .catch(function (error) {
                /* 失敗，發生錯誤，然後...*/
@@ -172,26 +281,44 @@
         computed: {
         },
         methods: {
+          switchpage: function(page) {
+            this.page = page;
+          },
+          disable: function(item) {
+            item.expired = -1;  //disabled now
+            this.update(item);
+          },
+          handleFiles: function(e){
+            console.log(e.target.files[0]);
+          },
           submit: function () {
 
           },
           update: function(item) {
-            let vm = this;
-            let url = "api/useritem/update";
-            this.$http.put(url, JSON.stringify(item), config).then((response) => {
-              // success callback
-              console.log(response.data);
-              location.reload();
+            //console.log(this.items.length + ":" + this.user.quota);
+            if( this.items.length >= this.user.quota && item.expired > 0) {
+                this.showModal = true;
+            } else {
 
-            }, (response) => {
-              // error callback
-            });
+                    let vm = this;
+                    let url = "api/useritem";
+                    this.$http.put(url, JSON.stringify(item), config).then((response) => {
+                      // success callback
+                      //console.log(response.data);
+                      location.reload();
+
+                    }, (response) => {
+                      // error callback
+                    });
+
+            }
 
           }
         }
       })
 
       /*]]>*/
+
 
 
     </script>

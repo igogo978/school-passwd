@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>public led</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/passwd/public/css/style.css"/>
+
+    <script src="/passwd/public/js/vue.js"></script>
+    <script src="/passwd/public/js/axios.min.js"></script>
+</head>
+
+<body>
+<div id="app" class="container">
+
+    <h4>校園led放送中</h4>
+    <hr>
+    <div class="d-flex flex-row justify-content-end p-2 bd-highlight">
+        <div class="col-1">jpg: {{useritemcount.jpg}}</div>
+        <div class="col-1">png: {{useritemcount.png}}</div>
+        <div class="col-1">mp4: {{useritemcount.mp4}}</div>
+        <div class="col-1"><a href="/passwd/api/report" class="link-success" target="_blank">文字報表</a></div>
+        <div class="col-2"> <p th:text="${syncTimestamp}"> timestamp</p> </div>
+    </div>
+    <div v-if="items.length > 0" class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12" v-for="item in items">
+            <div v-if="item.type == 'image'" class="card shadow-sm">
+                <img v-bind:src="item['prefix']+item['content'] " alt="image"
+                     width="100%" height="100%"/>
+                <div class="card-body">
+                    <p class="card-text">{{item.username}} - {{item.description}} </p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" type="button" disabled>宣導期限</button>
+                        <input v-model="new Date(item.expired*1000).toLocaleString('zh-TW',{timezone: 'Asia/Taipei'})"
+                               type="text" class="form-control" placeholder="item expired"
+                               aria-label="item expired" aria-describedby="button-addon2" readonly>
+
+
+                    </div>
+                    <div class="d-flex justify-content-end flex-row">
+
+                        <button v-if="user.roles.includes('admin')" v-on:click="disable(item)" type="button"
+                                class="btn btn-sm btn-outline-danger">
+                            失效
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <div v-else>
+
+                <video controls width="100%">
+                    <source v-bind:src="'/passwd/api/useritem/video/'+item.content" type="video/mp4">
+                </video>
+
+                <div class="card-body">
+                    <p class="card-text">{{item.username}} - {{item.description}}</p>
+                    timestamp:{{new Date(item.timestamp*1000).toLocaleString('zh-TW',{timezone: 'Asia/Taipei'})}}
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" type="button" disabled>宣導期限</button>
+                        <input v-model="new Date(item.expired*1000).toLocaleString('zh-TW',{timezone: 'Asia/Taipei'})"
+                               type="text" class="form-control" placeholder="item expired"
+                               aria-label="item expired" aria-describedby="button-addon2" readonly>
+
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <button v-if="user.roles.includes('admin')" v-on:click="disable(item)" type="button"
+                                class="btn btn-sm btn-outline-danger">
+                            失效
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+
+      Vue.prototype.$http = axios;
+      let config = {
+        headers: {
+          'content-type': 'application/json;CHARSET=UTF-8'
+        }
+      };
+
+
+      var app = new Vue({
+        el: '#app',
+        data: {
+          user: /*[[${user}]]*/ {},
+          useritemcount: /*[[${useritemcount}]]*/ {},
+          items: [],
+        },
+        created: function () {
+          let vm = this;
+          let url = "/passwd/api/useritem/" ;
+          this.$http.get(url, config)
+             .then(function (response) {
+                 vm.items = response.data;
+             })
+             .catch(function (error) {
+               /* 失敗，發生錯誤，然後...*/
+             });
+
+
+        },
+        computed: {
+        },
+        methods: {
+          switchpage: function(page) {
+            this.page = page;
+          },
+        }
+      })
+
+      /*]]>*/
+
+
+
+
+
+
+
+    </script>
+</footer>
+
+</body>
+
+</html>

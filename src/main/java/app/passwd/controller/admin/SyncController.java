@@ -1,6 +1,5 @@
 package app.passwd.controller.admin;
 
-import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
 import app.passwd.service.Oauth2Client;
 import app.passwd.service.UserLoginService;
@@ -23,9 +22,6 @@ public class SyncController {
 
     @Autowired
     SystemConfigRepository sysconfigrepository;
-
-    @Autowired
-    LdapRepository ldaprepository;
 
 
     @GetMapping("/passwd/account/student")

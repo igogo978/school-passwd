@@ -3,9 +3,10 @@ package app.passwd.controller;
 
 import app.passwd.model.SystemConfig;
 import app.passwd.model.User;
-import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
+import app.passwd.repository.UserRepository;
 import app.passwd.service.Oauth2Client;
+import app.passwd.service.SemesterData;
 import app.passwd.service.UserLoginService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,12 +21,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class CallbackController {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(CallbackController.class);
+    int quota = 0;
 
     @Autowired
     Oauth2Client client;
@@ -33,18 +39,22 @@ public class CallbackController {
     @Autowired
     UserLoginService userloginservice;
 
-
     @Autowired
     SystemConfigRepository repository;
 
     @Autowired
-    LdapRepository ldapRepository;
+    UserRepository userRepository;
 
-    @GetMapping("/passwd/callback")
-    public RedirectView callback(@RequestParam(value = "state", required = true) String state, @RequestParam(value = "data", required = true) String data) throws IOException, OAuthProblemException, OAuthSystemException {
-        assert client.getState().equals(state);
-        return getRedirectView(data);
-    }
+
+    @Autowired
+    SemesterData semesterData;
+
+
+//    @GetMapping("/passwd/callback")
+//    public RedirectView callback(@RequestParam(value = "state", required = true) String state, @RequestParam(value = "data", required = true) String data) throws IOException, OAuthProblemException, OAuthSystemException {
+//        assert client.getState().equals(state);
+//        return getRedirectView(data);
+//    }
 
 
     @GetMapping("/callback")
@@ -62,22 +72,46 @@ public class CallbackController {
         String school_no = node.get("school_no").asText();
         String username = node.get("username").asText();
         String role = node.get("role").asText();
+        List<String> roles = new ArrayList<>();
+        roles.add(role);
+
         String name = node.get("name").asText();
+
         String edu_key = node.get("edu_key").asText();
-        String adusername = node.get("username").asText();
+//        String adusername = node.get("username").asText();
 
         logger.info("role: " + role);
 
         //String school_no, String username, String role, String name, String edu_key
-        User user = new User(school_no, username, adusername, role, name, edu_key);
+        User user = new User();
+        //is a new user? then, add
+        if (userRepository.findByUsername(username).isEmpty()) {
+            if(username.equals("john")) {
+                roles.add("admin");
+            }
+
+            user = new User(school_no, username, roles, name, edu_key);
+            user.setQuota(quota);
+            user.setStatus(true);
+            userRepository.save(user);
+        } else {
+//            username = "tea41";
+            user = userRepository.findByUsername(username).get();
+        }
 
         //login session
-        userloginservice.setUserLoggedin(Boolean.TRUE, user);
+        userloginservice.setUserLogin(Boolean.TRUE, user);
 
         //取得token
         SystemConfig sysconfig = repository.findBySn(1);
         //logger.info(sysconfig.getAccesstoken_endpoint());
         client.setAccesstoken(sysconfig);
+
+
+//        String alldata = semesterData.getdata(client.getAccesstoken(),sysconfig.getSemesterdata_endpoint());
+//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("alldata.txt"));
+//        bufferedWriter.append(alldata);
+//        bufferedWriter.close();
 
 //        return new RedirectView("/passwd/userhome");
         return new RedirectView("userhome");

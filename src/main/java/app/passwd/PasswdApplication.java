@@ -1,12 +1,9 @@
 package app.passwd;
 
-import app.passwd.model.LdapClient;
-import app.passwd.model.Role;
 import app.passwd.model.SystemConfig;
-import app.passwd.repository.LdapRepository;
-import app.passwd.repository.SystemConfigRepository;
-import app.passwd.repository.UserItemRepository;
-import app.passwd.service.LdapTools;
+import app.passwd.model.UserAudioItem;
+import app.passwd.repository.*;
+import app.passwd.service.UserAudioitemService;
 import app.passwd.storage.StorageProperties;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,32 +16,39 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.util.FileSystemUtils;
+import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
+import java.io.IOException;
+import java.util.List;
 
 @SpringBootApplication
 @EnableConfigurationProperties(StorageProperties.class)
 public class PasswdApplication implements CommandLineRunner {
 
-    //win ad
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(PasswdApplication.class);
     @Autowired
     SystemConfigRepository repository;
+
     @Autowired
-    LdapRepository ldapRepository;
+    SyncUseritemRepository syncUseritemRepository;
+
     @Autowired
-    LdapTools ldapTools;
+    UserImageItemRepository userImageItemRepository;
+
     @Autowired
-    UserItemRepository userItemRepository;
+    UserAudioitemRepository userAudioitemRepository;
+
     SystemConfig sysconfig = new SystemConfig();
+
+    @Autowired
+    UserRepository userRepository;
+
+    ObjectMapper mapper = new ObjectMapper();
+    @Autowired
+    GridFsTemplate gridFsTemplate;
+    @Autowired
+    UserAudioitemService userAudioitemService;
     @Value("${config}")
     private String configfile;
     @Autowired
@@ -58,25 +62,26 @@ public class PasswdApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        File dir = new File("/tmp/audio");
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+//        userRepository.deleteAll();
+//        userItemRepository.deleteAll();
 
-        String uploadDir = "/tmp/upload/";
-        FileSystemUtils.deleteRecursively(new File(uploadDir));
-        Files.createDirectory(Paths.get(uploadDir));
-
-        Instant instant = Instant.now();
-        //5 mins
-        long timestamp = instant.getEpochSecond();
-        Instant disabeTime = instant.plus(7, ChronoUnit.DAYS);
-
-        ZonedDateTime disableTime = disabeTime.atZone(ZoneId.of("Asia/Taipei"));
-        logger.info(String.valueOf(disabeTime.getEpochSecond()));
-        logger.info(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").format(disableTime));
-
-
-        String declare = "本程式僅提供台中市學校使用";
-//        logger.info("working dir:" + System.getProperty("user.dir"));
+//        List<GridFSFile> gridFSFiles = new ArrayList<>();
+//        gridFsTemplate.find(new Query(Criteria.where("metadata.user").is("igogo"))).into(gridFSFiles);
 //
-        ObjectMapper mapper = new ObjectMapper();
+//        gridFSFiles.forEach(gridFSFile -> {
+//            try {
+//                logger.info(mapper.writeValueAsString(gridFSFile));
+//            } catch (JsonProcessingException e) {
+//                e.printStackTrace();
+//            }
+//        });
+
+        String declare = "本程式僅提供ddps使用";
+//
         JsonNode node;
         //確認設定檔
         if (new File(String.format("%s/%s", System.getProperty("user.dir"), configfile)).isFile()) {
@@ -106,37 +111,6 @@ public class PasswdApplication implements CommandLineRunner {
 
 
             //處理ldap client
-            if (sysconfig.isSyncLdap()) {
-                String ldapconfigfile = node.get("ldap").asText();
-                File file = new File((String.format("%s/%s", System.getProperty("user.dir"), ldapconfigfile)));
-                if (file.exists()) {
-                    node = mapper.readTree(new File(String.format("%s/%s", System.getProperty("user.dir"), ldapconfigfile)));
-                    LdapClient ldapclient = new LdapClient();
-                    ldapclient.setSn(1);
-                    ldapclient.setBasedn(node.get("basedn").asText());
-                    ldapclient.setLdapserver(node.get("ldap_server").asText());
-                    ldapclient.setLdapport(node.get("ldap_port").asText());
-                    ldapclient.setPasswd(node.get("passwd").asText());
-                    ldapclient.setRootdn(node.get("rootdn").asText());
-                    ldapclient.setCert(node.get("cert").asText());
-                    ldapclient.setUpnSuffix(node.get("upn_suffix").asText());
-                    ldapclient.setAccountManager(node.get("accountManager").asText());
-                    if (node.get("stu_id_format").asText().equals("simple")) {
-                        ldapclient.setStuidRegular(Boolean.FALSE);
-                    } else {
-                        ldapclient.setStuidRegular(Boolean.TRUE);
-                    }
-
-                    JsonNode rolenode = node.get("roles");
-                    rolenode.elements().forEachRemaining(e -> {
-                        String role = e.get("role").asText();
-                        String ou = e.get("ou").asText();
-                        ldapclient.getRoles().add(new Role(role, ou));
-                    });
-
-                    ldapRepository.save(ldapclient);
-                }
-            } //is sync ldap
 
 
         } else {

@@ -1,0 +1,247 @@
+10:11:19.809 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 11.0.11 on smbldap with PID 5107 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+10:11:19.812 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to default profiles: default
+10:11:21.693 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+10:11:21.696 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+10:11:21.767 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface app.passwd.repository.SystemConfigRepository. If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository.
+10:11:21.811 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 102 ms. Found 4 MongoDB repository interfaces.
+10:11:22.151 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+10:11:22.152 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:11:22.189 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.SyncUseritemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:11:22.214 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserAudioitemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:11:22.219 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserItemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:11:22.225 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:11:22.247 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 83 ms. Found 1 JPA repository interfaces.
+10:11:23.212 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+10:11:23.228 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+10:11:23.229 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10:11:23.230 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.52]
+10:11:23.416 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:11:23.418 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3527 ms
+10:11:23.867 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10:11:24.012 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10:11:24.151 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:11:24.243 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+10:11:24.430 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10:11:24.592 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+10:11:25.599 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:11:25.612 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:11:26.075 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+10:11:26.368 [cluster-rtt-ClusterId{value='6143f94e3210b86098bce073', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:5}] to 127.0.0.1:27017
+10:11:26.368 [cluster-ClusterId{value='6143f94e3210b86098bce073', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:6}] to 127.0.0.1:27017
+10:11:26.379 [cluster-ClusterId{value='6143f94e3210b86098bce073', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=48530698}
+10:11:26.989 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:11:27.495 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+10:11:27.677 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+10:11:27.735 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+10:11:27.760 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 8.824 seconds (JVM running for 9.522)
+10:11:27.820 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:3, serverValue:7}] to 127.0.0.1:27017
+10:11:27.970 [main] INFO  app.passwd.PasswdApplication - 服務成功啟動
+10:21:00.974 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:21:00.976 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+10:21:00.978 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+10:21:02.238 [http-nio-8080-exec-6] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+10:21:08.995 [http-nio-8080-exec-7] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"igogo","role":"teacher","name":"\u5433\u5609\u7965","edu_key":"","title_name":"\u79d1\u4efb\u6559\u5e2b","title_kind":"\u5c08\u4efb\u6559\u5e2b"}
+10:21:09.215 [http-nio-8080-exec-7] INFO  a.p.controller.CallbackController - role: teacher
+10:21:09.425 [http-nio-8080-exec-7] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+10:21:15.136 [http-nio-8080-exec-5] INFO  a.p.api.UserAudioItemAPIController - audio request: 1
+10:21:15.141 [http-nio-8080-exec-5] INFO  a.p.api.UserAudioItemAPIController - igogo-1632379336
+10:21:15.177 [http-nio-8080-exec-5] INFO  a.p.api.UserAudioItemAPIController - audio:20210903NK.mp3-1632379336-igogo
+10:21:58.799 [http-nio-8080-exec-8] INFO  a.p.api.UserAudioItemAPIController - audio request: 2
+10:21:58.814 [http-nio-8080-exec-8] INFO  a.p.api.UserAudioItemAPIController - igogo-1632379336
+10:21:58.814 [http-nio-8080-exec-8] INFO  a.p.api.UserAudioItemAPIController - igogo-0
+10:21:58.815 [http-nio-8080-exec-8] INFO  a.p.api.UserAudioItemAPIController - audio:20210903NK.mp3-1632379336-igogo
+10:21:58.815 [http-nio-8080-exec-8] INFO  a.p.api.UserAudioItemAPIController - audio:20210903NK.mp3-0-igogo
+10:22:10.324 [http-nio-8080-exec-9] INFO  a.p.api.UserAudioItemAPIController - 20210903NK.mp3:1Mon-1600
+10:22:10.326 [http-nio-8080-exec-9] INFO  a.p.api.UserAudioItemAPIController - 20210903NK.mp3:2Tue-1600
+10:22:10.326 [http-nio-8080-exec-9] INFO  a.p.api.UserAudioItemAPIController - 20210903NK.mp3:4Thu-1600
+10:22:10.326 [http-nio-8080-exec-9] INFO  a.p.api.UserAudioItemAPIController - 20210903NK.mp3:5Fri-1600
+10:22:10.331 [http-nio-8080-exec-9] INFO  a.p.service.UserAudioitemService - update item expred time: igogo-20210903NK.mp3-expired day: 7
+10:24:10.989 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:24:10.993 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+10:24:11.022 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+10:24:11.045 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+10:24:27.996 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 11.0.11 on smbldap with PID 5637 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+10:24:27.998 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to default profiles: default
+10:24:28.790 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+10:24:28.796 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+10:24:28.918 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface app.passwd.repository.SystemConfigRepository. If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository.
+10:24:28.996 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 190 ms. Found 4 MongoDB repository interfaces.
+10:24:29.366 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+10:24:29.367 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:24:29.390 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.SyncUseritemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:24:29.407 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserAudioitemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:24:29.417 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserItemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:24:29.429 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:24:29.448 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 66 ms. Found 1 JPA repository interfaces.
+10:24:30.258 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+10:24:30.273 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+10:24:30.274 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10:24:30.275 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.52]
+10:24:30.462 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:24:30.463 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2398 ms
+10:24:30.718 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10:24:30.854 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10:24:30.921 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:24:30.986 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+10:24:31.081 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10:24:31.181 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+10:24:31.702 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:24:31.708 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:24:32.108 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+10:24:32.233 [cluster-rtt-ClusterId{value='6143fc604bb1c1627fbded61', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:9}] to 127.0.0.1:27017
+10:24:32.233 [cluster-ClusterId{value='6143fc604bb1c1627fbded61', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:8}] to 127.0.0.1:27017
+10:24:32.235 [cluster-ClusterId{value='6143fc604bb1c1627fbded61', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=38563592}
+10:24:32.688 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:24:33.070 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+10:24:33.173 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+10:24:33.186 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+10:24:33.222 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 5.929 seconds (JVM running for 6.484)
+10:24:33.286 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:3, serverValue:10}] to 127.0.0.1:27017
+10:24:33.434 [main] INFO  app.passwd.PasswdApplication - 服務成功啟動
+10:26:56.028 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:26:56.031 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+10:26:56.046 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 14 ms
+10:26:56.334 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+10:27:00.506 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"igogo","role":"teacher","name":"\u5433\u5609\u7965","edu_key":"","title_name":"\u79d1\u4efb\u6559\u5e2b","title_kind":"\u5c08\u4efb\u6559\u5e2b"}
+10:27:00.594 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - role: teacher
+10:27:00.731 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+10:27:04.604 [http-nio-8080-exec-3] INFO  a.p.api.UserAudioItemAPIController - audio request: 2
+10:27:04.631 [http-nio-8080-exec-3] INFO  a.p.api.UserAudioItemAPIController - igogo-1632379336
+10:27:04.633 [http-nio-8080-exec-3] INFO  a.p.api.UserAudioItemAPIController - igogo-1632450130
+10:27:04.729 [http-nio-8080-exec-3] INFO  a.p.api.UserAudioItemAPIController - audio:20210903NK.mp3-1632379336-igogo
+10:27:04.731 [http-nio-8080-exec-3] INFO  a.p.api.UserAudioItemAPIController - audio:20210903NK.mp3-1632450130-igogo
+10:27:16.907 [http-nio-8080-exec-7] INFO  a.p.api.UserAudioItemAPIController - audio request: 3
+10:27:16.907 [http-nio-8080-exec-7] INFO  a.p.api.UserAudioItemAPIController - igogo-1632379336
+10:27:16.908 [http-nio-8080-exec-7] INFO  a.p.api.UserAudioItemAPIController - igogo-1632450130
+10:27:16.908 [http-nio-8080-exec-7] INFO  a.p.api.UserAudioItemAPIController - igogo-0
+10:27:16.908 [http-nio-8080-exec-7] INFO  a.p.api.UserAudioItemAPIController - audio:20210903NK.mp3-1632379336-igogo
+10:27:16.908 [http-nio-8080-exec-7] INFO  a.p.api.UserAudioItemAPIController - audio:20210903NK.mp3-1632450130-igogo
+10:27:16.909 [http-nio-8080-exec-7] INFO  a.p.api.UserAudioItemAPIController - audio:20210903NK.mp3-0-igogo
+10:28:17.864 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:28:17.872 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+10:28:17.890 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+10:28:17.908 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+10:28:32.451 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 11.0.11 on smbldap with PID 5786 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+10:28:32.454 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to default profiles: default
+10:28:33.219 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+10:28:33.221 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+10:28:33.269 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface app.passwd.repository.SystemConfigRepository. If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository.
+10:28:33.336 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 112 ms. Found 4 MongoDB repository interfaces.
+10:28:33.656 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+10:28:33.657 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:28:33.685 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.SyncUseritemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:28:33.706 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserAudioitemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:28:33.711 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserItemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:28:33.716 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+10:28:33.732 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 1 JPA repository interfaces.
+10:28:34.526 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+10:28:34.546 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+10:28:34.547 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10:28:34.548 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.52]
+10:28:34.735 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:28:34.736 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2203 ms
+10:28:34.999 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10:28:35.146 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10:28:35.216 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:28:35.263 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+10:28:35.373 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10:28:35.479 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+10:28:35.998 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:28:36.012 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:28:36.458 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+10:28:36.566 [cluster-rtt-ClusterId{value='6143fd54ecd97e17af1983d8', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:11}] to 127.0.0.1:27017
+10:28:36.566 [cluster-ClusterId{value='6143fd54ecd97e17af1983d8', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:12}] to 127.0.0.1:27017
+10:28:36.570 [cluster-ClusterId{value='6143fd54ecd97e17af1983d8', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=36347667}
+10:28:37.066 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:28:37.452 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+10:28:37.738 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+10:28:37.750 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+10:28:37.785 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 6.033 seconds (JVM running for 6.64)
+10:28:37.851 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:3, serverValue:13}] to 127.0.0.1:27017
+10:28:38.016 [main] INFO  app.passwd.PasswdApplication - 服務成功啟動
+10:40:01.082 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:40:01.083 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+10:40:01.085 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+10:40:01.404 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+10:40:20.476 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"igogo","role":"teacher","name":"\u5433\u5609\u7965","edu_key":"","title_name":"\u79d1\u4efb\u6559\u5e2b","title_kind":"\u5c08\u4efb\u6559\u5e2b"}
+10:40:20.525 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - role: teacher
+10:40:20.590 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+10:40:34.319 [http-nio-8080-exec-4] INFO  a.p.api.UserAudioItemAPIController - audio request: 3
+10:40:34.324 [http-nio-8080-exec-4] INFO  a.p.api.UserAudioItemAPIController - igogo-1632379336
+10:40:34.324 [http-nio-8080-exec-4] INFO  a.p.api.UserAudioItemAPIController - igogo-1632450130
+10:40:34.324 [http-nio-8080-exec-4] INFO  a.p.api.UserAudioItemAPIController - igogo-0
+10:40:34.348 [http-nio-8080-exec-4] INFO  a.p.api.UserAudioItemAPIController - audio:20210903NK.mp3-1632379336-igogo
+10:40:34.349 [http-nio-8080-exec-4] INFO  a.p.api.UserAudioItemAPIController - audio:20210903NK.mp3-1632450130-igogo
+10:40:34.349 [http-nio-8080-exec-4] INFO  a.p.api.UserAudioItemAPIController - audio:20210903NK.mp3-0-igogo
+11:32:51.886 [http-nio-8080-exec-6] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+11:32:59.877 [http-nio-8080-exec-8] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"natalie31","role":"teacher","name":"\u5f35\u7b71\u8431","edu_key":"b6316a1d54f3033f0eb76cdd4a5d4c684b4bc6e3086c145db5e7756d483afb99","title_name":"\u885b\u751f\u7d44\u9577","title_kind":"\u6559\u5e2b\u517c\u7d44\u9577"}
+11:32:59.881 [http-nio-8080-exec-8] INFO  a.p.controller.CallbackController - role: teacher
+11:32:59.893 [http-nio-8080-exec-8] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+11:33:09.242 [http-nio-8080-exec-3] INFO  a.p.controller.UserhomeController - image/png
+11:33:09.380 [http-nio-8080-exec-3] INFO  a.p.controller.UserhomeController - upload item sucessfully
+11:33:27.058 [http-nio-8080-exec-6] INFO  app.passwd.service.UseritemService - update expired day: natalie31-110.9.17潔淨市容四部曲.png
+11:33:59.284 [http-nio-8080-exec-2] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:4, serverValue:14}] to 127.0.0.1:27017
+11:40:03.077 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/1-natalie31-110.9.17潔淨市容四部曲.png
+11:40:03.080 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/2-tea41-110年防災演練海報.JPG
+11:40:03.084 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/3-natalie31-廚餘豬罰鍰.png
+11:40:03.129 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/4-tea41-行人穿越馬路注意事項-過路篇 (convert-video-online.com).mp4
+11:40:03.163 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/5-tea41-年長者行路安全-國 (convert-video-online.com).mp4
+11:40:03.167 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/6-chialun0706-有獎徵答5.jpg
+11:40:03.177 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/7-ljm-20210901新生入學_210901_55.jpg
+11:40:03.209 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/8-ljm-20210901新生入學_210901_24.jpg
+11:40:03.221 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/9-ljm-20210901新生入學_210901_26.jpg
+11:40:03.233 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/10-ljm-20210901新生入學_210901_0.jpg
+11:40:03.239 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/11-green-LINE_ALBUM_110年度全國語文競賽臺中市第2區初賽_210907_12.jpg
+11:40:03.240 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/12-green-LINE_ALBUM_110年度全國語文競賽臺中市第2區初賽_210907_6.jpg
+11:40:03.246 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/13-green-LINE_ALBUM_110年度全國語文競賽臺中市第2區初賽_210907_3.jpg
+11:40:03.249 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/14-green-LINE_ALBUM_110年度全國語文競賽臺中市第2區初賽_210907_1.jpg
+11:40:03.253 [scheduling-1] INFO  app.passwd.service.UseritemUtils - copy successfully/home/public/led/設定/傳送門/15-green-143479.jpg
+13:32:43.078 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:32:43.090 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+13:32:43.163 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:32:43.177 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:53:49.856 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 11.0.11 on smbldap with PID 7867 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+13:53:49.859 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to default profiles: default
+13:53:50.699 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+13:53:50.700 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+13:53:50.748 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface app.passwd.repository.SystemConfigRepository. If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository.
+13:53:50.782 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 78 ms. Found 4 MongoDB repository interfaces.
+13:53:51.123 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+13:53:51.123 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:53:51.152 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.SyncUseritemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+13:53:51.159 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserAudioitemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+13:53:51.169 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserItemRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+13:53:51.173 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface app.passwd.repository.UserRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+13:53:51.192 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interfaces.
+13:53:51.982 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+13:53:51.992 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:53:51.992 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:53:51.993 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.52]
+13:53:52.181 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:53:52.182 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2242 ms
+13:53:52.463 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:53:52.630 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:53:52.672 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:53:52.748 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+13:53:52.876 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13:53:52.995 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13:53:53.549 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13:53:53.562 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:53:53.952 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+13:53:54.073 [cluster-rtt-ClusterId{value='61442d718af4ff393f468d8e', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:18}] to 127.0.0.1:27017
+13:53:54.077 [cluster-ClusterId{value='61442d718af4ff393f468d8e', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:19}] to 127.0.0.1:27017
+13:53:54.079 [cluster-ClusterId{value='61442d718af4ff393f468d8e', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=53465806}
+13:53:54.526 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:53:54.908 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+13:53:55.086 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:53:55.110 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+13:53:55.150 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 6.004 seconds (JVM running for 6.764)
+13:53:55.205 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:3, serverValue:20}] to 127.0.0.1:27017
+13:53:55.370 [main] INFO  app.passwd.PasswdApplication - 服務成功啟動
+13:54:26.497 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:54:26.498 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:54:26.500 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+14:29:32.935 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+14:29:32.940 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+14:29:32.970 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+14:29:33.009 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

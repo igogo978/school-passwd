@@ -1,58 +1,75 @@
 package app.passwd.controller;
 
-import app.passwd.model.SystemConfig;
 import app.passwd.model.User;
-import app.passwd.repository.LdapRepository;
-import app.passwd.repository.SystemConfigRepository;
-import app.passwd.repository.UserItemRepository;
-import app.passwd.service.Oauth2Client;
 import app.passwd.service.UserLoginService;
+import app.passwd.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Optional;
 
 @Controller
 public class UserhomeController {
-    private Logger logger = LoggerFactory.getLogger(UserhomeController.class);
 
-
+    private final Logger logger = LoggerFactory.getLogger(UserhomeController.class);
     @Autowired
-    UserItemRepository userItemRepository;
-
+    UserLoginService userLoginService;
     @Autowired
-    Oauth2Client client;
+    UserService userService;
 
-    @Autowired
-    UserLoginService userloginservice;
-
-    @Autowired
-    SystemConfigRepository sysconfigrepository;
-
-    @Autowired
-    LdapRepository ldaprepository;
-
-
-    @GetMapping("/passwd/userhome")
-    public String userhomeProxypass(Model model) {
-        return userhome(model);
-    }
-
+//    @GetMapping("/passwd/userhome")
+//    public String userhomeProxypass(Model model) {
+//        return userhome(model);
+//    }
 
     @GetMapping("/userhome")
     public String userhome(Model model) {
 
-        if (!userloginservice.isLoggedin()) {
+        if (!userLoginService.isLoggedin()) {
             return "redirect:/";
         }
 
-        String username = userloginservice.getUser().getUsername();
-        logger.info(username);
-        model.addAttribute("user", userloginservice.getUser());
+        String username = userLoginService.getUser().getUsername();
+        User user = new User();
+        if (userService.getUser(username).isPresent()) {
+            user = userService.getUser(username).get();
+        }
+
+        model.addAttribute("user", user);
         return "userhome";
     }
 
+
+    @GetMapping("/useraudio")
+    public String useraudio(Model model, @RequestParam("code") Optional<Integer> code) {
+
+        if (!userLoginService.isLoggedin()) {
+            return "redirect:/";
+        }
+
+
+        String username = userLoginService.getUser().getUsername();
+        User user = new User();
+        String msg = "";
+        Boolean showModal = Boolean.FALSE;
+        if (userService.getUser(username).isPresent()) {
+            user = userService.getUser(username).get();
+
+            if (code.isPresent() && code.get() == 99) {
+                msg = "file too large!";
+                showModal = Boolean.TRUE;
+            }
+        }
+
+        model.addAttribute("user", user);
+        model.addAttribute("msg", msg);
+        model.addAttribute("showModal", showModal);
+        return "useraudio";
+    }
 
 }

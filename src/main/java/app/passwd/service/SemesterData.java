@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class SemesterData {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(SemesterData.class);
 
     public String getdata(String token, String endpoint) {
 //        logger.info("token:" + token);
@@ -29,8 +29,6 @@ public class SemesterData {
         headers.set("Authorization", "Bearer " + token);
 
         HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
-
-
         ResponseEntity<String> response = restTemplate.exchange(endpoint, HttpMethod.GET, entity, String.class);
 
         return StringEscapeUtils.unescapeJava(response.getBody());

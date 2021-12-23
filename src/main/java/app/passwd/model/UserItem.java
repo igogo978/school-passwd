@@ -1,16 +1,31 @@
 package app.passwd.model;
 
-import javax.persistence.Id;
+
+import org.springframework.data.annotation.Id;
 
 public class UserItem {
     @Id
     private String id;
 
+    private String prefix;
     private final String username;
     private String type;
-    private String content;
     private long timestamp;
     private long expired;
+    private String description;
+
+    public UserItem(String prefix, String username, String type, long timestamp, long expired, String description) {
+        this.prefix = prefix;
+        this.username = username;
+        this.type = type;
+        this.timestamp = timestamp;
+        this.expired = expired;
+        this.description = description;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
 
     public String getUsername() {
         return username;
@@ -29,12 +44,13 @@ public class UserItem {
     }
 
 
-    public UserItem(String username, String type, String content, long timestamp, long expired) {
-        this.username = username;
-        this.type = type;
-        this.content = content;
-        this.timestamp = timestamp;
-        this.expired = expired;
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
     }
 
     public String getId() {
@@ -53,11 +69,11 @@ public class UserItem {
         this.type = type;
     }
 
-    public String getContent() {
-        return content;
+    public String getDescription() {
+        return description;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

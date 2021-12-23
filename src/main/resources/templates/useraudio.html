@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>校園廣播</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="public/css/style.css"/>
+
+    <script src="/passwd/public/js/vue.js"></script>
+    <script src="/passwd/public/js/axios.min.js"></script>
+    <style>
+
+    </style>
+    <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+            <div class="modal-mask">
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+
+                        <div class="modal-body">
+                            <slot name="body">
+                                variable msg
+                            </slot>
+                        </div>
+
+                        <div class="modal-footer">
+                            <slot name="footer">
+                                <button class="modal-default-button" @click="$emit('close')">
+                                    OK
+                                </button>
+                            </slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </script>
+</head>
+
+<body id="LoginForm">
+<div id="app">
+
+    <modal v-if="showModal" @close="showModal = false">
+        <div v-html="msg" slot="body">
+        </div>
+    </modal>
+
+    <div th:insert="fragments/header.html :: navbar"></div>
+
+    <div class="album py-5 bg-gray">
+        <div class="container">
+
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <p class="lead text-muted">校園廣播-檔案格式限定mp3</p>
+                    <form method="POST" enctype="multipart/form-data"
+                          th:action="@{'useraudioitem/upload'}">
+                        <div class="input-group mb-1">
+                            <input type="file" accept="audio/mpeg" name="file"
+                                   class="form-control"
+                                   aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-lg">
+                            <button class="btn btn-outline-secondary"
+                                    type="submit"
+                                    value="Upload">確定上傳
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button v-on:click="switchpage(1)" type="button" class="btn btn-outline-primary">尚未設定</button>
+                <button v-on:click="switchpage(2)" type="button" class="btn btn-outline-primary">上架中</button>
+            </div>
+
+            <hr>
+            <!-- page selection -->
+            <div v-if="page == 1">
+                <div v-if="pendingitems.length > 0" class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12" v-for="item in pendingitems">
+                        <div v-if="item.type == 'audio'" class="card shadow-sm">
+
+                            <audio controls>
+                                <source v-bind:src="item['prefix']+item['content']"
+                                        type="audio/mpeg"/>
+                            </audio>
+
+                            <div class="card-body">
+                                <p class="card-text"> {{item.description}} </p>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" disabled>放送期限（天）
+                                        </button>
+                                    </div>
+                                    <select v-model="item.expired" class="form-select form-select-sm"
+                                            aria-label="Default select example">
+                                        <option v-for="day in days">{{day}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group-mb3">
+                                    <div class="input-group-append">
+                                        <label for="inlineCheckbox1" class="form-label">Weekday</label>
+                                    </div>
+                                    <div v-for="weekday in weekdays" class="form-check form-check-inline">
+                                        <input v-model="checkedWeekdays" class="form-check-input" type="checkbox"
+                                               id="inlineCheckbox1" v-bind:value="weekday">
+                                        <label class="form-check-label" for="inlineCheckbox1">{{weekday}}</label>
+                                    </div>
+                                </div>
+                                <div class="input-group-mb3">
+                                    <div class="input-group-append">
+                                        <label for="inlineCheckbox1" class="form-label">Playtime</label>
+                                    </div>
+
+                                    <div v-for="time in playtime" class="form-check form-check-inline">
+                                        <input v-model="checkedPlaytime" class="form-check-input" type="checkbox"
+                                               id="inlineCheckbox2" v-bind:value="time">
+                                        <label class="form-check-label" for="inlineCheckbox1">{{time}}</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button v-if="item.expired == 0 || checkedWeekdays.length == 0 || checkedPlaytime.length ==0" v-on:click="update(item)" type="button"
+                                                class="btn btn-sm btn-outline-secondary" disabled>確定
+                                        </button>
+                                        <button v-else v-on:click="update(item)" type="button"
+                                                class="btn btn-sm btn-outline-primary">確定
+                                        </button>
+                                    </div>
+                                    <button v-on:click="disable(item)" type="button"
+                                            class="btn btn-sm btn-outline-danger">
+                                        失效
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--            item enabled-->
+            <div v-if="page == 2">
+                <div v-if="items.length > 0" class="row">
+
+                    <div class="col-md-4" v-for="item in items">
+
+                        <div v-if="item.type == 'audio'" class="card shadow-sm">
+                            <audio controls preload="none">
+                                <source v-bind:src="item['prefix']+item['content']"
+                                        type="audio/mpeg"/>
+                            </audio>
+                            <div class="card-body">
+                                <p class="card-text"> {{item.description}} </p>
+
+                                <div class="input-group mb-3">
+                                    <button class="btn btn-outline-secondary" type="button" disabled>下架日期</button>
+                                    <input v-model="new Date(item.expired*1000).toLocaleString('zh-TW',{timezone: 'Asia/Taipei'})"
+                                           type="text" class="form-control" placeholder="item expired"
+                                           aria-label="item expired" aria-describedby="button-addon2" readonly>
+
+                                </div>
+                                <div class="input-group-mb3">
+                                    <ul class="list-group">
+                                        <li v-for="(value,name,index) in item.playtime" class="list-group-item">
+                                            {{name}}-{{value}}
+                                        </li>
+                                    </ul>
+                                    <div>
+
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                <!--                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+                                            </div>
+                                            <button v-on:click="disable(item)" type="button"
+                                                    class="btn btn-sm btn-outline-danger">失效
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"></script>
+
+  <script th:inline="javascript">
+  /*<![CDATA[*/
+  Vue.component("modal", {
+     template: "#modal-template"
+  });
+
+  Vue.prototype.$http = axios;
+    let config = {
+    headers: {
+      'content-type': 'application/json;CHARSET=UTF-8'
+    }
+  };
+
+
+  var app = new Vue({
+    el: '#app',
+      data: {
+        page: 1,
+        user: /*[[${user}]]*/ {},
+        pendingitems:[],
+        items: [],
+        msg: /*[[${msg}]]*/ "",
+        days: [7,14,30,60,90,180],
+        showModal: /*[[${showModal}]]*/ false,
+        weekdays: ["1Mon","2Tue","3Wed","4Thu","5Fri"],
+        checkedWeekdays: [],
+        playtime: ["0735","1025","1210","1240","1600"],
+        checkedPlaytime: [],
+      },
+      created: function () {
+        this.updatePage();
+      },
+      computed: {
+      },
+      methods: {
+        updatePage: function() {
+          let vm = this;
+            let url = "api/useraudioitem/" + this.user.username;
+            this.$http.get(url, config)
+               .then(function (response) {
+                  let items = response.data;
+                  //console.log(items.length);
+                  vm.pendingitems = items.filter((item)=>{
+                     return item.expired == 0;
+                  });
+
+                  vm.items = items.filter((item)=>{
+                     return item.expired != 0;
+                  });
+
+              })
+              .catch(function (error) {
+                 /* 失敗，發生錯誤，然後...*/
+              });
+          },
+        switchpage: function(page) {
+          this.page = page;
+        },
+        disable: function(item) {
+          item.expired = -1;  //disabled now
+          this.update(item);
+        },
+        update: function(item) {
+          item.playtime = {};
+
+            //check user quota
+            if(this.user.quota == 0) {
+               this.msg = "enable your account first ";
+               this.showModal = true;
+            } else {
+
+                this.checkedWeekdays.forEach((weekday)=>{
+                  this.checkedPlaytime.forEach(playtime=>{
+                    //console.log(weekday+"-"+playtime);
+                    item.playtime[weekday] = playtime;
+                  });
+                });
+
+
+                let url = "api/useraudioitem";
+                let vm = this;
+                this.$http.put(url, JSON.stringify(item), config).then((response) => {
+                 // success callback
+                 //console.log(response.data);
+                    vm.updatePage();
+                    location.reload();
+                 }, (response) => {
+                      // error callback
+                 });
+
+
+
+
+
+            }
+
+         },
+
+        }//end methods
+      })
+
+      /*]]>*/
+
+    </script>
+ </footer>
+
+
+</body>
+
+</html>
