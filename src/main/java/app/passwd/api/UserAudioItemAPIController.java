@@ -1,7 +1,6 @@
 package app.passwd.api;
 
 import app.passwd.model.UserAudioItem;
-import app.passwd.model.UserItem;
 import app.passwd.repository.UserAudioitemRepository;
 import app.passwd.service.UserAudioitemService;
 import app.passwd.service.UserLoginService;
@@ -13,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,40 +33,41 @@ public class UserAudioItemAPIController {
 
 
     @RequestMapping(value = "/api/useraudioitem", method = RequestMethod.GET)
-    public String getUserAudioItemEnabled() throws JsonProcessingException {
+    public List<UserAudioItem> getUserAudioItemEnabled() throws JsonProcessingException {
         Instant instant = Instant.now();
-        List<UserItem> items = userAudioitemService.getUseritemsEnabled(instant.getEpochSecond());
-//        logger.info(mapper.writeValueAsString(items.get(0)));
-        return mapper.writeValueAsString(items);
+        List<UserAudioItem> audioitems = userAudioitemService.getUseritemsEnabled(instant.getEpochSecond());
+        List<UserAudioItem> items = new ArrayList<>();
+        audioitems.forEach(audioitem->{
+            audioitem.setContent("");
+            items.add(audioitem);
+        });
+        return items;
     }
 
     @RequestMapping(value = "/api/useraudioitem/id/{id}", method = RequestMethod.GET)
-    public String getUserAudioItemByID(@PathVariable("id") String id) throws JsonProcessingException {
-      return mapper.writeValueAsString(userAudioitemService.getUserAudioItemById(id));
+    public UserAudioItem getUserAudioItemByID(@PathVariable("id") String id) throws JsonProcessingException {
+      return userAudioitemService.getUserAudioItemById(id);
     }
 
 
     @RequestMapping(value = "/api/useraudioitem/{username}", method = RequestMethod.GET)
-    public String getUserAudioItemByUsername(@PathVariable("username") String username) throws JsonProcessingException {
+    public List<UserAudioItem> getUserAudioItemByUsername(@PathVariable("username") String username) throws JsonProcessingException {
         if (userLoginService.getUser() == null) {
-            return "";
+            return null;
         }
 
         String loginUsername = userLoginService.getUser().getUsername();
         if (loginUsername.equals(username)) {
             Instant instant = Instant.now();
             List<UserAudioItem> items = userAudioitemRepository.findByExpiredOrExpiredGreaterThan(0, instant.getEpochSecond());
-//            logger.info("audio request: " + items.size());
-//            items.forEach(userItem -> logger.info(userItem.getUsername() + "-" + userItem.getExpired()));
-
 
             List<UserAudioItem> usernameItems = items.stream().filter(item -> item.getUsername().equals(username)).collect(Collectors.toList());
             usernameItems.forEach(item -> {
                 logger.info("audio:" + item.getDescription() + "-" + item.getExpired() + "-" + item.getUsername());
             });
-            return mapper.writeValueAsString(usernameItems);
+            return (usernameItems);
         } else {
-            return "";
+            return null;
         }
 
 

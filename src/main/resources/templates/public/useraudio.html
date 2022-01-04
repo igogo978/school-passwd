@@ -19,12 +19,17 @@
 
     <h4>校園廣播放送中</h4>
     <hr>
-    {{getAudios}}
     <div class="d-flex flex-row justify-content-end p-2 bd-highlight">
-<!--        <div class="col-1"><a href="/passwd/api/report" class="link-success" target="_blank">文字報表</a></div>-->
+        <select v-model="selected" @change="updatePage">
+            <option v-for="weekday in weekdays" v-bind:value="weekday" class="form-select">
+                {{weekday}}
+            </option>
+        </select>
     </div>
-    <div v-if="audioitems.length > 0" class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12" v-for="item in audioitems">
+    <div class="d-flex flex-row justify-content-end p-2 bd-highlight">
+    </div>
+    <div v-if="displayItems.length > 0" class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12" v-for="item in displayItems">
             <div v-if="item.type == 'audio'" class="card shadow-sm">
                 <audio controls preload="none">
                   <source v-bind:src="item['prefix']+item['content']"
@@ -90,20 +95,13 @@
           useritemcount: /*[[${useritemcount}]]*/ {},
           items: /*[[${items}]]*/ [],
           audioitems: [],
-          weekday: ["1Mon","2Tue"],
+          weekdays: ["all","1Mon","2Tue","3Wed","4Thu","5Fri"],
+          selected: "all",
+          displayItems: [],
         },
         created: function () {
           let vm = this;
-          let url = "/passwd/api/useraudioitem/" ;
-          this.$http.get(url, config)
-             .then(function (response) {
-                 //vm.items = response.data;
-             })
-             .catch(function (error) {
-               /* 失敗，發生錯誤，然後...*/
-          });
-
-
+          this.displayItems = this.items;
         },
         computed: {
             getAudios: function(){
@@ -128,6 +126,25 @@
         methods: {
           switchpage: function(page) {
             this.page = page;
+          },
+           updatePage: function() {
+            if (this.selected == "all") {
+                this.displayItems = this.items ;
+            } else {
+                console.log("filter weekday: " + this.selected);
+                this.displayItems = this.filterWeekday();
+            }
+          },
+          filterWeekday: function() {
+            filteredItems = [];
+            this.items.forEach(item=>{
+                Object.keys(item.playtime).forEach(key =>{
+                    if (key == this.selected) {
+                        filteredItems.push(item);
+                    };
+                });
+            });
+            return filteredItems;
           },
         }
       })

@@ -2,7 +2,6 @@ package app.passwd.service;
 
 import app.passwd.model.SyncUseritem;
 import app.passwd.model.UserAudioItem;
-import app.passwd.model.UserItem;
 import app.passwd.repository.SyncUseritemRepository;
 import app.passwd.repository.UserAudioitemRepository;
 import org.slf4j.Logger;
@@ -137,9 +136,10 @@ public class UserAudioitemService {
         return userAudioitemRepository.findById(id).get();
     }
 
-    public List<UserItem> getUseritemsEnabled(long now) {
-        List<UserItem> items = new ArrayList<>();
-//        items = userAudioitemRepository.findByExpiredGreaterThanOrderByTimestampDesc(now);
+
+
+    public List<UserAudioItem> getUseritemsEnabled(long now) {
+        List<UserAudioItem> items = new ArrayList<>();
         items = userAudioitemRepository.findByExpiredGreaterThan(now);
         return items;
     }

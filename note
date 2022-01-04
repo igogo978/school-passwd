@@ -1,6 +1,0 @@
-  URL url = new URL(icrt);
-        String fileName = target.substring(target.lastIndexOf("/") + 1);
-        InputStream in = new URL(target).openStream();
-
-        Files.copy(in, Paths.get(String.format("%s/%s", home.get(), fileName)), StandardCopyOption.REPLACE_EXISTING);
-

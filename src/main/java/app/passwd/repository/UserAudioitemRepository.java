@@ -19,7 +19,7 @@ public interface UserAudioitemRepository extends MongoRepository<UserAudioItem, 
 //    List<UserItem> findByTimestampLessThan(long now);
 
     List<UserItem> findByExpiredGreaterThanOrderByTimestampDesc(long now);
-    List<UserItem> findByExpiredGreaterThan(long now);
+    List<UserAudioItem> findByExpiredGreaterThan(long now);
 //    List<UserAudioItem> findByExpiredGreaterThanOrderByTimestampDesc(long now);
     List<UserAudioItem> findByExpiredOrExpiredGreaterThan(long zero, long now);
 
