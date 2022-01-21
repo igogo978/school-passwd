@@ -30,25 +30,11 @@ public class PasswdApplication implements CommandLineRunner {
     @Autowired
     SystemConfigRepository repository;
 
-    @Autowired
-    SyncUseritemRepository syncUseritemRepository;
-
-    @Autowired
-    UserImageItemRepository userImageItemRepository;
-
-    @Autowired
-    UserAudioitemRepository userAudioitemRepository;
-
     SystemConfig sysconfig = new SystemConfig();
 
-    @Autowired
-    UserRepository userRepository;
 
     ObjectMapper mapper = new ObjectMapper();
-    @Autowired
-    GridFsTemplate gridFsTemplate;
-    @Autowired
-    UserAudioitemService userAudioitemService;
+
     @Value("${config}")
     private String configfile;
     @Autowired
@@ -66,19 +52,6 @@ public class PasswdApplication implements CommandLineRunner {
         if (!dir.exists()) {
             dir.mkdirs();
         }
-//        userRepository.deleteAll();
-//        userItemRepository.deleteAll();
-
-//        List<GridFSFile> gridFSFiles = new ArrayList<>();
-//        gridFsTemplate.find(new Query(Criteria.where("metadata.user").is("igogo"))).into(gridFSFiles);
-//
-//        gridFSFiles.forEach(gridFSFile -> {
-//            try {
-//                logger.info(mapper.writeValueAsString(gridFSFile));
-//            } catch (JsonProcessingException e) {
-//                e.printStackTrace();
-//            }
-//        });
 
         String declare = "本程式僅提供ddps使用";
 //

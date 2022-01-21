@@ -37,11 +37,18 @@ public class IndexController {
     private String authorize_endpoint;
 
 
-    @GetMapping("/")
     //導到app頁面
+    @GetMapping("/")
     public RedirectView index() throws URISyntaxException, IOException, ParseException, ExecutionException, InterruptedException {
         return new RedirectView("/passwd/");
     }
+
+
+    @GetMapping("/403")
+    public String forbidden() throws URISyntaxException, IOException, ParseException, ExecutionException, InterruptedException {
+        return "403 forbidden";
+    }
+
 
     @GetMapping("/passwd")
     public RedirectView indexPasswd(RedirectAttributes attributes) throws URISyntaxException, IOException, ParseException, ExecutionException, InterruptedException, NoSuchAlgorithmException {

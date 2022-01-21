@@ -13,12 +13,12 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Text;
-import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.properties.TextAlignment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -27,7 +27,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.time.Instant;
@@ -39,17 +38,18 @@ import java.time.format.DateTimeFormatter;
 public class ReportAPIController {
 
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(ReportAPIController.class);
     @Autowired
     ReportService reportService;
 
     @Autowired
+    @Lazy
     UseritemService useritemService;
 
     @ResponseBody
     @GetMapping("/api/report")
     public ResponseEntity<Resource> getReport() throws IOException {
-       ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         //Initialize PDF writer
         PdfWriter writer = new PdfWriter(byteArrayOutputStream);
 
@@ -62,8 +62,8 @@ public class ReportAPIController {
         String updateDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").format(nowPresent);
 
 
-        FontProgram kaifont = FontProgramFactory.createFont("/opt/font/kai.ttf");
-        PdfFont font = PdfFontFactory.createFont(kaifont, PdfEncodings.IDENTITY_H, true);
+        FontProgram fontProgram = FontProgramFactory.createFont("/opt/font/kai.ttf");
+        PdfFont font = PdfFontFactory.createFont(fontProgram, PdfEncodings.IDENTITY_H);
 
         document.add(new Paragraph().add(
                         new Text("更新時間: " + updateDate)

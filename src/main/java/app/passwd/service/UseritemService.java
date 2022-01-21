@@ -10,25 +10,22 @@ import com.mongodb.client.gridfs.model.GridFSFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.gridfs.GridFsResource;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Paths;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Service
@@ -97,7 +94,7 @@ public class UseritemService {
 
     }
 
-    public void disable(UserImageItem item) {
+    public void disable(@Lazy UserImageItem item) {
 
         Instant instant = Instant.now();
         item.setExpired(instant.getEpochSecond());
@@ -108,7 +105,7 @@ public class UseritemService {
 
     }
 
-    public void udpateExipredDay(UserImageItem item) {
+    public void udpateExipredDay(@Lazy UserImageItem item) {
 
         Instant instant = Instant.now();
         Instant expiredday = instant.plus(item.getExpired(), ChronoUnit.DAYS);
@@ -118,7 +115,7 @@ public class UseritemService {
     }
 
 
-    public void update(UserImageItem item) {
+    public void update(@Lazy UserImageItem item) {
 
         //update item and reset sync timestamp
         Instant instant = Instant.now();
@@ -151,7 +148,8 @@ public class UseritemService {
         items.forEach(item -> {
             ZonedDateTime expired = Instant.ofEpochSecond(item.getExpired()).atZone(ZoneId.of("Asia/Taipei"));
             String expiredHR = (DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").format(expired));
-//
+
+//            userImageItemRepository.delete(item);
             logger.info(expiredHR + "-" + item.getUsername() + "-" + item.getType() + "-" + item.getDescription());
         });
 
@@ -159,47 +157,6 @@ public class UseritemService {
 
     }
 
-
-//    public void getUseritemsAndSaveFile(long now, String path) throws IOException {
-//        List<UserImageItem> items = userImageItemRepository.findByExpiredGreaterThanOrderByTimestampDesc(now);
-//
-//
-//        //check update timestamp
-//        SyncUseritem syncUseritem = syncUseritemRepository.findByRunnerAndTarget("web", "led");
-////        logger.info("web runner: db data =" + syncUseritem.getTimestamp() + ":" + items.get(0).getTimestamp());
-//
-//        if (items.get(0).getTimestamp() != syncUseritem.getTimestamp()) {
-//
-//            //empty path
-//            FileSystemUtils.deleteRecursively(Paths.get(path));
-//            new File(path).mkdir();
-//
-//            AtomicInteger index = new AtomicInteger(1);
-//            items.forEach(item -> {
-//                if (item.getType().equals("image")) {
-//                    try {
-//                        useritemUtils.save(index, item, path);
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                }
-//
-//                if (item.getType().equals("video")) {
-//                    try {
-//                        InputStream inputStream = getVideo(item.getContent());
-//                        useritemUtils.save(index, item, inputStream, path);
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//                index.incrementAndGet();
-//            });
-//            syncUseritem.setTimestamp(items.get(0).getTimestamp());
-//            syncUseritemRepository.save(syncUseritem);
-//        }
-//
-//    }
 
     public Map<String, Long> count(long now) {
         Map<String, Long> itemcounts = new HashMap<>();

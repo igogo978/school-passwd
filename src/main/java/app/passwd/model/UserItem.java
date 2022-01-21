@@ -2,7 +2,12 @@ package app.passwd.model;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.HashMap;
+import java.util.Map;
+
+@Document
 public class UserItem {
     @Id
     private String id;
@@ -13,6 +18,8 @@ public class UserItem {
     private long timestamp;
     private long expired;
     private String description;
+
+    Map<String, String> playtime = new HashMap<>();
 
     public UserItem(String prefix, String username, String type, long timestamp, long expired, String description) {
         this.prefix = prefix;
@@ -42,8 +49,6 @@ public class UserItem {
     public void setExpired(long expired) {
         this.expired = expired;
     }
-
-
 
     public String getPrefix() {
         return prefix;
@@ -75,5 +80,9 @@ public class UserItem {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Map<String, String> getPlaytime() {
+        return playtime;
     }
 }

@@ -1,7 +1,6 @@
 package app.passwd.repository;
 
 import app.passwd.model.UserImageItem;
-import app.passwd.model.UserImageItem;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

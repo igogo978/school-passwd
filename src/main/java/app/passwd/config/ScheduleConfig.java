@@ -15,6 +15,7 @@ import java.time.Instant;
 @Configuration
 @EnableScheduling
 public class ScheduleConfig {
+
     private final Logger logger = LoggerFactory.getLogger(ScheduleConfig.class);
 
     @Autowired
@@ -23,19 +24,12 @@ public class ScheduleConfig {
     @Autowired
     UserAudioitemService userAudioitemService;
 
-//    @Scheduled(cron = "3 */10 * * * ?", zone = "Asia/Taipei")
-//    public void syncUserItem() throws IOException {
-//        Instant instant = Instant.now();
-//        String path = "/home/public/led/設定/傳送門/";
-//
-//        useritemService.getUseritemsAndSaveFile(instant.getEpochSecond(), path);
-//    }
 
-
-    @Scheduled(cron = "1 50 8 13 3,9 ?", zone = "Asia/Taipei")
+//    @Scheduled(cron = "1 50 8 13 3,9 ?", zone = "Asia/Taipei")
+    @Scheduled(cron = "12 09 16 * * ?", zone = "Asia/Taipei")
     public void clean() throws IOException {
         //delete  video in gridFs
         useritemService.getExpiredItem(181);
-        userAudioitemService.getExpiredItem(181);
+        userAudioitemService.getExpiredItem(101);
     }
 }

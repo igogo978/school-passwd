@@ -2,6 +2,7 @@ package app.passwd.service;
 
 import app.passwd.model.SyncUseritem;
 import app.passwd.model.UserAudioItem;
+import app.passwd.model.UserItem;
 import app.passwd.repository.SyncUseritemRepository;
 import app.passwd.repository.UserAudioitemRepository;
 import org.slf4j.Logger;
@@ -137,10 +138,16 @@ public class UserAudioitemService {
     }
 
 
+    public List<UserItem> getUseritemsEnabled(long now) {
+        List<UserAudioItem> audioItems = new ArrayList<>();
+        audioItems = userAudioitemRepository.findByExpiredGreaterThan(now);
+        List<UserItem> items = new ArrayList<>();
+        audioItems.forEach(audioItem -> {
+            audioItem.setContent("");
+            UserItem item = (UserItem) audioItem;
+            items.add(item);
+        });
 
-    public List<UserAudioItem> getUseritemsEnabled(long now) {
-        List<UserAudioItem> items = new ArrayList<>();
-        items = userAudioitemRepository.findByExpiredGreaterThan(now);
         return items;
     }
 
@@ -148,10 +155,12 @@ public class UserAudioitemService {
 
         Instant instant = Instant.now();
         Instant past = instant.minus(days, ChronoUnit.DAYS);
-        List<UserAudioItem> items = userAudioitemRepository.findByExpiredLessThan(past.getEpochSecond()).stream().filter(item -> item.getExpired() != 0).collect(Collectors.toList());
+        List<UserAudioItem> items = userAudioitemRepository.findByExpiredLessThan(past.getEpochSecond()).stream()
+                .filter(item -> item.getExpired() != 0).collect(Collectors.toList());
 
         items.forEach(userAudioItem -> {
             logger.info(userAudioItem.getDescription());
+            userAudioitemRepository.delete(userAudioItem);
         });
 
 //        return userAudioitemRepository.findByExpiredLessThan(past.getEpochSecond()).stream().filter(item -> item.getExpired() != 0).collect(Collectors.toList());

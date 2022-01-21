@@ -1,5 +1,8 @@
 package app.passwd.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class UserImageItem extends UserItem{
 
     private String content;

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -31,12 +32,14 @@ public class UserItemAPIController {
     ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
+    @Lazy
     UserImageItemRepository userImageItemRepository;
 
     @Autowired
     UserLoginService userLoginService;
 
     @Autowired
+    @Lazy
     UseritemService useritemService;
 
 

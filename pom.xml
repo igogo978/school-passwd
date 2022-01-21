@@ -5,7 +5,7 @@
 
     <groupId>app</groupId>
     <artifactId>ddpsLed</artifactId>
-    <version>5</version>
+    <version>6</version>
     <packaging>jar</packaging>
 
     <name>passwd</name>
@@ -78,6 +78,7 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.13</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -88,33 +89,29 @@
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>kernel</artifactId>
-            <version>7.1.16</version>
+            <version>7.2.1</version>
         </dependency>
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>io</artifactId>
-            <version>7.1.16</version>
+            <version>7.2.1</version>
         </dependency>
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>layout</artifactId>
-            <version>7.1.16</version>
+            <version>7.2.1</version>
         </dependency>
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>forms</artifactId>
-            <version>7.1.16</version>
+            <version>7.2.1</version>
         </dependency>
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>pdfa</artifactId>
-            <version>7.1.16</version>
+            <version>7.2.1</version>
         </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>pdftest</artifactId>
-            <version>7.1.16</version>
-        </dependency>
+
 
     </dependencies>
 

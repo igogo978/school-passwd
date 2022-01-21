@@ -1,6 +1,5 @@
 package app.passwd.controller;
 
-
 import app.passwd.model.SystemConfig;
 import app.passwd.model.User;
 import app.passwd.repository.SystemConfigRepository;
@@ -21,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +55,7 @@ public class CallbackController {
 
 
     @GetMapping("/callback")
-    public RedirectView callbackproxypass(@RequestParam(value = "state", required = true) String state, @RequestParam(value = "data", required = true) String data) throws IOException, OAuthProblemException, OAuthSystemException {
+    public RedirectView callback(@RequestParam(value = "state", required = true) String state, @RequestParam(value = "data", required = true) String data) throws IOException, OAuthProblemException, OAuthSystemException {
         assert client.getState().equals(state);
         return getRedirectView(data);
     }
@@ -82,13 +79,15 @@ public class CallbackController {
 
         logger.info("role: " + role);
 
+        if(role.equals("student")) {
+
+            return new RedirectView("403");
+        }
+
         //String school_no, String username, String role, String name, String edu_key
         User user = new User();
         //is a new user? then, add
         if (userRepository.findByUsername(username).isEmpty()) {
-            if(username.equals("john")) {
-                roles.add("admin");
-            }
 
             user = new User(school_no, username, roles, name, edu_key);
             user.setQuota(quota);

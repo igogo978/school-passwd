@@ -1,6 +1,7 @@
 package app.passwd.api;
 
 import app.passwd.model.UserAudioItem;
+import app.passwd.model.UserItem;
 import app.passwd.repository.UserAudioitemRepository;
 import app.passwd.service.UserAudioitemService;
 import app.passwd.service.UserLoginService;
@@ -9,10 +10,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,9 +24,11 @@ public class UserAudioItemAPIController {
     ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
+    @Lazy
     UserAudioitemRepository userAudioitemRepository;
 
     @Autowired
+    @Lazy
     UserAudioitemService userAudioitemService;
 
     @Autowired
@@ -33,20 +36,14 @@ public class UserAudioItemAPIController {
 
 
     @RequestMapping(value = "/api/useraudioitem", method = RequestMethod.GET)
-    public List<UserAudioItem> getUserAudioItemEnabled() throws JsonProcessingException {
-        Instant instant = Instant.now();
-        List<UserAudioItem> audioitems = userAudioitemService.getUseritemsEnabled(instant.getEpochSecond());
-        List<UserAudioItem> items = new ArrayList<>();
-        audioitems.forEach(audioitem->{
-            audioitem.setContent("");
-            items.add(audioitem);
-        });
-        return items;
+    public List<UserItem> getUserAudioItemEnabled() throws JsonProcessingException {
+        return userAudioitemService.getUseritemsEnabled(Instant.now().getEpochSecond());
+
     }
 
     @RequestMapping(value = "/api/useraudioitem/id/{id}", method = RequestMethod.GET)
     public UserAudioItem getUserAudioItemByID(@PathVariable("id") String id) throws JsonProcessingException {
-      return userAudioitemService.getUserAudioItemById(id);
+        return userAudioitemService.getUserAudioItemById(id);
     }
 
 

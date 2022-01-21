@@ -2,10 +2,12 @@ package app.passwd.publicdata;
 
 import app.passwd.model.User;
 import app.passwd.model.UserAudioItem;
+import app.passwd.model.UserItem;
 import app.passwd.service.UserAudioitemService;
 import app.passwd.service.UserLoginService;
 import app.passwd.service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,9 +49,9 @@ public class UserAudioItemController {
 
         }
 
-        List<UserAudioItem> items = userAudioitemService.getUseritemsEnabled(Instant.now().getEpochSecond());
-//        ObjectMapper mapper = new ObjectMapper();
-//        logger.info(mapper.writeValueAsString(useritemcount));
+        List<UserItem> items = userAudioitemService.getUseritemsEnabled(Instant.now().getEpochSecond());
+
+        ObjectMapper mapper = new ObjectMapper();
         model.addAttribute("user", user);
         model.addAttribute("items", items);
 
