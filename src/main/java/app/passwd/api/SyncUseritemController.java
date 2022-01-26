@@ -33,6 +33,17 @@ public class SyncUseritemController {
         return syncUseritemService.get();
     }
 
+    @GetMapping("/api/syncuseritem/reset")
+    public List<SyncUseritem> resetSyncUseritem() {
+        List<SyncUseritem> syncUseritems = syncUseritemService.get();
+        syncUseritems.forEach(syncUseritem -> {
+            syncUseritem.setTimestamp(0);
+            syncUseritemService.save(syncUseritem);
+        });
+
+        return getSyncUseritem();
+    }
+
 
     @PutMapping("/api/syncuseritem")
     public void updateSyncTimestamp(@RequestBody SyncUseritem syncUseritem, @RequestHeader("Authorization") String token) throws JsonProcessingException {

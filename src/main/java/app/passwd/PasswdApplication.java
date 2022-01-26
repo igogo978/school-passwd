@@ -33,6 +33,7 @@ public class PasswdApplication implements CommandLineRunner {
     SystemConfig sysconfig = new SystemConfig();
 
 
+
     ObjectMapper mapper = new ObjectMapper();
 
     @Value("${config}")
