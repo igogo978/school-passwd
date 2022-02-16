@@ -41,7 +41,6 @@ public class UserhomeController {
 
         SystemConfig sysconfig = sysconfigrepository.findBySn(1);
         model.addAttribute("user", userloginservice.getUser());
-//        model.addAttribute("isLearningAccount", sysconfig.isLearningAccount());
 //        https://bootsnipp.com/snippets/X2bG0
         return "userhome";
     }
@@ -64,7 +63,6 @@ public class UserhomeController {
 
         SystemConfig sysconfig = sysconfigrepository.findBySn(1);
         model.addAttribute("user", userloginservice.getUser());
-//        model.addAttribute("isLearningAccount", sysconfig.isLearningAccount());
 //        https://bootsnipp.com/snippets/X2bG0
         return "userhome";
     }

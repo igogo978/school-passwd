@@ -105,18 +105,18 @@ public class UpdatePasswdController {
 
                 //extra ldap work
                 //ldap-job.sh t0001 363626 teacher /home/teacher syncsmb
-                String cwd = sysconfigrepository.findBySn(1).getCwd();
-                String syncsmb = "syncsmb";
-
-                if (ldapRepository.findBySn(1).getObjectclass().equals("sambaSamAccount")) {
-                    logger.info("do ldap job script");
-                    syncsmb = "syncsmb";
-                    logger.info(String.format("do script job: %s/ldap-job.sh %s %s  %s %s %s", cwd, account.getAccount(), "secret password", role, ldapTools.findByUid(account.getAccount()).getUidNumber(), syncsmb));
-                    String[] cmd = {"sudo", cwd + "/ldap-job.sh", account.getAccount(), account.getPassword(), role, ldapTools.findByUid(username).getHomeDirectory(), syncsmb};
-                    Process p = Runtime.getRuntime().exec(cmd);
-                } else {
-                    logger.info("no ldap-job sciprt to do");
-                }
+//                String cwd = sysconfigrepository.findBySn(1).getCwd();
+//                String syncsmb = "syncsmb";
+//
+//                if (ldapRepository.findBySn(1).getObjectclass().equals("sambaSamAccount")) {
+//                    logger.info("do ldap job script");
+//                    syncsmb = "syncsmb";
+//                    logger.info(String.format("do script job: %s/ldap-job.sh %s %s  %s %s %s", cwd, account.getAccount(), "secret password", role, ldapTools.findByUid(account.getAccount()).getUidNumber(), syncsmb));
+//                    String[] cmd = {"sudo", cwd + "/ldap-job.sh", account.getAccount(), account.getPassword(), role, ldapTools.findByUid(username).getHomeDirectory(), syncsmb};
+//                    Process p = Runtime.getRuntime().exec(cmd);
+//                } else {
+//                    logger.info("no ldap-job sciprt to do");
+//                }
 
             }
 
