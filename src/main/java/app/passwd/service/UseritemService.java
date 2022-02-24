@@ -149,7 +149,7 @@ public class UseritemService {
             ZonedDateTime expired = Instant.ofEpochSecond(item.getExpired()).atZone(ZoneId.of("Asia/Taipei"));
             String expiredHR = (DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").format(expired));
 
-//            userImageItemRepository.delete(item);
+            userImageItemRepository.delete(item);
             logger.info(expiredHR + "-" + item.getUsername() + "-" + item.getType() + "-" + item.getDescription());
         });
 

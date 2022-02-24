@@ -159,7 +159,7 @@ public class UserAudioitemService {
                 .filter(item -> item.getExpired() != 0).collect(Collectors.toList());
 
         items.forEach(userAudioItem -> {
-            logger.info(userAudioItem.getDescription());
+            logger.info("past item: " + userAudioItem.getDescription());
             userAudioitemRepository.delete(userAudioItem);
         });
 
