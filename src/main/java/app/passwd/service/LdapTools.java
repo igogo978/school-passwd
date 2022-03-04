@@ -42,8 +42,8 @@ public class LdapTools {
     @Autowired
     LdapRepository ldapRepository;
 
-    @Autowired
-    AccountService accountService;
+//    @Autowired
+//    AccountService accountService;
 
     @Autowired
     UserLoginService userloginservice;
@@ -266,11 +266,11 @@ public class LdapTools {
 
     }
 
-    public void addUser(User user, String userPassword, String ou) throws IOException {
+    public void addUser(User user, String userPassword, String ou, SchoolUser schoolUser) throws IOException {
 
         Role role = ldapRepository.findBySn(1).getRoles().stream().filter(r -> r.getRole().contains(ou)).findFirst().orElse(null);
 
-        SchoolUser schoolUser = accountService.getStaffUser(user.getUsername());
+//        SchoolUser schoolUser = accountService.getStaffUser(user.getUsername());
         logger.info("get staff data:" + schoolUser.getPassword());
         LdapTemplate ldapTemplate = initLDAPConnect();
         Name dn = LdapNameBuilder

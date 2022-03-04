@@ -6,6 +6,7 @@ import app.passwd.model.SchoolUser;
 import app.passwd.model.User;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
+import app.passwd.service.AccountService;
 import app.passwd.service.Oauth2Client;
 import app.passwd.service.LdapTools;
 import app.passwd.service.UserLoginService;
@@ -48,6 +49,9 @@ public class UpdatePasswdController {
 
     @Autowired
     LdapTools ldapTools;
+
+    @Autowired
+    AccountService accountService;
 
     @RequestMapping(value = "/passwd/username/{username}", method = RequestMethod.PUT)
     public String updatePasswd(@PathVariable("username") String username, @RequestBody Account account) throws IOException, InvalidNameException {
@@ -116,7 +120,9 @@ public class UpdatePasswdController {
 
                 logger.info("create user:" + user.getAdusername());
                 if (user.getRole().equals("teacher")) {
-                    ldapTools.addUser(user, account.getPassword(),"teacher");
+
+        SchoolUser schoolUser = accountService.getStaffUser(user.getUsername());
+                    ldapTools.addUser(user, account.getPassword(),"teacher", schoolUser);
                 } else {
                     ldapTools.addStuUser(user, account.getPassword());
 

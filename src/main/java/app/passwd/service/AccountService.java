@@ -98,7 +98,7 @@ public class AccountService {
 
                 //logger.info("學號：" + classnode.get(i).get("學號").asText());
                 for (int j = 0; j < classnode.size(); j++) {
-                    logger.info(mapper.writeValueAsString(classnode.get(j)));
+//                    logger.info(mapper.writeValueAsString(classnode.get(j)));
                     SchoolUser schoolUser = new SchoolUser();
                     //logger.info("班級：" + classno);
                     //logger.info("座號：" + classnode.get(j).get("座號").asText());
