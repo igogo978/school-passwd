@@ -55,7 +55,6 @@
     <div class="album py-5 bg-gray">
         <div class="container">
 
-<!--            <section class="py-5 text-center container">-->
                 <div class="row py-lg-5">
                     <div class="col-lg-6 col-md-8 mx-auto">
                         <p class="lead text-muted"> 校園LED-檔案格式限定圖片png,jpg 影片mp4</p>
@@ -65,6 +64,7 @@
                                 <input @change="handleFiles" type="file" accept="image/jpeg, image/png, video/mp4" name="file" class="form-control"
                                        aria-label="Sizing example input"
                                        aria-describedby="inputGroup-sizing-lg">
+
                                 <button class="btn btn-outline-secondary"
                                         type="submit"
                                         value="Upload">確定上傳
@@ -79,7 +79,6 @@
                     <button v-on:click="switchpage(1)" type="button" class="btn btn-outline-primary">尚未設定</button>
                     <button v-on:click="switchpage(2)" type="button" class="btn btn-outline-primary">上架中</button>
                 </div>
-<!--            </section>-->
 
             <hr>
             <!-- page selection -->

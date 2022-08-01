@@ -11,11 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -50,7 +46,8 @@ public class UserAudioitemService {
         String prefix = (String.format("data:%s;base64,", file.getContentType()));
 
         UserAudioItem userAudioItem = new UserAudioItem(prefix, username, "audio", timestamp, 0, file.getOriginalFilename());
-        userAudioItem.setContent(normalize(encode));
+//        userAudioItem.setContent(normalize(encode));
+        userAudioItem.setContent(encode);
 
         userAudioitemRepository.save(userAudioItem);
 
@@ -71,35 +68,35 @@ public class UserAudioitemService {
         });
     }
 
-    public String normalize(String encodes) throws IOException, InterruptedException {
-        String normalizeDecodes = "";
-        //working dir
-        File dir = new File("/tmp/audio/");
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
-
-        //base64 content decode to file
-        byte[] bytes = Base64.getDecoder().decode(encodes);
-        String normfilename = dir + "norm.mp3";
-        Path rawfilePath = Paths.get(dir + "/" + "raw.mp3");
-        Files.write(rawfilePath, bytes);
-
-        String[] command = {"/usr/bin/sox", "--norm=-2", rawfilePath.toString(), normfilename};
-
-        ProcessBuilder processBuilder = new ProcessBuilder(command);
-        processBuilder.directory(dir);
-
-        int intExitCode = processBuilder.start().waitFor();
-        if (intExitCode == 0) {
-            bytes = Files.readAllBytes(new File(normfilename).toPath());
-            normalizeDecodes = Base64.getEncoder().encodeToString(bytes);
-        }
-        logger.info("audio normalized");
-
-        return normalizeDecodes;
-
-    }
+//    public String normalize(String encodes) throws IOException, InterruptedException {
+//        String normalizeDecodes = "";
+//        //working dir
+//        File dir = new File("/tmp/audio/");
+//        if (!dir.exists()) {
+//            dir.mkdirs();
+//        }
+//
+//        //base64 content decode to file
+//        byte[] bytes = Base64.getDecoder().decode(encodes);
+//        String normfilename = dir + "norm.mp3";
+//        Path rawfilePath = Paths.get(dir + "/" + "raw.mp3");
+//        Files.write(rawfilePath, bytes);
+//
+//        String[] command = {"/usr/bin/sox", "--norm=-2", rawfilePath.toString(), normfilename};
+//
+//        ProcessBuilder processBuilder = new ProcessBuilder(command);
+//        processBuilder.directory(dir);
+//
+//        int intExitCode = processBuilder.start().waitFor();
+//        if (intExitCode == 0) {
+//            bytes = Files.readAllBytes(new File(normfilename).toPath());
+//            normalizeDecodes = Base64.getEncoder().encodeToString(bytes);
+//        }
+//        logger.info("audio normalized");
+//
+//        return normalizeDecodes;
+//
+//    }
 
     public void udpateExipredDay(UserAudioItem item) {
 
@@ -158,14 +155,18 @@ public class UserAudioitemService {
         List<UserAudioItem> items = userAudioitemRepository.findByExpiredLessThan(past.getEpochSecond()).stream()
                 .filter(item -> item.getExpired() != 0).collect(Collectors.toList());
 
+        logger.info("past audio items: " + items.size());
         items.forEach(userAudioItem -> {
             logger.info("past item: " + userAudioItem.getDescription());
-            userAudioitemRepository.delete(userAudioItem);
+//            userAudioitemRepository.delete(userAudioItem);
         });
 
 //        return userAudioitemRepository.findByExpiredLessThan(past.getEpochSecond()).stream().filter(item -> item.getExpired() != 0).collect(Collectors.toList());
         return items;
     }
 
+    public  void delete(UserAudioItem userAudioitem) {
+        userAudioitemRepository.delete(userAudioitem);
+    }
 
 }

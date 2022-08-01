@@ -1,5 +1,8 @@
 package app.passwd.config;
 
+import app.passwd.model.UserAudioItem;
+import app.passwd.model.UserImageItem;
+import app.passwd.model.UserItem;
 import app.passwd.service.UserAudioitemService;
 import app.passwd.service.UseritemService;
 import org.slf4j.Logger;
@@ -11,6 +14,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import java.io.IOException;
 import java.time.Instant;
+import java.util.List;
 
 @Configuration
 @EnableScheduling
@@ -25,11 +29,16 @@ public class ScheduleConfig {
     UserAudioitemService userAudioitemService;
 
 
-//    @Scheduled(cron = "1 50 8 13 3,9 ?", zone = "Asia/Taipei")
-    @Scheduled(cron = "12 09 16 * * ?", zone = "Asia/Taipei")
+    //    @Scheduled(cron = "1 50 8 13 3,9 ?", zone = "Asia/Taipei")
+    @Scheduled(cron = "12 15 09 * * ?", zone = "Asia/Taipei")
     public void clean() throws IOException {
         //delete  video in gridFs
-        useritemService.getExpiredItem(181);
-        userAudioitemService.getExpiredItem(101);
+        List<UserImageItem> userImageItems = useritemService.getExpiredItem(181);
+        List<UserAudioItem> userAudioItems = userAudioitemService.getExpiredItem(101);
+
+        userImageItems.forEach(userImageItem -> useritemService.delete(userImageItem));
+        userAudioItems.forEach(userAudioItem -> userAudioitemService.delete(userAudioItem));
+
+
     }
 }

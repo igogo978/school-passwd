@@ -40,9 +40,6 @@ public class UseritemService {
     @Autowired
     GridFsTemplate gridFsTemplate;
 
-//    @Autowired
-//    UseritemUtils useritemUtils;
-
     @Autowired
     SyncUseritemService syncUseritemService;
 
@@ -148,13 +145,16 @@ public class UseritemService {
         items.forEach(item -> {
             ZonedDateTime expired = Instant.ofEpochSecond(item.getExpired()).atZone(ZoneId.of("Asia/Taipei"));
             String expiredHR = (DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").format(expired));
-
-            userImageItemRepository.delete(item);
+//            userImageItemRepository.delete(item);
             logger.info(expiredHR + "-" + item.getUsername() + "-" + item.getType() + "-" + item.getDescription());
         });
 
-        return userImageItemRepository.findByExpiredLessThan(past.getEpochSecond()).stream().filter(item -> item.getExpired() != 0).collect(Collectors.toList());
+        return items;
 
+    }
+
+    public void delete(UserImageItem userImageItem) {
+        userImageItemRepository.delete(userImageItem);
     }
 
 
