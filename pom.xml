@@ -5,7 +5,7 @@
 
     <groupId>app</groupId>
     <artifactId>passwd-openldap</artifactId>
-    <version>11.2.1</version>
+    <version>17.2.1</version>
     <packaging>jar</packaging>
 
     <name>passwd</name>
