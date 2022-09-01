@@ -2,6 +2,7 @@ package app.passwd.api;
 
 import app.passwd.model.SchoolUser;
 import app.passwd.repository.LdapRepository;
+import app.passwd.repository.SystemConfigRepository;
 import app.passwd.service.AccountService;
 import app.passwd.service.LdapTools;
 import app.passwd.service.UserLoginService;
@@ -29,6 +30,9 @@ public class AccountController {
 
     @Autowired
     LdapRepository ldapRepository;
+
+    @Autowired
+    SystemConfigRepository systemConfigRepository;
 
     @Autowired
     LdapTools ldapTools;

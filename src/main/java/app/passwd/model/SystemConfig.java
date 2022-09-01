@@ -9,9 +9,8 @@ import javax.persistence.Id;
 public class SystemConfig {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Integer id;
 
     private Integer sn;
     private String clientid;
@@ -23,9 +22,11 @@ public class SystemConfig {
     private String semesterdata_endpoint;
     private String cwd;
 
+
+    private String accountManager;
+
 //    private boolean isLearningAccount;
     private boolean isSyncLdap;
-
 
     public Integer getSn() {
         return sn;
@@ -42,14 +43,6 @@ public class SystemConfig {
     public void setSyncLdap(boolean syncLdap) {
         isSyncLdap = syncLdap;
     }
-
-//    public boolean isLearningAccount() {
-//        return isLearningAccount;
-//    }
-
-//    public void setLearningAccount(boolean learningAccount) {
-//        isLearningAccount = learningAccount;
-//    }
 
     public String getSemesterdata_endpoint() {
         return semesterdata_endpoint;
@@ -106,5 +99,13 @@ public class SystemConfig {
 
     public void setCwd(String cwd) {
         this.cwd = cwd;
+    }
+
+    public String getAccountManager() {
+        return accountManager;
+    }
+
+    public void setAccountManager(String accountManager) {
+        this.accountManager = accountManager;
     }
 }

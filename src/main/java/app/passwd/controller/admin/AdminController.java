@@ -1,6 +1,7 @@
 package app.passwd.controller.admin;
 
 import app.passwd.repository.LdapRepository;
+import app.passwd.repository.SystemConfigRepository;
 import app.passwd.service.UserLoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,9 @@ public class AdminController {
 
     @Autowired
     UserLoginService userloginservice;
+
+    @Autowired
+    SystemConfigRepository systemConfigRepository;
 
     @Autowired
     LdapRepository ldapRepository;

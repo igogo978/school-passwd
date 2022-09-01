@@ -61,11 +61,8 @@ public class IndexController {
 
         logger.info(String.format("1.需請求取得認證授權,轉到 %s", authorize_endpoint));
 
-
         return new RedirectView(authorize_endpoint);
 
-
     }
-
 
 }

@@ -27,33 +27,33 @@ public class CallbackController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    Oauth2Client client;
+    Oauth2Client oauth2Client;
 
     @Autowired
     UserLoginService userloginservice;
 
-
     @Autowired
-    SystemConfigRepository repository;
+    SystemConfigRepository systemConfigRepository;
 
     @Autowired
     LdapRepository ldapRepository;
 
     @GetMapping("/passwd/callback")
     public RedirectView callback(@RequestParam(value = "state", required = true) String state, @RequestParam(value = "data", required = true) String data) throws IOException, URISyntaxException {
-        assert client.getState().equals(state);
+        assert oauth2Client.getState().equals(state);
         return getRedirectView(data);
     }
 
 
     @GetMapping("/callback")
     public RedirectView callbackproxypass(@RequestParam(value = "state", required = true) String state, @RequestParam(value = "data", required = true) String data) throws IOException, URISyntaxException {
-        assert client.getState().equals(state);
+        assert oauth2Client.getState().equals(state);
         return getRedirectView(data);
     }
 
 
     private RedirectView getRedirectView(String data) throws IOException, URISyntaxException {
+
         logger.info(String.format("3.取得code:%s", data));
 
         ObjectMapper mapper = new ObjectMapper();
@@ -67,10 +67,16 @@ public class CallbackController {
 
         //logger.info("account manager:"+ldapRepository.findBySn(1).getAccountManager());
         //學生要判斷在ad 上的帳號格式, regular or simple
-        if (!ldapRepository.findBySn(1).getStuidRegular() && role.equals("student")) {
-            adusername = node.get("username").asText().split("-")[1];
-            logger.info("Student ad username:" + adusername);
+        SystemConfig systemConfig = systemConfigRepository.findBySn(1);
+
+        if (systemConfig.isSyncLdap() == Boolean.TRUE) {
+            if (!ldapRepository.findBySn(1).getStuidRegular() && role.equals("student")) {
+                adusername = node.get("username").asText().split("-")[1];
+                logger.info("Student ad username:" + adusername);
+            }
+
         }
+
 
         //String school_no, String username, String role, String name, String edu_key
         User user = new User(school_no, username, adusername, role, name, edu_key);
@@ -79,9 +85,8 @@ public class CallbackController {
         userloginservice.setUserLoggedin(Boolean.TRUE, user);
 
         //取得token
-        SystemConfig sysconfig = repository.findBySn(1);
         //logger.info(sysconfig.getAccesstoken_endpoint());
-        client.setAccesstoken(sysconfig);
+        oauth2Client.setAccesstoken(systemConfig);
 
         if (username.equals(ldapRepository.findBySn(1).getAccountManager())) {
             return new RedirectView("/passwd/admin");

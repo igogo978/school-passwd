@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -24,13 +26,10 @@ public class AccountService {
 
     @Autowired
     LdapRepository ldaprepository;
-
     @Autowired
     SemesterData semesterdata;
-
     @Autowired
     SystemConfigRepository sysconfigrepository;
-
     @Autowired
     LdapTools ldapTools;
 
@@ -71,8 +70,6 @@ public class AccountService {
     }
 
 
-
-
     public List<SchoolUser> getAllCSStudentUser() throws IOException {
         List<SchoolUser> users = new ArrayList<>();
 
@@ -81,13 +78,15 @@ public class AccountService {
         String token = client.getAccesstoken();
 
         String data = semesterdata.getdata(token, endpoint);
-        //logger.info("全部資料:" + data);
+//        logger.info("全部資料:" + data);
+
+
         ObjectMapper mapper = new ObjectMapper();
 //        mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
         mapper.configure(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature(), true);
         JsonNode root = mapper.readTree(data);
         JsonNode node = root.get("學期編班");
-        logger.info("班級數:" + node.size());
+//        logger.info("班級數:" + node.size());
         for (int i = 0; i < node.size(); i++) {
             //101
             String classno = String.format("%s%02d", node.get(i).get("年級").asText(), node.get(i).get("班序").asInt());
@@ -104,11 +103,14 @@ public class AccountService {
                     //logger.info("座號：" + classnode.get(j).get("座號").asText());
                     //logger.info("姓名：" + classnode.get(j).get("姓名").asText());
                     //logger.info("學號：" + classnode.get(j).get("學號").asText());
+//                    logger.info(mapper.writeValueAsString(classnode.get(j)));
                     schoolUser.setName(classnode.get(j).get("姓名").asText());
                     schoolUser.setClassno(classno);
                     String username = null;
                     username = String.format("%s-%s", classnode.get(j).get("學號").asText().substring(0, 3), classnode.get(j).get("學號").asText());
                     schoolUser.setUsername(username);
+//                    logger.info(mapper.writeValueAsString(classnode.get(j)));
+
                     if (ldaprepository.findBySn(1).getStuidRegular()) {
                         //logger.info("帳號為regular");
                         schoolUser.setAdusername(username);
@@ -151,7 +153,7 @@ public class AccountService {
     public List<SchoolUser> getEmptyUsers(String role) throws IOException {
         List<SchoolUser> csaccounts = new ArrayList<>();
 
-        csaccounts = role.equals("staff")? getAllStaffUsers() : getAllCSStudentUser();
+        csaccounts = role.equals("staff") ? getAllStaffUsers() : getAllCSStudentUser();
         final List<ADUser> adusers = ldapTools.findAll();
         List<SchoolUser> emptyAccounts = new ArrayList<>();
 
@@ -165,8 +167,6 @@ public class AccountService {
         return emptyAccounts;
 
     }
-
-
 
 
     public void createStudentAccounts(List<SchoolUser> accounts) {
@@ -187,7 +187,7 @@ public class AccountService {
         String ou = "teacher";
         //單向建立WinAD上的帳號, 並且預設密碼demo1234
         //ldapTools.addStuUser();
-        ldapTools.addUser(accounts,ou);
+        ldapTools.addUser(accounts, ou);
 
 
     }

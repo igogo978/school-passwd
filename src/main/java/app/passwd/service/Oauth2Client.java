@@ -40,20 +40,6 @@ public class Oauth2Client {
         secret = sysconfig.getSecret();
 
         logger.info("4. 進行client_credientials flow 取得token.");
-//        OAuthClient client = new OAuthClient(new URLConnectionClient());
-//        OAuthClientRequest request =
-//                OAuthClientRequest.tokenLocation(accesstoken_endpoint)
-//                        .setGrantType(GrantType.CLIENT_CREDENTIALS)
-//                        .setClientId(clientid)
-//                        .setClientSecret(secret)
-//                        .buildBodyMessage();
-//
-////        grant_type=client_credentials&client_secret=%s&client_id=%s
-//        logger.info("parameters");
-//        logger.info(request.getBody());
-//
-//        this.accesstoken = client.accessToken(request, "POST", OAuthJSONAccessTokenResponse.class)
-//                .getAccessToken();
 
         // Create a new HTTP client
         OkHttpClient okHttpClient = new OkHttpClient();
@@ -81,3 +67,19 @@ public class Oauth2Client {
         this.state = state;
     }
 }
+
+// deprecated : use oltu to get access token
+//        OAuthClient client = new OAuthClient(new URLConnectionClient());
+//        OAuthClientRequest request =
+//                OAuthClientRequest.tokenLocation(accesstoken_endpoint)
+//                        .setGrantType(GrantType.CLIENT_CREDENTIALS)
+//                        .setClientId(clientid)
+//                        .setClientSecret(secret)
+//                        .buildBodyMessage();
+//
+////        grant_type=client_credentials&client_secret=%s&client_id=%s
+//        logger.info("parameters");
+//        logger.info(request.getBody());
+//
+//        this.accesstoken = client.accessToken(request, "POST", OAuthJSONAccessTokenResponse.class)
+//                .getAccessToken();
