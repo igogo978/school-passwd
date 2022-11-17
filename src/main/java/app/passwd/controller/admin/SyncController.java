@@ -22,7 +22,7 @@ public class SyncController {
     UserLoginService userloginservice;
 
     @Autowired
-    SystemConfigRepository sysconfigrepository;
+    SystemConfigRepository systemConfigRepository;
 
     @Autowired
     LdapRepository ldaprepository;
@@ -33,16 +33,15 @@ public class SyncController {
         if (!userloginservice.isLoggedin()) {
             return "redirect:/";
         }
+
+        model.addAttribute("isSyncLdap",systemConfigRepository.findBySn(1).isSyncLdap());
         return "admin/syncstudent";
     }
 
 
     @GetMapping("/account/student")
     public String syncStudentsProxypass(Model model) {
-        if (!userloginservice.isLoggedin()) {
-            return "redirect:/";
-        }
-        return "admin/syncstudent";
+        return syncStudents(model);
     }
 
 
@@ -57,10 +56,7 @@ public class SyncController {
 
     @GetMapping("/account/staff")
     public String syncStaffProxypass(Model model) {
-        if (!userloginservice.isLoggedin()) {
-            return "redirect:/";
-        }
-        return "admin/syncstaff";
+        return syncStaff(model);
     }
 
 

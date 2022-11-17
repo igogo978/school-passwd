@@ -2,6 +2,7 @@ package app.passwd.controller;
 
 import app.passwd.repository.SystemConfigRepository;
 import app.passwd.service.Oauth2Client;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
@@ -46,14 +49,11 @@ public class IndexController {
     @GetMapping("/passwd")
     public RedirectView indexPasswd(RedirectAttributes attributes) throws URISyntaxException, IOException, ParseException, ExecutionException, InterruptedException, NoSuchAlgorithmException {
 
+        //get method, add needed parameters
         clientid = repository.findBySn(1).getClientid();
         authorize_endpoint = repository.findBySn(1).getAuthorize_endpoint();
-
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] hash = digest.digest(String.valueOf(new Random().nextInt(9999999)).getBytes(StandardCharsets.UTF_8));
-        String encoded  = Base64.getEncoder().encodeToString(hash);
-
-        client.setState(String.valueOf(encoded));
+        String state = new DigestUtils("SHA3-256").digestAsHex(String.valueOf(new Random().nextInt(9999999)).getBytes(StandardCharsets.UTF_8));
+        client.setState(state);
 
         attributes.addAttribute("client_id", clientid);
         attributes.addAttribute("response_type", "code");

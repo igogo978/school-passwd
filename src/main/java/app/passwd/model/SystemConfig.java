@@ -16,10 +16,13 @@ public class SystemConfig {
     private String clientid;
     private String secret;
 
+    private String schoolid;
+
     private String authorize_endpoint;
     private String changepasswd_endpoint;
     private String accesstoken_endpoint;
     private String semesterdata_endpoint;
+
     private String cwd;
 
 
@@ -107,5 +110,13 @@ public class SystemConfig {
 
     public void setAccountManager(String accountManager) {
         this.accountManager = accountManager;
+    }
+
+    public String getSchoolid() {
+        return schoolid;
+    }
+
+    public void setSchoolid(String schoolid) {
+        this.schoolid = schoolid;
     }
 }

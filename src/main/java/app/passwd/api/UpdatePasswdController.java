@@ -33,25 +33,19 @@ import java.util.ArrayList;
 @RestController
 public class UpdatePasswdController {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
-
     @Autowired
     Oauth2Client client;
-
     @Autowired
     UserLoginService userloginservice;
-
     @Autowired
     SystemConfigRepository sysconfigrepository;
-
     @Autowired
     LdapRepository ldapRepository;
-
     @Autowired
     LdapTools ldapTools;
-
     @Autowired
     AccountService accountService;
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @RequestMapping(value = "/passwd/username/{username}", method = RequestMethod.PUT)
     public String updatePasswd(@PathVariable("username") String username, @RequestBody Account account) throws IOException, InvalidNameException {
@@ -107,7 +101,7 @@ public class UpdatePasswdController {
             userloginservice.setLoggedin(Boolean.FALSE);
         }
 
-        //sync ldap
+        //sync winad ldap
         if (sysconfigrepository.findBySn(1).isSyncLdap()) {
             User user = userloginservice.getUser();
             logger.info("ad username:" + user.getAdusername());
@@ -121,8 +115,8 @@ public class UpdatePasswdController {
                 logger.info("create user:" + user.getAdusername());
                 if (user.getRole().equals("teacher")) {
 
-        SchoolUser schoolUser = accountService.getStaffUser(user.getUsername());
-                    ldapTools.addUser(user, account.getPassword(),"teacher", schoolUser);
+                    SchoolUser schoolUser = accountService.getStaffUser(user.getUsername());
+                    ldapTools.addUser(user, account.getPassword(), "teacher", schoolUser);
                 } else {
                     ldapTools.addStuUser(user, account.getPassword());
 
@@ -132,8 +126,6 @@ public class UpdatePasswdController {
         }
         return result;
     }
-
-
 
 
 }

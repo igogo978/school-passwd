@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,13 +28,15 @@ import java.security.Key;
 import java.security.MessageDigest;
 import java.time.Instant;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.Date;
+import java.util.Random;
 
 @SpringBootApplication
 public class PasswdApplication implements CommandLineRunner {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
-    SystemConfigRepository repository;
+    SystemConfigRepository systemConfigRepository;
     @Autowired
     LdapRepository ldapRepository;
     @Autowired
@@ -53,8 +56,6 @@ public class PasswdApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        //吳兆軒 B124330383
-//        String pid = "B124330383";
 //        String sha256hex = org.apache.commons.codec.digest.DigestUtils.sha256Hex(pid);
 //        logger.info("pid sha256 hash: ");
 //        logger.info(sha256hex);
@@ -63,12 +64,10 @@ public class PasswdApplication implements CommandLineRunner {
         // We need a signing key, so we'll create one just for this example. Usually
         // the key would be read from your application configuration instead.
         Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-
         String jws = Jwts.builder().setSubject("igogo").signWith(key).compact();
 
         logger.info("jws:");
         logger.info(jws);
-
 
 
         String declare = "本程式僅提供台中市學校使用";
@@ -88,6 +87,7 @@ public class PasswdApplication implements CommandLineRunner {
             sysconfig.setAuthorize_endpoint(node.get("authorize_endpoint").asText());
             sysconfig.setAccesstoken_endpoint(node.get("accesstoken_endpoint").asText());
             sysconfig.setSemesterdata_endpoint(node.get("semesterdata_endpoint").asText());
+            sysconfig.setAccountManager(node.get("accountManager").asText());
             sysconfig.setCwd(System.getProperty("user.dir"));
 
             //是否更新ldap
@@ -106,7 +106,7 @@ public class PasswdApplication implements CommandLineRunner {
             }
 
             //必須先存入所有sysconfig 設定, 後面再判斷是否讀取其它設定檔存入資料庫
-            repository.save(sysconfig);
+            systemConfigRepository.save(sysconfig);
 
             //處理ldap client
             if (sysconfig.isSyncLdap()) {
@@ -123,7 +123,7 @@ public class PasswdApplication implements CommandLineRunner {
                     ldapclient.setRootdn(node.get("rootdn").asText());
                     ldapclient.setCert(node.get("cert").asText());
                     ldapclient.setUpnSuffix(node.get("upn_suffix").asText());
-                    ldapclient.setAccountManager(node.get("accountManager").asText());
+//                    ldapclient.setAccountManager(node.get("accountManager").asText());
                     if (node.get("stu_id_format").asText().equals("simple")) {
                         ldapclient.setStuidRegular(Boolean.FALSE);
                     } else {
@@ -148,8 +148,7 @@ public class PasswdApplication implements CommandLineRunner {
         }
 
 
-        //測試連結ldap
-        //信任憑證
+        //1.測試連結ldap 2.信任憑證
 
         if (sysconfig.isSyncLdap() == Boolean.TRUE) {
             System.out.println("加入WinAD憑證:" + ldapRepository.findBySn(1).getCert());
@@ -175,8 +174,7 @@ public class PasswdApplication implements CommandLineRunner {
                     ldapTools.createOu(Arrays.asList(role.getOu()));
                 }
             });
-            logger.info("account manager: " + ldapRepository.findBySn(1).getAccountManager());
-
+//            logger.info("account manager: " + ldapRepository.findBySn(1).getAccountManager());
 
         }
 

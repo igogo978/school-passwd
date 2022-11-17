@@ -1,36 +1,282 @@
-15:23:15.135 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.4 on smbldap with PID 10687 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
-15:23:15.138 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to default profiles: default
-15:23:17.398 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-15:23:17.481 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 71 ms. Found 2 JPA repository interfaces.
-15:23:18.644 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-15:23:18.677 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-15:23:18.679 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-15:23:18.683 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
-15:23:18.805 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-15:23:18.806 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3224 ms
-15:23:19.448 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-15:23:19.665 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-15:23:19.825 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-15:23:19.945 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
-15:23:20.217 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-15:23:20.440 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-15:23:21.246 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-15:23:21.262 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-15:23:21.885 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-15:23:22.274 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
-15:23:22.439 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
-15:23:22.522 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-15:23:22.553 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-15:23:22.582 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 10.3 seconds (JVM running for 11.277)
-15:23:22.696 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$b1b77332 - jws:
-15:23:22.697 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$b1b77332 - eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpZ29nbyJ9._JzCINn-A4TSMkDNRKtX_Mvpzsnz5KPCHCUcNVLvI8c
-15:23:22.698 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$b1b77332 - working dir:/home/inono/Projects/school-passwd
-15:23:23.839 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$b1b77332 - account manager: igogo
-15:23:23.842 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$b1b77332 - 帳號整合服務成功啟動
-15:59:38.898 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-15:59:38.899 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-15:59:38.912 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-16:46:36.818 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-16:46:37.336 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-16:46:38.346 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-16:46:38.793 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+08:25:52.063 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.4 on smbldap with PID 5509 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+08:25:52.066 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+08:25:53.145 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08:25:53.225 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 2 JPA repository interfaces.
+08:25:53.966 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+08:25:53.975 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+08:25:53.976 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+08:25:53.976 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+08:25:54.222 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+08:25:54.223 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2061 ms
+08:25:54.627 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+08:25:54.892 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+08:25:54.938 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+08:25:54.989 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+08:25:55.157 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+08:25:55.353 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+08:25:55.893 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08:25:55.900 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08:25:56.343 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08:25:56.733 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+08:25:56.832 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+08:25:56.891 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+08:25:56.900 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+08:25:56.915 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+08:25:56.918 [main] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+08:25:56.937 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+08:25:56.942 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+08:25:56.944 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+08:25:56.961 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+08:25:56.987 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+08:25:56.994 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+08:25:57.023 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+08:25:57.057 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+08:28:40.824 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.4 on smbldap with PID 5698 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+08:28:40.837 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+08:28:42.408 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08:28:42.618 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 190 ms. Found 2 JPA repository interfaces.
+08:28:44.642 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+08:28:44.688 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+08:28:44.689 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+08:28:44.690 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+08:28:45.233 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+08:28:45.234 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4270 ms
+08:28:46.395 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+08:28:46.571 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+08:28:46.665 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+08:28:46.740 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+08:28:47.194 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+08:28:47.356 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+08:28:47.903 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08:28:47.909 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08:28:48.563 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08:28:48.884 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+08:28:48.960 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+08:28:49.058 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+08:28:49.126 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+08:28:49.156 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 9.937 seconds (JVM running for 12.211)
+08:28:49.412 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$c2177eae - jws:
+08:28:49.412 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$c2177eae - eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpZ29nbyJ9.fgN4kk1ee_cEXI7gP_qtRJ-h_TCyIaoqRm3dS0LxDP0
+08:28:49.413 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$c2177eae - working dir:/home/inono/Projects/school-passwd
+08:28:51.069 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$c2177eae - 帳號整合服務成功啟動
+08:28:59.049 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+08:28:59.050 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+08:28:59.051 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+08:28:59.267 [http-nio-8080-exec-2] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+08:29:04.674 [http-nio-8080-exec-3] INFO  a.p.controller.CallbackController - 42d592e72d5b2aac8666724269b9a63d381f9d7583d15850c2566804cb2c5318
+08:29:04.724 [http-nio-8080-exec-3] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"igogo","role":"teacher","name":"\u5433\u5609\u7965","edu_key":"","title_name":"\u79d1\u4efb\u6559\u5e2b","title_kind":"\u5c08\u4efb\u6559\u5e2b"}
+08:29:04.912 [http-nio-8080-exec-3] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+08:29:05.417 [http-nio-8080-exec-4] INFO  a.p.controller.admin.AdminController - {"school_no":"064757","username":"igogo","adusername":"igogo","role":"teacher","name":"吳嘉祥","edu_key":""}
+08:29:45.150 [http-nio-8080-exec-8] INFO  app.passwd.service.SemesterData - 取得semester data - endpoint:https://api.tc.edu.tw/semester-data
+08:29:59.590 [http-nio-8080-exec-9] INFO  app.passwd.api.AccountController - 191
+08:29:59.591 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110001
+08:30:00.056 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110002
+08:30:00.212 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110003
+08:30:00.473 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110005
+08:30:00.682 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110006
+08:30:00.854 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110007
+08:30:01.035 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110008
+08:30:01.211 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110009
+08:30:01.374 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110010
+08:30:01.549 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110011
+08:30:01.767 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110012
+08:30:01.976 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110013
+08:30:02.169 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110193
+08:30:02.353 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110015
+08:30:02.559 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110016
+08:30:02.754 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110017
+08:30:02.925 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110018
+08:30:03.156 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110019
+08:30:03.328 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110020
+08:30:03.502 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110021
+08:30:03.667 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110022
+08:30:03.830 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110023
+08:30:04.060 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110024
+08:30:04.253 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110025
+08:30:04.418 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110026
+08:30:04.618 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110027
+08:30:04.947 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110028
+08:30:05.176 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110029
+08:30:05.347 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110030
+08:30:05.506 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110031
+08:30:05.679 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110032
+08:30:05.828 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110033
+08:30:05.992 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110034
+08:30:06.209 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110035
+08:30:06.364 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110036
+08:30:06.526 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110037
+08:30:06.720 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110038
+08:30:06.878 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110039
+08:30:07.110 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110040
+08:30:07.261 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110041
+08:30:07.420 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110042
+08:30:07.653 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110043
+08:30:07.820 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110044
+08:30:08.047 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110045
+08:30:08.218 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110046
+08:30:08.384 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110047
+08:30:08.559 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110048
+08:30:08.710 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110049
+08:30:08.907 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110050
+08:30:09.092 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110051
+08:30:09.242 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110052
+08:30:09.393 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110053
+08:30:09.560 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110054
+08:30:10.095 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110055
+08:30:10.395 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110056
+08:30:10.549 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110057
+08:30:11.048 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110058
+08:30:11.550 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110059
+08:30:12.049 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110060
+08:30:12.546 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110061
+08:30:13.045 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110062
+08:30:13.562 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110063
+08:30:13.712 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110064
+08:30:15.199 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110065
+08:30:15.352 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110066
+08:30:15.495 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110067
+08:30:15.653 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110068
+08:30:15.810 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110069
+08:30:15.952 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110070
+08:30:16.109 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110071
+08:30:16.261 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110072
+08:30:16.432 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110073
+08:30:16.593 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110074
+08:30:16.748 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110075
+08:30:16.903 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110076
+08:30:17.058 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110077
+08:30:17.200 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110078
+08:30:17.425 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110079
+08:30:17.825 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110080
+08:30:18.126 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110081
+08:30:18.516 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110082
+08:30:18.985 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110083
+08:30:19.342 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110084
+08:30:19.647 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110085
+08:30:19.943 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110086
+08:30:20.322 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110087
+08:30:20.622 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110088
+08:30:20.917 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110089
+08:30:21.326 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110090
+08:30:21.631 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110091
+08:30:22.016 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110092
+08:30:22.512 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110093
+08:30:22.810 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110094
+08:30:23.119 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110095
+08:30:23.510 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110096
+08:30:23.924 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110097
+08:30:24.310 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110098
+08:30:24.617 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110099
+08:30:24.939 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110100
+08:30:25.387 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110101
+08:30:25.617 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110102
+08:30:25.916 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110103
+08:30:26.323 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110104
+08:30:26.624 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110105
+08:30:27.007 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110106
+08:30:27.322 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110107
+08:30:27.616 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110108
+08:30:27.923 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110109
+08:30:28.371 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110110
+08:30:28.612 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110111
+08:30:29.037 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110112
+08:30:29.513 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110113
+08:30:29.822 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110114
+08:30:30.121 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110192
+08:30:30.520 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110115
+08:30:31.020 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110116
+08:30:31.410 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110117
+08:30:31.801 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110118
+08:30:32.119 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110119
+08:30:32.516 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110120
+08:30:33.011 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110121
+08:30:33.316 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110122
+08:30:33.617 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110123
+08:30:34.009 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110124
+08:30:34.526 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110125
+08:30:35.008 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110126
+08:30:35.523 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110127
+08:30:36.035 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110128
+08:30:36.515 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110129
+08:30:36.796 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110130
+08:30:37.136 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110131
+08:30:37.504 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110132
+08:30:37.830 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110133
+08:30:38.144 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110134
+08:30:38.506 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110135
+08:30:38.827 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110136
+08:30:39.133 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110137
+08:30:39.525 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110138
+08:30:40.064 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110139
+08:30:40.455 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110140
+08:30:40.826 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110141
+08:30:41.279 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110142
+08:30:41.624 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110143
+08:30:41.917 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110144
+08:30:42.308 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110145
+08:30:42.824 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110146
+08:30:43.123 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110147
+08:30:43.542 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110148
+08:30:44.050 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110149
+08:30:44.535 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110150
+08:30:44.935 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110151
+08:30:45.363 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110152
+08:30:45.759 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110153
+08:30:45.954 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110154
+08:30:46.203 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110155
+08:30:48.106 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110156
+08:30:48.243 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110157
+08:30:48.413 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110158
+08:30:48.572 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110159
+08:30:48.725 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110160
+08:30:48.884 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110161
+08:30:49.032 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110162
+08:30:49.208 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110163
+08:30:49.375 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110164
+08:30:49.561 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110165
+08:30:49.730 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110166
+08:30:49.907 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110167
+08:30:50.058 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110168
+08:30:50.208 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110169
+08:30:50.373 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110170
+08:30:50.562 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110171
+08:30:50.725 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110172
+08:30:50.881 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110173
+08:30:51.058 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110174
+08:30:51.223 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110175
+08:30:51.380 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110176
+08:30:51.539 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110177
+08:30:51.706 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110178
+08:30:52.061 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110179
+08:30:52.230 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110180
+08:30:52.388 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110181
+08:30:52.546 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110182
+08:30:52.712 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110183
+08:30:52.871 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110184
+08:30:53.032 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110185
+08:30:53.704 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110186
+08:30:53.875 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110187
+08:30:54.049 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110188
+08:30:54.227 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110189
+08:30:54.391 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110190
+08:30:54.561 [http-nio-8080-exec-9] INFO  app.passwd.service.AccountService - 建立學生帳號:110-110191
+08:31:06.995 [http-nio-8080-exec-2] INFO  app.passwd.service.SemesterData - 取得semester data - endpoint:https://api.tc.edu.tw/semester-data
+08:31:10.159 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+08:31:10.166 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+08:31:10.179 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+08:31:10.186 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

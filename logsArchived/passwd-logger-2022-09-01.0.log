@@ -1,0 +1,262 @@
+15:23:15.135 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.4 on smbldap with PID 10687 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+15:23:15.138 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to default profiles: default
+15:23:17.398 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:23:17.481 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 71 ms. Found 2 JPA repository interfaces.
+15:23:18.644 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+15:23:18.677 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+15:23:18.679 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:23:18.683 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+15:23:18.805 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:23:18.806 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3224 ms
+15:23:19.448 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+15:23:19.665 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+15:23:19.825 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:23:19.945 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+15:23:20.217 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+15:23:20.440 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+15:23:21.246 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+15:23:21.262 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:23:21.885 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:23:22.274 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+15:23:22.439 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+15:23:22.522 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+15:23:22.553 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+15:23:22.582 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 10.3 seconds (JVM running for 11.277)
+15:23:22.696 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$b1b77332 - jws:
+15:23:22.697 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$b1b77332 - eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpZ29nbyJ9._JzCINn-A4TSMkDNRKtX_Mvpzsnz5KPCHCUcNVLvI8c
+15:23:22.698 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$b1b77332 - working dir:/home/inono/Projects/school-passwd
+15:23:23.839 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$b1b77332 - account manager: igogo
+15:23:23.842 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$b1b77332 - 帳號整合服務成功啟動
+15:59:38.898 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:59:38.899 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+15:59:38.912 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+16:46:36.818 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+16:46:37.336 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+16:46:38.346 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:46:38.793 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+10:18:31.080 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.4 on smbldap with PID 19867 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+10:18:31.105 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+10:18:34.439 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:18:34.735 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 243 ms. Found 2 JPA repository interfaces.
+10:18:37.162 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+10:18:37.388 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+10:18:37.389 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10:18:37.390 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+10:18:39.285 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:18:39.285 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7866 ms
+10:18:41.488 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10:18:42.477 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10:18:42.573 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:18:42.738 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+10:18:43.924 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10:18:44.742 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+10:18:48.179 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:18:48.219 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:18:50.094 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:18:50.884 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+10:18:51.177 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+10:18:51.279 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+10:18:51.380 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+10:18:51.394 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:18:51.414 [main] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+10:18:51.462 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+10:18:51.481 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+10:18:51.504 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+10:18:51.506 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+10:18:51.533 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+10:18:51.538 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+10:18:51.603 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+10:18:51.667 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+10:20:05.685 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.4 on smbldap with PID 20623 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+10:20:05.687 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+10:20:07.064 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:20:07.157 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 2 JPA repository interfaces.
+10:20:07.788 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+10:20:07.818 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+10:20:07.821 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10:20:07.847 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+10:20:08.195 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:20:08.205 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2448 ms
+10:20:08.763 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10:20:09.329 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10:20:09.619 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:20:09.689 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+10:20:09.804 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10:20:09.941 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+10:20:10.472 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:20:10.479 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:20:11.654 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:20:12.290 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+10:20:12.350 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+10:20:12.391 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+10:20:12.407 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+10:20:12.423 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 7.285 seconds (JVM running for 7.78)
+10:20:12.612 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$bc92aea9 - jws:
+10:20:12.613 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$bc92aea9 - eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpZ29nbyJ9.j5eILUkX3l5qH0M_lVE4MXwuzXcHmsfQ02hJNd6grOg
+10:20:12.613 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$bc92aea9 - working dir:/home/inono/Projects/school-passwd
+10:20:16.757 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+10:20:16.829 [main] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:774)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:49)
+Caused by: org.springframework.ldap.CommunicationException: happy.tc.edu.tw:636; nested exception is javax.naming.CommunicationException: happy.tc.edu.tw:636 [Root exception is java.net.NoRouteToHostException: No route to host]
+	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:108)
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:363)
+	at org.springframework.ldap.core.support.AbstractContextSource.doGetContext(AbstractContextSource.java:147)
+	at org.springframework.ldap.core.support.AbstractContextSource.getReadOnlyContext(AbstractContextSource.java:166)
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:361)
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:313)
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:620)
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:590)
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:1655)
+	at app.passwd.service.LdapTools.isOuExist(LdapTools.java:89)
+	at app.passwd.PasswdApplication.lambda$run$1(PasswdApplication.java:172)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:170)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771)
+	... 5 common frames omitted
+Caused by: javax.naming.CommunicationException: happy.tc.edu.tw:636
+	at java.naming/com.sun.jndi.ldap.Connection.<init>(Connection.java:253)
+	at java.naming/com.sun.jndi.ldap.LdapClient.<init>(LdapClient.java:137)
+	at java.naming/com.sun.jndi.ldap.LdapClient.getInstance(LdapClient.java:1616)
+	at java.naming/com.sun.jndi.ldap.LdapCtx.connect(LdapCtx.java:2848)
+	at java.naming/com.sun.jndi.ldap.LdapCtx.<init>(LdapCtx.java:348)
+	at java.naming/com.sun.jndi.ldap.LdapCtxFactory.getLdapCtxFromUrl(LdapCtxFactory.java:225)
+	at java.naming/com.sun.jndi.ldap.LdapCtxFactory.getUsingURL(LdapCtxFactory.java:189)
+	at java.naming/com.sun.jndi.ldap.LdapCtxFactory.getUsingURLs(LdapCtxFactory.java:243)
+	at java.naming/com.sun.jndi.ldap.LdapCtxFactory.getLdapCtxInstance(LdapCtxFactory.java:154)
+	at java.naming/com.sun.jndi.ldap.LdapCtxFactory.getInitialContext(LdapCtxFactory.java:84)
+	at java.naming/javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:732)
+	at java.naming/javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:305)
+	at java.naming/javax.naming.InitialContext.init(InitialContext.java:236)
+	at java.naming/javax.naming.ldap.InitialLdapContext.<init>(InitialLdapContext.java:154)
+	at org.springframework.ldap.core.support.LdapContextSource.getDirContextInstance(LdapContextSource.java:42)
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:351)
+	... 17 common frames omitted
+Caused by: java.net.NoRouteToHostException: No route to host
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:579)
+	at java.base/sun.nio.ch.Net.connect(Net.java:568)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.security.ssl.SSLSocketImpl.<init>(SSLSocketImpl.java:163)
+	at java.base/sun.security.ssl.SSLSocketFactoryImpl.createSocket(SSLSocketFactoryImpl.java:88)
+	at java.naming/com.sun.jndi.ldap.Connection.createSocket(Connection.java:322)
+	at java.naming/com.sun.jndi.ldap.Connection.<init>(Connection.java:232)
+	... 32 common frames omitted
+10:20:16.872 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:20:16.872 [main] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+10:20:16.878 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+10:20:16.881 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+11:06:58.144 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.4 on smbldap with PID 21873 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+11:06:58.146 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+11:06:58.935 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11:06:58.983 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 2 JPA repository interfaces.
+11:06:59.537 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+11:06:59.555 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+11:06:59.570 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:06:59.574 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+11:06:59.720 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+11:06:59.721 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1502 ms
+11:07:00.031 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11:07:00.192 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11:07:00.250 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:07:00.311 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+11:07:00.425 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+11:07:00.563 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+11:07:01.139 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:07:01.155 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11:07:01.586 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11:07:01.864 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+11:07:01.924 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+11:07:01.981 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+11:07:02.006 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+11:07:02.031 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 4.492 seconds (JVM running for 5.073)
+11:07:02.100 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$bc92aea9 - jws:
+11:07:02.104 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$bc92aea9 - eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpZ29nbyJ9.fWJSYu2hMxrVFJ5IGi31PeOkYYsD0SZEzGPG_e-DP1k
+11:07:02.105 [main] INFO  a.p.PasswdApplication$$EnhancerBySpringCGLIB$$bc92aea9 - working dir:/home/inono/Projects/school-passwd
+11:07:05.656 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+11:07:05.739 [main] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:774)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at app.passwd.PasswdApplication.main(PasswdApplication.java:49)
+Caused by: org.springframework.ldap.CommunicationException: happy.tc.edu.tw:636; nested exception is javax.naming.CommunicationException: happy.tc.edu.tw:636 [Root exception is java.net.NoRouteToHostException: No route to host]
+	at org.springframework.ldap.support.LdapUtils.convertLdapException(LdapUtils.java:108)
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:363)
+	at org.springframework.ldap.core.support.AbstractContextSource.doGetContext(AbstractContextSource.java:147)
+	at org.springframework.ldap.core.support.AbstractContextSource.getReadOnlyContext(AbstractContextSource.java:166)
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:361)
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:313)
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:620)
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:590)
+	at org.springframework.ldap.core.LdapTemplate.search(LdapTemplate.java:1655)
+	at app.passwd.service.LdapTools.isOuExist(LdapTools.java:89)
+	at app.passwd.PasswdApplication.lambda$run$1(PasswdApplication.java:172)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at app.passwd.PasswdApplication.run(PasswdApplication.java:170)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771)
+	... 5 common frames omitted
+Caused by: javax.naming.CommunicationException: happy.tc.edu.tw:636
+	at java.naming/com.sun.jndi.ldap.Connection.<init>(Connection.java:253)
+	at java.naming/com.sun.jndi.ldap.LdapClient.<init>(LdapClient.java:137)
+	at java.naming/com.sun.jndi.ldap.LdapClient.getInstance(LdapClient.java:1616)
+	at java.naming/com.sun.jndi.ldap.LdapCtx.connect(LdapCtx.java:2848)
+	at java.naming/com.sun.jndi.ldap.LdapCtx.<init>(LdapCtx.java:348)
+	at java.naming/com.sun.jndi.ldap.LdapCtxFactory.getLdapCtxFromUrl(LdapCtxFactory.java:225)
+	at java.naming/com.sun.jndi.ldap.LdapCtxFactory.getUsingURL(LdapCtxFactory.java:189)
+	at java.naming/com.sun.jndi.ldap.LdapCtxFactory.getUsingURLs(LdapCtxFactory.java:243)
+	at java.naming/com.sun.jndi.ldap.LdapCtxFactory.getLdapCtxInstance(LdapCtxFactory.java:154)
+	at java.naming/com.sun.jndi.ldap.LdapCtxFactory.getInitialContext(LdapCtxFactory.java:84)
+	at java.naming/javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:732)
+	at java.naming/javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:305)
+	at java.naming/javax.naming.InitialContext.init(InitialContext.java:236)
+	at java.naming/javax.naming.ldap.InitialLdapContext.<init>(InitialLdapContext.java:154)
+	at org.springframework.ldap.core.support.LdapContextSource.getDirContextInstance(LdapContextSource.java:42)
+	at org.springframework.ldap.core.support.AbstractContextSource.createContext(AbstractContextSource.java:351)
+	... 17 common frames omitted
+Caused by: java.net.NoRouteToHostException: No route to host
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:579)
+	at java.base/sun.nio.ch.Net.connect(Net.java:568)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.security.ssl.SSLSocketImpl.<init>(SSLSocketImpl.java:163)
+	at java.base/sun.security.ssl.SSLSocketFactoryImpl.createSocket(SSLSocketFactoryImpl.java:88)
+	at java.naming/com.sun.jndi.ldap.Connection.createSocket(Connection.java:322)
+	at java.naming/com.sun.jndi.ldap.Connection.<init>(Connection.java:232)
+	... 32 common frames omitted
+11:07:05.785 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+11:07:05.786 [main] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+11:07:05.795 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11:07:05.804 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

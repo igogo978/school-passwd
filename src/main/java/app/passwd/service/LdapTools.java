@@ -10,6 +10,8 @@ import app.passwd.model.Role;
 import app.passwd.model.SchoolUser;
 import app.passwd.model.User;
 import app.passwd.repository.LdapRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -176,7 +178,8 @@ public class LdapTools {
 //                r.getOu().equals(role));
 //    }
 
-    public void addStuUser(User user, String userPassword) throws UnsupportedEncodingException {
+    public void addStuUser(User user, String userPassword) throws UnsupportedEncodingException, JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
         Role role = ldapRepository.findBySn(1).getRoles().stream().filter(r -> r.getRole().contains("student")).findFirst().orElse(null);
 
         LdapTemplate ldapTemplate = initLDAPConnect();
@@ -194,7 +197,8 @@ public class LdapTools {
         LdapNameBuilder ldapNameBuilder = LdapNameBuilder
                 .newInstance();
         rdns.forEach(rdn -> ldapNameBuilder.add("ou", rdn));
-        ldapNameBuilder.add("cn", user.getAdusername());
+//        ldapNameBuilder.add("cn", user.getAdusername());
+        ldapNameBuilder.add("cn", user.getUsername());
         Name dn = ldapNameBuilder.build();
 
 

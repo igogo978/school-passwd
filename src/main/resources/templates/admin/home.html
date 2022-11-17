@@ -32,12 +32,13 @@
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/passwd/userhome">家目錄</a>
-          <a class="nav-item nav-link active" href="/passwd/account/student">學生帳號 <span
+          <a class="nav-item nav-link" href="/passwd/userhome">change password</a>
+          <a class="nav-item nav-link active" href="/passwd/account/student">同步學生帳號 <span
                   class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link active" href="/passwd/account/staff">職員帳號 <span
+          <span th:if="${isSyncLdap}">
+          <a class="nav-item nav-link active" href="/passwd/account/staff">同步職員帳號 <span
                   class="sr-only">(current)</span></a>
-          <!--                <a class="nav-item nav-link" href="#">重設使用者密碼</a>-->
+          </span>
         </div>
       </div>
     </nav>
@@ -56,10 +57,18 @@
 
 
         <div id="app">
-          <h3 class="text-info">同步學生帳號</h3> - 將雲端校務系中學生帳號同步到Windows AD中(尚未在WinAD中建立者),密碼與帳號同
-          <br>
-          <br>
-          <h3 class="text-info">同步職員帳號</h3> - 將雲端校務系中職員帳號同步到Windows AD中(尚未在WinAD中建立者),密碼demo1234
+
+            <h3 class="text-info">同步學生帳號</h3> - 將雲端校務系中學生帳號同步到<br>
+          1. cloud school and st database <br>
+
+          <span th:if="${isSyncLdap}">
+            2.Windows AD中(尚未在WinAD中建立者),密碼與帳號同
+          </span>
+            <br>
+            <br>
+          <span th:if="${isSyncLdap}">
+            <h3 class="text-info">同步職員帳號</h3> - 將雲端校務系中職員帳號同步到Windows AD中(尚未在WinAD中建立者),密碼demo1234
+          </span>
         </div>
       </fieldset>
     </main>

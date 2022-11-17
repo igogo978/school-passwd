@@ -16,5 +16,6 @@
 			"ou": "Students"
 		}
 	],
-	"accountManager":"igogo"
+	"accountManager":"igogo",
+	"stu_id_format": "regular"
 }

@@ -192,7 +192,9 @@
             <th scope="col">班級</th>
             <th scope="col">姓名</th>
 
-            <th scope="col">WinAD帳號</th>
+            <span th:if="${isSyncLdap}">
+              <th scope="col">WinAD帳號</th>
+            </span>
             <th scope="col">校務系統帳號</th>
 
           </tr>
@@ -201,7 +203,9 @@
           <tr v-for="account in showAccounts">
             <td>{{account.classno}}</td>
             <td>{{account.name}}</td>
-            <th>{{account.adusername}}</th>
+            <span th:if="${isSyncLdap}">
+              <th>{{account.adusername}}</th>
+            </span>
             <th>{{account.username}}</th>
           </tr>
 

@@ -13,8 +13,10 @@ import org.apache.commons.text.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -25,6 +27,7 @@ import java.net.URISyntaxException;
 public class CallbackController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 
     @Autowired
     Oauth2Client oauth2Client;
@@ -40,19 +43,30 @@ public class CallbackController {
 
     @GetMapping("/passwd/callback")
     public RedirectView callback(@RequestParam(value = "state", required = true) String state, @RequestParam(value = "data", required = true) String data) throws IOException, URISyntaxException {
-        assert oauth2Client.getState().equals(state);
+        logger.info(state);
+        if (!oauth2Client.getState().equals(state)) {
+            logger.info("403 forbidden");
+            return new RedirectView("/403");
+        }
+
         return getRedirectView(data);
     }
 
 
     @GetMapping("/callback")
     public RedirectView callbackproxypass(@RequestParam(value = "state", required = true) String state, @RequestParam(value = "data", required = true) String data) throws IOException, URISyntaxException {
-        assert oauth2Client.getState().equals(state);
-        return getRedirectView(data);
+        return callback(state, data);
+    }
+
+    @GetMapping("/403")
+    @ResponseStatus(code = HttpStatus.FORBIDDEN, reason = "FORBIDDEN")
+    public String forbidden() {
+        return "";
     }
 
 
     private RedirectView getRedirectView(String data) throws IOException, URISyntaxException {
+        SystemConfig systemConfig = systemConfigRepository.findBySn(1);
 
         logger.info(String.format("3.取得code:%s", data));
 
@@ -65,9 +79,9 @@ public class CallbackController {
         String edu_key = node.get("edu_key").asText();
         String adusername = node.get("username").asText();
 
+        systemConfig.setSchoolid(school_no);
         //logger.info("account manager:"+ldapRepository.findBySn(1).getAccountManager());
         //學生要判斷在ad 上的帳號格式, regular or simple
-        SystemConfig systemConfig = systemConfigRepository.findBySn(1);
 
         if (systemConfig.isSyncLdap() == Boolean.TRUE) {
             if (!ldapRepository.findBySn(1).getStuidRegular() && role.equals("student")) {
@@ -77,7 +91,7 @@ public class CallbackController {
 
         }
 
-
+        systemConfigRepository.save(systemConfig);
         //String school_no, String username, String role, String name, String edu_key
         User user = new User(school_no, username, adusername, role, name, edu_key);
 
@@ -88,11 +102,12 @@ public class CallbackController {
         //logger.info(sysconfig.getAccesstoken_endpoint());
         oauth2Client.setAccesstoken(systemConfig);
 
-        if (username.equals(ldapRepository.findBySn(1).getAccountManager())) {
+        if (username.equals(systemConfigRepository.findBySn(1).getAccountManager())) {
             return new RedirectView("/passwd/admin");
         }
 
-        return new RedirectView("/passwd/userhome");
+//        return new RedirectView("/passwd/userhome");
+        return new RedirectView("/passwd/error");
     }
 
 

@@ -10,6 +10,8 @@ public class SchoolUser extends User {
     private String personalTitle;
     private String physicalDeliveryOfficeName;
 
+
+
     public String getPassword() {
         return password;
     }

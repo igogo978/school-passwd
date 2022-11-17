@@ -1,5 +1,6 @@
 package app.passwd.service;
 
+import app.passwd.model.StudentNameList;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -10,6 +11,9 @@ import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class SemesterData {
@@ -35,4 +39,29 @@ public class SemesterData {
 
         return StringEscapeUtils.unescapeJava(response.getBody());
     }
+
+
+    public void getStudentNameList(String token, String endpoint) {
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+
+        StudentNameList studentNameList = new StudentNameList();
+        studentNameList.setKind("list_class");
+        studentNameList.setClass_no("");
+
+        List<String> items = new ArrayList<>();
+        studentNameList.getItem_key().addAll(items);
+
+        headers.set("Authorization", "Bearer " + token);
+        HttpEntity<String> entity = new HttpEntity(studentNameList, headers);
+
+        String result = restTemplate.exchange(endpoint, HttpMethod.POST, entity, String.class).getBody();
+//            logger.info("new password:"+ account.getPassword());
+        logger.info(result);
+
+    }
+
+
 }

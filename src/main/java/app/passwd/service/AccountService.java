@@ -4,6 +4,7 @@ import app.passwd.ldap.model.ADUser;
 import app.passwd.model.SchoolUser;
 import app.passwd.repository.LdapRepository;
 import app.passwd.repository.SystemConfigRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -48,6 +49,11 @@ public class AccountService {
         String token = client.getAccesstoken();
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature(), true);
+
+        String stud_name_list_endpoint = "https://api.tc.edu.tw/stud-name-list";
+
+
+
         String data = semesterdata.getdata(token, endpoint);
         JsonNode root = mapper.readTree(data);
         JsonNode node = root.get("學期教職員");
@@ -73,13 +79,16 @@ public class AccountService {
     public List<SchoolUser> getAllCSStudentUser() throws IOException {
         List<SchoolUser> users = new ArrayList<>();
 
-        //取得cs 上 全部學生資料
+        //取得cs  全部學生資料
         String endpoint = sysconfigrepository.findBySn(1).getSemesterdata_endpoint();
         String token = client.getAccesstoken();
 
+//        String student_name_list_endpoint = "https://api.tc.edu.tw/stud-name-list";
+//        logger.info("1005 get student name list");
+//        semesterdata.getStudentNameList(token, student_name_list_endpoint);
+
         String data = semesterdata.getdata(token, endpoint);
 //        logger.info("全部資料:" + data);
-
 
         ObjectMapper mapper = new ObjectMapper();
 //        mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
@@ -112,13 +121,13 @@ public class AccountService {
 //                    logger.info(mapper.writeValueAsString(classnode.get(j)));
 
                     if (ldaprepository.findBySn(1).getStuidRegular()) {
-                        //logger.info("帳號為regular");
                         schoolUser.setAdusername(username);
 
                     } else {
-                        //ad帳號為simple
+//                        ad帳號為simple
                         schoolUser.setAdusername(classnode.get(j).get("學號").asText());
                     }
+//                    logger.info(mapper.writeValueAsString(schoolUser));
                     users.add(schoolUser);
                 }
             }
@@ -128,8 +137,9 @@ public class AccountService {
         return users;
     }
 
+
     //empty student accounts in win ad
-    public List<SchoolUser> getEmptyStudentUser() throws IOException {
+    public List<SchoolUser> getWinADEmptyStudentUser() throws IOException {
         //cloud school
         List<SchoolUser> csaccounts = getAllCSStudentUser();
 
@@ -177,7 +187,7 @@ public class AccountService {
             logger.info(String.format("建立學生帳號:%s", user.getAdusername()));
             try {
                 ldapTools.addStuUser(user, user.getAdusername());
-            } catch (UnsupportedEncodingException e) {
+            } catch (UnsupportedEncodingException | JsonProcessingException e) {
                 e.printStackTrace();
             }
         });
