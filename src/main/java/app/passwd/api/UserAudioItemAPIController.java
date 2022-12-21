@@ -60,7 +60,7 @@ public class UserAudioItemAPIController {
 
             List<UserAudioItem> usernameItems = items.stream().filter(item -> item.getUsername().equals(username)).collect(Collectors.toList());
             usernameItems.forEach(item -> {
-                logger.info("audio:" + item.getDescription() + "-" + item.getExpired() + "-" + item.getUsername());
+//                logger.info("audio:" + item.getDescription() + "-" + item.getExpired() + "-" + item.getUsername());
             });
             return (usernameItems);
         } else {

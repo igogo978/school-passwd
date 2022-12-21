@@ -5,40 +5,15 @@
     <meta charset="UTF-8">
     <title>useritem</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" href="public/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/style.css"/>
 
     <script src="/passwd/public/js/vue.js"></script>
     <script src="/passwd/public/js/axios.min.js"></script>
-    <style>
+    <!-- Bootstrap CSS -->
+    <div th:replace="fragments/include :: head"></div>
 
-    </style>
-    <script type="text/x-template" id="modal-template">
-        <transition name="modal">
-            <div class="modal-mask">
-                <div class="modal-wrapper">
-                    <div class="modal-container">
+    <div th:replace="fragments/include :: modal"></div>
 
-                        <div class="modal-body">
-                            <slot name="body">
-                                variable msg
-                            </slot>
-                        </div>
-
-                        <div class="modal-footer">
-                            <slot name="footer">
-                                <button class="modal-default-button" @click="$emit('close')">
-                                    OK
-                                </button>
-                            </slot>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </transition>
-    </script>
 </head>
 
 <body id="LoginForm">
@@ -55,45 +30,48 @@
     <div class="album py-5 bg-gray">
         <div class="container">
 
-                <div class="row py-lg-5">
-                    <div class="col-lg-6 col-md-8 mx-auto">
-                        <p class="lead text-muted"> 校園LED-檔案格式限定圖片png,jpg 影片mp4</p>
-                        <form method="POST" enctype="multipart/form-data"
-                              th:action="@{'useritem/upload'}">
-                            <div class="input-group mb-1">
-                                <input @change="handleFiles" type="file" accept="image/jpeg, image/png, video/mp4" name="file" class="form-control"
-                                       aria-label="Sizing example input"
-                                       aria-describedby="inputGroup-sizing-lg">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <p class="lead text-muted"> 校園LED-檔案格式限定圖片png,jpg 影片mp4</p>
+                    <form method="POST" enctype="multipart/form-data"
+                          th:action="@{'useritem/upload2'}">
+                        <div class="input-group mb-1">
+                            <input @change="handleFiles" type="file" accept="image/jpeg, image/png, video/mp4"
+                                   name="file" class="form-control"
+                                   aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-lg">
+
+                        </div>
+
+                        <div v-if="filename.length > 0" class="input-group mb-1">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" disabled type="button">宣導期限（天）
+                                </button>
                             </div>
+                            <select class="form-select form-select-sm" name="days"
+                                    aria-label="select expired days">
+                                <option v-for="day in days">{{day}}</option>
+                            </select>
 
-                                <div  class="input-group mb-1">
+                        </div>
 
-<!--                                    <div class="input-group-prepend">-->
-<!--                                        <button class="btn btn-outline-secondary" disabled type="button">宣導期限（天）-->
-<!--                                        </button>-->
-<!--                                    </div>-->
-<!--                                    <select class="form-select form-select-sm" name="days"-->
-<!--                                            aria-label="select expired days">-->
-<!--                                        <option v-for="day in days">{{day}}</option>-->
-<!--                                    </select>-->
-                                </div>
+                        <div v-if="filename.length > 0" class="float-end">
+                            <button class="btn btn-outline-secondary"
+                                    type="submit"
+                                    value="Upload">確定上傳
+                            </button>
+                        </div>
 
-                                <div class="input-group mb-1">
-                                    <button class="btn btn-outline-secondary"
-                                            type="submit"
-                                            value="Upload">確定上傳
-                                    </button>
-                                </div>
-
-                        </form>
-                    </div>
-
+                    </form>
                 </div>
 
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button v-on:click="switchpage(1)" type="button" class="btn btn-outline-primary">尚未設定</button>
-                    <button v-on:click="switchpage(2)" type="button" class="btn btn-outline-primary">上架中</button>
-                </div>
+            </div>
+
+
+<!--            <div class="btn-group" role="group" aria-label="Basic outlined example">-->
+<!--                <button v-on:click="switchpage(1)" type="button" class="btn btn-outline-primary">尚未設定</button>-->
+<!--                <button v-on:click="switchpage(2)" type="button" class="btn btn-outline-primary">上架中</button>-->
+<!--            </div>-->
 
             <hr>
             <!-- page selection -->
@@ -105,17 +83,15 @@
                                  width="100%" height="100%"/>
                             <div class="card-body">
                                 <p class="card-text"> {{item.description}} </p>
-
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button" disabled>宣導期限（天）</button>
+                                        <button class="btn btn-outline-secondary" type="button" disabled>宣導期限（天）
+                                        </button>
                                     </div>
-
                                     <select v-model="item.expired" class="form-select form-select-sm"
                                             aria-label="Default select example">
                                         <option v-for="day in days">{{day}}</option>
                                     </select>
-
                                 </div>
 
                                 <div class="d-flex justify-content-between align-items-center">
@@ -127,7 +103,8 @@
                                                 class="btn btn-sm btn-outline-secondary">確定
                                         </button>
                                     </div>
-                                    <button v-on:click="disable(item)" type="button" class="btn btn-sm btn-outline-danger">
+                                    <button v-on:click="disable(item)" type="button"
+                                            class="btn btn-sm btn-outline-danger">
                                         失效
                                     </button>
                                 </div>
@@ -144,7 +121,8 @@
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button" disabled>宣導期限（天）</button>
+                                        <button class="btn btn-outline-secondary" type="button" disabled>宣導期限（天）
+                                        </button>
                                     </div>
                                     <select v-model="item.expired" class="form-select form-select-sm"
                                             aria-label="Default select example">
@@ -162,7 +140,8 @@
                                                 class="btn btn-sm btn-outline-secondary">確定
                                         </button>
                                     </div>
-                                    <button v-on:click="disable(item)" type="button" class="btn btn-sm btn-outline-danger">
+                                    <button v-on:click="disable(item)" type="button"
+                                            class="btn btn-sm btn-outline-danger">
                                         失效
                                     </button>
                                 </div>
@@ -177,11 +156,11 @@
 
                     <div class="col-md-4" v-for="item in items">
 
-                        <div  v-if="item.type == 'image'" class="card shadow-sm">
+                        <div v-if="item.type == 'image'" class="card shadow-sm">
                             <img v-bind:src="item['prefix']+item['content'] " alt="image"
                                  width="100%" height="100%"/>
                             <div class="card-body">
-                                <p class="card-text"> {{item.description}}  </p>
+                                <p class="card-text"> {{item.description}} </p>
 
                                 <div class="input-group mb-3">
                                     <button class="btn btn-outline-secondary" type="button" disabled>下架日期</button>
@@ -195,12 +174,14 @@
                                     <div class="btn-group">
                                         <!--                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
                                     </div>
-                                    <button v-on:click="disable(item)" type="button" class="btn btn-sm btn-outline-danger">失效</button>
+                                    <button v-on:click="disable(item)" type="button"
+                                            class="btn btn-sm btn-outline-danger">失效
+                                    </button>
                                 </div>
                             </div>
                         </div>
 
-                        <div  v-else class="card shadow-sm">
+                        <div v-else class="card shadow-sm">
 
 
                             <video controls width="100%">
@@ -221,7 +202,9 @@
                                     <div class="btn-group">
                                         <!--                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
                                     </div>
-                                    <button v-on:click="disable(item)" type="button" class="btn btn-sm btn-outline-danger">失效</button>
+                                    <button v-on:click="disable(item)" type="button"
+                                            class="btn btn-sm btn-outline-danger">失效
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -240,9 +223,7 @@
 </div>
 
 <footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+    <div th:replace="fragments/include :: footer"></div>
 
     <script th:inline="javascript">
       /*<![CDATA[*/
@@ -253,7 +234,7 @@
       Vue.prototype.$http = axios;
       let config = {
         headers: {
-          'content-type': 'application/json;CHARSET=UTF-8'
+          'Content-Type': 'application/json;CHARSET=UTF-8'
         }
       };
 
@@ -261,16 +242,18 @@
       var app = new Vue({
         el: '#app',
         data: {
-          page: 1,
+          page: 2,
           user: /*[[${user}]]*/ {},
           pendingitems:[],
           items: [],
-          msg: "nomsg",
           filename: "",
+          msg: "nomsg",
           days: [3,7,14,30,60,90,180],
           showModal: false,
         },
         created: function () {
+
+          console.log(this.user);
           let vm = this;
           let url = "api/useritem/" + this.user.username;
           this.$http.get(url, config)
@@ -284,10 +267,8 @@
                        return item.expired != 0;
                  });
 
-                 if(vm.pendingitems.length !=0) {
-                    vm.msg = "您還有檔案尚未設定宣導期限<br> 您可上架數目: " +  vm.user.quota;
-                    vm.showModal = true;
-                 }
+                 vm.msg = vm.user.username + "您好<br>您可上架數目: " +  vm.user.quota;
+                 vm.showModal = true;
 
              })
              .catch(function (error) {
@@ -337,6 +318,7 @@
       })
 
       /*]]>*/
+
 
 
 

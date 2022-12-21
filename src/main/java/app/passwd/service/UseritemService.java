@@ -76,6 +76,47 @@ public class UseritemService {
         userImageItemRepository.save(userItem);
     }
 
+    public void saveImage(String username, MultipartFile file, int days) throws IOException {
+//        String encode = "data:image/png;base64," + getBase64(file);
+
+        String encode = getBase64(file);
+        Instant instant = Instant.now();
+        long timestamp = instant.getEpochSecond();
+
+        String prefix = (String.format("data:%s;base64,", file.getContentType()));
+        UserImageItem userItem = new UserImageItem(prefix, username, "image", timestamp, 0, file.getOriginalFilename().toLowerCase(Locale.ROOT).replace("jpeg", "jpg"));
+        userItem.setContent(encode);
+        userItem.setDescription(file.getOriginalFilename());
+
+        Instant expiredday = instant.plus(days, ChronoUnit.DAYS);
+        userItem.setExpired(expiredday.getEpochSecond());
+
+        userImageItemRepository.save(userItem);
+    }
+
+
+    public void saveVideo(String username, MultipartFile file, int days) throws IOException {
+        DBObject metaData = new BasicDBObject();
+        metaData.put("username", username);
+
+        String id = gridFsTemplate.store(file.getInputStream(), file.getOriginalFilename(), file.getContentType(), metaData).toString();
+
+        Instant instant = Instant.now();
+        long timestamp = instant.getEpochSecond();
+        UserImageItem userItem = new UserImageItem(file.getContentType(), username, "video", timestamp, 0, file.getOriginalFilename());
+
+        logger.info("form video days: " + days);
+        Instant expiredday = instant.plus(days, ChronoUnit.DAYS);
+        userItem.setExpired(expiredday.getEpochSecond());
+
+
+
+        userItem.setContent(id);
+        userImageItemRepository.save(userItem);
+    }
+
+
+
     public void saveVideo(String username, MultipartFile file) throws IOException {
         DBObject metaData = new BasicDBObject();
         metaData.put("username", username);
@@ -87,8 +128,6 @@ public class UseritemService {
         UserImageItem userItem = new UserImageItem(file.getContentType(), username, "video", timestamp, 0, file.getOriginalFilename());
         userItem.setContent(id);
         userImageItemRepository.save(userItem);
-
-
     }
 
     public void disable(@Lazy UserImageItem item) {
@@ -98,7 +137,6 @@ public class UseritemService {
 
         logger.info("disable now: " + item.getUsername() + "-" + item.getDescription());
         userImageItemRepository.save(item);
-
 
     }
 

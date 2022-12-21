@@ -67,6 +67,30 @@ public class UploadController {
         return "redirect:/useraudio";
     }
 
+
+    @PostMapping("/useritem/upload2")
+    public String handleFileUpload(@RequestParam(value = "file", required = true) MultipartFile file,
+                                   @RequestParam(defaultValue = "3") int days, RedirectAttributes redirectAttributes) throws IOException {
+
+        if (userloginservice.getUser() == null) {
+            return "redirect:/userhome2";
+        }
+
+        //video/mp4,  image/jpeg, image/png
+        String username = userloginservice.getUser().getUsername();
+        logger.info(file.getContentType().toLowerCase(Locale.ROOT));
+        if (file.getContentType().toLowerCase(Locale.ROOT).equals("video/mp4")) {
+            useritemService.saveVideo(username, file, days);
+        }
+        if (file.getContentType().toLowerCase(Locale.ROOT).equals("image/jpeg") || file.getContentType().toLowerCase(Locale.ROOT).equals("image/png")) {
+            useritemService.saveImage(username, file, days);
+        }
+
+        logger.info(("upload item sucessfully"));
+
+        return "redirect:/userhome2";
+    }
+
     @PostMapping("/useritem/upload")
     public String handleFileUpload(@RequestParam(value = "file", required = true) MultipartFile file,
                                    RedirectAttributes redirectAttributes) throws IOException {
@@ -74,7 +98,6 @@ public class UploadController {
         if (userloginservice.getUser() == null) {
             return "redirect:/userhome";
         }
-
         //video/mp4,  image/jpeg, image/png
         String username = userloginservice.getUser().getUsername();
         logger.info(file.getContentType().toLowerCase(Locale.ROOT));
@@ -87,8 +110,10 @@ public class UploadController {
 
         logger.info(("upload item sucessfully"));
 
-
         return "redirect:/userhome";
     }
+
+
+
 
 }

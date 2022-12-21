@@ -113,7 +113,7 @@ public class CallbackController {
 //        bufferedWriter.close();
 
 //        return new RedirectView("/passwd/userhome");
-        return new RedirectView("userhome");
+        return new RedirectView("userhome2");
     }
 
 

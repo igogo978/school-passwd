@@ -1,12 +1,13 @@
 package app.passwd;
 
 import app.passwd.model.SystemConfig;
-import app.passwd.model.UserAudioItem;
-import app.passwd.repository.*;
-import app.passwd.service.UserAudioitemService;
+import app.passwd.model.UserImageItem;
+import app.passwd.repository.SystemConfigRepository;
+import app.passwd.repository.UserImageItemRepository;
 import app.passwd.storage.StorageProperties;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.client.gridfs.model.GridFSFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 
 import java.io.File;
-import java.io.IOException;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -32,7 +37,12 @@ public class PasswdApplication implements CommandLineRunner {
 
     SystemConfig sysconfig = new SystemConfig();
 
+    @Autowired
+    UserImageItemRepository userImageItemRepository;
 
+
+    @Autowired
+    GridFsTemplate gridFsTemplate;
 
     ObjectMapper mapper = new ObjectMapper();
 
@@ -49,13 +59,34 @@ public class PasswdApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+
+        //try to delete fs.chunks
+        List<String> videoIds = new ArrayList<>();
+        //delet gridfsfiles
+        List<UserImageItem> userImageItems = userImageItemRepository.findAll();
+        Instant instant = Instant.now();
+        Instant expiredday = instant.minus(1, ChronoUnit.DAYS);
+        userImageItems.forEach(userImageItem -> {
+            if (userImageItem.getType().equals("video")) {
+//                    logger.info(userImageItem.getDescription() + " , " + userImageItem.getContent());
+                    videoIds.add(userImageItem.getContent());
+            }
+
+        });
+
+        List<GridFSFile> gridFSFiles = new ArrayList<GridFSFile>();
+        gridFsTemplate.find(new Query()).into(gridFSFiles);
+
+        gridFSFiles.forEach(gridFSFile -> logger.info(gridFSFile.getFilename()));
+
+
+
         File dir = new File("/tmp/audio");
         if (!dir.exists()) {
             dir.mkdirs();
         }
 
-        String declare = "本程式僅提供ddps使用";
-//
         JsonNode node;
         //確認設定檔
         if (new File(String.format("%s/%s", System.getProperty("user.dir"), configfile)).isFile()) {
@@ -71,12 +102,10 @@ public class PasswdApplication implements CommandLineRunner {
             sysconfig.setSemesterdata_endpoint(node.get("semesterdata_endpoint").asText());
             sysconfig.setCwd(System.getProperty("user.dir"));
 
-
             //僅提供測試站台及台中市學校使用
             if (sysconfig.getAuthorize_endpoint().equals("http://api.cloudschool.tw/school-oauth/authorize") || sysconfig.getAuthorize_endpoint().equals("https://api.tc.edu.tw/school-oauth/authorize")) {
                 //true
             } else {
-                logger.error(declare);
                 System.exit(SpringApplication.exit(context));
             }
 

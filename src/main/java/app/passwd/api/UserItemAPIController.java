@@ -58,7 +58,6 @@ public class UserItemAPIController {
 
     }
 
-
     @RequestMapping(value = "/api/useritem", method = RequestMethod.GET)
     public String getUserItemsEnabled() throws JsonProcessingException {
         Instant instant = Instant.now();

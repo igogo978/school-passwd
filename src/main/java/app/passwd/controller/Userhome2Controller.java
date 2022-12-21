@@ -14,20 +14,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Controller
-public class UserhomeController {
+public class Userhome2Controller {
 
-    private final Logger logger = LoggerFactory.getLogger(UserhomeController.class);
+    private final Logger logger = LoggerFactory.getLogger(Userhome2Controller.class);
     @Autowired
     UserLoginService userLoginService;
     @Autowired
     UserService userService;
 
-//    @GetMapping("/passwd/userhome")
-//    public String userhomeProxypass(Model model) {
-//        return userhome(model);
-//    }
-
-    @GetMapping("/userhome")
+    @GetMapping("/userhome2")
     public String userhome(Model model) {
 
         if (!userLoginService.isLoggedin()) {
@@ -41,9 +36,11 @@ public class UserhomeController {
         }
 
         model.addAttribute("user", user);
-        return "userhome";
+        return "userhome2";
     }
-    @GetMapping("/useraudio")
+
+
+      @GetMapping("/useraudio2")
     public String useraudio(Model model, @RequestParam("code") Optional<Integer> code) {
 
         if (!userLoginService.isLoggedin()) {
@@ -67,7 +64,9 @@ public class UserhomeController {
         model.addAttribute("user", user);
         model.addAttribute("msg", msg);
         model.addAttribute("showModal", showModal);
-        return "useraudio";
+        return "useraudio2";
     }
+
+
 
 }
