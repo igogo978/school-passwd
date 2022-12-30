@@ -106,8 +106,7 @@ public class CallbackController {
             return new RedirectView("/passwd/admin");
         }
 
-//        return new RedirectView("/passwd/userhome");
-        return new RedirectView("/passwd/error");
+        return new RedirectView("/passwd/userhome");
     }
 
 

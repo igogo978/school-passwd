@@ -63,11 +63,11 @@ public class PasswdApplication implements CommandLineRunner {
 
         // We need a signing key, so we'll create one just for this example. Usually
         // the key would be read from your application configuration instead.
-        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-        String jws = Jwts.builder().setSubject("igogo").signWith(key).compact();
-
-        logger.info("jws:");
-        logger.info(jws);
+//        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+//        String jws = Jwts.builder().setSubject("igogo").signWith(key).compact();
+//
+//        logger.info("jws:");
+//        logger.info(jws);
 
 
         String declare = "本程式僅提供台中市學校使用";

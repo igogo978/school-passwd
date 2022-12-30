@@ -1,11 +1,11 @@
 {
 	"clientid": "c708a96dfe14454e9670dcc0ebbe463c",
 	"secret": "2f3a25d9a78c87231acd97f7c2145b96",
-	"ldap": "winad.json",
 	"authorize_endpoint": "https://api.tc.edu.tw/school-oauth/authorize",
 	"accesstoken_endpoint": "https://api.tc.edu.tw/oauth?authorize",
 	"changepasswd_endpoint": "https://api.tc.edu.tw/change-password",
 	"semesterdata_endpoint": "https://api.tc.edu.tw/semester-data",
-	"accountManager":"igogo"
+	"accountManager":"igogo",
+	"ldap": ""
 
 }

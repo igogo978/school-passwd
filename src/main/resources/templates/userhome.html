@@ -3,31 +3,68 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Userhome</title>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- development version, includes helpful console warnings -->
+    <div th:replace="fragments/include :: header"></div>
 
-    <link href="/public/css/index.css" type="text/css" rel="stylesheet" media="all"/>
-    <link href="/passwd/public/css/index.css" type="text/css" rel="stylesheet" media="all"/>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-    <!--<script src="../../public/js/vue.js"></script>-->
-    <!--<script src="../../public/js/axios.min.js"></script>-->
-    <script src="/public/js/vue.js"></script>
-    <script src="/passwd/public/js/vue.js"></script>
-    <script src="/public/js/axios.min.js"></script>
-    <script src="/passwd/public/js/axios.min.js"></script>
-    <style>
-
-    </style>
 </head>
 
 
-<body id="LoginForm">
+<body>
+<div class="container" id="app">
+    <h3>更改密碼服務 </h3>
+    <div class="card">
 
+        <div class="card-body">
+            <h5 class="card-title">姓名</h5>
+            <input v-model="user.name" type="text" class="form-control" id="inlineFormInputGroup"
+                   placeholder=""
+                   readonly>
+
+
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">身分</h5>
+            <input v-model=" user.role" type="text" class="form-control" id="inlineFormInputGroup1"
+                   placeholder="role"
+                   readonly>
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">雲端校務系統帳號</h5>
+            <input v-model=" user.username" type="text" class="form-control" id="inlineFormInputGroup1"
+                   placeholder="role"
+                   readonly>
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">請輸入新密碼</h5>
+            <input v-model="passwd" type="password" class="form-control " placeholder="請輸入新密碼 ">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">請再次輸入新密碼</h5>
+            <input v-model="confirmpasswd" type="password" class="form-control " placeholder="請輸入新密碼 ">
+        </div>
+
+        <div class="card-body">
+            <label v-if="status === 1" class="card-text" for="gridCheck">
+                <p>{{msg}} {{display_seconds}}</p>
+            </label>
+
+            <label v-else class="card-text" for="gridCheck">
+                <p>{{msg}}</p>
+            </label>
+            {{updateMsg}} {{updateStatus}}
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<!--
 <main>
     <fieldset class="tab">
         <div>
@@ -49,15 +86,18 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">身分</div>
                         </div>
+
                         <input v-model="user.role" type="text" class="form-control" id="inlineFormInputGroup1"
                                placeholder="王大名"
                                readonly>
+
                     </div>
 
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">雲端校務系統帳號</div>
                         </div>
+
                         <input v-model="user.username" type="text" class="form-control" id="inlineFormInputGroup1"
                                placeholder="107-10799"
                                readonly>
@@ -71,15 +111,6 @@
                                placeholder="107-10799"
                                readonly>
                     </div>
-
-                    <!--<div v-if="isLearningAccount === true" class="input-group mb-2">-->
-                    <!--<div class="input-group-prepend">-->
-                    <!--<div class="input-group-text">學習帳號</div>-->
-                    <!--</div>-->
-                    <!--<input v-model="user.learningaccount" type="text" class="form-control" id="inlineFormInputGroup1"-->
-                    <!--placeholder="999999" readonly>-->
-                    <!--</div>-->
-
 
                     <div class="form-row">
                         <div class="input-group-prepend">
@@ -127,9 +158,12 @@
         </div>
     </fieldset>
 </main>
+-->
 
 
 <footer>
+
+    <div th:replace="fragments/include :: footer"></div>
     <script th:inline="javascript">
       /*<![CDATA[*/
 
@@ -203,7 +237,7 @@
                 }
                 if (this.display_seconds <= 0) {
                   clearInterval(count);
-                  window.location.replace("/passwd/");
+                  //window.location.replace("/passwd/");
                 }
 
               }, 1000);
@@ -245,6 +279,10 @@
       })
 
       /*]]>*/
+
+
+
+
 
     </script>
 </footer>
