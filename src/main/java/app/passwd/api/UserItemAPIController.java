@@ -1,6 +1,7 @@
 package app.passwd.api;
 
 import app.passwd.model.UserImageItem;
+import app.passwd.model.UserItem;
 import app.passwd.repository.UserImageItemRepository;
 import app.passwd.service.UserLoginService;
 import app.passwd.service.UseritemService;
@@ -87,12 +88,12 @@ public class UserItemAPIController {
 
     }
 
-    @RequestMapping(value = "/api/useritem", method = RequestMethod.PUT)
-    public String updateUserItem(@RequestBody UserImageItem item) {
-
-        useritemService.update(item);
-        return String.valueOf(item.getExpired());
-    }
+//    @RequestMapping(value = "/api/useritem", method = RequestMethod.PUT)
+//    public String updateUserItem(@RequestBody UserImageItem item) {
+//
+//        useritemService.update(item);
+//        return String.valueOf(item.getExpired());
+//    }
 
 
     @RequestMapping(value = "/api/useritem/expired", method = RequestMethod.GET)

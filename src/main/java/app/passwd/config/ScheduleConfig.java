@@ -28,8 +28,6 @@ public class ScheduleConfig {
     @Autowired
     UserAudioitemService userAudioitemService;
 
-
-    //    @Scheduled(cron = "1 50 8 13 3,9 ?", zone = "Asia/Taipei")
     @Scheduled(cron = "12 15 09 * * ?", zone = "Asia/Taipei")
     public void clean() throws IOException {
         //delete  video in gridFs
