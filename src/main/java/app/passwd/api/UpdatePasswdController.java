@@ -29,6 +29,8 @@ import org.springframework.web.client.RestTemplate;
 import javax.naming.InvalidNameException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 @RestController
 public class UpdatePasswdController {
@@ -49,17 +51,32 @@ public class UpdatePasswdController {
 
     @RequestMapping(value = "/passwd/username/{username}", method = RequestMethod.PUT)
     public String updatePasswd(@PathVariable("username") String username, @RequestBody Account account) throws IOException, InvalidNameException {
-        return doUpdatePasswd(username, account);
+        return doUpdatePasswd(account);
     }
 
 
     @RequestMapping(value = "/username/{username}", method = RequestMethod.PUT)
     public String updatePasswdProxyPass(@PathVariable("username") String username, @RequestBody Account account) throws IOException, InvalidNameException {
-        return doUpdatePasswd(username, account);
+        return doUpdatePasswd(account);
     }
 
 
-    private String doUpdatePasswd(String username, Account account) throws IOException, InvalidNameException {
+    @RequestMapping(value = "/passwd/username/", method = RequestMethod.PUT)
+    public String updatePasswdMultiUser(@RequestBody List<Account> accounts) throws IOException {
+        AtomicReference<String> result = new AtomicReference<>();
+        accounts.forEach(account -> {
+            logger.info(account.getAccount() + "," + account.getPassword());
+            try {
+                result.set(doUpdatePasswd(account));
+            } catch ( IOException | InvalidNameException e) {
+                logger.info(e.getMessage());
+            }
+        });
+        return result.get();
+    }
+
+
+    private String doUpdatePasswd(Account account) throws IOException, InvalidNameException {
         String result = "";
         logger.info("update user passwd");
 

@@ -1,0 +1,551 @@
+10:54:22.968 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 7785 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+10:54:23.041 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+10:54:24.560 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:54:24.638 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54 ms. Found 2 JPA repository interfaces.
+10:54:25.541 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+10:54:25.556 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+10:54:25.557 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10:54:25.559 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+10:54:25.842 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:54:25.843 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2715 ms
+10:54:26.411 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10:54:26.781 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10:54:26.910 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:54:27.038 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+10:54:27.237 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10:54:27.425 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+10:54:28.160 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:54:28.172 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:54:28.684 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:54:29.054 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+10:54:29.150 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+10:54:29.228 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+10:54:29.336 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+10:54:29.357 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 7.611 seconds (JVM running for 8.41)
+10:54:29.369 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+10:54:29.545 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+10:59:29.758 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:59:29.760 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+10:59:29.761 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+11:01:55.418 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+11:01:55.425 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+11:01:55.436 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11:01:55.439 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+11:23:05.521 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 9065 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+11:23:05.528 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+11:23:06.758 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11:23:07.322 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 505 ms. Found 2 JPA repository interfaces.
+11:23:08.321 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+11:23:08.391 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+11:23:08.393 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:23:08.397 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+11:23:08.631 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+11:23:08.632 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2988 ms
+11:23:09.219 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11:23:09.820 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11:23:09.950 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:23:10.092 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+11:23:10.404 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+11:23:10.798 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+11:23:12.017 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:23:12.068 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11:23:12.833 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11:23:13.462 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+11:23:13.576 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+11:23:13.637 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+11:23:13.701 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+11:23:13.728 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 9.021 seconds (JVM running for 9.853)
+11:23:13.733 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+11:23:13.912 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+11:25:01.629 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:25:01.630 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+11:25:01.637 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+11:25:09.862 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+11:25:22.560 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - cad663c7eb5d7315cbab6bd221d299bc957815cf1d9cdebf5a0d5ba93184ed43
+11:25:22.593 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+11:25:22.798 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+11:28:06.313 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+11:28:06.315 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+11:28:06.322 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11:28:06.343 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+11:28:23.259 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 10686 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+11:28:23.262 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+11:28:24.435 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11:28:24.513 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 2 JPA repository interfaces.
+11:28:25.295 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+11:28:25.309 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+11:28:25.312 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:28:25.313 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+11:28:25.467 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+11:28:25.470 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2126 ms
+11:28:25.936 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11:28:26.163 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11:28:26.257 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:28:26.325 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+11:28:26.480 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+11:28:26.828 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+11:28:27.699 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:28:27.706 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11:28:28.199 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11:28:28.550 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+11:28:28.633 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+11:28:28.684 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+11:28:28.711 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+11:28:28.737 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 6.195 seconds (JVM running for 7.291)
+11:28:28.751 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+11:28:28.927 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+11:29:10.934 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:29:10.935 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+11:29:10.939 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+11:29:11.301 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+11:29:29.967 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 9f0d41033fa3ca0a50803f8b8085d8f41791b782495ed8b25b311e9bf0276016
+11:29:29.977 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+11:29:30.028 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+11:29:51.162 [http-nio-8080-exec-6] INFO  a.passwd.api.UpdatePasswdController - update user passwd
+11:29:51.776 [http-nio-8080-exec-6] INFO  a.passwd.api.UpdatePasswdController - {"_links":{"self":{"href":"https:\/\/api.tc.edu.tw\/change-password"}},"_embedded":{"change_password":[["106-106079 \u66f4\u6539\u4e86\u5bc6\u78bc{MD5}uKfe26r18b+mNJC1Pqhjfw=="]]},"total_items":1}
+11:33:35.941 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+11:33:35.942 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+11:33:35.956 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11:33:35.973 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+11:33:51.111 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 11847 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+11:33:51.113 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+11:33:52.399 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11:33:52.453 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 2 JPA repository interfaces.
+11:33:53.073 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+11:33:53.086 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+11:33:53.087 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:33:53.088 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+11:33:53.260 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+11:33:53.262 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2058 ms
+11:33:53.609 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11:33:53.779 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11:33:53.862 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:33:53.930 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+11:33:54.068 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+11:33:54.234 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+11:33:54.850 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:33:54.858 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11:33:55.312 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11:33:55.585 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+11:33:55.669 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+11:33:55.732 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+11:33:55.924 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+11:33:55.937 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 5.487 seconds (JVM running for 6.149)
+11:33:55.946 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+11:33:56.079 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+11:34:46.807 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:34:46.812 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+11:34:46.818 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+11:34:47.595 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+11:35:17.606 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - ebf2adeab638da135113f8e55a21ca94f0a85fc6f8877d9ce539eef3f2cc9632
+11:35:17.611 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+11:35:17.711 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+11:36:02.742 [http-nio-8080-exec-6] INFO  a.passwd.api.UpdatePasswdController - update user passwd
+11:36:03.099 [http-nio-8080-exec-6] INFO  a.passwd.api.UpdatePasswdController - {"_links":{"self":{"href":"https:\/\/api.tc.edu.tw\/change-password"}},"_embedded":{"change_password":[["106-106079 \u66f4\u6539\u4e86\u5bc6\u78bc{MD5}uKfe26r18b+mNJC1Pqhjfw=="]]},"total_items":1}
+13:15:28.103 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:15:28.105 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+13:15:28.116 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:15:28.120 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:15:43.670 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 30353 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+13:15:43.674 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+13:15:44.591 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:15:44.674 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 70 ms. Found 2 JPA repository interfaces.
+13:15:45.351 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+13:15:45.361 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:15:45.362 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:15:45.362 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+13:15:45.508 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:15:45.509 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1759 ms
+13:15:45.863 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:15:46.046 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:15:46.116 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:15:46.201 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+13:15:46.333 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13:15:46.508 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13:15:47.810 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13:15:47.817 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:15:48.331 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:15:48.641 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+13:15:48.723 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+13:15:48.789 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:15:48.826 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+13:15:48.854 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 5.865 seconds (JVM running for 6.952)
+13:15:48.857 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+13:15:49.022 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+13:17:06.621 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:17:06.622 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:17:06.625 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+13:17:07.318 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+13:17:19.538 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 9680761411b420298ee064afa94785760cebc517f99ea57f94c737d2afad85a8
+13:17:19.548 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+13:17:19.588 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+13:17:49.212 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:17:49.214 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+13:17:49.249 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:17:49.257 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:18:03.673 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 30983 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+13:18:03.676 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+13:18:04.603 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:18:04.653 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 2 JPA repository interfaces.
+13:18:05.267 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+13:18:05.279 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:18:05.280 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:18:05.281 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+13:18:05.452 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:18:05.452 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1660 ms
+13:18:05.773 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:18:05.974 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:18:06.030 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:18:06.097 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+13:18:06.238 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13:18:06.401 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13:18:07.313 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13:18:07.322 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:18:07.773 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:18:08.052 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+13:18:08.134 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+13:18:08.220 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:18:08.235 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+13:18:08.263 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 5.308 seconds (JVM running for 6.127)
+13:18:08.274 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+13:18:08.404 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+13:18:28.610 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:18:28.613 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:18:28.618 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+13:18:29.016 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+13:18:40.510 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - ec4ffee2dd964bbde874564822ffaed5aef4e0b3660b76bd9c0769a65224aa6c
+13:18:40.523 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+13:18:40.573 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+13:21:57.522 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:21:57.530 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+13:21:57.554 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:21:57.563 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:22:12.276 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 32144 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+13:22:12.293 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+13:22:13.258 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:22:13.315 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+13:22:13.955 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+13:22:13.966 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:22:13.969 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:22:13.969 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+13:22:14.123 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:22:14.124 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1653 ms
+13:22:14.439 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:22:14.609 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:22:14.685 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:22:14.749 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+13:22:14.894 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13:22:15.048 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13:22:15.661 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13:22:15.679 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:22:16.148 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:22:16.451 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+13:22:16.517 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+13:22:16.581 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:22:16.600 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+13:22:16.628 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 5.306 seconds (JVM running for 5.789)
+13:22:16.637 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+13:22:16.783 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+13:22:27.869 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:22:27.873 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:22:27.874 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+13:28:02.228 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:28:02.229 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+13:28:02.257 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:28:02.295 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:28:16.181 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 33376 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+13:28:16.184 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+13:28:17.530 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:28:17.597 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 2 JPA repository interfaces.
+13:28:18.313 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+13:28:18.334 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:28:18.335 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:28:18.345 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+13:28:18.525 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:28:18.526 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2257 ms
+13:28:18.847 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:28:19.090 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:28:19.140 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:28:19.238 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+13:28:19.406 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13:28:19.573 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13:28:20.415 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13:28:20.431 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:28:23.723 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:28:24.207 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+13:28:24.277 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+13:28:24.364 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:28:24.384 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+13:28:24.399 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 8.857 seconds (JVM running for 9.388)
+13:28:24.406 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+13:28:24.536 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+13:29:42.444 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:29:42.445 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:29:42.451 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+13:29:43.434 [http-nio-8080-exec-2] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+13:29:55.157 [http-nio-8080-exec-3] INFO  a.p.controller.CallbackController - 23a552bfb2800631e90aa1726c535d7d383080aa594289d6bb8b1f47a951a5dd
+13:29:55.165 [http-nio-8080-exec-3] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+13:29:55.262 [http-nio-8080-exec-3] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+13:30:36.346 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:30:36.348 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+13:30:36.371 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:30:36.388 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:30:50.294 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 34134 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+13:30:50.297 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+13:30:51.232 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:30:51.290 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
+13:30:52.084 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+13:30:52.122 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:30:52.124 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:30:52.127 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+13:30:52.509 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:30:52.510 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2136 ms
+13:30:52.825 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:30:52.994 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:30:53.062 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:30:53.126 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+13:30:53.277 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13:30:53.413 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13:30:54.028 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13:30:54.038 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:30:54.519 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:30:54.800 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+13:30:54.884 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+13:30:54.945 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:30:54.971 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+13:30:54.996 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 5.34 seconds (JVM running for 5.885)
+13:30:55.009 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+13:30:55.139 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+13:31:01.065 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:31:01.066 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:31:01.075 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+13:31:01.470 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+13:31:14.665 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 941065450884cc8e74db1f25beb4791f8522cfbb0af60f47dc2033a9f452b3a0
+13:31:14.668 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+13:31:14.711 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+13:43:48.205 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:43:48.209 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+13:43:48.240 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:43:48.250 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:44:03.068 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 37127 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+13:44:03.071 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+13:44:04.981 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:44:05.079 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 2 JPA repository interfaces.
+13:44:06.365 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+13:44:06.398 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:44:06.399 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:44:06.399 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+13:44:06.579 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:44:06.579 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3415 ms
+13:44:07.595 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:44:08.099 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:44:08.255 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:44:08.329 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+13:44:08.609 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13:44:08.857 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13:44:09.621 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13:44:09.638 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:44:10.273 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:44:10.694 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+13:44:10.888 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+13:44:10.981 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:44:11.022 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+13:44:11.045 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 8.857 seconds (JVM running for 9.647)
+13:44:11.059 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+13:44:11.185 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+13:44:25.486 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:44:25.487 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:44:25.488 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+13:44:25.832 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+13:44:37.652 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 95eca2fddc47a79e5bcc429d857347389ce000a8f2894f34c4f58443c8dc2b77
+13:44:37.667 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+13:44:37.779 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+13:45:42.954 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:45:42.955 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+13:45:43.012 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:45:43.040 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:45:56.596 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 37664 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+13:45:56.603 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+13:45:58.001 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:45:58.071 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 2 JPA repository interfaces.
+13:45:58.707 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+13:45:58.718 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:45:58.719 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:45:58.719 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+13:45:58.917 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:45:58.917 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2190 ms
+13:45:59.262 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:45:59.443 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:45:59.509 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:45:59.554 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+13:45:59.706 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13:45:59.863 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13:46:00.506 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13:46:00.518 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:46:01.007 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:46:01.333 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+13:46:01.426 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+13:46:01.475 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:46:01.496 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+13:46:01.511 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 5.607 seconds (JVM running for 6.245)
+13:46:01.514 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+13:46:01.648 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+13:46:13.104 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:46:13.104 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:46:13.106 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+13:46:13.442 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+13:46:25.368 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 9c94e8f965606087dab4cf9d47fc35c76f6a788793da1ce18928c24ad6f8feed
+13:46:25.378 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+13:46:25.446 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+13:48:50.531 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:48:50.537 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+13:48:50.563 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:48:50.586 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:49:04.682 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 38414 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+13:49:04.685 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+13:49:05.579 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:49:05.636 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
+13:49:06.260 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+13:49:06.282 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:49:06.283 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:49:06.284 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+13:49:06.434 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:49:06.435 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1672 ms
+13:49:06.778 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:49:07.094 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:49:07.205 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:49:07.359 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+13:49:07.593 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13:49:07.739 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13:49:08.354 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13:49:08.361 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:49:08.821 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:49:09.140 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+13:49:09.227 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+13:49:09.294 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:49:09.313 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+13:49:09.336 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 5.321 seconds (JVM running for 6.0)
+13:49:09.360 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+13:49:09.504 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+13:49:19.921 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:49:19.922 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:49:19.938 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+13:49:20.264 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+13:49:33.193 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - ecba092f225459c5c280fde7543cb026fb569d4ab8c3c908d6de14b2a5110acd
+13:49:33.205 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+13:49:33.279 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+14:00:05.187 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+14:00:05.190 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+14:00:05.220 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+14:00:05.241 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+14:00:19.599 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 40621 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+14:00:19.602 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+14:00:20.561 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:00:20.620 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 51 ms. Found 2 JPA repository interfaces.
+14:00:21.283 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+14:00:21.295 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+14:00:21.296 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+14:00:21.297 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+14:00:21.468 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:00:21.469 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1776 ms
+14:00:21.786 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+14:00:22.045 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+14:00:22.177 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+14:00:22.285 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+14:00:22.612 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+14:00:22.750 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+14:00:23.379 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+14:00:23.387 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:00:23.894 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:00:24.214 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+14:00:24.285 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+14:00:24.355 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+14:00:24.387 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+14:00:24.410 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 5.451 seconds (JVM running for 5.967)
+14:00:24.417 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+14:00:24.530 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+14:00:29.152 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:00:29.154 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+14:00:29.157 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+14:00:29.515 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+14:00:42.165 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - d342976b42e14b5124c2cc59e5f73813e772294872eb76678dad7c70e0bb5193
+14:00:42.178 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+14:00:42.296 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+14:01:52.555 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+14:01:52.562 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+14:01:52.593 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+14:01:52.606 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+14:02:05.932 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 41186 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+14:02:05.935 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+14:02:06.832 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:02:06.909 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 2 JPA repository interfaces.
+14:02:07.897 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+14:02:07.909 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+14:02:07.910 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+14:02:07.911 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+14:02:08.062 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:02:08.063 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2047 ms
+14:02:08.394 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+14:02:08.571 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+14:02:08.634 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+14:02:08.704 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+14:02:08.865 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+14:02:09.007 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+14:02:09.654 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+14:02:09.664 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:02:10.135 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:02:10.437 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+14:02:10.506 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+14:02:10.574 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+14:02:10.592 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+14:02:10.606 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 5.328 seconds (JVM running for 5.888)
+14:02:10.616 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+14:02:10.725 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+14:02:15.977 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:02:15.981 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+14:02:15.982 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+14:02:16.297 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+14:02:55.845 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 81137e2b11af6f6d9a72a7dbd183c74ab50616097dc8d4a680dbb04fa59cb253
+14:02:55.854 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+14:02:55.932 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+14:27:28.043 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+14:27:28.045 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+14:27:28.059 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+14:27:28.074 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+14:27:43.049 [main] INFO  app.passwd.PasswdApplication - Starting PasswdApplication using Java 17.0.5 on smbldap with PID 46119 (/home/inono/Projects/school-passwd/target/classes started by inono in /home/inono/Projects/school-passwd)
+14:27:43.052 [main] INFO  app.passwd.PasswdApplication - No active profile set, falling back to 1 default profile: "default"
+14:27:43.942 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:27:44.010 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+14:27:44.645 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+14:27:44.658 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+14:27:44.659 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+14:27:44.660 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+14:27:44.809 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:27:44.810 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1681 ms
+14:27:45.153 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+14:27:45.338 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+14:27:45.402 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+14:27:45.474 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+14:27:45.648 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+14:27:45.790 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+14:27:46.410 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+14:27:46.417 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:27:46.904 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:27:47.435 [main] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+14:27:47.689 [main] INFO  o.s.l.c.s.AbstractContextSource - Property 'userDn' not set - anonymous context will be used for read-write operations
+14:27:47.737 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+14:27:47.771 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+14:27:47.790 [main] INFO  app.passwd.PasswdApplication - Started PasswdApplication in 5.771 seconds (JVM running for 6.448)
+14:27:47.797 [main] INFO  app.passwd.PasswdApplication - working dir:/home/inono/Projects/school-passwd
+14:27:47.927 [main] INFO  app.passwd.PasswdApplication - 帳號整合服務成功啟動
+14:28:01.913 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:28:01.916 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+14:28:01.918 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+14:28:03.411 [http-nio-8080-exec-3] INFO  a.passwd.controller.IndexController - 1.需請求取得認證授權,轉到 https://api.tc.edu.tw/school-oauth/authorize
+14:28:14.363 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 8104fb89654569b1eb51d65d4b937618eb26f0715b1258535050f3b8f5d903b4
+14:28:14.372 [http-nio-8080-exec-4] INFO  a.p.controller.CallbackController - 3.取得code:{"school_no":"064757","username":"106-106079","role":"student","name":"\u5433\u5146\u8ed2","edu_key":"fdab9c763b0fca5dd7fee6fd62306cac5053b5ee024e78f6f681e73032503081","grade":6,"class_no":1,"number":"5"}
+14:28:14.430 [http-nio-8080-exec-4] INFO  app.passwd.service.Oauth2Client - 4. 進行client_credientials flow 取得token.
+14:35:19.671 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+14:35:19.677 [SpringApplicationShutdownHook] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+14:35:19.700 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+14:35:19.709 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -4,286 +4,245 @@
 <head>
   <meta charset="UTF-8">
   <title>Student</title>
-
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- development version, includes helpful console warnings -->
-
-  <link href="/public/css/index.css" type="text/css" rel="stylesheet" media="all" />
-  <link href="/passwd/public/css/index.css" type="text/css" rel="stylesheet" media="all" />
-
-  <script src="/public/js/vue.js"></script>
-  <script src="/passwd/public/js/vue.js"></script>
-  <script src="/public/js/axios.min.js"></script>
-  <script src="/passwd/public/js/axios.min.js"></script>
+  <div th:replace="fragments/include :: header"></div>
   <style>
+    .modal-mask {
+      position: fixed;
+      z-index: 9998;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      transition: opacity 0.3s ease;
+    }
 
+    .modal-container {
+      width: 400px;
+      margin: auto;
+      padding: 20px 30px;
+      background-color: #fff;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+      transition: all 0.3s ease;
+    }
+
+    .modal-header h3 {
+      margin-top: 0;
+      color: #42b983;
+    }
+
+    .modal-body {
+      margin: 20px 0;
+    }
+
+    .modal-default-button {
+      float: right;
+    }
+
+    /*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+    .modal-enter-from {
+      opacity: 0;
+    }
+
+    .modal-leave-to {
+      opacity: 0;
+    }
+
+    .modal-enter-from .modal-container,
+    .modal-leave-to .modal-container {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
   </style>
+
 </head>
 
 
-<body id="LoginForm">
-  <header>
-    <style type="text/css">
-      .modal-mask {
-        position: fixed;
-        z-index: 9998;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, .5);
-        display: table;
-        transition: opacity .3s ease;
-      }
-
-      .modal-wrapper {
-        display: table-cell;
-        vertical-align: middle;
-      }
-
-      .modal-container {
-        width: 400px;
-        height: 180px;
-        margin: 0px auto;
-        padding: 20px 30px;
-        background-color: #fff;
-        border-radius: 2px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-        transition: all .3s ease;
-        font-family: Helvetica, Arial, sans-serif;
-      }
-
-      .modal-header h4 {
-        margin-top: 0;
-        color: #42b983;
-      }
-
-      .modal-body {
-        margin: 20px 0;
-      }
-
-      /*http://www.bestcssbuttongenerator.com/*/
-
-      .modal-default-button {
-        float: right;
-        background: #3498db;
-        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-        background-image: -o-linear-gradient(top, #3498db, #2980b9);
-        background-image: linear-gradient(to bottom, #3498db, #2980b9);
-        -webkit-border-radius: 10;
-        -moz-border-radius: 10;
-        border-radius: 10px;
-        font-family: Georgia;
-        color: #ffffff;
-        font-size: 15px;
-        padding: 8px 9px 9px 8px;
-        border: solid #1f628d 1px;
-        text-decoration: none;
-      }
-
-      /*
-                     * The following styles are auto-applied to elements with
-                     * transition="modal" when their visibility is toggled
-                     * by Vue.js.
-                     *
-                     * You can easily play with the modal transition by editing
-                     * these styles.
-                     */
-
-      .modal-enter {
-        opacity: 0;
-      }
-
-      .modal-leave-active {
-        opacity: 0;
-      }
-
-      .modal-enter .modal-container,
-      .modal-leave-active .modal-container {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-      }
-    </style>
-  </header>
-
-  <!-- template for the modal component -->
-  <!-- template for the modal component -->
-  <script type="text/x-template" id="modal-template">
-      <transition name="modal">
-          <div class="modal-mask">
-              <div class="modal-wrapper">
-                  <div class="modal-container">
-                      <div class="modal-header">
-                          <slot name="header">
-                          </slot>
-                      </div>
-                      <div class="modal-footer">
-                          <slot name="footer">
-                              <button class="modal-default-button" @click="$emit('close','yes')">
-                                  確定
-                              </button>
-                      
-                          </slot>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </transition>
-  </script>
-
-
-
-
-
-
-
+<body>
+  <header> </header>
 
   <div class="container">
-    <nav class=" navbar navbar-expand-lg navbar-light bg-light">
+    <div th:replace="fragments/include :: navbar"></div>
 
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/passwd/userhome">家目錄</a>
-          <a class="nav-item nav-link active" href="/passwd/account/student">學生帳號 <span
-                  class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link active" href="/passwd/account/staff">職員帳號 <span
-                  class="sr-only">(current)</span></a>
-          <!--                <a class="nav-item nav-link" href="#">重設使用者密碼</a>-->
-        </div>
-      </div>
-    </nav>
-    <br>
     <br>
     <div id="app">
-      <div class="input-group mb-3">
+      已選擇: {{checkedUsernames.length}}
+      <div class="row">
+        <div class="col">
 
-        <span class="input-group-text text-white bg-success">未建立帳號清單</span>
-        <input type="text" v-bind:placeholder="msg" class="form-control bg-white"
-          aria-label="Amount (to the nearest dollar)" readonly>
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+              <span class="input-group-text btn-outline-dark">選擇班級</span>
+            </div>
 
-        <div class="input-group-append">
-          <span class="input-group-text text-black bg-white">選擇入學年度</span>
-          <select v-model="selectedYear" @change="updateShowAccounts">
-            <option disabled value=""> </option>
-            <option v-for="year in years" v-bind:value="year">
-              {{ year }}
-            </option>
-          </select>
+            <div class="input-group-append ">
+              <select class="form-select" v-model="selectedClassno" @change="updateShowAccounts">
+                <option disabled value=""> </option>
+                <option v-for="classno in classnos" v-bind:value="classno">
+                  {{ classno }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+
+
         </div>
 
-
-        <!-- <span class="input-group-text"></span> -->
-        <div class="input-group-append">
-          <!-- <button class="btn btn-warning" type="button">確定建立</button> -->
-          <input v-if="status === 1" v-on:click="submit" type="submit" class="btn btn-warning" value="確定建立">
-          <input v-else type="button" class="btn btn-secondary" value="確定建立" disabled>
+        <div class="col">
+          {{msg}}
         </div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+              <input v-if="checkedUsernames.length > 0" @click="submit" type="submit" class="btn btn-primary"
+                value="確定">
+              <input v-else type="button" class="btn btn-secondary" value="確定" disabled>
+            </div>
+          </div>
+
+
+        </div>
+
       </div>
+
       {{updateMsg}}
 
 
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">班級</th>
-            <th scope="col">姓名</th>
 
+            <th scope="col"></th>
+
+
+            <th scope="col">班級</th>
+            <th scope="col">座號</th>
+            <th scope="col">姓名</th>
             <span th:if="${isSyncLdap}">
               <th scope="col">WinAD帳號</th>
             </span>
             <th scope="col">校務系統帳號</th>
 
+            </th>
+
           </tr>
         </thead>
         <tbody>
-          <tr v-for="account in showAccounts">
-            <td>{{account.classno}}</td>
-            <td>{{account.name}}</td>
-            <span th:if="${isSyncLdap}">
-              <th>{{account.adusername}}</th>
-            </span>
-            <th>{{account.username}}</th>
-          </tr>
+          <div v-if="showAccounts.length > 0">
+
+            <tr v-for="account in showAccounts">
+
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" :value="account.username" :id="account.username"
+                    v-model="checkedUsernames">
+                  <label class="form-check-label" for="flexCheckDefault">
+                  </label>
+                </div>
+              </td>
+
+              <td>
+                {{account.classno}}
+              </td>
+
+              <td>
+                {{account.seatno}}
+              </td>
+
+              <td>
+                {{account.name}}
+              </td>
+
+              <td>
+                {{account.username}}
+              </td>
+
+            </tr>
+          </div>
+
+          <!-- https://cumsum.wordpress.com/2020/08/08/vue3-property-xxx-was-accessed-during-render-but-is-not-defined-on-instance/ -->
+          <!--           
+              <span th:if="${isSyncLdap}">
+                <th>{{account.adusername}}</th>
+              </span>
+
+          -->
 
         </tbody>
       </table>
-      <modal v-if="showModal" @close="reload">
-        <h4 slot="header">{{msg}}</h4>
-      </modal>
+
+      {{initPage}}
+
+
+      <teleport to="body">
+        <!-- use the modal component, pass in the prop -->
+        <modal @updatepasswd="say($event)" :show="showModal">
+
+          <template #header>
+            <h3>輸入新密碼</h3>
+          </template>
+
+        </modal>
+      </teleport>
+
+
 
     </div>
 
 
     <footer>
-      <script th:inline="javascript">
-
+      <script type="module">
         /*<![CDATA[*/
+        const { createApp } = Vue;
+        import Modal from '../../js/updatePasswd.js'
 
-        Vue.prototype.$http = axios;
         let config = {
           headers: {
-            'content-type': 'application/json;CHARSET=UTF-8'
+            'Content-Type': 'application/json;CHARSET=UTF-8'
           }
         };
 
-        // register modal component
-        Vue.component('modal', {
-          template: '#modal-template'
-        })
         let url = "/passwd/api/account/student";
 
-        var app = new Vue({
-          el: '#app',
-          data: {
-            accounts: [{}],
-            showAccounts: [],
-            years: [],
-            selectedYear: "",
-            msg: "正在努力加載中",
-            status: 0,
-            showModal: false,
+        createApp({
+          components: {
+            Modal
+          },
+          data() {
+            return {
+              accounts: [{}],
+              showAccounts: [{}],
+              classnos: [],
+              selectedClassno: "",
+              msg: "正在努力加載中",
+              status: 0,
+              showModal: false,
+              passwd: 'igogo',
+              checkedUsernames: [],
+              account: {},
+              updateAccounts: [{}],
+            }
           },
           created: function () {
 
             let vm = this;
-
-            console.log(url)
-            this.$http.get(url, config)
+            axios.get(url, config)
               .then(function (response) {
-                // console.log(response.data)
                 vm.accounts = response.data;
+                vm.selectedClassno = vm.accounts[0].classno;
                 vm.status = 1;
-
-                //初使頁面
-
-
-                if (vm.accounts.length > 0) {
-                  vm.accounts.forEach(element => {
-                    if (element.username != undefined) {
-                      year = element.username.split("-")[0]
-                      if (!vm.years.includes(year)) {
-                        vm.years.push(year)
-                      }
-
-                      if (vm.years[0] === element.username.split("-")[0]) {
-                        vm.showAccounts.push(element);
-
-                      }
-                    }
-
-                  });
-
-                  vm.selectedYear = vm.years[0];
-
-                }
-
-
-
-
               })
               .catch(function (error) {
                 /* 失敗，發生錯誤，然後...*/
@@ -292,8 +251,31 @@
 
           },
           computed: {
+            initPage: function () {
+              //初使頁面
+              this.classnos = [];
+              if (this.accounts.length > 0) {
+                for (let i = 0; i < this.accounts.length; i++) {
+                  let classno = this.accounts[i].classno;
 
+                  if (!this.classnos.includes(classno)) {
+                    this.classnos.push(classno);
+                  }
 
+                }
+
+              }
+
+              this.showAccounts = [];
+              this.accounts.forEach(account => {
+                if (this.selectedClassno == account.classno) {
+                  this.showAccounts.push(account);
+                }
+              });
+
+              this.msg = "";
+
+            },
             updateMsg: function () {
 
               if (this.status === 0) {
@@ -327,13 +309,14 @@
                   // console.log(this.status);
                   if (this.status === 1) {
                     clearInterval(count);
-                    this.msg = this.selectedYear + "年,共 " + this.showAccounts.length + "筆";
+                    this.msg = "";
+                    // this.msg = this.selectedClassno + "年,共 " + this.showAccounts.length + "筆";
                   }
 
-                  if (this.status === 99) {
-                    clearInterval(count);
-                    this.msg = this.selectedYear + "年,共 " + this.showAccounts.length + "筆建立成功";
-                  }
+                  // if (this.status === 99) {
+                  //   clearInterval(count);
+                  //   this.msg = this.selectedClassno + "年,共 " + this.showAccounts.length + "筆建立成功";
+                  // }
 
 
                 }, 500);
@@ -344,48 +327,86 @@
             },
           },
           methods: {
-            reload: function () {
-              location.reload();
+            say: function (value) {
+              this.showModal = false;
+
+              let vm = this;
+              let url = "/passwd/username/";
+              let updateAccounts = [];
+
+              if (value.length == 0) {
+                console.log("noghing to do");
+
+              } else {
+                //update accounts password
+                this.checkedUsernames.forEach(username => {
+                  let account = {};
+                  account.account = username;
+                  account.password = value;
+                  updateAccounts.push(account);
+                });
+
+                axios.put(url, JSON.stringify(updateAccounts), config).then((response) => {
+                  // success callback
+                  console.log(response.data);
+
+                  if (response.data.total_items === 1) {
+                    //帳號建立成功
+                    vm.msg = "更新成功";
+                    vm.enable = false;
+                    vm.status = 1;
+
+                  } else {
+                    vm.msg = "更新密碼失敗";
+                  }
+
+                }, (response) => {
+                  // error callback
+                });
+
+
+              }
             },
             updateShowAccounts: function () {
               // console.log(Date.now());
-              // console.log(this.selectedYear);
+              // console.log(this.selectedClassno);
               this.showAccounts = [];
               this.accounts.forEach(account => {
-                if (account.username.split("-")[0] === this.selectedYear) {
+                if (account.username.split("-")[0] === this.selectedClassno) {
                   this.showAccounts.push(account)
                 }
               });
-              this.msg = "共" + this.showAccounts.length + "筆"
               // console.log(this.showAccounts);
             },
             submit: function () {
-              this.status = 0;
-              let vm = this;
-              //let url = "/passwd/api/account/student";
+              this.showModal = true;
 
-              console.log("ok,submit,post target url:" + url);
+              // this.status = 0;
+              // let vm = this;
+              // //let url = "/passwd/api/account/student";
 
-
-              this.$http.put(url, this.showAccounts, config).then((response) => {
-                // success callback
-                console.log(response.data.length);
-
-                //帳號建立成功
-
-                vm.status = 99;
-
-                vm.showModal = true;
+              // console.log("ok,submit,post target url:" + url);
 
 
+              // axios.put(url, this.showAccounts, config).then((response) => {
+              //   // success callback
+              //   console.log(response.data.length);
 
-              }, (response) => {
-                // error callback
-              });
+              //   //帳號建立成功
 
-            }
+              //   vm.status = 99;
+
+              //   vm.showModal = true;
+
+
+
+              //     }, (response) => {
+              //   // error callback
+              // });
+
+            },
           }
-        })
+        }).mount('#app');
 
         /*]]>*/
       </script>

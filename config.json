@@ -5,7 +5,5 @@
 	"accesstoken_endpoint": "https://api.tc.edu.tw/oauth?authorize",
 	"changepasswd_endpoint": "https://api.tc.edu.tw/change-password",
 	"semesterdata_endpoint": "https://api.tc.edu.tw/semester-data",
-	"accountManager":"igogo",
-	"ldap": ""
-
+	"accountManager": "igogo"
 }

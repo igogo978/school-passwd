@@ -38,8 +38,6 @@ public class UserhomeController {
         }
 
         model.addAttribute("user", userloginservice.getUser());
-//        model.addAttribute("isLearningAccount", sysconfig.isLearningAccount());
-//        https://bootsnipp.com/snippets/X2bG0
         return "userhome";
     }
 
@@ -47,14 +45,7 @@ public class UserhomeController {
     @GetMapping("/userhome")
     public String userhomeProxypass(Model model) {
 
-        if (!userloginservice.isLoggedin()) {
-            return "redirect:/";
-        }
-
-        model.addAttribute("user", userloginservice.getUser());
-//        model.addAttribute("isLearningAccount", sysconfig.isLearningAccount());
-//        https://bootsnipp.com/snippets/X2bG0
-        return "userhome";
+        return userhome(model);
     }
 
 

@@ -23,6 +23,10 @@ public class User {
         this.edu_key = edu_key;
     }
 
+    public void setSchool_no(String school_no) {
+        this.school_no = school_no;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }

@@ -53,7 +53,6 @@ public class AccountService {
         String stud_name_list_endpoint = "https://api.tc.edu.tw/stud-name-list";
 
 
-
         String data = semesterdata.getdata(token, endpoint);
         JsonNode root = mapper.readTree(data);
         JsonNode node = root.get("學期教職員");
@@ -118,15 +117,20 @@ public class AccountService {
                     String username = null;
                     username = String.format("%s-%s", classnode.get(j).get("學號").asText().substring(0, 3), classnode.get(j).get("學號").asText());
                     schoolUser.setUsername(username);
-//                    logger.info(mapper.writeValueAsString(classnode.get(j)));
+                    String seatno = String.format("%02d",classnode.get(j).get("座號").asInt());
+                    schoolUser.setSeatno(seatno);
+                    schoolUser.setPid(classnode.get(j).get("身分證編碼").asText());
+                    schoolUser.setSchool_no(sysconfigrepository.findBySn(1).getSchoolid());
+//                    logger.info(sysconfigrepository.findBySn(1).getSchoolid());
 
-                    if (ldaprepository.findBySn(1).getStuidRegular()) {
-                        schoolUser.setAdusername(username);
-
-                    } else {
+//                    logger.info(mapper.writeValueAsString(schoolUser));
+//                    if (ldaprepository.findBySn(1).getStuidRegular()) {
+//                        schoolUser.setAdusername(username);
+//
+//                    } else {
 //                        ad帳號為simple
-                        schoolUser.setAdusername(classnode.get(j).get("學號").asText());
-                    }
+//                        schoolUser.setAdusername(classnode.get(j).get("學號").asText());
+//                    }
 //                    logger.info(mapper.writeValueAsString(schoolUser));
                     users.add(schoolUser);
                 }

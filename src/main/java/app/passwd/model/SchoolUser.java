@@ -7,10 +7,20 @@ public class SchoolUser extends User {
 
     private String password;
     private String classno;
+    private String seatno;
     private String personalTitle;
     private String physicalDeliveryOfficeName;
 
+    private String pid;
 
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
 
     public String getPassword() {
         return password;
@@ -43,5 +53,13 @@ public class SchoolUser extends User {
 
     public void setPhysicalDeliveryOfficeName(String physicalDeliveryOfficeName) {
         this.physicalDeliveryOfficeName = physicalDeliveryOfficeName;
+    }
+
+    public String getSeatno() {
+        return seatno;
+    }
+
+    public void setSeatno(String seatno) {
+        this.seatno = seatno;
     }
 }

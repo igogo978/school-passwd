@@ -69,10 +69,12 @@ public class CallbackController {
         SystemConfig systemConfig = systemConfigRepository.findBySn(1);
 
         logger.info(String.format("3.取得code:%s", data));
+        logger.info( StringEscapeUtils.unescapeJava(data));
 
         ObjectMapper mapper = new ObjectMapper();
         JsonNode node = mapper.readTree(StringEscapeUtils.unescapeJava(data));
         String school_no = node.get("school_no").asText();
+
         String username = node.get("username").asText();
         String role = node.get("role").asText();
         String name = node.get("name").asText();

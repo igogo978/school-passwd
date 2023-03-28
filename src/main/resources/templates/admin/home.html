@@ -3,23 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Admin home</title>
 
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- development version, includes helpful console warnings -->
+  <div th:replace="fragments/include :: header"></div>
 
-  <link href="/public/css/index.css" type="text/css" rel="stylesheet" media="all" />
-  <link href="/passwd/public/css/index.css" type="text/css" rel="stylesheet" media="all" />
-
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-  <!--<script src="../../public/js/vue.js"></script>-->
-  <!--<script src="../../public/js/axios.min.js"></script>-->
-  <script src="/public/js/vue.js"></script>
-  <script src="/passwd/public/js/vue.js"></script>
-  <script src="/public/js/axios.min.js"></script>
-  <script src="/passwd/public/js/axios.min.js"></script>
   <style>
 
   </style>
@@ -28,166 +15,57 @@
 
 <body id="LoginForm">
   <div class="container">
-    <nav class=" navbar navbar-expand-lg navbar-light bg-light">
 
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/passwd/userhome">change password</a>
-          <a class="nav-item nav-link active" href="/passwd/account/student">同步學生帳號 <span
-                  class="sr-only">(current)</span></a>
-          <span th:if="${isSyncLdap}">
-          <a class="nav-item nav-link active" href="/passwd/account/staff">同步職員帳號 <span
-                  class="sr-only">(current)</span></a>
-          </span>
-        </div>
-      </div>
-    </nav>
+    <div th:replace="fragments/include :: navbar"></div>
+
     <br>
 
-    <main>
-      <fieldset class="tab">
 
-        <form class="form-inline">
-          <div class="form-group  mb-4">
-            <h3 class="text-info">說明</h3>
+    <div id="app">
+      <h3 class="text-info">說明</h3>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text">
+          <h3 class="text-info">
+            更改密碼服務
+          </h3>
+          1. 更改自己密碼<br>
+          2. 更改學生密碼<br>
+          可以選擇一個多個學生, 更改密碼
 
-          </div>
 
-        </form>
-
-
-        <div id="app">
-
-            <h3 class="text-info">同步學生帳號</h3> - 將雲端校務系中學生帳號同步到<br>
-          1. cloud school and st database <br>
-
-          <span th:if="${isSyncLdap}">
-            2.Windows AD中(尚未在WinAD中建立者),密碼與帳號同
-          </span>
-            <br>
-            <br>
           <span th:if="${isSyncLdap}">
             <h3 class="text-info">同步職員帳號</h3> - 將雲端校務系中職員帳號同步到Windows AD中(尚未在WinAD中建立者),密碼demo1234
           </span>
+
+
         </div>
-      </fieldset>
-    </main>
+      </div>
+
+
+    </div>
   </div>
 
   <footer>
+
+    <div th:replace="fragments/include :: footer"></div>
+
+
     <script th:inline="javascript">
       /*<![CDATA[*/
 
+      const { createApp } = Vue;
 
-      Vue.prototype.$http = axios;
       let config = {
         headers: {
-          'content-type': 'application/json;CHARSET=UTF-8'
+          'Content-Type': 'application/json;CHARSET=UTF-8'
         }
       };
 
 
-      var app = new Vue({
-        el: '#app',
-        data: {
-          user: /*[[${user}]]*/ {},
-          isLearningAccount: /*[[${isLearningAccount}]]*/ false,
-          msg: "密碼長度6-20字元,英文數字皆可",
-          params: {
-            account: '',
-            password: '',
-          },
-          passwd: '',
-          confirmpasswd: '',
-          enable: false,
-          status: 0,
-          display_seconds: 5,
-        },
-        created: function () {
-          // console.log(this.user.username.split("-")[1]);
-          // let vm = this;
-          // let classnameseatno = this.user.username.split("-")[1];
-          // let url = "account/" + classnameseatno
-          // this.$http.get(url, config)
-          //   .then(function (response) {
-          //     console.log(response.data)
-          //     vm.user.learningaccount = response.data.learningaccount;
-          //   })
-          //   .catch(function (error) {
-          //     /* 失敗，發生錯誤，然後...*/
-          //   });
-
-
-        },
-        computed: {
-          updateMsg: function () {
-            if (this.passwd.length >= 6 && this.passwd.length <= 20) {
-              this.msg = "請再輸入一次確認密碼";
-              if (this.passwd === this.confirmpasswd) {
-                this.msg = "請按送出更新密碼"
-                this.enable = true;
-              } else {
-                this.enable = false;
-              }
-
-            } else {
-              this.msg = "密碼長度6-20字元,英文數字皆可";
-              this.enable = false;
-            }
-
-
-          },
-          updateStatus: function () {
-            if (this.status === 1) {
-              let count = setInterval(() => {
-
-                this.display_seconds -= 1;
-                //console.log(this.display_seconds);
-                if (this.display_seconds <= 2) {
-                  this.msg = "現在,請使用新密碼重新登入";
-                }
-                if (this.display_seconds <= 0) {
-                  clearInterval(count);
-                  window.location.replace("/passwd/");
-                }
-
-              }, 1000);
-            }
-          },
-        },
-        methods: {
-          submit: function () {
-
-            let vm = this;
-            let url = "/passwd/username/" + this.user.username;
-            console.log("ok,submit,target url:" + url);
-            //轉換送到雲端校務帳號密碼格式
-            this.params.account = this.user.username;
-            this.params.password = this.passwd;
-
-
-            this.$http.put(url, JSON.stringify(this.params), config).then((response) => {
-              // success callback
-              console.log(response.data);
-
-              if (response.data.total_items === 1) {
-                //帳號建立成功
-                vm.msg = "更新成功";
-                vm.enable = false;
-                vm.status = 1;
-
-              } else {
-                vm.msg = "更新密碼失敗";
-              }
-
-            }, (response) => {
-              // error callback
-            });
-
-
-          }
-        }
-      })
+      createApp({
+      }).mount('#app');
 
       /*]]>*/
 

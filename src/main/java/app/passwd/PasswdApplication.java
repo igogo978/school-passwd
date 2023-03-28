@@ -34,7 +34,7 @@ import java.util.Random;
 
 @SpringBootApplication
 public class PasswdApplication implements CommandLineRunner {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(PasswdApplication.class);
     @Autowired
     SystemConfigRepository systemConfigRepository;
     @Autowired
@@ -90,12 +90,14 @@ public class PasswdApplication implements CommandLineRunner {
             sysconfig.setAccountManager(node.get("accountManager").asText());
             sysconfig.setCwd(System.getProperty("user.dir"));
 
+            sysconfig.setSyncLdap(Boolean.FALSE);
+
             //是否更新ldap
-            if (StringUtils.isEmpty(node.get("ldap").asText())) {
-                sysconfig.setSyncLdap(Boolean.FALSE);
-            } else {
-                sysconfig.setSyncLdap(Boolean.TRUE);
-            }
+//            if (StringUtils.isEmpty(node.get("ldap").asText())) {
+//                sysconfig.setSyncLdap(Boolean.FALSE);
+//            } else {
+//                sysconfig.setSyncLdap(Boolean.TRUE);
+//            }
 
             //僅提供測試站台及台中市學校使用
             if (sysconfig.getAuthorize_endpoint().equals("http://api.cloudschool.tw/school-oauth/authorize") || sysconfig.getAuthorize_endpoint().equals("https://api.tc.edu.tw/school-oauth/authorize")) {
