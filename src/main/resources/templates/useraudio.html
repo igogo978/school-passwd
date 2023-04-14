@@ -235,9 +235,9 @@
                     msg: /*[[${msg}]]*/ "",
                     days: [5, 7, 14, 30, 60, 90, 180],
                     showModal: /*[[${showModal}]]*/ false,
-                    weekdays: ["1Mon", "2Tue", "3Wed", "4Thu", "5Fri"],
+                    weekdays: /*[[${weekdays}]]*/ weekdays,
                     checkedWeekdays: [],
-                    playtime: ["0735", "1025", "1210", "1240", "1600"],
+                    playtime: /*[[${playtime}]]*/ playtime,
                     checkedPlaytime: [],
                 },
                 created: function () {

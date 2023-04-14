@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -40,32 +42,36 @@ public class Userhome2Controller {
     }
 
 
-      @GetMapping("/useraudio2")
-    public String useraudio(Model model, @RequestParam("code") Optional<Integer> code) {
-
-        if (!userLoginService.isLoggedin()) {
-            return "redirect:/";
-        }
-
-
-        String username = userLoginService.getUser().getUsername();
-        User user = new User();
-        String msg = "";
-        Boolean showModal = Boolean.FALSE;
-        if (userService.getUser(username).isPresent()) {
-            user = userService.getUser(username).get();
-
-            if (code.isPresent() && code.get() == 99) {
-                msg = "file too large!";
-                showModal = Boolean.TRUE;
-            }
-        }
-
-        model.addAttribute("user", user);
-        model.addAttribute("msg", msg);
-        model.addAttribute("showModal", showModal);
-        return "useraudio2";
-    }
+//      @GetMapping("/useraudio2")
+//    public String useraudio(Model model, @RequestParam("code") Optional<Integer> code) {
+//
+//        if (!userLoginService.isLoggedin()) {
+//            return "redirect:/";
+//        }
+//
+//
+//        String username = userLoginService.getUser().getUsername();
+//        User user = new User();
+//        String msg = "";
+//        Boolean showModal = Boolean.FALSE;
+//        if (userService.getUser(username).isPresent()) {
+//            user = userService.getUser(username).get();
+//
+//            if (code.isPresent() && code.get() == 99) {
+//                msg = "file too large!";
+//                showModal = Boolean.TRUE;
+//            }
+//        }
+//
+//        List<String> playSchedule = new ArrayList<>();
+//        playSchedule.add("1Mon");
+//
+//        model.addAttribute("user", user);
+//        model.addAttribute("msg", msg);
+//        model.addAttribute("showModal", showModal);
+//          model.addAttribute("playSchedule", playSchedule);
+//        return "useraudio2";
+//    }
 
 
 
